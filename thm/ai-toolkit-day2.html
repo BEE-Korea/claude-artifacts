@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Ministry Toolkit — Th.M. Day 2</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}img,svg,video{max-width:100%;height:auto}
+  :root{--paper:#f7f3ea;--card:#fffdf8;--ink:#21304d;--ink-soft:#46506a;--muted:#77715f;--accent:#b0802a;--accent-soft:#e9dcbd;--line:#e2dac9;--ko-bg:#f0ead9;--ko:#4a4636;
+    --shadow:0 1px 2px rgba(33,48,77,.05),0 8px 28px rgba(33,48,77,.07);}
+  @media(prefers-color-scheme:dark){:root{--paper:#12161f;--card:#1a2029;--ink:#eae3d3;--ink-soft:#c3bdae;--muted:#948d7c;--accent:#d6a94e;--accent-soft:#3a3320;--line:#2b323d;--ko-bg:#1f2530;--ko:#b9b2a0;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px 90px;}
+  .hero{padding:56px 0 32px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 14px;}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.12;margin:0 0 12px;text-wrap:balance;letter-spacing:-.01em;}
+  .subtitle{font-size:18px;color:var(--ink-soft);margin:0 0 4px;font-style:italic;font-family:Georgia,serif;}
+  .subtitle-ko{font-size:15px;color:var(--muted);margin:0 0 20px;}
+  section{padding-top:38px;}
+  h2{font-family:Georgia,serif;font-size:clamp(20px,3.2vw,26px);margin:0 0 4px;display:flex;align-items:baseline;gap:12px;text-wrap:balance;}
+  h2 .ko-h{font-family:system-ui,sans-serif;font-size:14px;color:var(--muted);font-weight:500;}
+  .en{color:var(--ink);} .en b{color:var(--ink);}
+  .ko{background:var(--ko-bg);border-left:3px solid var(--accent-soft);color:var(--ko);padding:10px 15px;margin:6px 0 14px;border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.7;}
+  .ko b{color:var(--ink);}
+  .grouptitle{font-family:Georgia,serif;font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin:26px 0 12px;padding-top:8px;border-top:1px dashed var(--line);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;box-shadow:var(--shadow);break-inside:avoid;}
+  .tool .n{font-family:system-ui;font-size:12px;font-weight:700;color:#fff;background:var(--accent);width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .tool .t{font-family:Georgia,serif;font-size:16px;color:var(--ink);margin:0 0 1px;font-weight:700;}
+  .tool .tk{font-size:12.5px;color:var(--muted);margin:0 0 8px;}
+  .tool .p{font-size:13px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0 0 4px;}
+  .tool .p b{color:var(--accent);font-style:normal;}
+  .tool .pk{font-size:12.5px;color:var(--muted);margin:2px 0 8px;}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--accent-soft);color:var(--ink);letter-spacing:.02em;}
+  .warn{border-left-color:#c0392b;} .pill.warn{background:#f0d8d0;color:#8a3520;}
+  @media(prefers-color-scheme:dark){.pill.warn{background:#40261f;color:#e8a892;}}
+  .callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin:18px 0;box-shadow:var(--shadow);}
+  .callout .lead{font-family:Georgia,serif;font-size:17px;font-weight:700;margin:0 0 8px;}
+  .callout .ko-inline{display:block;color:var(--ko);font-size:13.5px;margin-top:3px;}
+  ol.flow{counter-reset:s;list-style:none;padding:0;margin:14px 0;}
+  ol.flow li{position:relative;padding:4px 0 12px 44px;}
+  ol.flow li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:system-ui;}
+  ol.flow .k{color:var(--muted);font-size:13.5px;}
+  .close{margin-top:44px;padding:26px 24px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);}
+  .close .slogan{font-family:Georgia,serif;font-style:italic;font-size:18px;color:var(--accent);margin-top:12px;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">BEE Korea · Th.M. · Day 2</p>
+    <h1>AI Ministry Toolkit</h1>
+    <p class="subtitle">Ten AI skills that flow from one workbook</p>
+    <p class="subtitle-ko">하나의 학습서에서 흘러나오는 열 가지 AI 사역 도구</p>
+  </header>
+
+  <section>
+    <h2>Come to learn one thing, leave with ten <span class="ko-h">하나 배우러 와서, 열을 얻어가기</span></h2>
+    <p class="en">Yesterday you learned to modernize workbook images. Today the <b>same workbook</b> becomes a doorway to a whole toolkit. Two goals stay first: <b>(1) understand the workbook</b>, <b>(2) learn to use AI</b> — everything below grows from those. Pick a lesson from your workbook and try each tool on <i>that</i> lesson, so it stays real and reproducible back home.</p>
+    <div class="ko">어제는 학습서 그림 최신화를 배웠어요. 오늘은 <b>같은 학습서</b>가 도구 상자 전체로 가는 문이 됩니다. 두 목표가 먼저입니다: <b>(1) 학습서 이해</b>, <b>(2) AI 사용법</b> — 아래 모든 것이 여기서 흘러나옵니다. 학습서에서 레슨 하나를 골라 <i>그 레슨</i>으로 각 도구를 해보세요. 그래야 실제적이고, 현지에서도 그대로 재현합니다.</div>
+  </section>
+
+  <section>
+    <div class="grouptitle">A · Understand the Workbook · 학습서 이해</div>
+    <div class="grid">
+      <div class="tool"><div class="n">1</div><p class="t">Summarize a lesson</p><p class="tk">레슨 요약·핵심 뽑기</p>
+        <p class="p"><b>Try:</b> "Summarize this lesson's main point and its 3 learning objectives."</p>
+        <p class="pk">"이 레슨의 핵심과 학습목표 3가지를 정리해줘."</p><span class="pill">인도자 준비</span></div>
+      <div class="tool"><div class="n">2</div><p class="t">Make discussion questions</p><p class="tk">토론 질문 만들기</p>
+        <p class="p"><b>Try:</b> "Make 5 inductive discussion questions on this lesson for adult learners."</p>
+        <p class="pk">"이 레슨으로 성인 학습자용 귀납적 토론 질문 5개."</p><span class="pill">세미나 진행</span></div>
+      <div class="tool"><div class="n">3</div><p class="t">Explain it simply</p><p class="tk">쉬운 비유로 바꾸기</p>
+        <p class="p"><b>Try:</b> "Explain this idea with a simple everyday analogy anyone can understand."</p>
+        <p class="pk">"이 개념을 누구나 아는 쉬운 비유로 설명해줘."</p><span class="pill">눈높이 교육</span></div>
+    </div>
+
+    <div class="grouptitle">B · Images &amp; Design · 이미지·디자인</div>
+    <div class="grid">
+      <div class="tool"><div class="n">4</div><p class="t">Redraw an image</p><p class="tk">그림 최신화 (어제)</p>
+        <p class="p"><b>Try:</b> "Redraw this in a clean flat style. Keep the same meaning. No text."</p>
+        <p class="pk">"같은 의미 유지, 깔끔한 플랫 스타일로 다시 그려줘. 글자 없이."</p><span class="pill">자료 제작</span></div>
+      <div class="tool"><div class="n">5</div><p class="t">Matching icon set</p><p class="tk">아이콘·심볼 세트</p>
+        <p class="p"><b>Try:</b> "A matching set of simple flat icons — cross, book, lamp. One color, transparent background."</p>
+        <p class="pk">"통일된 플랫 아이콘 세트: 십자가·책·등불, 한 색, 투명 배경."</p><span class="pill">브랜딩</span></div>
+      <div class="tool"><div class="n">6</div><p class="t">Turn a lesson into slides</p><p class="tk">발표 슬라이드 (Gamma·Canva)</p>
+        <p class="p"><b>Try:</b> "Turn this lesson into 6 teaching slides — a title and 3 bullets each."</p>
+        <p class="pk">"이 레슨을 제목+3줄 요약 슬라이드 6장으로."</p><span class="pill">강의·보고</span></div>
+    </div>
+
+    <div class="grouptitle">C · Localization ⭐ · 현지화 (BEE 핵심)</div>
+    <div class="grid">
+      <div class="tool"><div class="n">7</div><p class="t">Translate (draft)</p><p class="tk">현지어 번역 초벌</p>
+        <p class="p"><b>Try:</b> "Translate this into [your language], simple and natural. I will check it."</p>
+        <p class="pk">"이 문구를 [현지어]로 자연스럽게 번역해줘. 내가 검수할게."</p><span class="pill warn">⚠ 반드시 사람이 검수</span></div>
+      <div class="tool"><div class="n">8</div><p class="t">Voice narration (TTS)</p><p class="tk">음성 나레이션</p>
+        <p class="p"><b>Try:</b> read a lesson aloud in your language as clear audio (ElevenLabs, Google TTS).</p>
+        <p class="pk">레슨을 현지어 음성으로 (문맹·청각 학습자에게).</p><span class="pill">현지화</span></div>
+    </div>
+
+    <div class="grouptitle">D · Media · 미디어</div>
+    <div class="grid">
+      <div class="tool"><div class="n">9</div><p class="t">Short teaching / promo video</p><p class="tk">짧은 교육·홍보 영상</p>
+        <p class="p"><b>Try:</b> "A 10-second simple animation introducing [lesson topic]." (Veo, Runway, Canva)</p>
+        <p class="pk">"[레슨 주제]를 소개하는 10초 간단 애니메이션."</p><span class="pill">전도·홍보</span></div>
+      <div class="tool"><div class="n">10</div><p class="t">Audio → text</p><p class="tk">음성→텍스트 (녹취)</p>
+        <p class="p"><b>Try:</b> "Transcribe this recording into clean text." (Whisper, ChatGPT, Gemini)</p>
+        <p class="pk">"이 녹음을 깔끔한 텍스트로." (설교·강의 기록)</p><span class="pill">기록·자료화</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3 skills behind every tool <span class="ko-h">모든 도구를 떠받치는 3가지</span></h2>
+    <div class="callout warn">
+      <p class="lead">⚠ Always verify · 반드시 검증</p>
+      <p class="en">AI can be confidently <b>wrong</b> — especially with the Bible, theology, and translation. The rule: <b>AI drafts, a person checks.</b> A wrong word in God's Word is not a small thing.
+      <span class="ko-inline">AI는 자신 있게 <b>틀립니다</b> — 특히 성경·신학·번역. 원칙: <b>AI는 초벌, 사람이 확인.</b> 말씀에서 틀린 한 단어는 작은 일이 아닙니다.</span></p>
+    </div>
+    <div class="callout">
+      <p class="lead">✎ Prompt &amp; repeat · 프롬프트와 반복</p>
+      <p class="en">Describe clearly, look, refine, repeat. The 3rd or 5th try is usually the good one.
+      <span class="ko-inline">명확히 설명 → 보고 → 다듬기 → 반복. 보통 3~5번째가 좋은 결과.</span></p>
+    </div>
+    <div class="callout">
+      <p class="lead">✦ "Can a local person do this too?" · 현지인도 할 수 있는가?</p>
+      <p class="en">Prefer tools that are <b>free and work on a phone</b>. If it needs money or special equipment your church can't get, it won't reproduce. That is the BEE test.
+      <span class="ko-inline"><b>무료·폰으로 되는</b> 도구를 우선. 돈이나 특수 장비가 필요하면 현지에서 재현이 안 됩니다. 이것이 BEE의 기준.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Today's flow <span class="ko-h">오늘 흐름</span></h2>
+    <ol class="flow">
+      <li><b>Morning — keep the core.</b> Finish understanding your lesson + workbook images (tools 1, 4, 5). <span class="k">오전: 핵심 유지 — 레슨 이해 + 그림 최신화(1·4·5) 마무리.</span></li>
+      <li><b>Afternoon — try 2–3 bonus tools.</b> Pick from translation (7), slides (6), video (9) — do it on <i>your own lesson</i>. <span class="k">오후: 보너스 도구 2~3개 — 번역(7)·슬라이드(6)·영상(9) 중 골라 <i>자기 레슨</i>으로.</span></li>
+      <li><b>Wrap — fill your checklist.</b> Mark what you can now do; use it in your report. <span class="k">마무리: 체크리스트 작성 → 리포트에 활용.</span></li>
+    </ol>
+  </section>
+
+  <div class="close">
+    <p class="en">You came to learn one thing. You leave with a toolkit — and every tool serves the same goal: helping God's people understand His Word, in their own place, in their own tongue.</p>
+    <div class="ko" style="border:none;background:transparent;text-align:left">하나 배우러 왔지만, 도구 상자를 얻어 갑니다 — 그리고 모든 도구는 같은 목표를 섬깁니다: 하나님의 백성이 그들의 자리에서, 그들의 언어로 말씀을 이해하도록 돕는 것.</div>
+    <p class="slogan">With the Word, to the World · 말씀으로 세계로</p>
+  </div>
+</div>
+</body>
+</html>
