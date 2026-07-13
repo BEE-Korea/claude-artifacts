@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facilitator Phrase Card — Th.M.</title>
+<style>*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}img,svg,video{max-width:100%;height:auto}</style>
+<style>
+  :root {
+    --paper: #f7f3ea; --card: #fffdf8; --ink: #21304d; --ink-soft: #46506a;
+    --muted: #77715f; --accent: #b0802a; --accent-soft: #e9dcbd; --line: #e2dac9;
+    --ko: #4a4636; --pron: #a8792a; --ko-bg: #f0ead9;
+    --shadow: 0 1px 2px rgba(33,48,77,.05), 0 6px 22px rgba(33,48,77,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper:#12161f; --card:#1a2029; --ink:#eae3d3; --ink-soft:#c3bdae;
+      --muted:#948d7c; --accent:#d6a94e; --accent-soft:#3a3320; --line:#2b323d;
+      --ko:#b9b2a0; --pron:#d6a94e; --ko-bg:#1f2530;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.35); }
+  }
+  :root[data-theme="light"] { --paper:#f7f3ea; --card:#fffdf8; --ink:#21304d; --ink-soft:#46506a;
+    --muted:#77715f; --accent:#b0802a; --accent-soft:#e9dcbd; --line:#e2dac9;
+    --ko:#4a4636; --pron:#a8792a; --ko-bg:#f0ead9;
+    --shadow:0 1px 2px rgba(33,48,77,.05), 0 6px 22px rgba(33,48,77,.07); }
+  :root[data-theme="dark"] { --paper:#12161f; --card:#1a2029; --ink:#eae3d3; --ink-soft:#c3bdae;
+    --muted:#948d7c; --accent:#d6a94e; --accent-soft:#3a3320; --line:#2b323d;
+    --ko:#b9b2a0; --pron:#d6a94e; --ko-bg:#1f2530;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.35); }
+
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width: 900px; margin:0 auto; padding: 0 18px 80px; }
+
+  header.hero { padding: 44px 0 26px; border-bottom:1px solid var(--line); margin-bottom:24px; }
+  .eyebrow { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 12px; }
+  h1 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(26px,4.5vw,38px); line-height:1.15; margin:0 0 8px; text-wrap:balance; }
+  .sub { color:var(--ink-soft); font-size:16px; margin:0 0 16px; }
+  .note { background:var(--accent-soft); border-radius:10px; padding:13px 16px; font-size:14.5px; color:var(--ink); }
+  .legend { font-size:13px; color:var(--muted); margin-top:12px; }
+  .legend b { color:var(--ink); }
+  .legend .pr { color:var(--pron); font-style:italic; }
+
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px; }
+  .cat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 16px 8px; box-shadow:var(--shadow); break-inside:avoid; }
+  .cat h2 { font-family:Georgia,serif; font-size:16px; margin:0 0 10px; color:var(--ink);
+    display:flex; align-items:baseline; gap:9px; }
+  .cat h2 .n { font-family:system-ui,sans-serif; font-size:12px; font-weight:700; color:#fff; background:var(--accent);
+    min-width:22px; height:22px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+  .cat h2 .ko-h { font-family:system-ui,sans-serif; font-size:12.5px; color:var(--muted); font-weight:500; }
+
+  ul { list-style:none; margin:0; padding:0; }
+  li { padding:8px 0; border-top:1px solid var(--line); }
+  li:first-child { border-top:none; }
+  .en { font-weight:600; color:var(--ink); font-size:15px; }
+  .ko { color:var(--ko); font-size:13.5px; display:block; margin-top:1px; }
+  .pr { color:var(--pron); font-size:12.5px; font-style:italic; display:block; margin-top:1px; }
+  .hint { color:var(--muted); font-size:12px; font-style:normal; }
+  .star { color:var(--accent); }
+
+  .footer { margin-top:26px; background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); }
+  .footer .en { display:block; font-size:15.5px; margin-bottom:6px; }
+  .footer .ko { font-size:14px; }
+  @media print { body { background:#fff; } .cat,.footer { box-shadow:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">BEE Korea · Th.M. · Facilitator Card</p>
+    <h1>Facilitator Phrase Card <span style="font-family:system-ui;font-size:.5em;color:var(--muted);font-weight:500">진행자 영어 표현 카드</span></h1>
+    <p class="sub">For tomorrow with the Th.M. students · 내일 THM 학생들과 함께</p>
+    <div class="note">📱 Keep this on your phone. You don't need perfect English — point at the screen, smile, and use these. <b>화면을 가리키고, 웃고, 이 표현만 쓰면 됩니다. 완벽한 영어 필요 없어요.</b></div>
+    <p class="legend">Format · 형식: &nbsp; <b>English</b> — 뜻 <span class="pr">(한글 발음)</span></p>
+  </header>
+
+  <div class="grid">
+
+    <div class="cat">
+      <h2><span class="n">1</span> Greeting &amp; Welcome <span class="ko-h">인사·환영</span></h2>
+      <ul>
+        <li><span class="en">Good morning! Welcome.</span><span class="ko">좋은 아침이에요, 환영합니다</span><span class="pr">굿 모닝! 웰컴</span></li>
+        <li><span class="en">I'm so glad you're here.</span><span class="ko">와 주셔서 정말 기뻐요</span><span class="pr">암 쏘 글래드 유어 히어</span></li>
+        <li><span class="en">Please, have a seat.</span><span class="ko">여기 앉으세요</span><span class="pr">플리즈, 해브 어 씨-트</span></li>
+        <li><span class="en">Did you sleep well?</span><span class="ko">잘 주무셨어요?</span><span class="pr">디쥬 슬립 웰?</span></li>
+        <li><span class="en">My English is not perfect, so please be patient with me. 😊</span><span class="ko">제 영어가 완벽하지 않으니 이해해 주세요</span><span class="pr">마이 잉글리시 이즈 낫 퍼-펙트, 쏘 플리즈 비 페이션트 위드 미</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">2</span> Starting the Day <span class="ko-h">하루 시작</span></h2>
+      <ul>
+        <li><span class="en">Let me explain what we'll do today.</span><span class="ko">오늘 뭘 할지 설명할게요</span><span class="pr">렛 미 익스플레인 왓 위일 두 투데이</span></li>
+        <li><span class="en">Here is a guide for you.</span><span class="ko">여기 가이드가 있어요</span><span class="pr">히어 이즈 어 가이드 포 유</span></li>
+        <li><span class="en">We'll use these computers. You don't need your own.</span><span class="ko">이 컴퓨터를 쓸 거예요, 개인 것 필요 없어요</span><span class="pr">위일 유즈 디즈 컴퓨-터스. 유 돈 니드 유어 오운</span></li>
+        <li><span class="en">Take your time. There's no rush.</span><span class="ko">천천히 하세요, 서두를 것 없어요</span><span class="pr">테익 유어 타임. 데어즈 노 러시</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">3</span> Instructions (Show &amp; Do) <span class="ko-h">지시 · 보여주며</span></h2>
+      <ul>
+        <li><span class="en">Watch me first, then you try.</span><span class="ko">먼저 저를 보고, 그다음 해보세요</span><span class="pr">왓치 미 퍼스트, 덴 유 트라이</span></li>
+        <li><span class="en">Like this. <span class="hint">— 손으로 화면 가리키며</span></span><span class="ko">이렇게요</span><span class="pr">라익 디스</span></li>
+        <li><span class="en">Now you try.</span><span class="ko">이제 해보세요</span><span class="pr">나우 유 트라이</span></li>
+        <li><span class="en">Type here. / Click this button.</span><span class="ko">여기에 입력하세요 / 이 버튼을 누르세요</span><span class="pr">타입 히어 / 클릭 디스 버튼</span></li>
+        <li><span class="en">Upload the picture here.</span><span class="ko">여기에 그림을 올리세요</span><span class="pr">업로드 더 픽쳐 히어</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">4</span> Encouraging <span class="ko-h">칭찬·격려</span></h2>
+      <ul>
+        <li><span class="en">Great job! / That's really good.</span><span class="ko">잘했어요! / 정말 좋아요</span><span class="pr">그레잇 좝! / 댓츠 리얼리 굿</span></li>
+        <li><span class="en">You're doing well.</span><span class="ko">잘하고 있어요</span><span class="pr">유어 두잉 웰</span></li>
+        <li><span class="en">Don't worry, that's normal.</span><span class="ko">걱정 마세요, 원래 그래요</span><span class="pr">돈 워리, 댓츠 노-멀</span></li>
+        <li><span class="en">Let's try again.</span><span class="ko">다시 해봐요</span><span class="pr">렛츠 트라이 어겐</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">5</span> When Someone Is Stuck <span class="ko-h">막힐 때 돕기</span></h2>
+      <ul>
+        <li><span class="en">What do you need? / Show me.</span><span class="ko">뭐가 필요해요? / 보여주세요</span><span class="pr">왓 두 유 니-드? / 쇼 미</span></li>
+        <li><span class="en">Let's do it together.</span><span class="ko">같이 해봐요</span><span class="pr">렛츠 두 잇 투게더</span></li>
+        <li><span class="en">Try making it simpler.</span><span class="ko">더 단순하게 해보세요</span><span class="pr">트라이 메이킹 잇 심플러</span></li>
+        <li><span class="en"><span class="star">★</span> Let's ask the AI. <span class="hint">— 막히면 이거!</span></span><span class="ko">AI에게 물어봐요</span><span class="pr">렛츠 애스크 디 에이아이</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">6</span> Working with the AI <span class="ko-h">AI 사용</span></h2>
+      <ul>
+        <li><span class="en">Tell it what you want.</span><span class="ko">원하는 걸 말하세요 (입력)</span><span class="pr">텔 잇 왓 유 원트</span></li>
+        <li><span class="en">Ask it to draw it again.</span><span class="ko">다시 그려달라고 하세요</span><span class="pr">애스크 잇 투 드로 잇 어겐</span></li>
+        <li><span class="en">Say "same style as before."</span><span class="ko">"이전과 같은 스타일로"</span><span class="pr">쎄이 쎄임 스타일 애즈 비포</span></li>
+        <li><span class="en">Try both ChatGPT and Gemini.</span><span class="ko">둘 다 해보세요</span><span class="pr">트라이 보쓰 챗지피티 앤 제미나이</span></li>
+        <li><span class="en">Which one do you like better?</span><span class="ko">어느 게 더 좋아요?</span><span class="pr">위치 원 두 유 라익 베터?</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">7</span> Checking the Work <span class="ko-h">확인</span></h2>
+      <ul>
+        <li><span class="en">Does it teach the same thing?</span><span class="ko">같은 내용을 가르치나요?</span><span class="pr">더즈 잇 티-치 더 쎄임 씽?</span></li>
+        <li><span class="en">Is it clear?</span><span class="ko">명확한가요?</span><span class="pr">이즈 잇 클리어?</span></li>
+        <li><span class="en">Let's save this one.</span><span class="ko">이거 저장해요</span><span class="pr">렛츠 쎄이브 디스 원</span></li>
+        <li><span class="en">Save it here, please.</span><span class="ko">여기에 저장하세요</span><span class="pr">쎄이브 잇 히어, 플리즈</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">8</span> Break, Lunch, Time <span class="ko-h">쉬는 시간·점심</span></h2>
+      <ul>
+        <li><span class="en">Let's take a short break.</span><span class="ko">잠깐 쉬어요</span><span class="pr">렛츠 테익 어 숏 브레익</span></li>
+        <li><span class="en">Are you hungry? Let's have lunch.</span><span class="ko">배고파요? 점심 먹어요</span><span class="pr">아 유 헝그리? 렛츠 해브 런치</span></li>
+        <li><span class="en">We'll finish around five.</span><span class="ko">5시쯤 마칠 거예요</span><span class="pr">위일 피니시 어라운드 파이브</span></li>
+        <li><span class="en">Do you need anything?</span><span class="ko">필요한 거 있어요?</span><span class="pr">두 유 니드 애니씽?</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">9</span> Wrapping Up <span class="ko-h">마무리</span></h2>
+      <ul>
+        <li><span class="en">Thank you for your hard work today.</span><span class="ko">오늘 수고 많으셨어요</span><span class="pr">땡큐 포 유어 하드 워크 투데이</span></li>
+        <li><span class="en">You did a great job.</span><span class="ko">정말 잘했어요</span><span class="pr">유 디드 어 그레잇 좝</span></li>
+        <li><span class="en">We'll continue tomorrow.</span><span class="ko">내일 이어서 해요</span><span class="pr">위일 컨티뉴 투마로우</span></li>
+        <li><span class="en">See you tomorrow. Rest well.</span><span class="ko">내일 봐요, 잘 쉬세요</span><span class="pr">씨 유 투마로우. 레스트 웰</span></li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <h2><span class="n">10</span> Handy Rescue Phrases <span class="ko-h">유용한 구조 표현</span></h2>
+      <ul>
+        <li><span class="en">Sorry, one moment. <span class="hint">— 생각할 시간 벌기</span></span><span class="ko">잠깐만요</span><span class="pr">쏘리, 원 모먼트</span></li>
+        <li><span class="en">Let me check.</span><span class="ko">확인해 볼게요</span><span class="pr">렛 미 체크</span></li>
+        <li><span class="en">How do you say this in English? <span class="hint">— 학생에게 물어도 OK</span></span><span class="ko">이거 영어로 뭐예요?</span><span class="pr">하우 두 유 쎄이 디스 인 잉글리시?</span></li>
+        <li><span class="en">Can you say that again, please?</span><span class="ko">다시 말해 줄래요?</span><span class="pr">캔 유 쎄이 댓 어겐, 플리즈?</span></li>
+        <li><span class="en">I'll show you instead. <span class="hint">— 말 대신 화면으로</span></span><span class="ko">대신 보여줄게요</span><span class="pr">아일 쇼 유 인스테드</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span class="en">Remember: tomorrow is not a lecture — it's making things together. Pointing at the screen and doing it side by side says more than any sentence. You've got this. 🙏</span>
+    <span class="ko">내일은 강의가 아니라 함께 만드는 시간입니다. 화면을 가리키며 나란히 해보는 것이 어떤 문장보다 잘 통합니다. 잘하실 거예요.</span>
+  </div>
+</div>
+</body>
+</html>

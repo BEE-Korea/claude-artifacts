@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEE AI Image Studio — Th.M. Guide</title>
+<style>*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}img,svg,video{max-width:100%;height:auto}</style>
+<style>
+  :root {
+    --paper: #f7f3ea;
+    --card: #fffdf8;
+    --ink: #21304d;
+    --ink-soft: #46506a;
+    --muted: #77715f;
+    --accent: #b0802a;
+    --accent-soft: #e9dcbd;
+    --line: #e2dac9;
+    --ko-bg: #f0ead9;
+    --ko-ink: #4a4636;
+    --shadow: 0 1px 2px rgba(33,48,77,.05), 0 8px 28px rgba(33,48,77,.07);
+    --maxw: 820px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12161f;
+      --card: #1a2029;
+      --ink: #eae3d3;
+      --ink-soft: #c3bda e;
+      --ink-soft: #c3bdae;
+      --muted: #948d7c;
+      --accent: #d6a94e;
+      --accent-soft: #3a3320;
+      --line: #2b323d;
+      --ko-bg: #1f2530;
+      --ko-ink: #b9b2a0;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #f7f3ea; --card: #fffdf8; --ink: #21304d; --ink-soft: #46506a;
+    --muted: #77715f; --accent: #b0802a; --accent-soft: #e9dcbd; --line: #e2dac9;
+    --ko-bg: #f0ead9; --ko-ink: #4a4636;
+    --shadow: 0 1px 2px rgba(33,48,77,.05), 0 8px 28px rgba(33,48,77,.07);
+  }
+  :root[data-theme="dark"] {
+    --paper: #12161f; --card: #1a2029; --ink: #eae3d3; --ink-soft: #c3bdae;
+    --muted: #948d7c; --accent: #d6a94e; --accent-soft: #3a3320; --line: #2b323d;
+    --ko-bg: #1f2530; --ko-ink: #b9b2a0;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px 96px; }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 8px;
+  }
+  .eyebrow {
+    font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin: 0 0 18px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700; font-size: clamp(30px, 5vw, 46px); line-height: 1.12;
+    margin: 0 0 14px; color: var(--ink); text-wrap: balance;
+    letter-spacing: -.01em;
+  }
+  .subtitle { font-size: 19px; color: var(--ink-soft); margin: 0 0 6px; font-style: italic; font-family: Georgia, serif; }
+  .subtitle-ko { font-size: 16px; color: var(--muted); margin: 0 0 24px; }
+  .meta {
+    font-size: 13.5px; color: var(--muted); border-top: 1px dashed var(--line);
+    padding-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 22px;
+  }
+  .meta .slogan { color: var(--accent); font-family: Georgia, serif; font-style: italic; }
+
+  /* ---- Sections ---- */
+  section { padding-top: 42px; }
+  h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 3.4vw, 28px); line-height: 1.2; margin: 0 0 6px;
+    color: var(--ink); display: flex; align-items: baseline; gap: 14px; text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 14px; font-weight: 700; color: var(--accent);
+    font-family: system-ui, sans-serif; letter-spacing: .05em;
+    border: 1px solid var(--accent); border-radius: 999px;
+    min-width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;
+    flex: none; transform: translateY(-2px);
+  }
+  h2 .ko-h { font-family: system-ui, sans-serif; font-size: 15px; color: var(--muted); font-weight: 500; }
+  h3 {
+    font-family: Georgia, serif; font-size: 19px; margin: 26px 0 4px; color: var(--ink);
+  }
+  h3 .ko-h { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); font-weight: 500; margin-left: 8px; }
+  p { margin: 12px 0; }
+  .en { color: var(--ink); }
+  .en b, .en strong { color: var(--ink); }
+
+  /* Korean block */
+  .ko {
+    background: var(--ko-bg); border-left: 3px solid var(--accent-soft);
+    color: var(--ko-ink); padding: 11px 16px; margin: 6px 0 16px;
+    border-radius: 0 8px 8px 0; font-size: 15.5px; line-height: 1.7;
+  }
+  .ko b, .ko strong { color: var(--ink); }
+
+  /* Callout */
+  .callout {
+    background: var(--card); border: 1px solid var(--line);
+    border-left: 4px solid var(--accent); border-radius: 10px;
+    padding: 18px 20px; margin: 22px 0; box-shadow: var(--shadow);
+  }
+  .callout .lead { font-family: Georgia, serif; font-size: 18px; color: var(--ink); font-weight: 700; margin: 0 0 8px; }
+  .callout p { margin: 6px 0; }
+  .callout .en { font-size: 16px; }
+  .callout .ko-inline { display: block; color: var(--ko-ink); font-size: 14.5px; margin-top: 4px; }
+
+  /* Tables */
+  .tablewrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--card); }
+  th, td { text-align: left; padding: 11px 15px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { background: var(--accent-soft); color: var(--ink); font-weight: 700; font-size: 13.5px; letter-spacing: .02em; }
+  tbody tr:last-child td { border-bottom: none; }
+  td b, th b { color: var(--ink); }
+  td .k { color: var(--muted); font-size: 13.5px; display:block; }
+  tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--card) 92%, var(--paper)); }
+
+  /* Steps / lists */
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 16px 0; }
+  ol.steps li {
+    position: relative; padding: 4px 0 14px 46px; margin: 0;
+  }
+  ol.steps li::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: 0; top: 2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: system-ui, sans-serif;
+  }
+  ol.steps li .k { color: var(--muted); font-size: 14px; }
+
+  ul.plain { padding-left: 0; list-style: none; margin: 14px 0; }
+  ul.plain > li { padding: 7px 0 7px 26px; position: relative; border-bottom: 1px solid var(--line); }
+  ul.plain > li:last-child { border-bottom: none; }
+  ul.plain > li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  ul.plain .k { color: var(--muted); font-size: 14px; }
+
+  /* Checklist */
+  ul.check { list-style: none; padding: 0; margin: 16px 0; }
+  ul.check li { padding: 10px 0 10px 34px; position: relative; border-bottom: 1px solid var(--line); }
+  ul.check li:last-child { border-bottom: none; }
+  ul.check li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 19px; height: 19px; border: 2px solid var(--accent); border-radius: 5px;
+  }
+  ul.check .k { color: var(--muted); font-size: 14px; }
+
+  .formula {
+    font-family: Georgia, serif; font-size: 17px; text-align: center; color: var(--ink);
+    background: var(--accent-soft); border-radius: 10px; padding: 16px 18px; margin: 16px 0;
+    line-height: 1.9;
+  }
+  .formula .ko-f { display:block; font-family: system-ui, sans-serif; font-size: 14px; color: var(--ko-ink); font-style: normal; margin-top: 6px; }
+
+  .pill { display:inline-block; background: var(--accent-soft); color: var(--ink); font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; letter-spacing: .03em; }
+
+  .close {
+    margin-top: 52px; padding: 30px 26px; text-align: center;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+  }
+  .close .slogan { font-family: Georgia, serif; font-style: italic; font-size: 20px; color: var(--accent); margin-top: 14px; }
+  hr.div { border: none; border-top: 1px solid var(--line); margin: 44px 0 0; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">BEE Korea · Th.M. Mission Experience</p>
+    <h1>AI Image Studio</h1>
+    <p class="subtitle">A one-day guide to modernizing BEE workbook art</p>
+    <p class="subtitle-ko">AI로 BEE 학습서 그림을 최신화하기 — 하루 가이드</p>
+    <div class="meta">
+      <span>Prepared 2026-07-13</span>
+      <span>For 2 students · 10:00–17:00</span>
+      <span class="slogan">With the Word, to the World · 말씀으로 세계로</span>
+    </div>
+  </header>
+
+  <section id="welcome">
+    <h2><span class="num">0</span> Welcome <span class="ko-h">환영합니다</span></h2>
+    <p class="en">Welcome to the BEE Korea office. Today you will use AI tools to refresh the illustrations, diagrams, and icons inside five BEE workbooks. You do <b>not</b> need to be an artist or a designer — the AI draws; your job is to <b>describe clearly, judge wisely, and keep it simple</b>. By the end of the day you'll have learned a skill you can carry back to your own ministry.</p>
+    <div class="ko">BEE Korea 사무실에 오신 것을 환영합니다. 오늘 여러분은 AI 도구로 다섯 권의 BEE 학습서에 들어가는 삽화·도형·아이콘을 새롭게 만듭니다. 화가나 디자이너일 필요는 <b>전혀 없습니다</b> — 그림은 AI가 그립니다. 여러분의 역할은 <b>명확하게 설명하고, 지혜롭게 판단하고, 단순하게 유지하는 것</b>입니다.</div>
+
+    <div class="callout">
+      <p class="lead">💻 Use the office PC · 사무실 PC를 사용하세요</p>
+      <p class="en">You don't need your own laptop. The office PCs are ready, and the paid ChatGPT and Gemini accounts belong to BEE Korea HQ — please do not sign these accounts in on personal devices.
+      <span class="ko-inline">개인 노트북은 필요 없습니다. 사무실 PC가 준비되어 있고, 유료 ChatGPT·Gemini 계정은 BEE Korea 본부 계정이므로 개인 기기에는 로그인하지 말아 주세요.</span></p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2><span class="num">1</span> Who You Are Serving <span class="ko-h">우리는 누구인가 — About BEE Korea</span></h2>
+    <p class="en"><b>BEE</b> means <b>Biblical Education by Extension</b>. For church leaders who cannot leave home to attend a seminary, BEE brings the seminary <i>to them</i> — a <b>mobile seminary</b>. Worldwide, more than <b>two million pastors</b> serve without the theological training they need. BEE trains them with the Word so that they, in turn, teach others (2 Timothy 2:2) — this is <b>reproduction</b>, and it is how the gospel multiplies.</p>
+    <div class="ko">BEE는 <b>성경연장교육원</b>입니다. 신학교에 올 수 없는 교회 지도자에게, BEE는 신학교를 <i>그들에게로</i> 가져갑니다 — <b>이동식 신학교</b>. 전 세계에 필요한 신학 훈련 없이 사역하는 목회자가 <b>2백만 명이 넘습니다</b>. BEE는 말씀으로 그들을 훈련하고, 그들이 다시 다른 사람을 가르치게 합니다(딤후 2:2) — 이것이 <b>재생산</b>입니다.</div>
+
+    <div class="callout">
+      <p class="lead">"The teacher is not a person — the teacher is the workbook."</p>
+      <p class="en" style="font-family:Georgia,serif;font-style:italic;color:var(--muted);margin-top:-2px">선생은 사람이 아니라 학습서다.</p>
+      <p class="en">BEE workbooks are designed so that whoever teaches, the same truth is delivered. The person leading is a <i>facilitator</i> — a helper. This is why the workbook matters so much, and why its art matters: <b>the images must serve the lesson, never distract from it.</b>
+      <span class="ko-inline">BEE 학습서는 누가 가르쳐도 같은 진리가 전달되도록 설계되었습니다. 그래서 학습서 자체가 매우 중요하고, 그 안의 그림도 중요합니다: <b>그림은 배움을 도와야 하며, 결코 방해해서는 안 됩니다.</b></span></p>
+    </div>
+
+    <p class="en"><b>Localization — and your task.</b> BEE's future is <b>localization</b> across five areas: Admin, Facilitator, <b>Workbook</b>, Finance, Ministry. Refreshing workbook art is part of the <b>Workbook</b> area — you are doing real localization work today.</p>
+    <div class="ko"><b>현지화 — 그리고 여러분의 일.</b> BEE의 미래는 다섯 분야의 현지화입니다: 행정 · 인력 · <b>학습서</b> · 재정 · 사역. 학습서 그림을 새롭게 하는 일은 <b>학습서</b> 분야에 속합니다 — 여러분은 오늘 실제 현지화 사역을 하는 것입니다.</div>
+
+    <div class="callout">
+      <p class="lead">✦ The golden question · 황금 질문</p>
+      <p class="en"><i>"Can a local person do this too?"</i> Keep every image <b>simple, clear, and reproducible</b> — so that a believer anywhere, with a normal computer, could make or understand it.
+      <span class="ko-inline"><i>"현지인도 할 수 있는가?"</i> 모든 그림을 <b>단순하고 명확하며 재현 가능하게</b> 유지하세요 — 어디에 있는 신자든 평범한 컴퓨터로 만들거나 이해할 수 있도록.</span></p>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <h2><span class="num">2</span> Today at a Glance <span class="ko-h">오늘의 흐름</span></h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th style="white-space:nowrap">Time · 시간</th><th>What we do · 하는 일</th></tr></thead>
+      <tbody>
+        <tr><td><b>10:00–10:30</b></td><td>Welcome, prayer, and this guide. About BEE. <span class="k">환영·기도·가이드 소개, BEE 이야기</span></td></tr>
+        <tr><td><b>10:30–11:00</b></td><td>Meet the tools — ChatGPT &amp; Gemini (already signed in). <span class="k">도구 소개 (PC에 로그인 완료)</span></td></tr>
+        <tr><td><b>11:00–12:00</b></td><td>Practice: redraw a workbook image, and your first prompts. <span class="k">연습: 학습서 그림 다시 그리기 + 첫 프롬프트</span></td></tr>
+        <tr><td><b>12:00–13:00</b></td><td>Lunch <span class="k">점심</span></td></tr>
+        <tr><td><b>13:00–15:30</b></td><td>Real work: the five workbooks, image by image. <span class="k">실제 작업: 다섯 학습서, 그림 하나씩</span></td></tr>
+        <tr><td><b>15:30–16:00</b></td><td>Quality check + save &amp; organize files. <span class="k">품질 점검 + 파일 저장·정리</span></td></tr>
+        <tr><td><b>16:00–17:00</b></td><td>Review together, share, wrap up. <span class="k">함께 리뷰, 결과 나눔, 마무리</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="mission">
+    <h2><span class="num">3</span> Your Mission Today <span class="ko-h">오늘의 임무</span></h2>
+    <p class="en">We will modernize the images in <b>five workbooks</b>. "Modernize" means: make them <b>clearer, cleaner, and easier to understand</b> — updated in style, but faithful to the original meaning.</p>
+    <div class="ko"><b>다섯 권의 학습서</b> 그림을 최신화합니다. "최신화"란 <b>더 명확하고 깔끔하고 이해하기 쉽게</b> 만드는 것 — 스타일은 새롭게 하되 원래 의미에는 충실하게.</div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Workbook · 학습서</th><th>Theme · 주제</th></tr></thead>
+      <tbody>
+        <tr><td><b>One-to-One</b> <span class="k">일대일</span></td><td>Basic discipleship <span class="k">기본 제자훈련</span></td></tr>
+        <tr><td><b>Galatians</b> <span class="k">갈라디아서</span></td><td>Salvation by faith alone <span class="k">오직 믿음으로 구원</span></td></tr>
+        <tr><td><b>Romans</b> <span class="k">로마서</span></td><td>The gospel explained <span class="k">복음의 설명</span></td></tr>
+        <tr><td><b>The Christian Life</b> <span class="k">그리스도인의 삶</span></td><td>Living as a believer <span class="k">신자의 삶</span></td></tr>
+        <tr><td><b>Following the Master — Mark</b> <span class="k">마가복음: 십자가를 지고</span></td><td>Taking up the cross <span class="k">십자가를 지고</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="en"><b>Three kinds of images you'll make:</b></p>
+    <ul class="plain">
+      <li><b>Concept diagrams</b> — arrows, boxes, steps, relationships. <span class="k">개념 도형 — 화살표·상자·단계·관계</span></li>
+      <li><b>Illustrations / scenes</b> — a moment, a person, a situation. <span class="k">삽화·장면 — 순간·인물·상황</span></li>
+      <li><b>Icons / symbols</b> — small marks like a cross, a book, a lamp. <span class="k">아이콘·심볼 — 십자가·책·등불</span></li>
+    </ul>
+  </section>
+
+  <section id="tools">
+    <h2><span class="num">4</span> The Tools <span class="ko-h">도구 — ChatGPT와 Gemini</span></h2>
+    <p class="en">You have <b>two paid AI accounts</b> ready on the office PC: <b>ChatGPT</b> (OpenAI) and <b>Gemini</b> (Google). Both generate images from a written description. They are already signed in — no login, no password needed.</p>
+    <div class="ko">사무실 PC에 <b>두 개의 유료 AI 계정</b>이 준비되어 있습니다: <b>ChatGPT</b>(OpenAI)와 <b>Gemini</b>(Google). 둘 다 글로 쓴 설명에서 이미지를 만듭니다. 이미 로그인되어 있어 로그인·비밀번호가 필요 없습니다.</div>
+    <div class="tablewrap"><table>
+      <thead><tr><th></th><th>ChatGPT</th><th>Gemini</th></tr></thead>
+      <tbody>
+        <tr><td><b>Best for<span class="k">강점</span></b></td>
+            <td>Detailed instructions; images with <b>text/labels</b>; editing an image; diagrams <span class="k">세밀한 지시, 글자·라벨, 이미지 편집, 도형</span></td>
+            <td>Fast, natural illustrations &amp; scenes; quick variations; realistic style <span class="k">빠르고 자연스러운 삽화·장면, 빠른 변형, 사실적</span></td></tr>
+        <tr><td><b>How<span class="k">방법</span></b></td>
+            <td colspan="2">Just type: <i>"Make an image of…"</i> <span class="k">그냥 입력: "…이미지를 만들어줘"</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p class="lead">⇄ Rule · 규칙</p>
+      <p class="en">Try the <b>same idea in both tools</b> and keep the better result. AI is unpredictable — comparing is the fastest way to a good image.
+      <span class="ko-inline">같은 아이디어를 <b>두 도구 모두</b>에 넣어보고 더 나은 결과를 고르세요. 비교하는 것이 좋은 이미지를 얻는 가장 빠른 길입니다.</span></p>
+    </div>
+  </section>
+
+  <section id="basics">
+    <h2><span class="num">5</span> AI Image Basics <span class="ko-h">기초 — 처음부터</span></h2>
+    <p class="en">Making an AI image is a conversation. <b>You describe what you want in words; the AI draws it.</b> If it's not right, you describe the change, and it draws again. That's the whole loop.</p>
+    <div class="ko">AI 이미지 만들기는 대화입니다. <b>원하는 것을 말로 설명하면 AI가 그립니다.</b> 마음에 안 들면 바꿀 점을 설명하고 AI가 다시 그립니다. 이게 전부입니다.</div>
+    <ol class="steps">
+      <li><b>Open</b> ChatGPT or Gemini on the PC. <span class="k">PC에서 ChatGPT나 Gemini를 엽니다.</span></li>
+      <li><b>Type a description</b> (a "prompt") of the image you want. <span class="k">원하는 이미지의 설명("프롬프트")을 입력합니다.</span></li>
+      <li><b>Look</b> at what it made. <span class="k">만들어진 것을 봅니다.</span></li>
+      <li><b>Refine</b> — tell it what to change ("simpler", "no text", "flat style"). <span class="k">다듬기 — 바꿀 점을 말합니다.</span></li>
+      <li><b>Download</b> the image you like (right-click → Save). <span class="k">마음에 드는 이미지를 저장합니다.</span></li>
+    </ol>
+    <div class="callout"><p class="en">Repeat steps 3–4 as many times as you need. <b>The first result is rarely the best — refining is normal, not failure.</b>
+    <span class="ko-inline">3–4단계를 필요한 만큼 반복하세요. <b>첫 결과가 최고인 경우는 드뭅니다 — 다듬는 것은 실패가 아니라 정상입니다.</b></span></p></div>
+    <div class="callout">
+      <p class="lead">Two ways to work · 두 가지 길</p>
+      <p class="en"><b>(A) Redraw an existing image</b> — what you'll do most today: upload a picture already in the workbook and ask the AI to redraw it in a fresh style (next section, §6). <b>(B) Create from scratch</b> — describe a brand-new image in words. Used less often.
+      <span class="ko-inline"><b>(A) 기존 이미지를 다시 그리기</b> — 오늘 대부분 이 방법: 학습서에 이미 있는 그림을 업로드해 새 스타일로 다시 그리게 함 (다음 §6). <b>(B) 백지에서 만들기</b> — 새 이미지를 말로 설명. 덜 자주 씀.</span></p>
+    </div>
+  </section>
+
+  <section id="redraw">
+    <h2><span class="num">6</span> Start from the Existing Image <span class="ko-h">기존 이미지에서 시작하기 — 오늘의 주된 방법</span></h2>
+    <p class="en">Most of the time you will <b>not</b> draw from a blank page. Instead you take an image that is <i>already in the workbook</i> and ask the AI to <b>redraw it</b> in a cleaner, modern style — keeping the same meaning. Work in three steps.</p>
+    <div class="ko">대부분은 백지에서 그리지 <b>않습니다</b>. <i>학습서에 이미 있는</i> 그림을 가져와 AI에게 <b>다시 그리게</b> 합니다 — 같은 의미를 유지한 채 더 깔끔하고 현대적인 스타일로. 세 단계로 진행하세요.</div>
+
+    <ol class="steps">
+      <li><b>Understand it first.</b> Ask: <i>what is this image teaching?</i> Read the workbook text around it. If unsure, give the AI the image <b>and the nearby text</b> and ask: <i>"What is this diagram teaching? Explain each part."</i> Miss the meaning and you get a pretty picture that is <b>wrong</b>.
+      <span class="k">먼저 이해하라. <i>이 그림은 무엇을 가르치는가?</i> 주변 본문을 읽고, 확실치 않으면 AI에게 이미지 + 주변 본문을 주고 "이 도형이 무엇을 가르치나요? 각 부분을 설명해줘"라고 물으세요. 의미를 놓치면 예뻐도 틀린 그림이 됩니다.</span></li>
+      <li><b>Upload and ask to redraw.</b> Attach the image (📎 clip / image icon), then always tell it to <b>keep the meaning, structure, and layout</b> — change only the style: <i>"Redraw this in a clean, modern, flat style. Keep the same meaning, layout, and all the parts — just clearer and more modern. No text inside (I'll add labels later)."</i>
+      <span class="k">업로드하고 다시 그리게 하라. 이미지를 첨부(📎)한 뒤 항상 <b>의미·구조·배치는 유지</b>하고 스타일만 바꾸라고: "이 이미지를 깔끔하고 현대적인 플랫 스타일로 다시 그려줘. 같은 의미·배치·요소 모두 유지, 더 명확하게만. 안에 글자는 넣지 마."</span></li>
+      <li><b>Compare with the original.</b> Put them side by side. Same message? Anything missing, added, or changed by mistake? If so: <i>"You removed the third arrow — put it back"</i> / <i>"keep it closer to the original."</i>
+      <span class="k">원본과 비교하라. 나란히 놓고 — 같은 메시지인가? 빠지거나 더해지거나 바뀐 부분은? 있으면: "세 번째 화살표가 빠졌어 — 다시 넣어줘" / "원본에 더 가깝게."</span></li>
+    </ol>
+
+    <div class="callout">
+      <p class="lead">Tips · 팁</p>
+      <ul class="plain" style="margin:2px 0">
+        <li>Both ChatGPT and Gemini can edit/redraw an uploaded image. Try both. <span class="k">둘 다 업로드 이미지를 편집·재생성 가능. 둘 다 시도.</span></li>
+        <li>If the original is complex, redraw <b>one part at a time</b>. <span class="k">복잡하면 부분씩 다시 그리기.</span></li>
+        <li>Keep the original's text/labels and re-add them yourself — AI is weak at text. <span class="k">원본 글자·라벨은 직접 다시 넣기 — AI는 글자에 약함.</span></li>
+        <li>The style words come from the prompt formula in §7. <span class="k">스타일 표현은 §7 프롬프트 공식에서.</span></li>
+      </ul>
+    </div>
+
+    <h3>One simple rule for chats <span class="ko-h">채팅에 관한 단순한 규칙 하나</span></h3>
+    <p class="en"><b>One image = one chat. Start a new chat for a new image.</b> Keep understanding, drawing, and refining <i>one</i> image together in the same chat. When you move to a different image, open a fresh chat. If the AI keeps dragging in the old style or old parts, that's your signal to start a new chat.</p>
+    <div class="ko"><b>한 그림 = 한 채팅. 새 그림은 새 채팅으로 시작.</b> <i>하나의</i> 그림을 이해·그리기·다듬기까지 같은 채팅에서 이어가고, 다른 그림으로 넘어가면 새 채팅을 여세요. AI가 자꾸 옛 스타일·요소를 섞으면 새 채팅을 열라는 신호입니다.</div>
+    <div class="callout">
+      <p class="lead">✎ Once you're comfortable — try these · 익숙해지면 시도해 보세요</p>
+      <ul class="plain" style="margin:2px 0">
+        <li>If understanding got long, copy just the <b>final prompt</b> into a fresh chat and draw there — cleaner. <span class="k">이해가 길어졌으면 최종 프롬프트만 복사해 새 채팅에서 그리기.</span></li>
+        <li>Try the same idea in <b>both ChatGPT and Gemini</b> and compare. <span class="k">같은 아이디어를 둘 다에 넣고 비교.</span></li>
+        <li>Ask for <b>2–3 variations</b>, then pick the best. <span class="k">변형 2~3개 만들어 최고를 고르기.</span></li>
+      </ul>
+      <p class="en"><b>You don't need to master all of this today.</b> The coordinator is right here, and these habits become natural with practice. Start with the one rule above.
+      <span class="ko-inline"><b>오늘 이걸 다 익힐 필요는 없습니다.</b> 코디네이터가 바로 옆에 있고, 반복하면 자연스러워집니다. 위 규칙 하나부터 시작하세요.</span></p>
+    </div>
+  </section>
+
+  <section id="prompt">
+    <h2><span class="num">7</span> How to Write a Good Prompt <span class="ko-h">좋은 프롬프트 쓰는 법</span></h2>
+    <p class="en">A good prompt answers a few simple questions. Use this formula:</p>
+    <div class="formula">Subject + Style + Composition + Color/Mood + Details + Format + What to avoid
+      <span class="ko-f">대상 + 스타일 + 구도 + 색/분위기 + 세부사항 + 형식 + 피할 것</span></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Part · 요소</th><th>Example words · 예시 표현</th></tr></thead>
+      <tbody>
+        <tr><td><b>Subject</b> <span class="k">대상</span></td><td>"a shepherd guiding one sheep", "three steps of the gospel" <span class="k">양을 인도하는 목자, 복음의 세 단계</span></td></tr>
+        <tr><td><b>Style</b> <span class="k">스타일</span></td><td>flat illustration, line drawing, minimal, warm watercolor <span class="k">플랫 일러스트, 선화, 미니멀, 수채화</span></td></tr>
+        <tr><td><b>Composition</b> <span class="k">구도</span></td><td>centered, left-to-right flow, top-down <span class="k">중앙, 왼쪽→오른쪽, 위→아래</span></td></tr>
+        <tr><td><b>Color/Mood</b> <span class="k">색·분위기</span></td><td>soft, hopeful, 2–3 colors only <span class="k">부드럽고 소망 있는, 색 2~3개만</span></td></tr>
+        <tr><td><b>Details</b> <span class="k">세부</span></td><td>simple faces, no crowd <span class="k">단순한 얼굴, 군중 없이</span></td></tr>
+        <tr><td><b>Format</b> <span class="k">형식</span></td><td>square, white background, space for a label <span class="k">정사각형, 흰 배경, 라벨 자리</span></td></tr>
+        <tr><td><b>Avoid</b> <span class="k">피할 것</span></td><td>no text, no clutter, not too realistic <span class="k">글자 없이, 복잡하지 않게</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="en"><span class="pill">WEAK · 약함</span> &nbsp; "a picture about faith"</p>
+    <p class="en"><span class="pill">STRONG · 강함</span> &nbsp; <i>"A simple flat illustration of a single open hand receiving a small light, warm colors, white background, minimal, no text, space at the bottom for a caption."</i></p>
+    <div class="ko"><b>강한 프롬프트:</b> "한 손이 작은 빛을 받는 단순한 플랫 일러스트, 따뜻한 색, 흰 배경, 미니멀, 글자 없이, 아래쪽에 설명을 넣을 여백."</div>
+    <div class="callout"><p class="en"><b>Refining words that work well:</b> "simpler" · "flat / minimal" · "fewer colors" · "remove the text" · "center it" · "same style as before" · "make the background white / transparent".
+    <span class="ko-inline">잘 통하는 다듬기 표현: "더 단순하게" · "미니멀하게" · "색 줄여서" · "글자 빼고" · "중앙 정렬" · "이전과 같은 스타일로" · "배경 흰색/투명으로".</span></p></div>
+  </section>
+
+  <section id="types">
+    <h2><span class="num">8</span> Making Each Image Type Well <span class="ko-h">각 유형별로 잘 만들기</span></h2>
+
+    <h3>8a. Concept Diagrams <span class="ko-h">개념 도형</span></h3>
+    <p class="en">These show <i>relationships</i>: steps, arrows, boxes. <b>AI is not good at putting exact text inside diagrams</b> — letters often come out misspelled. So keep text <b>minimal or none</b>, ask for <b>clear shapes and arrows</b>, and <b>add the labels yourself afterward</b>. ChatGPT usually handles text better if you must include a word.</p>
+    <div class="ko"><i>관계</i>를 보여주는 그림입니다. <b>AI는 도형 안 정확한 글자에 약합니다</b> — 글자가 자주 틀립니다. 글자는 <b>최소화하거나 없이</b>, <b>명확한 도형·화살표</b>를 요청하고, <b>라벨은 나중에 직접</b> 넣으세요. 예: <i>"화살표로 연결된 상자 세 개를 왼쪽에서 오른쪽으로, 플랫 스타일, 안에 글자 없이."</i></div>
+
+    <h3>8b. Illustrations / Scenes <span class="ko-h">삽화·장면</span></h3>
+    <ul class="plain">
+      <li><b>One style per workbook.</b> Pick a style and keep <i>every</i> image in that book the same. Reuse <i>"same style as before."</i> <span class="k">학습서 하나당 스타일 하나. "이전과 같은 스타일로" 재사용.</span></li>
+      <li><b>Be faithful and reverent.</b> Match the Bible. Keep people modest and culturally neutral. <b>Do not depict the face of God</b> — suggest the divine with light. <span class="k">충실·경건하게. 인물은 단정·중립적. 하나님 얼굴은 그리지 말고 빛으로 암시.</span></li>
+      <li><b>Keep it universal.</b> Avoid clothing or settings tied to one single culture — these workbooks travel to many nations. <span class="k">특정 한 문화에만 얽매인 복장·배경은 피하세요 — 여러 나라로 갑니다.</span></li>
+    </ul>
+
+    <h3>8c. Icons / Symbols <span class="ko-h">아이콘·심볼</span></h3>
+    <p class="en">Small, simple marks — a cross, a book, a lamp. Ask for: <i>"a single simple flat icon of a cross, minimal line style, one color, white/transparent background."</i> Make a <b>matching set</b> — same line weight and color — so the workbook feels unified.</p>
+    <div class="ko">작고 단순한 표시. 요청 예: <i>"십자가 하나의 단순한 플랫 아이콘, 미니멀 선 스타일, 한 색, 흰/투명 배경."</i> 선 굵기·색을 통일한 <b>세트</b>로 만드세요.</div>
+  </section>
+
+  <section id="check">
+    <h2><span class="num">9</span> Quality Checklist <span class="ko-h">품질 점검 — 확정 전에</span></h2>
+    <p class="en">Ask these before saving. If any answer is "no," refine or try again.</p>
+    <ul class="check">
+      <li><b>Same message?</b> If you redrew an existing image, does it still teach the <i>same thing</i>? <span class="k">같은 메시지인가? 다시 그렸다면 여전히 같은 것을 가르치는가?</span></li>
+      <li><b>Clear?</b> Understandable in 2 seconds? <span class="k">명확한가? 2초 안에 이해되는가?</span></li>
+      <li><b>Serves the lesson?</b> Helps the point, doesn't distract? <span class="k">배움을 돕는가? 방해하지 않는가?</span></li>
+      <li><b>Consistent?</b> Same style as the other images here? <span class="k">일관적인가? 다른 그림과 스타일이 같은가?</span></li>
+      <li><b>Text legible?</b> Words spelled right? (If not, remove &amp; add later.) <span class="k">글자가 정확한가? (아니면 지우고 나중에 추가)</span></li>
+      <li><b>Appropriate &amp; reverent?</b> Modest, universal, God not a figure? <span class="k">적절·경건한가? 단정·보편적, 하나님을 인물로 안 그렸는가?</span></li>
+      <li><b>Faithful?</b> True to the Bible and the workbook's meaning? <span class="k">충실한가? 성경·학습서 의미에 맞는가?</span></li>
+      <li><b>Good resolution?</b> Sharp, large enough to print? <span class="k">해상도가 좋은가? 인쇄할 만큼 큰가?</span></li>
+      <li><b>Simple?</b> Could a local believer understand and reuse it? <span class="k">단순한가? 현지 신자도 이해·재사용 가능한가?</span></li>
+    </ul>
+  </section>
+
+  <section id="save">
+    <h2><span class="num">10</span> Saving &amp; Handing Off <span class="ko-h">작업 저장·전달</span></h2>
+    <ul class="plain">
+      <li><b>Where:</b> the folder the coordinator shows you on the PC (ask if unsure). <span class="k">코디네이터가 알려주는 PC 폴더 (모르면 물어보세요).</span></li>
+      <li><b>Folder per workbook:</b> <code>Galatians/</code>, <code>Romans/</code>, <code>One-to-One/</code>… <span class="k">학습서별 폴더.</span></li>
+      <li><b>File name:</b> <code>workbook_topic_v1.png</code> — e.g. <code>galatians_faith-alone_v1.png</code>; later versions <code>_v2</code>, <code>_v3</code>. <span class="k">파일 이름 규칙, 나중 버전은 _v2, _v3.</span></li>
+      <li><b>Format:</b> <b>PNG</b> (best quality). Icons: transparent background if possible. <span class="k">PNG (최고 품질). 아이콘은 가능하면 투명 배경.</span></li>
+      <li><b>Keep the prompt:</b> paste the prompt into a text file next to the image, so anyone can regenerate it. <i>(This is reproduction, too!)</i> <span class="k">사용한 프롬프트를 이미지 옆 텍스트 파일에 보관 — 누구나 다시 만들 수 있게. (이것도 재생산입니다!)</span></li>
+    </ul>
+  </section>
+
+  <section id="tips">
+    <h2><span class="num">11</span> Quick Tips &amp; Troubleshooting <span class="ko-h">빠른 팁·문제 해결</span></h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>If… · 이럴 때</th><th>Try… · 이렇게</th></tr></thead>
+      <tbody>
+        <tr><td>It ignores your instruction <span class="k">지시를 무시할 때</span></td><td>Shorten the prompt; ask one change at a time <span class="k">짧고 단순하게, 한 번에 하나씩</span></td></tr>
+        <tr><td>Text in the image is garbled <span class="k">글자가 깨질 때</span></td><td>Normal — remove text, add labels later <span class="k">정상 — 글자 빼고 나중에 추가</span></td></tr>
+        <tr><td>Style keeps changing <span class="k">스타일이 자꾸 바뀔 때</span></td><td>Add "same style as before"; reuse your best prompt <span class="k">"이전과 같은 스타일로" 추가</span></td></tr>
+        <tr><td>Too busy / complicated <span class="k">너무 복잡할 때</span></td><td>Say "simpler", "minimal", "fewer elements" <span class="k">"더 단순하게", "미니멀"</span></td></tr>
+        <tr><td>Not sure which is better <span class="k">어느 게 나은지 모를 때</span></td><td>Make 2–3 versions, compare, ask the coordinator <span class="k">2~3개 비교, 코디에게 문의</span></td></tr>
+        <tr><td>Stuck <span class="k">막힐 때</span></td><td>Ask! You're not expected to know everything. <span class="k">물어보세요! 다 알 필요 없습니다.</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><p class="en"><b>Be patient and have fun.</b> A great image often comes on the 3rd or 5th try. Every attempt teaches you a little more.
+    <span class="ko-inline"><b>인내심을 갖고 즐기세요.</b> 좋은 이미지는 보통 3번째, 5번째 시도에서 나옵니다. 모든 시도가 조금씩 더 가르쳐 줍니다.</span></p></div>
+  </section>
+
+  <hr class="div">
+  <div class="close">
+    <p class="en">The images you make today will help pastors and church leaders around the world understand the Word more clearly. Small, simple, faithful images — that serve the lesson, that a local person could make too. That is BEE. Thank you for serving with us today.</p>
+    <div class="ko" style="border:none;background:transparent;text-align:left">오늘 여러분이 만드는 그림은 전 세계 목회자와 교회 지도자들이 말씀을 더 명확히 이해하도록 돕습니다. 작고, 단순하고, 충실한 그림 — 배움을 돕고, 현지인도 만들 수 있는 그림. 그것이 BEE입니다. 오늘 함께 섬겨 주셔서 감사합니다.</div>
+    <p class="slogan">With the Word, to the World · 말씀으로 세계로</p>
+  </div>
+</div>
+</body>
+</html>
