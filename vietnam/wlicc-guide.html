@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WLICC Online — Login &amp; Seminar Registration Guide · BEE Korea</title>
+<style>
+  :root{
+    --bg:#f6f3ec; --surface:#ffffff; --surface-2:#fbf9f4;
+    --ink:#1e2a27; --muted:#5d6b66; --faint:#8a958f;
+    --primary:#0f5c56; --primary-ink:#0b423e; --primary-soft:#e2efec;
+    --accent:#c8891a; --accent-soft:#f6e9cf;
+    --border:#e6dfd2; --border-strong:#d6ccb8;
+    --ok:#2f7d5b; --warn:#a9720f; --info:#296f97;
+    --ring:#0f5c5655;
+    --shadow:0 1px 2px rgba(31,42,39,.05),0 8px 24px rgba(31,42,39,.06);
+    --radius:14px;
+    --sans:"Segoe UI",Roboto,-apple-system,BlinkMacSystemFont,"Noto Sans","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Cascadia Code",Consolas,monospace;
+    --maxw:820px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#111716; --surface:#19211f; --surface-2:#1e2725;
+      --ink:#eef2f0; --muted:#a6b3ae; --faint:#77837e;
+      --primary:#4db3a6; --primary-ink:#8fd6cc; --primary-soft:#16302d;
+      --accent:#e6b445; --accent-soft:#3a2f16;
+      --border:#2a3532; --border-strong:#37453f;
+      --ok:#57b98a; --warn:#d99b3c; --info:#5ba3ce;
+      --ring:#4db3a688;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f6f3ec; --surface:#ffffff; --surface-2:#fbf9f4;
+    --ink:#1e2a27; --muted:#5d6b66; --faint:#8a958f;
+    --primary:#0f5c56; --primary-ink:#0b423e; --primary-soft:#e2efec;
+    --accent:#c8891a; --accent-soft:#f6e9cf;
+    --border:#e6dfd2; --border-strong:#d6ccb8;
+    --ok:#2f7d5b; --warn:#a9720f; --info:#296f97;
+    --ring:#0f5c5655; --shadow:0 1px 2px rgba(31,42,39,.05),0 8px 24px rgba(31,42,39,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#111716; --surface:#19211f; --surface-2:#1e2725;
+    --ink:#eef2f0; --muted:#a6b3ae; --faint:#77837e;
+    --primary:#4db3a6; --primary-ink:#8fd6cc; --primary-soft:#16302d;
+    --accent:#e6b445; --accent-soft:#3a2f16;
+    --border:#2a3532; --border-strong:#37453f;
+    --ok:#57b98a; --warn:#d99b3c; --info:#5ba3ce;
+    --ring:#4db3a688; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{font-size:16px;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  .bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+  .bar-in{max-width:var(--maxw);margin:0 auto;padding:10px 20px;display:flex;
+    align-items:center;gap:10px;flex-wrap:wrap}
+  a.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.01em;margin-right:auto;
+    text-decoration:none;color:var(--ink)}
+  a.brand:hover{color:var(--primary)}
+  a.brand:focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:6px}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--accent);
+    display:grid;place-items:center;font-size:.85rem}
+  .brand .back{color:var(--faint);font-weight:600;font-size:.9rem}
+  .seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--border);
+    border-radius:10px;padding:3px;gap:2px}
+  .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:.82rem;
+    font-weight:600;padding:5px 11px;border-radius:7px;cursor:pointer;line-height:1.2}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .seg button:focus-visible{outline:2px solid var(--ring);outline-offset:1px}
+  .icon-btn{border:1px solid var(--border);background:var(--surface-2);color:var(--muted);
+    width:38px;height:34px;border-radius:9px;cursor:pointer;font-size:1rem;display:grid;place-items:center}
+  .icon-btn:hover{color:var(--ink);border-color:var(--border-strong)}
+  .icon-btn:focus-visible{outline:2px solid var(--ring);outline-offset:1px}
+  .facil-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);
+    background:var(--surface-2);padding:5px 11px;border-radius:9px;cursor:pointer;font-size:.82rem;font-weight:600;color:var(--muted)}
+  .facil-toggle[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+  .facil-toggle .sw{width:26px;height:15px;border-radius:99px;background:var(--border-strong);position:relative;transition:.15s}
+  .facil-toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:11px;height:11px;border-radius:50%;background:#fff;transition:.15s}
+  .facil-toggle[aria-pressed="true"] .sw{background:var(--accent)}
+  .facil-toggle[aria-pressed="true"] .sw::after{left:13px}
+
+  header.hero{padding:46px 0 26px}
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 12px}
+  h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.12;margin:0 0 12px;font-weight:800;
+    letter-spacing:-.02em;text-wrap:balance;max-width:16ch}
+  .lede{font-size:1.06rem;color:var(--muted);max-width:56ch;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;
+    background:var(--surface);border:1px solid var(--border);color:var(--muted);
+    padding:5px 11px;border-radius:99px}
+  .chip b{color:var(--ink);font-weight:700}
+
+  .fast{margin:8px 0 30px;background:linear-gradient(180deg,var(--primary-soft),transparent 120%);
+    border:1px solid var(--border);border-radius:var(--radius);padding:20px 20px 22px;position:relative;overflow:hidden}
+  .fast h2{margin:0 0 4px;font-size:1.06rem;display:flex;align-items:center;gap:9px}
+  .fast p{margin:0 0 14px;color:var(--muted);font-size:.94rem;max-width:56ch}
+  .linkrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .link-pill{font-family:var(--mono);font-size:.86rem;background:var(--surface);border:1px solid var(--border-strong);
+    color:var(--primary-ink);padding:9px 13px;border-radius:9px;word-break:break-all;flex:1;min-width:220px}
+  .copy{border:0;background:var(--primary);color:#fff;font:inherit;font-weight:700;font-size:.86rem;
+    padding:10px 16px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .copy:hover{filter:brightness(1.06)}
+  .copy:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+
+  section{margin:34px 0}
+  .kicker{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border);scroll-margin-top:64px}
+
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+  .step-head{display:flex;gap:14px;align-items:flex-start}
+  .num{flex:none;width:38px;height:38px;border-radius:11px;background:var(--primary);color:#fff;
+    font-weight:800;font-size:1.15rem;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+  .step-head h3{margin:2px 0 0;font-size:1.18rem;font-weight:700;letter-spacing:-.01em}
+  .step-body{margin-top:14px}
+  .step-body p{margin:0 0 10px;color:var(--ink)}
+  .step-body p.sub{color:var(--muted);font-size:.95rem}
+
+  ul.checks{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:10px}
+  ul.checks li{display:flex;gap:11px;align-items:flex-start;color:var(--ink)}
+  ul.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;
+    background:var(--primary-soft);border:1px solid var(--primary);
+    background-image:linear-gradient(var(--primary),var(--primary));background-size:9px 2px;
+    background-repeat:no-repeat;background-position:center}
+  ul.arrows{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:9px}
+  ul.arrows li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:.97rem}
+  ul.arrows li::before{content:"→";color:var(--accent);font-weight:800;flex:none}
+
+  .app-path{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:.92rem;
+    background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:8px 12px;margin:4px 0}
+  .app-path .seg-lbl{font-weight:700;color:var(--primary-ink)}
+  .app-path .arw{color:var(--faint);font-weight:700}
+
+  .btn-tag{display:inline-block;background:var(--primary);color:#fff;font-weight:700;font-size:.85em;
+    padding:2px 9px;border-radius:6px;vertical-align:baseline;white-space:nowrap}
+  .btn-ghost{display:inline-block;background:var(--surface-2);border:1px solid var(--border-strong);
+    color:var(--ink);font-weight:600;font-size:.85em;padding:2px 8px;border-radius:6px}
+
+  .note{border-radius:11px;padding:13px 15px;margin:14px 0 2px;font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+  .note .ic{flex:none;font-size:1.05rem;line-height:1.4}
+  .note.tip{background:var(--primary-soft);border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);color:var(--ink)}
+  .note.warn{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--ink)}
+  .note b{font-weight:700}
+
+  .tabs{display:flex;gap:8px;margin:4px 0 16px;flex-wrap:wrap}
+  .tabs button{flex:1;min-width:150px;border:1px solid var(--border);background:var(--surface-2);
+    color:var(--muted);font:inherit;font-weight:700;font-size:.92rem;padding:12px 14px;border-radius:11px;cursor:pointer;text-align:left;line-height:1.3}
+  .tabs button .tl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .tabs button[aria-selected="true"]{background:var(--primary-soft);border-color:var(--primary);color:var(--ink)}
+  .tabs button[aria-selected="true"] .tl{color:var(--primary-ink)}
+  .tabs button:focus-visible{outline:2px solid var(--ring);outline-offset:1px}
+  .track{display:none}
+  .track.active{display:block;animation:fade .18s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  figure.shot{margin:16px 0 4px}
+  .shot-frame{border:2px dashed var(--border-strong);border-radius:12px;background:
+    repeating-linear-gradient(135deg,var(--surface-2),var(--surface-2) 12px,transparent 12px,transparent 24px);
+    min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;padding:22px;text-align:center}
+  .shot-frame img{max-width:100%;height:auto;border-radius:8px;display:block}
+  .shot-badge{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:#fff;background:var(--accent);padding:4px 10px;border-radius:99px}
+  .shot-hint{margin:0;font-size:.9rem;color:var(--muted);max-width:44ch}
+  .shot-mark{margin:0;font-size:.82rem;color:var(--accent);font-weight:700}
+  figure.shot figcaption{margin-top:8px;font-size:.82rem;color:var(--faint);text-align:center}
+  figure.shot.filled .shot-frame{border-style:solid;background:var(--surface-2);padding:8px}
+
+  .facil{display:none;margin:14px 0 2px;border-left:3px solid var(--accent);
+    background:var(--accent-soft);border-radius:0 11px 11px 0;padding:13px 16px}
+  body.show-facil .facil{display:block}
+  .facil .flabel{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);display:flex;align-items:center;gap:7px;margin-bottom:6px}
+  .facil p{margin:0;color:var(--ink);font-size:.95rem;font-style:italic}
+  .facil p+p{margin-top:8px}
+  .facil-hint{display:none}
+  body.show-facil .facil-hint{display:block}
+
+  .faq details{background:var(--surface);border:1px solid var(--border);border-radius:11px;margin:10px 0;overflow:hidden}
+  .faq summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:.97rem;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-weight:800;font-size:1.3rem;flex:none;transition:.2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .ans{padding:0 18px 16px;color:var(--muted);font-size:.94rem}
+  .faq .ans b{color:var(--ink)}
+
+  .myth{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .myth .row{padding:18px 20px;display:flex;gap:13px;align-items:flex-start}
+  .myth .row+.row{border-top:1px solid var(--border)}
+  .myth .x{background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+  .myth .v{background:color-mix(in srgb,var(--primary) 8%,var(--surface))}
+  .myth .badge{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-weight:800;color:#fff}
+  .myth .x .badge{background:var(--accent)}
+  .myth .v .badge{background:var(--primary)}
+  .myth h4{margin:0 0 3px;font-size:1rem}
+  .myth p{margin:0;color:var(--muted);font-size:.93rem}
+
+  footer{margin:48px 0 60px;padding-top:22px;border-top:1px solid var(--border);
+    color:var(--faint);font-size:.86rem;text-align:center}
+  footer a{color:var(--primary);font-weight:600}
+
+  @media print{
+    .bar,.noprint{display:none!important}
+    body{background:#fff;color:#000}
+    .step,.fast,.myth{box-shadow:none;break-inside:avoid}
+    body.show-facil .facil{display:block}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media (max-width:560px){
+    header.hero{padding:32px 0 20px}
+    .step{padding:18px}
+    .bar-in{padding:9px 14px;gap:8px}
+    .brand .bt{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar noprint">
+  <div class="bar-in">
+    <a class="brand" href="../index.html" title="Back to BEE Korea resources">
+      <span class="dot">🐝</span><span class="back">←</span><span class="bt">BEE&nbsp;Korea</span>
+    </a>
+    <div class="seg" role="group" aria-label="Language">
+      <button data-lang="vi" aria-pressed="true">Tiếng Việt</button>
+      <button data-lang="en" aria-pressed="false">English</button>
+      <button data-lang="ko" aria-pressed="false">한국어</button>
+    </div>
+    <button class="facil-toggle" id="facilBtn" aria-pressed="false" title="Show Zoom talking points (English)">
+      <span class="sw" aria-hidden="true"></span>
+      <span data-en="Zoom script" data-vi="Zoom script" data-ko="Zoom 멘트">Zoom script</span>
+    </button>
+    <button class="icon-btn" id="printBtn" title="Print / Save as PDF" aria-label="Print">🖨️</button>
+    <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">🌙</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow" data-en="Student Quick Guide" data-vi="Hướng dẫn nhanh cho học viên" data-ko="학생용 빠른 가이드">Hướng dẫn nhanh cho học viên</p>
+    <h1 data-en="Log in &amp; register for your online class"
+        data-vi="Đăng nhập &amp; đăng ký lớp học trực tuyến của bạn"
+        data-ko="온라인 수업 로그인 &amp; 세미나 신청">Đăng nhập &amp; đăng ký lớp học trực tuyến của bạn</h1>
+    <p class="lede"
+       data-en="Follow these steps during the Zoom session to sign in to Ministry Manager and register for today's WLICC seminar."
+       data-vi="Làm theo các bước sau trong buổi Zoom để đăng nhập vào Ministry Manager và đăng ký hội thảo WLICC hôm nay."
+       data-ko="줌 수업 중 아래 순서를 따라 Ministry Manager에 로그인하고 오늘의 WLICC 세미나를 신청하세요.">Làm theo các bước sau trong buổi Zoom để đăng nhập vào Ministry Manager và đăng ký hội thảo WLICC hôm nay.</p>
+    <div class="meta">
+      <span class="chip"><b>WLICC</b> · Academic Essay Writing</span>
+      <span class="chip">🇻🇳 <span data-en="Vietnam" data-vi="Việt Nam" data-ko="베트남">Việt Nam</span></span>
+      <span class="chip"><span data-en="Programs:" data-vi="Chương trình:" data-ko="과정:">Chương trình:</span> <b>BTh · MDiv</b></span>
+      <span class="chip">💻 <span data-en="Online" data-vi="Trực tuyến" data-ko="온라인">Trực tuyến</span></span>
+    </div>
+  </header>
+
+  <div class="fast">
+    <h2>⚡ <span data-en="Fastest way — one link" data-vi="Cách nhanh nhất — một đường link" data-ko="가장 빠른 방법 — 링크 하나">Cách nhanh nhất — một đường link</span></h2>
+    <p data-en="Open this link and sign in with Google. It takes you straight to the seminar list — then jump to Step 4."
+       data-vi="Mở link này và đăng nhập bằng Google. Bạn sẽ vào thẳng danh sách hội thảo — rồi chuyển tới Bước 4."
+       data-ko="이 링크를 열고 Google로 로그인하면 세미나 목록으로 바로 이동합니다 — 그다음 4단계로.">Mở link này và đăng nhập bằng Google. Bạn sẽ vào thẳng danh sách hội thảo — rồi chuyển tới Bước 4.</p>
+    <div class="linkrow">
+      <code class="link-pill" id="fastLink">https://ministry.beekorea.org/login?callbackUrl=/academy/seminars</code>
+      <button class="copy" id="copyBtn" data-en="Copy link" data-vi="Sao chép" data-ko="복사">Sao chép</button>
+    </div>
+    <div class="facil-hint note tip" style="margin-top:14px">
+      <span class="ic">🎙️</span>
+      <span><b>Zoom tip:</b> Paste this link into the Zoom chat. Ask everyone to open it and sign in with their Gmail. First-timers should read Step 2 first.</span>
+    </div>
+  </div>
+
+  <section>
+    <p class="kicker grouptitle" data-en="Before you start" data-vi="Trước khi bắt đầu" data-ko="시작하기 전에">Trước khi bắt đầu</p>
+    <div class="step">
+      <div class="step-body" style="margin-top:0">
+        <ul class="checks">
+          <li data-en="A phone or computer with a web browser" data-vi="Điện thoại hoặc máy tính có trình duyệt web" data-ko="웹 브라우저가 있는 휴대폰 또는 컴퓨터">Điện thoại hoặc máy tính có trình duyệt web</li>
+          <li data-en="A stable internet connection" data-vi="Kết nối internet ổn định" data-ko="안정적인 인터넷 연결">Kết nối internet ổn định</li>
+          <li data-en="Your Google (Gmail) account — you log in with Google" data-vi="Tài khoản Google (Gmail) — bạn đăng nhập bằng Google" data-ko="본인 Google(Gmail) 계정 — Google로 로그인합니다">Tài khoản Google (Gmail) — bạn đăng nhập bằng Google</li>
+          <li data-en="The website: ministry.beekorea.org" data-vi="Trang web: ministry.beekorea.org" data-ko="웹사이트: ministry.beekorea.org">Trang web: ministry.beekorea.org</li>
+        </ul>
+        <div class="note warn"><span class="ic">💡</span>
+          <span data-en="No Gmail? Tell the facilitator — they will help you create one, or register you a different way."
+                data-vi="Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác."
+                data-ko="Gmail이 없나요? 안내자에게 말씀하세요 — 만드는 것을 돕거나 다른 방법으로 등록해 드립니다.">Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker grouptitle" data-en="Step by step" data-vi="Từng bước một" data-ko="단계별 안내">Từng bước một</p>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">1</div>
+        <h3 data-en="Open the site &amp; switch to Vietnamese" data-vi="Mở trang web &amp; chuyển sang tiếng Việt" data-ko="사이트 열고 베트남어로 전환">Mở trang web &amp; chuyển sang tiếng Việt</h3>
+      </div>
+      <div class="step-body">
+        <p data-en="Open ministry.beekorea.org in your browser."
+           data-vi="Mở ministry.beekorea.org trong trình duyệt của bạn."
+           data-ko="브라우저에서 ministry.beekorea.org 를 엽니다.">Mở ministry.beekorea.org trong trình duyệt của bạn.</p>
+        <p class="sub" data-en="Tap the 🌐 language icon at the top-right corner and choose Tiếng Việt 🇻🇳. The whole site will now be in Vietnamese."
+           data-vi="Nhấn biểu tượng 🌐 ở góc trên bên phải và chọn Tiếng Việt 🇻🇳. Toàn bộ trang sẽ hiển thị tiếng Việt."
+           data-ko="우측 상단 🌐 언어 아이콘 → Tiếng Việt 🇻🇳 선택. 사이트 전체가 베트남어로 바뀝니다.">Nhấn biểu tượng 🌐 ở góc trên bên phải và chọn Tiếng Việt 🇻🇳. Toàn bộ trang sẽ hiển thị tiếng Việt.</p>
+        <figure class="shot" id="shot1">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 1</span>
+            <p class="shot-hint" data-en="Login page. Box the 🌐 language switcher (bottom-left of the sidebar / top-right on mobile)."
+               data-vi="Trang đăng nhập. Khoanh vùng nút đổi ngôn ngữ 🌐."
+               data-ko="로그인 화면. 🌐 언어 전환 위치를 박스 표시.">Trang đăng nhập. Khoanh vùng nút đổi ngôn ngữ 🌐.</p>
+            <p class="shot-mark">↳ mark: 🌐 → Tiếng Việt</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"Everyone, open your browser and go to ministry dot beekorea dot org. Now look for the small globe icon — tap it and choose Vietnamese. Raise your hand in Zoom when your screen is in Vietnamese, and I'll wait for everyone."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">2</div>
+        <h3 data-en="Log in with Google" data-vi="Đăng nhập bằng Google" data-ko="Google로 로그인">Đăng nhập bằng Google</h3>
+      </div>
+      <div class="step-body">
+        <p data-en="Choose the option that fits you:" data-vi="Chọn trường hợp phù hợp với bạn:" data-ko="본인 상황에 맞는 것을 고르세요:">Chọn trường hợp phù hợp với bạn:</p>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" data-track="A">
+            <span class="tl" data-en="Track A" data-vi="Trường hợp A" data-ko="경우 A">Trường hợp A</span>
+            <span data-en="I already have an account" data-vi="Tôi đã có tài khoản" data-ko="이미 계정 있음">Tôi đã có tài khoản</span>
+          </button>
+          <button role="tab" aria-selected="false" data-track="B">
+            <span class="tl" data-en="Track B" data-vi="Trường hợp B" data-ko="경우 B">Trường hợp B</span>
+            <span data-en="First time here" data-vi="Lần đầu tham gia" data-ko="처음이에요">Lần đầu tham gia</span>
+          </button>
+        </div>
+
+        <div class="track active" data-track="A">
+          <ul class="arrows">
+            <li><span data-en="Tap" data-vi="Nhấn" data-ko="누르기">Nhấn</span>&nbsp;<span class="btn-tag">Đăng nhập bằng Google</span></li>
+            <li data-en="Choose your Gmail account and allow access." data-vi="Chọn tài khoản Gmail của bạn và cho phép truy cập." data-ko="본인 Gmail 계정 선택 후 접근 허용.">Chọn tài khoản Gmail của bạn và cho phép truy cập.</li>
+            <li data-en="You arrive at the home page — you're in! Go to Step 3." data-vi="Bạn vào trang chủ — xong! Chuyển tới Bước 3." data-ko="홈 화면 도착 — 완료! 3단계로.">Bạn vào trang chủ — xong! Chuyển tới Bước 3.</li>
+          </ul>
+        </div>
+
+        <div class="track" data-track="B">
+          <p class="sub" data-en="After signing in with Google, the system checks whether you are already in the BEE database."
+             data-vi="Sau khi đăng nhập bằng Google, hệ thống kiểm tra xem bạn đã có trong dữ liệu BEE chưa."
+             data-ko="Google 로그인 후, 시스템이 BEE DB에 본인이 있는지 확인합니다.">Sau khi đăng nhập bằng Google, hệ thống kiểm tra xem bạn đã có trong dữ liệu BEE chưa.</p>
+          <p class="sub" style="font-weight:700;color:var(--primary-ink);margin-top:12px"
+             data-en="If a missionary pre-registered you:" data-vi="Nếu giáo sĩ đã đăng ký trước cho bạn:" data-ko="선교사가 미리 등록해둔 경우:">Nếu giáo sĩ đã đăng ký trước cho bạn:</p>
+          <ul class="arrows">
+            <li data-en="Type your name → tap Tìm kiếm (Search)" data-vi="Nhập tên của bạn → nhấn Tìm kiếm" data-ko="이름 입력 → 검색(Tìm kiếm)">Nhập tên của bạn → nhấn Tìm kiếm</li>
+            <li><span data-en="Find your name → tap" data-vi="Tìm đúng tên → nhấn" data-ko="본인 이름 찾기 → 누르기">Tìm đúng tên → nhấn</span>&nbsp;<span class="btn-ghost">Đây là tôi</span></li>
+            <li data-en="Check the details, then Xác nhận (Confirm)." data-vi="Kiểm tra thông tin, rồi nhấn Xác nhận." data-ko="정보 확인 후 확인(Xác nhận).">Kiểm tra thông tin, rồi nhấn Xác nhận.</li>
+          </ul>
+          <p class="sub" style="font-weight:700;color:var(--primary-ink);margin-top:12px"
+             data-en="If you are brand new:" data-vi="Nếu bạn hoàn toàn mới:" data-ko="완전히 처음인 경우:">Nếu bạn hoàn toàn mới:</p>
+          <ul class="arrows">
+            <li><span data-en="Tap" data-vi="Nhấn" data-ko="누르기">Nhấn</span>&nbsp;<span class="btn-ghost">Bỏ qua tìm kiếm, đăng ký mới</span></li>
+            <li data-en="Fill in Name, Gender, Country (choose Việt Nam)." data-vi="Điền Tên, Giới tính, Quốc gia (chọn Việt Nam)." data-ko="이름·성별·국가(베트남) 입력.">Điền Tên, Giới tính, Quốc gia (chọn Việt Nam).</li>
+            <li><span data-en="Tap" data-vi="Nhấn" data-ko="누르기">Nhấn</span>&nbsp;<span class="btn-tag">Đăng ký</span></li>
+          </ul>
+          <div class="note warn"><span class="ic">📄</span>
+            <span data-en="New WLICC students may be asked to complete the WLICC application (photo, education certificate). The facilitator will guide you if this appears."
+                  data-vi="Học viên WLICC mới có thể được yêu cầu điền đơn WLICC (ảnh, giấy chứng nhận học vấn). Người hướng dẫn sẽ giúp bạn nếu màn hình này xuất hiện."
+                  data-ko="신규 WLICC 학생은 WLICC 신청서(사진·학력증명) 작성이 필요할 수 있습니다. 이 화면이 뜨면 안내자가 도와드립니다.">Học viên WLICC mới có thể được yêu cầu điền đơn WLICC (ảnh, giấy chứng nhận học vấn). Người hướng dẫn sẽ giúp bạn nếu màn hình này xuất hiện.</span>
+          </div>
+        </div>
+
+        <figure class="shot" id="shot2">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 2</span>
+            <p class="shot-hint" data-en="The “Đăng nhập bằng Google” button — box it. (Optional: add the name-search / register screen as Screenshot 2b.)"
+               data-vi="Nút “Đăng nhập bằng Google” — khoanh vùng lại."
+               data-ko="“Đăng nhập bằng Google” 버튼 박스 표시. (선택: 이름검색/등록 화면을 2b로)">Nút “Đăng nhập bằng Google” — khoanh vùng lại.</p>
+            <p class="shot-mark">↳ mark: Đăng nhập bằng Google</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"Now tap 'Sign in with Google' and pick your Gmail. If you've used the system before, you'll go straight to the home page. If it's your first time, you'll see a search box — type your name and tap 'This is me' if you find it. If you're not listed, tap 'Skip search, register new' and fill in your name, gender, and country as Vietnam. Tell me in chat if you get stuck and I'll share my screen."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">3</div>
+        <h3 data-en="Open Available Seminars" data-vi="Mở Hội Thảo Có Sẵn" data-ko="수강 가능 세미나 열기">Mở Hội Thảo Có Sẵn</h3>
+      </div>
+      <div class="step-body">
+        <p data-en="From the home page, open the Academy Manager app, then the seminar list in the left menu."
+           data-vi="Từ trang chủ, mở ứng dụng Quản lý Học viện, rồi mở danh sách hội thảo ở menu bên trái."
+           data-ko="홈 화면에서 아카데미 매니저 앱 → 왼쪽 메뉴에서 세미나 목록을 엽니다.">Từ trang chủ, mở ứng dụng Quản lý Học viện, rồi mở danh sách hội thảo ở menu bên trái.</p>
+        <div class="app-path">
+          <span class="seg-lbl">Quản Lý Học Viện</span><span class="arw">→</span>
+          <span class="seg-lbl">Học Tập Của Tôi</span><span class="arw">→</span>
+          <span class="seg-lbl">Hội Thảo Có Sẵn</span>
+        </div>
+        <div class="note tip"><span class="ic">⚡</span>
+          <span data-en="Used the fast link at the top? You're already here — skip to Step 4."
+                data-vi="Đã dùng link nhanh ở đầu trang? Bạn đã ở đây rồi — chuyển tới Bước 4."
+                data-ko="맨 위 빠른 링크를 썼다면 이미 이 화면입니다 — 4단계로.">Đã dùng link nhanh ở đầu trang? Bạn đã ở đây rồi — chuyển tới Bước 4.</span>
+        </div>
+        <figure class="shot" id="shot3">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 3</span>
+            <p class="shot-hint" data-en="Left sidebar. Box “Hội Thảo Có Sẵn” under “Học Tập Của Tôi”."
+               data-vi="Menu bên trái. Khoanh vùng “Hội Thảo Có Sẵn”."
+               data-ko="왼쪽 사이드바. “Hội Thảo Có Sẵn” 박스 표시.">Menu bên trái. Khoanh vùng “Hội Thảo Có Sẵn”.</p>
+            <p class="shot-mark">↳ mark: Hội Thảo Có Sẵn</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"On the home screen, open the Academy Manager app — the one with the graduation cap. On the left menu, under 'My Learning', tap 'Available Seminars'. If you opened my link, you're already on this page."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">4</div>
+        <h3 data-en="Find YOUR seminar" data-vi="Tìm hội thảo CỦA BẠN" data-ko="본인 세미나 찾기">Tìm hội thảo CỦA BẠN</h3>
+      </div>
+      <div class="step-body">
+        <p data-en="Tap the Trực tuyến (Online) filter, then look for Academic Essay Writing (WLICC) for Việt Nam."
+           data-vi="Nhấn bộ lọc Trực tuyến, rồi tìm Academic Essay Writing (WLICC) cho Việt Nam."
+           data-ko="Trực tuyến(온라인) 필터를 누르고, Việt Nam의 Academic Essay Writing(WLICC)을 찾습니다.">Nhấn bộ lọc Trực tuyến, rồi tìm Academic Essay Writing (WLICC) cho Việt Nam.</p>
+        <div class="note warn"><span class="ic">⚠️</span>
+          <span data-en="There may be more than one WLICC seminar (BTh and MDiv have different fees). Apply to the one that matches YOUR program. Not sure? Ask the facilitator before tapping Apply."
+                data-vi="Có thể có nhiều hơn một hội thảo WLICC (BTh và MDiv có học phí khác nhau). Hãy đăng ký đúng hội thảo cho chương trình CỦA BẠN. Không chắc? Hỏi người hướng dẫn trước khi nhấn Apply."
+                data-ko="WLICC 세미나가 2개 이상일 수 있습니다(BTh·MDiv 학비 상이). 본인 과정에 맞는 것을 신청하세요. 헷갈리면 Apply 전에 안내자에게 확인.">Có thể có nhiều hơn một hội thảo WLICC (BTh và MDiv có học phí khác nhau). Hãy đăng ký đúng hội thảo cho chương trình CỦA BẠN. Không chắc? Hỏi người hướng dẫn trước khi nhấn Apply.</span>
+        </div>
+        <figure class="shot" id="shot4">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 4</span>
+            <p class="shot-hint" data-en="Seminar list. Box the correct WLICC seminar row and its Apply button; circle the Trực tuyến filter."
+               data-vi="Danh sách hội thảo. Khoanh vùng đúng hàng hội thảo WLICC và nút Apply của nó."
+               data-ko="세미나 목록. 올바른 WLICC 행과 Apply 버튼 박스 표시, Trực tuyến 필터 동그라미.">Danh sách hội thảo. Khoanh vùng đúng hàng hội thảo WLICC và nút Apply của nó.</p>
+            <p class="shot-mark">↳ mark: correct row + Apply + Trực tuyến</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"Tap the 'Online' filter at the top so you only see online seminars. Look for 'Academic Essay Writing' for Vietnam. Important — there are two: one for BTh and one for MDiv, and the fee is different. I'll tell you which one is yours. Please do NOT tap Apply until I confirm your program."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">5</div>
+        <h3 data-en="Apply &amp; confirm" data-vi="Đăng ký &amp; xác nhận" data-ko="신청 &amp; 확인">Đăng ký &amp; xác nhận</h3>
+      </div>
+      <div class="step-body">
+        <ul class="arrows">
+          <li><span data-en="Tap the" data-vi="Nhấn nút" data-ko="누르기">Nhấn nút</span>&nbsp;<span class="btn-tag">Apply</span>&nbsp;<span data-en="button on your seminar" data-vi="trên hội thảo của bạn" data-ko="(본인 세미나)">trên hội thảo của bạn</span></li>
+          <li data-en="A confirmation box appears — check the course and program are correct." data-vi="Một hộp xác nhận hiện ra — kiểm tra đúng môn học và chương trình." data-ko="확인 팝업 등장 — 과목·과정이 맞는지 확인.">Một hộp xác nhận hiện ra — kiểm tra đúng môn học và chương trình.</li>
+          <li><span data-en="Tap" data-vi="Nhấn" data-ko="누르기">Nhấn</span>&nbsp;<span class="btn-tag">Xác nhận</span></li>
+        </ul>
+        <figure class="shot" id="shot5">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 5</span>
+            <p class="shot-hint" data-en="The confirmation dialog. Box the Xác nhận (Confirm) button."
+               data-vi="Hộp thoại xác nhận. Khoanh vùng nút Xác nhận."
+               data-ko="확인 다이얼로그. Xác nhận 버튼 박스 표시.">Hộp thoại xác nhận. Khoanh vùng nút Xác nhận.</p>
+            <p class="shot-mark">↳ mark: Xác nhận</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"Now tap 'Apply' on your seminar. A small box pops up asking you to confirm — check the course name is correct, then tap 'Xác nhận', which means Confirm. That's it — you've registered."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="num">6</div>
+        <h3 data-en="Check it's submitted" data-vi="Kiểm tra đã gửi thành công" data-ko="신청 완료 확인">Kiểm tra đã gửi thành công</h3>
+      </div>
+      <div class="step-body">
+        <p data-en="Your seminar now shows Registered. Approval by staff comes next — you don't need to do anything else."
+           data-vi="Hội thảo của bạn giờ hiển thị Đã đăng ký. Nhân viên sẽ duyệt tiếp — bạn không cần làm gì thêm."
+           data-ko="세미나가 이제 ‘등록됨’으로 표시됩니다. 이후 담당자 승인이 진행되며 추가로 할 일은 없습니다.">Hội thảo của bạn giờ hiển thị Đã đăng ký. Nhân viên sẽ duyệt tiếp — bạn không cần làm gì thêm.</p>
+        <p class="sub" data-en="You can see your registration any time under Khóa Học Của Tôi (My Courses)."
+           data-vi="Bạn có thể xem đăng ký của mình bất cứ lúc nào tại Khóa Học Của Tôi."
+           data-ko="언제든 Khóa Học Của Tôi(내 수강 현황)에서 신청 내역을 볼 수 있습니다.">Bạn có thể xem đăng ký của mình bất cứ lúc nào tại Khóa Học Của Tôi.</p>
+        <figure class="shot" id="shot6">
+          <div class="shot-frame">
+            <span class="shot-badge">Screenshot 6</span>
+            <p class="shot-hint" data-en="My Courses (Khóa Học Của Tôi) showing the seminar with the Registered status."
+               data-vi="Khóa Học Của Tôi hiển thị hội thảo với trạng thái Đã đăng ký."
+               data-ko="Khóa Học Của Tôi — 세미나가 ‘등록됨’ 상태로 표시된 화면.">Khóa Học Của Tôi hiển thị hội thảo với trạng thái Đã đăng ký.</p>
+            <p class="shot-mark">↳ mark: Registered status</p>
+          </div>
+        </figure>
+        <div class="facil">
+          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <p>"Great — your seminar now says 'Registered'. Our staff will approve it shortly, so there's nothing more you need to do today. You can always check it later under 'My Courses'. Congratulations, you're registered for the class!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker grouptitle" data-en="Good to know" data-vi="Điều nên biết" data-ko="알아두면 좋은 것">Điều nên biết</p>
+    <div class="myth">
+      <div class="row x">
+        <span class="badge">✕</span>
+        <div>
+          <h4 data-en="You do NOT register a “cohort”" data-vi="Bạn KHÔNG cần đăng ký “cohort” (khóa/lớp)" data-ko="‘코호트(반)’는 신청하지 않습니다">Bạn KHÔNG cần đăng ký “cohort” (khóa/lớp)</h4>
+          <p data-en="A cohort is the class group that BEE staff manage behind the scenes (tuition, catalog, schedule). Students never choose one."
+             data-vi="Cohort là nhóm lớp do nhân viên BEE quản lý phía sau (học phí, danh mục, lịch học). Học viên không bao giờ tự chọn."
+             data-ko="코호트는 BEE 담당자가 뒤에서 관리하는 반(학비·카탈로그·일정)입니다. 학생이 직접 고르지 않습니다.">Cohort là nhóm lớp do nhân viên BEE quản lý phía sau (học phí, danh mục, lịch học). Học viên không bao giờ tự chọn.</p>
+        </div>
+      </div>
+      <div class="row v">
+        <span class="badge">✓</span>
+        <div>
+          <h4 data-en="You only do two things" data-vi="Bạn chỉ làm hai việc" data-ko="학생은 두 가지만 하면 됩니다">Bạn chỉ làm hai việc</h4>
+          <p data-en="1) Log in (or register if new). 2) Apply to your seminar. BEE staff place you in the right cohort automatically."
+             data-vi="1) Đăng nhập (hoặc đăng ký nếu mới). 2) Đăng ký hội thảo của bạn. Nhân viên BEE sẽ xếp bạn vào đúng cohort tự động."
+             data-ko="1) 로그인(신규면 가입). 2) 본인 세미나 신청. 나머지 코호트 배정은 BEE 담당자가 자동으로 처리합니다.">1) Đăng nhập (hoặc đăng ký nếu mới). 2) Đăng ký hội thảo của bạn. Nhân viên BEE sẽ xếp bạn vào đúng cohort tự động.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <p class="kicker grouptitle" data-en="If something goes wrong" data-vi="Nếu gặp sự cố" data-ko="문제가 생기면">Nếu gặp sự cố</p>
+
+    <details>
+      <summary data-en="I can't find Vietnamese / the site is in Korean or English" data-vi="Tôi không tìm thấy tiếng Việt / trang bằng tiếng Hàn hoặc tiếng Anh" data-ko="베트남어를 못 찾겠어요 / 사이트가 한국어·영어예요">Tôi không tìm thấy tiếng Việt / trang bằng tiếng Hàn hoặc tiếng Anh</summary>
+      <div class="ans" data-en="Look for the 🌐 globe icon (near the bottom of the left menu, or top-right on mobile). Tap it and choose Tiếng Việt."
+           data-vi="Tìm biểu tượng quả địa cầu 🌐 (gần cuối menu bên trái, hoặc góc trên bên phải trên điện thoại). Nhấn vào và chọn Tiếng Việt."
+           data-ko="🌐 지구본 아이콘을 찾으세요(왼쪽 메뉴 하단, 모바일은 우상단). 눌러서 Tiếng Việt 선택.">Tìm biểu tượng quả địa cầu 🌐 (gần cuối menu bên trái, hoặc góc trên bên phải trên điện thoại). Nhấn vào và chọn Tiếng Việt.</div>
+    </details>
+
+    <details>
+      <summary data-en="Google login won't work / I don't have Gmail" data-vi="Đăng nhập Google không được / tôi không có Gmail" data-ko="Google 로그인이 안 돼요 / Gmail이 없어요">Đăng nhập Google không được / tôi không có Gmail</summary>
+      <div class="ans" data-en="Tell the facilitator. They can help you create a Gmail, or register you another way so you don't miss the class."
+           data-vi="Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học."
+           data-ko="안내자에게 알리세요. Gmail 생성을 돕거나 다른 방법으로 등록해 수업을 놓치지 않게 해드립니다.">Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học.</div>
+    </details>
+
+    <details>
+      <summary data-en="I picked the wrong name (Track B)" data-vi="Tôi chọn nhầm tên (Trường hợp B)" data-ko="이름을 잘못 골랐어요 (경우 B)">Tôi chọn nhầm tên (Trường hợp B)</summary>
+      <div class="ans" data-en="On the “request sent” screen, tap “Cancel request”, then search again and choose the correct name."
+           data-vi="Ở màn hình “đã gửi yêu cầu”, nhấn “Hủy yêu cầu”, rồi tìm lại và chọn đúng tên."
+           data-ko="‘요청 접수’ 화면에서 ‘요청 취소’를 누른 뒤 다시 검색해 올바른 이름을 고르세요.">Ở màn hình “đã gửi yêu cầu”, nhấn “Hủy yêu cầu”, rồi tìm lại và chọn đúng tên.</div>
+    </details>
+
+    <details>
+      <summary data-en="I don't see any seminar to apply for" data-vi="Tôi không thấy hội thảo nào để đăng ký" data-ko="신청할 세미나가 안 보여요">Tôi không thấy hội thảo nào để đăng ký</summary>
+      <div class="ans" data-en="Turn off filters (tap “All”), or search the course name. If it's still missing, the seminar may not be open yet — tell the facilitator."
+           data-vi="Tắt bộ lọc (nhấn “Tất cả”), hoặc tìm theo tên môn học. Nếu vẫn không có, hội thảo có thể chưa mở — hãy báo người hướng dẫn."
+           data-ko="필터를 끄거나(‘전체’) 과목명으로 검색하세요. 그래도 없으면 아직 개설 전일 수 있으니 안내자에게 알리세요.">Tắt bộ lọc (nhấn “Tất cả”), hoặc tìm theo tên môn học. Nếu vẫn không có, hội thảo có thể chưa mở — hãy báo người hướng dẫn.</div>
+    </details>
+
+    <details>
+      <summary data-en="“Already enrolled in this course”" data-vi="“Đã đăng ký môn học này”" data-ko="“이미 이 과목에 등록됨”">“Đã đăng ký môn học này”</summary>
+      <div class="ans" data-en="You're already registered for this course — no need to apply again. Check Khóa Học Của Tôi (My Courses)."
+           data-vi="Bạn đã đăng ký môn học này rồi — không cần đăng ký lại. Kiểm tra tại Khóa Học Của Tôi."
+           data-ko="이미 등록된 과목입니다 — 다시 신청할 필요 없습니다. Khóa Học Của Tôi에서 확인하세요.">Bạn đã đăng ký môn học này rồi — không cần đăng ký lại. Kiểm tra tại Khóa Học Của Tôi.</div>
+    </details>
+  </section>
+
+  <footer>
+    <p><span data-en="Need help?" data-vi="Cần trợ giúp?" data-ko="도움이 필요하신가요?">Cần trợ giúp?</span>
+       <a href="mailto:mail@beekorea.org">mail@beekorea.org</a></p>
+    <p style="margin-top:6px">BEE Korea · Ministry Manager · <span data-en="Vietnam WLICC · 2026" data-vi="WLICC Việt Nam · 2026" data-ko="베트남 WLICC · 2026">WLICC Việt Nam · 2026</span></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, body=document.body;
+  function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+
+  function setLang(lang){
+    document.querySelectorAll('[data-'+lang+']').forEach(function(el){
+      var v=el.getAttribute('data-'+lang);
+      if(v!==null) el.innerHTML=v;
+    });
+    root.setAttribute('lang',lang);
+    document.querySelectorAll('.seg button[data-lang]').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang')===lang?'true':'false');
+    });
+    store('wlicc_lang',lang);
+  }
+  document.querySelectorAll('.seg button[data-lang]').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))});
+  });
+
+  document.querySelectorAll('.tabs button[data-track]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-track');
+      document.querySelectorAll('.tabs button[data-track]').forEach(function(x){
+        x.setAttribute('aria-selected', x.getAttribute('data-track')===t?'true':'false');
+      });
+      document.querySelectorAll('.track[data-track]').forEach(function(x){
+        x.classList.toggle('active', x.getAttribute('data-track')===t);
+      });
+    });
+  });
+
+  var fb=document.getElementById('facilBtn');
+  function setFacil(on){
+    body.classList.toggle('show-facil',on);
+    fb.setAttribute('aria-pressed', on?'true':'false');
+    store('wlicc_facil', on?'1':'0');
+  }
+  fb.addEventListener('click',function(){setFacil(!body.classList.contains('show-facil'))});
+
+  var tb=document.getElementById('themeBtn');
+  function setTheme(mode){
+    if(mode==='system'){root.removeAttribute('data-theme');}
+    else root.setAttribute('data-theme',mode);
+    var dark = mode==='dark' || (mode==='system' && matchMedia('(prefers-color-scheme:dark)').matches);
+    tb.textContent = dark?'☀️':'🌙';
+    store('wlicc_theme',mode);
+  }
+  tb.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var isDark = cur==='dark' || (!cur && matchMedia('(prefers-color-scheme:dark)').matches);
+    setTheme(isDark?'light':'dark');
+  });
+
+  var cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',function(){
+    var txt=document.getElementById('fastLink').textContent.trim();
+    var done=function(){var o=cb.textContent;cb.textContent='✓';setTimeout(function(){cb.textContent=o},1400)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done)}
+    else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);done()}
+  });
+
+  document.getElementById('printBtn').addEventListener('click',function(){window.print()});
+
+  setLang(load('wlicc_lang')||'vi');
+  setFacil(load('wlicc_facil')==='1');
+  setTheme(load('wlicc_theme')||'system');
+})();
+</script>
+<script src="../nav.js" defer></script>
+</body>
+</html>
