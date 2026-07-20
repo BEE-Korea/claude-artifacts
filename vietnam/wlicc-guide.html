@@ -250,9 +250,9 @@
       <button data-lang="en" aria-pressed="false">English</button>
       <button data-lang="ko" aria-pressed="false">한국어</button>
     </div>
-    <button class="facil-toggle" id="facilBtn" aria-pressed="false" title="Show Zoom talking points (English)">
+    <button class="facil-toggle" id="facilBtn" aria-pressed="false" title="Show the presenter's talking points (English)">
       <span class="sw" aria-hidden="true"></span>
-      <span data-en="Zoom script" data-vi="Zoom script" data-ko="Zoom 멘트">Zoom script</span>
+      <span data-en="Presenter guide" data-vi="Người hướng dẫn" data-ko="설명자 가이드">Người hướng dẫn</span>
     </button>
     <button class="icon-btn" id="printBtn" title="Print / Save as PDF" aria-label="Print">🖨️</button>
     <button class="icon-btn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">🌙</button>
@@ -303,7 +303,7 @@
     <a class="link-pill" id="fastLink" href="https://ministry.beekorea.org/login?callbackUrl=/academy/seminars" target="_blank" rel="noopener" style="margin-top:10px">https://ministry.beekorea.org/login?callbackUrl=/academy/seminars</a>
     <div class="facil-hint note tip" style="margin-top:14px">
       <span class="ic">🎙️</span>
-      <span><b>Zoom tip:</b> Paste this link into the Zoom chat. Remind students to open it in Chrome/Safari, NOT inside Zalo or Messenger — Google login is blocked in messenger in-app browsers. First-timers should read Step 2 first.</span>
+      <span><b>For the presenter:</b> Share this link with students (e.g. paste it in the class / Zoom chat). Remind them to open it in Chrome/Safari, NOT inside Zalo or Messenger — Google login is blocked in messenger in-app browsers. First-timers should read Step 2 first.</span>
     </div>
   </div>
 
@@ -353,7 +353,7 @@
           </div>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Everyone, open your browser and go to ministry dot beekorea dot org. Now look for the small globe icon — tap it and choose Vietnamese. Raise your hand in Zoom when your screen is in Vietnamese, and I'll wait for everyone."</p>
         </div>
       </div>
@@ -416,7 +416,7 @@
           </div>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Now tap 'Sign in with Google' and pick your Gmail. If you've used the system before, you'll go straight to the home page. If it's your first time, you'll see a search box — type your name and tap 'This is me' if you find it. If you're not listed, tap 'Skip search, register new' and fill in your name, gender, and country as Vietnam. Tell me in chat if you get stuck and I'll share my screen."</p>
         </div>
       </div>
@@ -459,7 +459,7 @@
           <figcaption data-en="💻 On a computer" data-vi="💻 Trên máy tính" data-ko="💻 컴퓨터">💻 Trên máy tính</figcaption>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Open the Academy Manager app. On a computer it's the left menu; on a phone tap the ☰ button at the top-left first to open the menu. Then, under 'My Learning', tap 'Available Seminars'. If you opened my link, you're already on this page."</p>
         </div>
       </div>
@@ -490,7 +490,7 @@
           </div>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Tap the 'Online' filter (or 'Offline' for an in-person seminar) and find your course — today it's 'Academic Essay Writing' for Vietnam. If the list feels confusing, tap 'Đăng ký đơn giản', Easy Apply, and it will guide you step by step. Important — there are two Writing seminars: one for BTh and one for MDiv, with different fees. I'll tell you which one is yours, so please don't tap Apply until I confirm your program."</p>
         </div>
       </div>
@@ -513,7 +513,7 @@
           </div>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Now tap 'Apply' on your seminar. A small box pops up asking you to confirm — check the course name and your program (BTh or MDiv) are correct, then tap the green 'Apply' button to confirm. That's it — you've registered."</p>
         </div>
       </div>
@@ -537,7 +537,7 @@
           </div>
         </figure>
         <div class="facil">
-          <div class="flabel">🎙️ Say this on Zoom (English)</div>
+          <div class="flabel">🎙️ For the presenter — say this (English)</div>
           <p>"Great — your seminar now says 'Registered'. Our staff will approve it shortly, so there's nothing more you need to do today. You can always check it later under 'My Courses'. Congratulations, you're registered for the class!"</p>
         </div>
       </div>
@@ -634,6 +634,11 @@
     root.setAttribute('lang',lang);
     document.querySelectorAll('.seg button[data-lang]').forEach(function(b){
       b.setAttribute('aria-pressed', b.getAttribute('data-lang')===lang?'true':'false');
+    });
+    // nav.js(공용 햄버거 목차)는 로드 시점 제목 텍스트를 복사해둠 → 언어 바꾸면 동기화
+    document.querySelectorAll('.ca-panel a[href^="#ca-sec-"]').forEach(function(a){
+      var el=document.getElementById(a.getAttribute('href').slice(1));
+      if(el) a.textContent=el.textContent.trim();
     });
     store('wlicc_lang',lang);
   }
