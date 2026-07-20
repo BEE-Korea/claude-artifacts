@@ -157,6 +157,10 @@
   .note.tip{background:var(--primary-soft);border:1px solid color-mix(in srgb,var(--primary) 35%,transparent);color:var(--ink)}
   .note.warn{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);color:var(--ink)}
   .note b{font-weight:700}
+  .browser-alert{margin:0 0 24px;border-width:2px;align-items:flex-start}
+  .browser-alert b{display:block;font-size:1rem;margin-bottom:4px}
+  .browser-alert p{margin:0;font-size:.92rem;color:var(--ink)}
+  .browser-alert .ic{font-size:1.3rem}
 
   .tabs{display:flex;gap:8px;margin:4px 0 16px;flex-wrap:wrap}
   .tabs button{flex:1;min-width:150px;border:1px solid var(--border);background:var(--surface-2);
@@ -272,6 +276,18 @@
     </div>
   </header>
 
+  <div class="note warn browser-alert">
+    <span class="ic">🌐</span>
+    <div>
+      <b data-en="Open in Chrome / Safari — NOT inside a messenger app"
+         data-vi="Mở bằng Chrome / Safari — ĐỪNG mở trong ứng dụng nhắn tin"
+         data-ko="메신저 앱이 아니라 Chrome / Safari로 여세요">Mở bằng Chrome / Safari — ĐỪNG mở trong ứng dụng nhắn tin</b>
+      <p data-en="If you open this from Zalo, Facebook Messenger or Kakao, Google sign-in will likely be blocked. Tap the ⋮ or “…” menu in the corner and choose “Open in browser” (Chrome / Safari), then continue."
+         data-vi="Nếu bạn mở từ Zalo, Facebook Messenger hoặc Kakao, đăng nhập Google thường bị chặn. Hãy nhấn menu ⋮ hoặc “…” ở góc màn hình và chọn “Mở trong trình duyệt” (Chrome / Safari), rồi tiếp tục."
+         data-ko="Zalo·페이스북 메신저·카카오 등에서 열면 Google 로그인이 대개 막힙니다. 화면 모서리의 ⋮ 또는 “…” 메뉴 → “브라우저로 열기”(Chrome / Safari) 선택 후 진행하세요.">Nếu bạn mở từ Zalo, Facebook Messenger hoặc Kakao, đăng nhập Google thường bị chặn. Hãy nhấn menu ⋮ hoặc “…” ở góc màn hình và chọn “Mở trong trình duyệt” (Chrome / Safari), rồi tiếp tục.</p>
+    </div>
+  </div>
+
   <div class="fast">
     <h2>⚡ <span data-en="Fastest way — one link" data-vi="Cách nhanh nhất — một đường link" data-ko="가장 빠른 방법 — 링크 하나">Cách nhanh nhất — một đường link</span></h2>
     <p data-en="Open this link and sign in with Google. It takes you straight to the seminar list — then jump to Step 4."
@@ -285,7 +301,7 @@
     <a class="link-pill" id="fastLink" href="https://ministry.beekorea.org/login?callbackUrl=/academy/seminars" target="_blank" rel="noopener" style="margin-top:10px">https://ministry.beekorea.org/login?callbackUrl=/academy/seminars</a>
     <div class="facil-hint note tip" style="margin-top:14px">
       <span class="ic">🎙️</span>
-      <span><b>Zoom tip:</b> Paste this link into the Zoom chat. Ask everyone to open it and sign in with their Gmail. First-timers should read Step 2 first.</span>
+      <span><b>Zoom tip:</b> Paste this link into the Zoom chat. Remind students to open it in Chrome/Safari, NOT inside Zalo or Messenger — Google login is blocked in messenger in-app browsers. First-timers should read Step 2 first.</span>
     </div>
   </div>
 
