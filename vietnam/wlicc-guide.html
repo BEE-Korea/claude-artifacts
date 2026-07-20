@@ -103,11 +103,17 @@
   .fast p{margin:0 0 14px;color:var(--muted);font-size:.94rem;max-width:56ch}
   .linkrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
   .link-pill{font-family:var(--mono);font-size:.86rem;background:var(--surface);border:1px solid var(--border-strong);
-    color:var(--primary-ink);padding:9px 13px;border-radius:9px;word-break:break-all;flex:1;min-width:220px}
-  .copy{border:0;background:var(--primary);color:#fff;font:inherit;font-weight:700;font-size:.86rem;
-    padding:10px 16px;border-radius:9px;cursor:pointer;white-space:nowrap}
+    color:var(--primary-ink);padding:9px 13px;border-radius:9px;word-break:break-all;flex:1;min-width:220px;
+    text-decoration:none;cursor:pointer;display:block}
+  a.link-pill:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-soft)}
+  a.link-pill:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+  .copy{border:0;background:var(--primary);color:#fff;font:inherit;font-weight:700;font-size:.9rem;
+    padding:11px 18px;border-radius:9px;cursor:pointer;white-space:nowrap;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px}
   .copy:hover{filter:brightness(1.06)}
   .copy:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+  .copy.secondary{background:transparent;color:var(--primary);border:1px solid var(--border-strong);font-weight:600}
+  .copy.secondary:hover{border-color:var(--primary);filter:none;background:var(--primary-soft)}
 
   section{margin:34px 0}
   .kicker{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
@@ -132,6 +138,9 @@
   ul.arrows{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:9px}
   ul.arrows li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:.97rem}
   ul.arrows li::before{content:"→";color:var(--accent);font-weight:800;flex:none}
+  .step-body a{color:var(--primary);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  .step-body a:hover{color:var(--primary-ink)}
+  .step-body a:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:3px}
 
   .app-path{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:.92rem;
     background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:8px 12px;margin:4px 0}
@@ -269,9 +278,11 @@
        data-vi="Mở link này và đăng nhập bằng Google. Bạn sẽ vào thẳng danh sách hội thảo — rồi chuyển tới Bước 4."
        data-ko="이 링크를 열고 Google로 로그인하면 세미나 목록으로 바로 이동합니다 — 그다음 4단계로.">Mở link này và đăng nhập bằng Google. Bạn sẽ vào thẳng danh sách hội thảo — rồi chuyển tới Bước 4.</p>
     <div class="linkrow">
-      <code class="link-pill" id="fastLink">https://ministry.beekorea.org/login?callbackUrl=/academy/seminars</code>
-      <button class="copy" id="copyBtn" data-en="Copy link" data-vi="Sao chép" data-ko="복사">Sao chép</button>
+      <a class="copy" id="openBtn" href="https://ministry.beekorea.org/login?callbackUrl=/academy/seminars" target="_blank" rel="noopener"
+         data-en="Open Ministry Manager ↗" data-vi="Mở Ministry Manager ↗" data-ko="Ministry Manager 열기 ↗">Mở Ministry Manager ↗</a>
+      <button class="copy secondary" id="copyBtn" data-en="Copy link" data-vi="Sao chép link" data-ko="링크 복사">Sao chép link</button>
     </div>
+    <a class="link-pill" id="fastLink" href="https://ministry.beekorea.org/login?callbackUrl=/academy/seminars" target="_blank" rel="noopener" style="margin-top:10px">https://ministry.beekorea.org/login?callbackUrl=/academy/seminars</a>
     <div class="facil-hint note tip" style="margin-top:14px">
       <span class="ic">🎙️</span>
       <span><b>Zoom tip:</b> Paste this link into the Zoom chat. Ask everyone to open it and sign in with their Gmail. First-timers should read Step 2 first.</span>
@@ -286,12 +297,18 @@
           <li data-en="A phone or computer with a web browser" data-vi="Điện thoại hoặc máy tính có trình duyệt web" data-ko="웹 브라우저가 있는 휴대폰 또는 컴퓨터">Điện thoại hoặc máy tính có trình duyệt web</li>
           <li data-en="A stable internet connection" data-vi="Kết nối internet ổn định" data-ko="안정적인 인터넷 연결">Kết nối internet ổn định</li>
           <li data-en="Your Google (Gmail) account — you log in with Google" data-vi="Tài khoản Google (Gmail) — bạn đăng nhập bằng Google" data-ko="본인 Google(Gmail) 계정 — Google로 로그인합니다">Tài khoản Google (Gmail) — bạn đăng nhập bằng Google</li>
-          <li data-en="The website: ministry.beekorea.org" data-vi="Trang web: ministry.beekorea.org" data-ko="웹사이트: ministry.beekorea.org">Trang web: ministry.beekorea.org</li>
+          <li><span data-en="The website:" data-vi="Trang web:" data-ko="웹사이트:">Trang web:</span>&nbsp;<a href="https://ministry.beekorea.org" target="_blank" rel="noopener">ministry.beekorea.org</a></li>
         </ul>
         <div class="note warn"><span class="ic">💡</span>
-          <span data-en="No Gmail? Tell the facilitator — they will help you create one, or register you a different way."
-                data-vi="Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác."
-                data-ko="Gmail이 없나요? 안내자에게 말씀하세요 — 만드는 것을 돕거나 다른 방법으로 등록해 드립니다.">Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác.</span>
+          <div>
+            <span data-en="No Gmail? Tell the facilitator — they will help you create one, or register you a different way."
+                  data-vi="Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác."
+                  data-ko="Gmail이 없나요? 안내자에게 말씀하세요 — 만드는 것을 돕거나 다른 방법으로 등록해 드립니다.">Chưa có Gmail? Hãy báo cho người hướng dẫn — họ sẽ giúp bạn tạo một tài khoản hoặc đăng ký theo cách khác.</span>
+            <a href="https://www.youtube.com/watch?v=pajP80UqnOU" target="_blank" rel="noopener" style="display:inline-block;margin-top:7px"
+               data-en="▶ Watch: how to create a Gmail (Vietnamese)"
+               data-vi="▶ Xem video: cách tạo tài khoản Gmail (Tiếng Việt)"
+               data-ko="▶ Gmail 만드는 방법 영상 보기 (베트남어)">▶ Xem video: cách tạo tài khoản Gmail (Tiếng Việt)</a>
+          </div>
         </div>
       </div>
     </div>
@@ -355,7 +372,7 @@
              data-vi="Sau khi đăng nhập bằng Google, hệ thống kiểm tra xem bạn đã có trong dữ liệu BEE chưa."
              data-ko="Google 로그인 후, 시스템이 BEE DB에 본인이 있는지 확인합니다.">Sau khi đăng nhập bằng Google, hệ thống kiểm tra xem bạn đã có trong dữ liệu BEE chưa.</p>
           <p class="sub" style="font-weight:700;color:var(--primary-ink);margin-top:12px"
-             data-en="If a missionary pre-registered you:" data-vi="Nếu giáo sĩ đã đăng ký trước cho bạn:" data-ko="선교사가 미리 등록해둔 경우:">Nếu giáo sĩ đã đăng ký trước cho bạn:</p>
+             data-en="If an administrator pre-registered you:" data-vi="Nếu quản trị viên đã đăng ký trước cho bạn:" data-ko="관리자가 미리 등록해둔 경우:">Nếu quản trị viên đã đăng ký trước cho bạn:</p>
           <ul class="arrows">
             <li data-en="Type your name → tap Tìm kiếm (Search)" data-vi="Nhập tên của bạn → nhấn Tìm kiếm" data-ko="이름 입력 → 검색(Tìm kiếm)">Nhập tên của bạn → nhấn Tìm kiếm</li>
             <li><span data-en="Find your name → tap" data-vi="Tìm đúng tên → nhấn" data-ko="본인 이름 찾기 → 누르기">Tìm đúng tên → nhấn</span>&nbsp;<span class="btn-ghost">Đây là tôi</span></li>
@@ -528,9 +545,15 @@
 
     <details>
       <summary data-en="Google login won't work / I don't have Gmail" data-vi="Đăng nhập Google không được / tôi không có Gmail" data-ko="Google 로그인이 안 돼요 / Gmail이 없어요">Đăng nhập Google không được / tôi không có Gmail</summary>
-      <div class="ans" data-en="Tell the facilitator. They can help you create a Gmail, or register you another way so you don't miss the class."
-           data-vi="Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học."
-           data-ko="안내자에게 알리세요. Gmail 생성을 돕거나 다른 방법으로 등록해 수업을 놓치지 않게 해드립니다.">Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học.</div>
+      <div class="ans">
+        <span data-en="Tell the facilitator. They can help you create a Gmail, or register you another way so you don't miss the class."
+              data-vi="Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học."
+              data-ko="안내자에게 알리세요. Gmail 생성을 돕거나 다른 방법으로 등록해 수업을 놓치지 않게 해드립니다.">Hãy báo cho người hướng dẫn. Họ có thể giúp bạn tạo Gmail, hoặc đăng ký cách khác để bạn không lỡ buổi học.</span>
+        <a href="https://www.youtube.com/watch?v=pajP80UqnOU" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;color:var(--primary);font-weight:700;text-decoration:underline"
+           data-en="▶ Watch: how to create a Gmail (Vietnamese)"
+           data-vi="▶ Xem video: cách tạo tài khoản Gmail (Tiếng Việt)"
+           data-ko="▶ Gmail 만드는 방법 영상 보기 (베트남어)">▶ Xem video: cách tạo tài khoản Gmail (Tiếng Việt)</a>
+      </div>
     </details>
 
     <details>
