@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>FM 재정 장부 사용 가이드 — BEE Korea</title>
+<style>
+  :root{
+    --paper:#f7f3ea; --card:#fffdf8; --ink:#21304d; --ink-soft:#46506a;
+    --line:#e4dcc9; --accent:#5b7a2f; --accent-soft:#eef3e2; --warn-bg:#fdf0e7; --warn-line:#e8c9a8;
+    --teach-bg:#eaf1f8; --teach-line:#bcd2e8; --shadow:0 1px 3px rgba(60,50,20,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--paper:#12161f;--card:#1a2029;--ink:#eae3d3;--ink-soft:#c3bdae;--line:#2c3442;
+      --accent:#9dbb60;--accent-soft:#232c1a;--warn-bg:#2c231a;--warn-line:#584427;
+      --teach-bg:#1a2531;--teach-line:#2e4a63;--shadow:none;}
+    img.shot{opacity:.94;}
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',system-ui,sans-serif;line-height:1.65;}
+  .wrap{max-width:880px;margin:0 auto;padding:28px 18px 80px;}
+  header.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:6px;}
+  h1{font-size:1.5rem;line-height:1.3;}
+  .sub{color:var(--ink-soft);font-size:.92rem;margin:6px 0 18px;}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .lang-btn,.teach-btn,.print-btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:20px;padding:5px 14px;font-size:.85rem;cursor:pointer;}
+  .lang-btn.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .teach-btn.on{background:#3a6ea5;border-color:#3a6ea5;color:#fff;}
+  section.step{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px;margin:16px 0;box-shadow:var(--shadow);}
+  .stepnum{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
+    border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:.9rem;margin-right:8px;flex:none;}
+  h2{font-size:1.12rem;display:flex;align-items:center;margin-bottom:10px;}
+  h3{font-size:.98rem;margin:14px 0 6px;}
+  p,li{font-size:.95rem;color:var(--ink);}
+  ul,ol{padding-left:22px;margin:8px 0;}
+  li{margin:4px 0;}
+  img.shot{width:100%;border:1px solid var(--line);border-radius:10px;margin:12px 0 4px;display:block;}
+  .cap{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-bottom:6px;}
+  .tip{background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:.9rem;}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:.9rem;}
+  .teach{display:none;background:var(--teach-bg);border:1px dashed var(--teach-line);border-radius:10px;
+    padding:12px 14px;margin:12px 0 2px;font-size:.9rem;}
+  body.teach-on .teach{display:block;}
+  .teach .tlabel{font-weight:700;font-size:.8rem;letter-spacing:.04em;color:#3a6ea5;display:block;margin-bottom:4px;}
+  @media (prefers-color-scheme: dark){ .teach .tlabel{color:#8fb8dd;} }
+  .biglink{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;
+    border-radius:12px;padding:14px;font-size:1.05rem;font-weight:700;margin:14px 0;}
+  code{background:var(--accent-soft);border-radius:5px;padding:1px 6px;font-size:.87em;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--accent-soft);}
+  .toc{font-size:.9rem;columns:2;column-gap:24px;}
+  .toc li{break-inside:avoid;}
+  footer{margin-top:34px;color:var(--ink-soft);font-size:.8rem;text-align:center;}
+  [data-l]{display:none;}
+  html[data-lang="ko"] [data-l~="ko"],html[data-lang="en"] [data-l~="en"],html[data-lang="vi"] [data-l~="vi"]{display:revert;}
+  @media print{
+    .controls,.biglink{display:none;} body{background:#fff;} section.step{break-inside:avoid;box-shadow:none;}
+    body.teach-on .teach{display:block;}
+  }
+  @media(max-width:600px){ .toc{columns:1;} .wrap{padding:18px 12px 60px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>💰 <span data-l="ko">FM 재정 장부 사용 가이드</span><span data-l="en">FM Ledger User Guide</span><span data-l="vi">Hướng dẫn sử dụng Sổ tài chính FM</span></h1>
+  <div class="controls">
+    <button class="lang-btn" data-setlang="ko">한국어</button>
+    <button class="lang-btn" data-setlang="en">English</button>
+    <button class="lang-btn" data-setlang="vi">Tiếng Việt</button>
+    <button class="teach-btn" id="teachToggle">🎓 <span data-l="ko">가르치는 분 가이드</span><span data-l="en">Teacher's guide</span><span data-l="vi">HD cho người hướng dẫn</span></button>
+    <button class="print-btn" onclick="print()">🖨</button>
+  </div>
+</header>
+<p class="sub">
+  <span data-l="ko">BEE Korea 선교사 재정 기록이 Airtable에서 <b>ministry.beekorea.org</b>로 옮겨졌습니다. 이제 모든 수입·지출은 여기에 기록합니다. 예전 기록(2026년 포함)은 이미 전부 옮겨져 있습니다 — 끊긴 곳에서 이어서 쓰시면 됩니다.</span>
+  <span data-l="en">BEE Korea missionary bookkeeping has moved from Airtable to <b>ministry.beekorea.org</b>. Record all income and expenses here from now on. All past records (incl. 2026) are already migrated — just continue where you left off.</span>
+  <span data-l="vi">Sổ sách tài chính của BEE Korea đã chuyển từ Airtable sang <b>ministry.beekorea.org</b>. Từ nay hãy ghi mọi khoản thu chi tại đây. Toàn bộ dữ liệu cũ (kể cả 2026) đã được chuyển sẵn.</span>
+</p>
+
+<div class="teach"><span class="tlabel">🎓 <span data-l="ko">이 가이드를 가르치는 법</span><span data-l="en">HOW TO TEACH THIS</span><span data-l="vi">CÁCH HƯỚNG DẪN</span></span>
+  <span data-l="ko">파란 상자는 <b>가르치는 분(태남·지부장·코디)</b>만 보는 멘트입니다. 온보딩은 15분이면 충분합니다: ①로그인 확인(2분) ②첫 거래를 <b>같이</b> 입력(5분) ③"임시→확인" 개념(3분) ④잔액·보고서 보여주기(3분) ⑤질문(2분). 핵심 원칙: <b>설명하지 말고 본인 폰/컴퓨터로 직접 하게 하세요.</b> 첫 입력을 성공하면 나머지는 스스로 합니다.</span>
+  <span data-l="en">Blue boxes are for the <b>person teaching</b>. Onboarding takes 15 minutes: ① confirm login (2m) ② enter the first transaction <b>together</b> (5m) ③ the "draft → confirm" concept (3m) ④ show balance & reports (3m) ⑤ questions (2m). Key principle: <b>don't explain — have them do it on their own device.</b></span>
+  <span data-l="vi">Ô màu xanh dành cho <b>người hướng dẫn</b>. Chỉ cần 15 phút: ① đăng nhập (2p) ② nhập giao dịch đầu tiên <b>cùng nhau</b> (5p) ③ khái niệm "tạm → xác nhận" (3p) ④ xem số dư & báo cáo (3p) ⑤ hỏi đáp (2p). Nguyên tắc: <b>để họ tự làm trên thiết bị của mình.</b></span>
+</div>
+
+<section class="step">
+  <h2><span data-l="ko">📋 차례</span><span data-l="en">📋 Contents</span><span data-l="vi">📋 Mục lục</span></h2>
+  <ol class="toc">
+    <li><a href="#s1"><span data-l="ko">로그인</span><span data-l="en">Log in</span><span data-l="vi">Đăng nhập</span></a></li>
+    <li><a href="#s2"><span data-l="ko">FM 홈 읽는 법</span><span data-l="en">Reading the FM home</span><span data-l="vi">Màn hình chính FM</span></a></li>
+    <li><a href="#s3"><span data-l="ko">거래 입력 — 영수증 먼저</span><span data-l="en">Enter a transaction — receipt first</span><span data-l="vi">Nhập giao dịch — hóa đơn trước</span></a></li>
+    <li><a href="#s4"><span data-l="ko">과목 고르기와 나라 확인</span><span data-l="en">Category & country</span><span data-l="vi">Chọn hạng mục & quốc gia</span></a></li>
+    <li><a href="#s5"><span data-l="ko">임시 → 확인 (제일 중요!)</span><span data-l="en">Draft → Confirm (important!)</span><span data-l="vi">Tạm → Xác nhận (quan trọng!)</span></a></li>
+    <li><a href="#s6"><span data-l="ko">환전 기록</span><span data-l="en">Currency exchange</span><span data-l="vi">Ghi đổi tiền</span></a></li>
+    <li><a href="#s7"><span data-l="ko">잔액·보고서 보기</span><span data-l="en">Balance & reports</span><span data-l="vi">Số dư & báo cáo</span></a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ol>
+</section>
+
+<!-- 1. 로그인 -->
+<section class="step" id="s1">
+  <h2><span class="stepnum">1</span><span data-l="ko">로그인</span><span data-l="en">Log in</span><span data-l="vi">Đăng nhập</span></h2>
+  <p data-l="ko">아래 버튼을 누르고 <b>Google로 로그인</b>하세요. BEE Korea에 등록된 이메일(평소 쓰시는 구글 계정)이면 자동으로 내 장부가 열립니다.</p>
+  <p data-l="en">Tap the button below and sign in <b>with Google</b>. If it's the email registered with BEE Korea, your ledger opens automatically.</p>
+  <p data-l="vi">Nhấn nút bên dưới và <b>đăng nhập bằng Google</b> (email đã đăng ký với BEE Korea).</p>
+  <a class="biglink" href="https://ministry.beekorea.org/login?callbackUrl=%2Ffm">
+    <span data-l="ko">👉 내 장부 열기 (ministry.beekorea.org)</span>
+    <span data-l="en">👉 Open my ledger (ministry.beekorea.org)</span>
+    <span data-l="vi">👉 Mở sổ của tôi (ministry.beekorea.org)</span>
+  </a>
+  <div class="tip">
+    <span data-l="ko">📱 폰에서도 똑같이 됩니다. 자주 쓰시면 브라우저에서 "홈 화면에 추가"를 해두세요.</span>
+    <span data-l="en">📱 Works the same on your phone. Use "Add to Home Screen" for quick access.</span>
+    <span data-l="vi">📱 Dùng được trên điện thoại. Hãy "Thêm vào màn hình chính" để mở nhanh.</span>
+  </div>
+  <div class="teach"><span class="tlabel">🎓 <span data-l="ko">멘트</span><span data-l="en">SCRIPT</span><span data-l="vi">LỜI DẪN</span></span>
+    <span data-l="ko">"구글 로그인이 안 되면 십중팔구 <b>다른 구글 계정</b>으로 들어간 겁니다. 어떤 이메일로 로그인했는지 화면 왼쪽 아래에서 확인하게 하세요. 등록된 이메일이 뭔지 모르면 본부(태남)에게 물어보면 즉시 알려줍니다. 이메일 변경도 본부에서 1분이면 됩니다."</span>
+    <span data-l="en">"If Google login fails, they almost certainly used a <b>different Google account</b>. Check the email shown at the bottom-left. HQ can tell them (or change) their registered email in a minute."</span>
+    <span data-l="vi">"Nếu không đăng nhập được, thường là do dùng <b>tài khoản Google khác</b>. Kiểm tra email ở góc trái dưới màn hình. Văn phòng có thể đổi email đăng ký trong 1 phút."</span>
+  </div>
+</section>
+
+<!-- 2. FM 홈 -->
+<section class="step" id="s2">
+  <h2><span class="stepnum">2</span><span data-l="ko">FM 홈 읽는 법</span><span data-l="en">Reading the FM home</span><span data-l="vi">Màn hình chính FM</span></h2>
+  <img class="shot" src="assets/shot-home.png" alt="FM home">
+  <p class="cap"><span data-l="ko">※ 화면의 이름·금액은 전부 예시입니다</span><span data-l="en">※ Names & amounts in screenshots are examples</span><span data-l="vi">※ Tên & số tiền trong ảnh chỉ là ví dụ</span></p>
+  <ul>
+    <li data-l="ko"><b>오늘 할 일</b> — 확인 대기(내가 확인 도장 찍을 것), 점검 필요(뭔가 이상한 것). 이게 0이면 밀린 일이 없는 겁니다.</li>
+    <li data-l="ko"><b>올해 요약 / 나라별 현황</b> — 내 장부의 수입·지출·순액. USD 환산과 원화가 함께 보입니다.</li>
+    <li data-l="ko"><b>최근 거래</b> — 방금 입력한 것이 여기 바로 나타납니다. 노란 <b>임시</b> 딱지가 붙어 있으면 아직 확정 전입니다(5단계).</li>
+    <li data-l="en"><b>Today's tasks</b> — drafts waiting for your confirmation, and items that need review.</li>
+    <li data-l="en"><b>This year / By country</b> — income, expense and net of your ledger, with USD & KRW equivalents.</li>
+    <li data-l="en"><b>Recent</b> — what you just entered appears here with a yellow <b>draft</b> tag until confirmed (step 5).</li>
+    <li data-l="vi"><b>Việc hôm nay</b> — giao dịch chờ xác nhận và mục cần kiểm tra.</li>
+    <li data-l="vi"><b>Tổng kết năm / Theo quốc gia</b> — thu, chi và số dư của sổ bạn.</li>
+    <li data-l="vi"><b>Giao dịch gần đây</b> — mục vừa nhập hiện ở đây với nhãn vàng <b>tạm</b> cho đến khi xác nhận (bước 5).</li>
+  </ul>
+  <div class="tip">
+    <span data-l="ko">🌏 왼쪽 아래에서 언어를 바꿀 수 있습니다 (한국어·English·Tiếng Việt 등 10개).</span>
+    <span data-l="en">🌏 You can switch the app language at the bottom-left (10 languages).</span>
+    <span data-l="vi">🌏 Đổi ngôn ngữ ứng dụng ở góc trái dưới (10 ngôn ngữ, có Tiếng Việt).</span>
+  </div>
+</section>
+
+<!-- 3. 거래 입력 -->
+<section class="step" id="s3">
+  <h2><span class="stepnum">3</span><span data-l="ko">거래 입력 — 영수증 먼저</span><span data-l="en">Enter a transaction — receipt first</span><span data-l="vi">Nhập giao dịch — hóa đơn trước</span></h2>
+  <p data-l="ko">오른쪽 위 <b>+ 거래 입력</b>을 누르면 아래 창이 뜹니다. <b>순서는 딱 하나만 기억하세요: 영수증 사진부터.</b></p>
+  <p data-l="en">Tap <b>+ New entry</b> (top-right). Remember one thing: <b>photo of the receipt first.</b></p>
+  <p data-l="vi">Nhấn <b>+ Nhập giao dịch</b> (góc phải trên). Chỉ cần nhớ: <b>chụp hóa đơn trước.</b></p>
+  <img class="shot" src="assets/shot-entry.png" alt="entry form">
+  <ol>
+    <li data-l="ko">📷 <b>영수증 사진 찍기</b>를 눌러 영수증을 찍으면 → AI가 <b>날짜·금액·통화·상대</b>를 자동으로 채웁니다.</li>
+    <li data-l="ko"><b>지출/수입</b>을 확인하고, <b>과목</b>만 고르면 끝. (다음 단계)</li>
+    <li data-l="ko">영수증이 없는 거래(계좌이체 등)는 그냥 금액·날짜를 직접 쓰면 됩니다.</li>
+    <li data-l="en">📷 Tap <b>photo receipt</b> — AI fills in <b>date, amount, currency, payee</b> automatically.</li>
+    <li data-l="en">Check <b>expense/income</b>, pick the <b>category</b> — done (next step).</li>
+    <li data-l="en">No receipt (e.g. bank transfer)? Just type amount & date manually.</li>
+    <li data-l="vi">📷 Nhấn <b>chụp hóa đơn</b> — AI tự điền <b>ngày, số tiền, loại tiền, người nhận</b>.</li>
+    <li data-l="vi">Kiểm tra <b>chi/thu</b>, chọn <b>hạng mục</b> — xong (bước tiếp theo).</li>
+    <li data-l="vi">Không có hóa đơn? Nhập số tiền & ngày thủ công.</li>
+  </ol>
+  <div class="teach"><span class="tlabel">🎓 <span data-l="ko">멘트</span><span data-l="en">SCRIPT</span><span data-l="vi">LỜI DẪN</span></span>
+    <span data-l="ko">"여기서 <b>실제 영수증 하나를 꺼내게 하세요.</b> 지갑에 있는 아무 영수증이나 좋습니다. 본인 폰으로 찍고 자동으로 채워지는 걸 보면 '어, Airtable보다 쉽네'가 됩니다. 이 순간이 온보딩의 전부입니다. AI가 채운 값이 틀릴 수 있다는 것도 이때 같이 — '기계가 채워도 저장 전에 눈으로 확인'이라고 말해 주세요."</span>
+    <span data-l="en">"Have them pull out <b>a real receipt</b> — any one from their wallet. Watching the fields auto-fill on their own phone is the whole onboarding. Also mention: AI can be wrong, so always glance over the values before saving."</span>
+    <span data-l="vi">"Hãy để họ lấy <b>một hóa đơn thật</b> và tự chụp bằng điện thoại của họ. Nhắc: AI có thể sai, luôn kiểm tra lại trước khi lưu."</span>
+  </div>
+</section>
+
+<!-- 4. 과목/나라 -->
+<section class="step" id="s4">
+  <h2><span class="stepnum">4</span><span data-l="ko">과목 고르기와 나라 확인</span><span data-l="en">Category & country</span><span data-l="vi">Chọn hạng mục & quốc gia</span></h2>
+  <img class="shot" src="assets/shot-entry-picker.png" alt="category picker">
+  <p data-l="ko"><b>과목</b>을 누르면 ⭐ 자주 쓰는 과목이 맨 위에 나옵니다. 대부분 여기서 끝나고, 없으면 ▸ 분류를 펼쳐 찾으세요. Airtable에서 쓰던 <b>과목 번호가 그대로</b>라 익숙할 겁니다 (511016 사역비 등).</p>
+  <p data-l="en">Tap <b>category</b> — ⭐ frequently-used ones are on top. The <b>same account codes as Airtable</b> (e.g. 511016 ministry expense).</p>
+  <p data-l="vi">Nhấn <b>hạng mục</b> — mục hay dùng ở trên cùng. <b>Mã số giống hệt Airtable</b> (vd. 511016 chi phí mục vụ).</p>
+  <img class="shot" src="assets/shot-entry-filled.png" alt="filled form">
+  <div class="warn">
+    <span data-l="ko">⚠️ 저장 전에 <b>나라</b>를 꼭 확인하세요. 거주국이 자동으로 들어가는데, <b>다른 나라 사역 중</b>이면 그 나라로 바꿔야 합니다 (예: 한국 거주인데 베트남 세미나 지출 → 베트남). 나라가 정확해야 나라별 보고서가 맞습니다.</span>
+    <span data-l="en">⚠️ Before saving, check the <b>country</b>. It defaults to where you live — change it if the expense happened during ministry <b>in another country</b>. Accurate countries make accurate reports.</span>
+    <span data-l="vi">⚠️ Trước khi lưu, kiểm tra <b>quốc gia</b>. Mặc định là nơi bạn ở — đổi nếu chi tiêu xảy ra khi đi mục vụ <b>ở nước khác</b>.</span>
+  </div>
+  <div class="teach"><span class="tlabel">🎓 <span data-l="ko">멘트</span><span data-l="en">SCRIPT</span><span data-l="vi">LỜI DẪN</span></span>
+    <span data-l="ko">"과목을 못 정하겠으면 <b>대충 제일 비슷한 걸 고르고 비고에 메모</b>하라고 하세요 — 확인(다음 단계) 전에는 언제든 고칠 수 있으니 입력을 멈추는 것보다 낫습니다. 환율은 신경 쓸 필요 없다는 것도 짚어 주세요: 매월 본부가 공식 환율을 넣어두고 자동 적용됩니다."</span>
+    <span data-l="en">"If unsure of the category: <b>pick the closest one and leave a note</b> — it's editable until confirmed. And they never need to think about exchange rates: HQ sets the official monthly rate, applied automatically."</span>
+    <span data-l="vi">"Nếu không chắc hạng mục: <b>chọn cái gần nhất và ghi chú</b> — có thể sửa trước khi xác nhận. Tỷ giá do văn phòng cài hàng tháng, tự động áp dụng."</span>
+  </div>
+</section>
+
+<!-- 5. 임시→확인 -->
+<section class="step" id="s5">
+  <h2><span class="stepnum">5</span><span data-l="ko">임시 → 확인 (제일 중요!)</span><span data-l="en">Draft → Confirm (most important!)</span><span data-l="vi">Tạm → Xác nhận (quan trọng nhất!)</span></h2>
+  <img class="shot" src="assets/shot-ledger.png" alt="ledger with drafts">
+  <p data-l="ko">저장한 거래는 먼저 노란 <b>임시</b> 상태가 됩니다. 종이 장부의 "연필로 쓴 것"과 같아서 <b>아직 고칠 수 있습니다.</b> 내용·영수증이 맞으면 거래를 열어 <b>확인</b>을 누르세요 — 그때부터 "볼펜으로 쓴 것"이 되어 수정할 수 없습니다 (잘못됐으면 취소 후 다시 입력).</p>
+  <p data-l="en">Saved entries start as yellow <b>draft</b> — like pencil in a paper ledger, <b>still editable</b>. When correct, open the entry and press <b>Confirm</b> — now it's in ink and can't be edited (cancel & re-enter if wrong).</p>
+  <p data-l="vi">Giao dịch đã lưu có nhãn vàng <b>tạm</b> — như viết bút chì, <b>còn sửa được</b>. Khi đúng rồi, mở giao dịch và nhấn <b>Xác nhận</b> — như viết bút mực, không sửa được nữa.</p>
+  <div class="warn">
+    <span data-l="ko">📌 습관 하나만: <b>주말마다 임시를 확인으로 바꿔 주세요.</b> 임시가 쌓이면 잔액·보고서가 "미확정 포함"으로만 보입니다.</span>
+    <span data-l="en">📌 One habit: <b>clear your drafts every weekend.</b> Piled-up drafts keep your balance "unconfirmed".</span>
+    <span data-l="vi">📌 Một thói quen: <b>xác nhận các mục tạm mỗi cuối tuần.</b></span>
+  </div>
+  <div class="teach"><span class="tlabel">🎓 <span data-l="ko">멘트</span><span data-l="en">SCRIPT</span><span data-l="vi">LỜI DẪN</span></span>
+    <span data-l="ko">"연필/볼펜 비유가 제일 잘 통합니다. 실제 사례: 어느 선교사님이 13건을 입력하고 전부 임시로 두셔서 열흘간 잔액이 확정되지 않았습니다. '입력 = 반, 확인 = 나머지 반'이라고 강조하세요. 참고로 다른 사람(협력 입력자)이 대신 입력한 것은 장부 주인의 <b>확인함</b>에 모입니다."</span>
+    <span data-l="en">"The pencil/ink analogy works best. Real case: a missionary entered 13 items and left them all as drafts for ten days. Stress: 'entering is half, confirming is the other half.' Entries typed by a delegate collect in the owner's <b>Inbox (확인함)</b>."</span>
+    <span data-l="vi">"Ví dụ bút chì/bút mực dễ hiểu nhất. Nhấn mạnh: 'nhập là một nửa, xác nhận là nửa còn lại.'"</span>
+  </div>
+</section>
+
+<!-- 6. 환전 -->
+<section class="step" id="s6">
+  <h2><span class="stepnum">6</span><span data-l="ko">환전 기록</span><span data-l="en">Recording currency exchange</span><span data-l="vi">Ghi đổi tiền</span></h2>
+  <p data-l="ko">달러를 현지 화폐로 바꿨을 때는 거래 두 건(나간 돈·들어온 돈)을 따로 쓰지 말고, 과목에서 <b>▸ 환전</b> 분류를 고르세요. "준 돈 → 받은 돈"만 넣으면 두 거래가 짝으로 기록되고 환율이 자동 계산됩니다.</p>
+  <p data-l="en">When exchanging money, don't write two separate entries — pick the <b>▸ Exchange</b> category. Enter "gave → received" and both sides are recorded as a pair with the rate auto-calculated.</p>
+  <p data-l="vi">Khi đổi tiền, đừng ghi hai mục riêng — chọn hạng mục <b>▸ Đổi tiền</b>. Nhập "tiền đưa → tiền nhận", hệ thống tự ghi cặp và tính tỷ giá.</p>
+  <div class="teach"><span class="tlabel">🎓 <span data-l="ko">멘트</span><span data-l="en">SCRIPT</span><span data-l="vi">LỜI DẪN</span></span>
+    <span data-l="ko">"환전을 수입/지출 두 건으로 따로 넣으면 짝이 안 맞아 점검 대상이 됩니다. 실제로 같은 환전 수입이 4번 중복 입력된 사례가 있었어요 — '환전은 환전 과목으로 한 번에'만 기억시키세요."</span>
+    <span data-l="en">"Entering an exchange as two separate entries breaks the pairing. We've seen the same exchange income entered 4 times — teach 'exchange = the exchange category, once.'"</span>
+    <span data-l="vi">"Nhập đổi tiền thành hai mục riêng sẽ lệch cặp. Hãy dạy: 'đổi tiền = hạng mục đổi tiền, một lần.'"</span>
+  </div>
+</section>
+
+<!-- 7. 잔액/보고서 -->
+<section class="step" id="s7">
+  <h2><span class="stepnum">7</span><span data-l="ko">잔액·보고서 보기</span><span data-l="en">Balance & reports</span><span data-l="vi">Số dư & báo cáo</span></h2>
+  <img class="shot" src="assets/shot-report.png" alt="report">
+  <ul>
+    <li data-l="ko"><b>거래</b> 화면 위에 통화별 <b>현재 잔액</b>이 항상 보입니다 — Airtable의 Remaining Total과 같은 숫자입니다.</li>
+    <li data-l="ko"><b>보고서</b>에서 기간을 고르면 나라별·과목별 집계가 나오고, 🖨 인쇄를 누르면 그대로 제출용이 됩니다. <b>월말 보고서를 따로 만들 필요가 없어졌습니다.</b></li>
+    <li data-l="en">The <b>Ledger</b> screen always shows your <b>current balance</b> per currency — same number as Airtable's Remaining Total.</li>
+    <li data-l="en"><b>Reports</b>: pick a period, get totals by country & category; 🖨 print and it's submission-ready. <b>No more separate monthly report.</b></li>
+    <li data-l="vi">Màn hình <b>Giao dịch</b> luôn hiện <b>số dư hiện tại</b> theo từng loại tiền.</li>
+    <li data-l="vi"><b>Báo cáo</b>: chọn kỳ, xem tổng theo quốc gia & hạng mục; 🖨 in là nộp được. <b>Không cần làm báo cáo tháng riêng.</b></li>
+  </ul>
+</section>
+
+<!-- FAQ -->
+<section class="step" id="faq">
+  <h2><span data-l="ko">❓ 자주 묻는 질문</span><span data-l="en">❓ FAQ</span><span data-l="vi">❓ Hỏi đáp</span></h2>
+  <table>
+    <tr>
+      <th data-l="ko">질문</th><th data-l="ko">답</th>
+      <th data-l="en">Q</th><th data-l="en">A</th>
+      <th data-l="vi">Hỏi</th><th data-l="vi">Đáp</th>
+    </tr>
+    <tr>
+      <td data-l="ko">예전 기록은 어디 있나요?</td><td data-l="ko">전부 옮겨져 있습니다. <b>거래</b>에서 "전체 기간"을 누르면 2026년 처음부터 다 보입니다.</td>
+      <td data-l="en">Where are my old records?</td><td data-l="en">All migrated. In <b>Ledger</b>, choose "All time".</td>
+      <td data-l="vi">Dữ liệu cũ ở đâu?</td><td data-l="vi">Đã chuyển hết. Trong <b>Giao dịch</b>, chọn "Toàn bộ".</td>
+    </tr>
+    <tr>
+      <td data-l="ko">Airtable에도 계속 쓰나요?</td><td data-l="ko"><b>아니요.</b> 이제 여기에만 씁니다. Airtable은 곧 읽기 전용으로 잠깁니다.</td>
+      <td data-l="en">Do I still use Airtable?</td><td data-l="en"><b>No.</b> Only here from now on. Airtable will become read-only.</td>
+      <td data-l="vi">Còn dùng Airtable không?</td><td data-l="vi"><b>Không.</b> Chỉ ghi tại đây. Airtable sẽ khóa chỉ-đọc.</td>
+    </tr>
+    <tr>
+      <td data-l="ko">잘못 입력했어요.</td><td data-l="ko"><b>임시</b> 상태면 열어서 그냥 고치세요. 이미 <b>확인</b>했다면 취소(역분개) 후 새로 입력합니다.</td>
+      <td data-l="en">I made a mistake.</td><td data-l="en">If it's a <b>draft</b>, open and edit. If <b>confirmed</b>, cancel (reversal) and re-enter.</td>
+      <td data-l="vi">Nhập sai rồi.</td><td data-l="vi">Nếu còn <b>tạm</b>, mở và sửa. Nếu đã <b>xác nhận</b>, hủy rồi nhập lại.</td>
+    </tr>
+    <tr>
+      <td data-l="ko">환율은 누가 정하나요?</td><td data-l="ko">본부가 매월 1일 공식 환율을 넣습니다. 입력할 때 자동 적용되니 신경 쓰지 않아도 됩니다.</td>
+      <td data-l="en">Who sets exchange rates?</td><td data-l="en">HQ sets the official rate monthly; applied automatically.</td>
+      <td data-l="vi">Ai đặt tỷ giá?</td><td data-l="vi">Văn phòng cập nhật mỗi tháng; tự động áp dụng.</td>
+    </tr>
+    <tr>
+      <td data-l="ko">다른 사람이 제 장부에 입력해줄 수 있나요?</td><td data-l="ko">네. 협력 입력자가 입력하면 임시로 저장되고, 장부 주인이 <b>확인함</b>에서 승인합니다.</td>
+      <td data-l="en">Can someone else enter for me?</td><td data-l="en">Yes — a delegate's entries are saved as drafts; the owner approves them in the <b>Inbox</b>.</td>
+      <td data-l="vi">Người khác nhập giúp được không?</td><td data-l="vi">Được — mục của người nhập hộ ở trạng thái tạm; chủ sổ duyệt trong <b>Hộp xác nhận</b>.</td>
+    </tr>
+    <tr>
+      <td data-l="ko">막혔어요! 누구한테 물어보죠?</td><td data-l="ko">본부 권태남 선교사에게 (텔레그램/카톡). 화면 캡처와 함께 보내주시면 빠릅니다.</td>
+      <td data-l="en">I'm stuck!</td><td data-l="en">Contact HQ (Tae-Nam Kwon) via Telegram/KakaoTalk — a screenshot helps.</td>
+      <td data-l="vi">Bị kẹt!</td><td data-l="vi">Liên hệ văn phòng (Kwon Tae-Nam) qua Telegram — kèm ảnh màn hình.</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  BEE Korea · FM Ledger Guide · 2026-07 ·
+  <span data-l="ko">화면의 이름·금액은 모두 예시입니다</span>
+  <span data-l="en">All names & amounts shown are examples</span>
+  <span data-l="vi">Mọi tên & số tiền trong ảnh là ví dụ</span>
+</footer>
+</div>
+
+<script>
+  const html = document.documentElement;
+  const setLang = (l) => {
+    html.setAttribute('data-lang', l);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('on', b.dataset.setlang === l));
+    localStorage.setItem('fmGuideLang', l);
+  };
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setlang)));
+  setLang(localStorage.getItem('fmGuideLang') || 'ko');
+  const tb = document.getElementById('teachToggle');
+  tb.addEventListener('click', () => {
+    document.body.classList.toggle('teach-on');
+    tb.classList.toggle('on', document.body.classList.contains('teach-on'));
+  });
+</script>
+</body>
+</html>
