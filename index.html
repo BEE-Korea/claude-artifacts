@@ -47,6 +47,14 @@
   .arrow{color:var(--accent);font-size:20px;align-self:center;flex:none;}
   footer{margin-top:40px;padding-top:20px;border-top:1px dashed var(--line);color:var(--muted);font-size:13px;text-align:center;}
   .empty{color:var(--muted);font-size:14px;padding:20px 0;}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:999px;
+    padding:6px 15px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;
+    transition:background .12s,color .12s,border-color .12s;}
+  .chip:hover{border-color:var(--accent);}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .chip .n{opacity:.7;font-weight:500;margin-left:3px;}
+  .tag.internal{background:var(--ko-bg);color:var(--ko);}
 </style>
 </head>
 <body>
@@ -58,62 +66,89 @@
       <p class="slogan">With the Word, to the World · 말씀으로 세계로</p>
     </header>
 
+    <div class="filters" id="filters"></div>
     <div id="hub"><p class="empty">불러오는 중…</p></div>
 
-    <footer>🔒 비공개 문서는 비밀번호가 있어야 열립니다 (내용은 암호화되어 있음). 비번은 태남 님에게 문의.<br>Made with Claude · BEE Korea · 새 자료가 추가되면 이 페이지에 자동으로 나타납니다</footer>
+    <footer>🔒 표시가 붙은 비공개 문서는 비밀번호가 있어야 열립니다 (내용은 암호화). 비번은 태남 님에게 문의.<br>Made with Claude · BEE Korea · 새 자료가 추가되면 이 페이지에 자동으로 나타납니다</footer>
   </div>
 
   <script>
     // 허브 카드 = artifacts.json 단일 목록에서 생성. 카드 추가/수정은 그 파일만.
+    // 초기화면 필터(전체/공개/비공개)로 골라 봄. 모든 자료가 목록에 뜸(숨김 없음).
     (function () {
-      var hub = document.getElementById('hub');
+      var hub = document.getElementById('hub'), filters = document.getElementById('filters');
+      var LIST = [], current = 'all';
       function el(tag, cls, text) {
         var n = document.createElement(tag);
         if (cls) n.className = cls;
         if (text != null) n.textContent = text;
         return n;
       }
+      function isPublic(a) { return a.visibility !== 'private'; }
+      function card(a) {
+        var link = el('a', 'cardlink'); link.href = a.path;
+        var c = el('div', 'card');
+        c.appendChild(el('div', 'ico', a.icon || '📄'));
+        var body = el('div', 'body');
+        body.appendChild(el('p', 'ct', a.title || a.path));
+        if (a.kicker) body.appendChild(el('p', 'ck', a.kicker));
+        if (a.desc) body.appendChild(el('p', 'cd', a.desc));
+        var tag;
+        if (isPublic(a)) tag = el('span', 'tag public', '공개 · Public');
+        else if (a.locked) tag = el('span', 'tag locked', a.lockLabel || '🔒 비번 필요');
+        else tag = el('span', 'tag internal', '내부 · Internal');
+        body.appendChild(tag);
+        c.appendChild(body);
+        c.appendChild(el('div', 'arrow', '→'));
+        link.appendChild(c);
+        return link;
+      }
+      function render() {
+        var rows = LIST.filter(function (a) {
+          if (current === 'public') return isPublic(a);
+          if (current === 'private') return !isPublic(a);
+          return true;
+        });
+        hub.innerHTML = '';
+        if (!rows.length) { hub.appendChild(el('p', 'empty', '해당하는 자료가 없습니다.')); return; }
+        var order = [], byGroup = {};
+        rows.forEach(function (a) {
+          var g = a.group || '기타';
+          if (!byGroup[g]) { byGroup[g] = []; order.push(g); }
+          byGroup[g].push(a);
+        });
+        order.forEach(function (g) {
+          hub.appendChild(el('div', 'group-title', g));
+          var grid = el('div', 'grid');
+          byGroup[g].forEach(function (a) { grid.appendChild(card(a)); });
+          hub.appendChild(grid);
+        });
+      }
+      function chip(key, label, count) {
+        var b = el('button', 'chip' + (key === current ? ' on' : ''));
+        b.appendChild(document.createTextNode(label));
+        var n = el('span', 'n', '(' + count + ')'); b.appendChild(n);
+        b.onclick = function () {
+          current = key;
+          [].forEach.call(filters.children, function (c) { c.classList.remove('on'); });
+          b.classList.add('on');
+          render();
+        };
+        return b;
+      }
       fetch('artifacts.json', { cache: 'no-cache' })
         .then(function (r) { return r.json(); })
         .then(function (data) {
           var items = (data && data.items) || [];
-          // 최신이 대체한 옛 항목 자동 숨김
           var superseded = {};
           items.forEach(function (a) { if (a.supersedes) superseded[a.supersedes] = 1; });
-          // 표시 대상: current + 공개목록(public/encrypted) + 대체 안 됨
-          var visible = items.filter(function (a) {
-            return a.status !== 'archived' && a.visibility !== 'unlisted' && !superseded[a.path];
-          });
-          if (!visible.length) { hub.innerHTML = ''; hub.appendChild(el('p', 'empty', '표시할 자료가 없습니다.')); return; }
-          // 그룹 순서 = 매니페스트 등장 순서
-          var order = [], byGroup = {};
-          visible.forEach(function (a) {
-            var g = a.group || '기타';
-            if (!byGroup[g]) { byGroup[g] = []; order.push(g); }
-            byGroup[g].push(a);
-          });
-          hub.innerHTML = '';
-          order.forEach(function (g) {
-            hub.appendChild(el('div', 'group-title', g));
-            var grid = el('div', 'grid');
-            byGroup[g].forEach(function (a) {
-              var link = el('a', 'cardlink'); link.href = a.path;
-              var card = el('div', 'card');
-              card.appendChild(el('div', 'ico', a.icon || '📄'));
-              var body = el('div', 'body');
-              body.appendChild(el('p', 'ct', a.title || a.path));
-              if (a.kicker) body.appendChild(el('p', 'ck', a.kicker));
-              if (a.desc) body.appendChild(el('p', 'cd', a.desc));
-              var locked = a.visibility === 'encrypted';
-              body.appendChild(el('span', 'tag ' + (locked ? 'locked' : 'public'),
-                locked ? (a.lockLabel || '🔒 비번 필요') : '공개 · Public'));
-              card.appendChild(body);
-              card.appendChild(el('div', 'arrow', '→'));
-              link.appendChild(card);
-              grid.appendChild(link);
-            });
-            hub.appendChild(grid);
-          });
+          LIST = items.filter(function (a) { return a.status !== 'archived' && !superseded[a.path]; });
+          var pub = LIST.filter(isPublic).length, prv = LIST.length - pub;
+          filters.innerHTML = '';
+          filters.appendChild(chip('all', '전체', LIST.length));
+          filters.appendChild(chip('public', '공개', pub));
+          filters.appendChild(chip('private', '🔒 비공개', prv));
+          render();
         })
         .catch(function () {
           hub.innerHTML = '';
