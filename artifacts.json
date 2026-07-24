@@ -1,0 +1,89 @@
+{
+  "_readme": "허브 단일 목록. 카드 추가/수정 = 여기만 편집. index.html이 이걸 읽어 카드 자동 생성. visibility: public(공개목록) | unlisted(숨김·URL만) | encrypted(비밀번호). status: current | archived(숨김). supersedes에 옛 path 넣으면 그 옛 항목 자동 숨김(최신이 과거 대체). 그룹 표시 순서 = 이 배열 순서.",
+  "items": [
+    {
+      "icon": "💰", "group": "재정 · Finance",
+      "title": "재정 장부 사용 가이드",
+      "kicker": "선교사용 — Airtable → ministry.beekorea.org 전환 (한/En/Việt)",
+      "desc": "로그인 → 영수증 사진으로 거래 입력 → 임시/확인 → 잔액·보고서까지 7단계. 실제 화면 스크린샷 + \"가르치는 분 가이드\" 토글(15분 온보딩 시나리오).",
+      "path": "fm/fm-guide.html", "visibility": "public", "status": "current", "date": "2026-07-21"
+    },
+    {
+      "icon": "🐝", "group": "학사 · Academy 학생 안내",
+      "title": "BEE Korea — Login & Seminar Registration",
+      "kicker": "베트남 학생용 로그인·세미나 신청 가이드 (Việt/En/한)",
+      "desc": "Ministry Manager 로그인부터 세미나 신청(온라인·오프라인)까지 단계별. 언어 3개 전환 + 설명자 가이드 + 실제 화면 스크린샷.",
+      "path": "vietnam/wlicc-guide.html", "visibility": "public", "status": "current", "date": "2026-07-20"
+    },
+    {
+      "icon": "🎓", "group": "학사 · Academy 학생 안내",
+      "title": "WLICC 학사 운영 가이드 (내부)",
+      "kicker": "카탈로그·코호트·세미나·학생 + 운영자 실무 절차",
+      "desc": "학위 입학·코호트·등록의 전체 개념과 '어디를 클릭하나' 운영 절차. mmv2 CATALOG-COHORT-GUIDE.md 원본.",
+      "path": "private/wlicc-guide.html", "visibility": "unlisted", "status": "current", "date": "2026-07-24"
+    },
+    {
+      "icon": "🖼️", "group": "Th.M. Mission Experience · 선교 체험",
+      "title": "AI Image Studio Guide",
+      "kicker": "AI 이미지 최신화 가이드 (학생용, 영/한)",
+      "desc": "ChatGPT·Gemini로 BEE 학습서 그림을 다시 그리는 하루 가이드. 기존 이미지 재생성 중심.",
+      "path": "thm/ai-image-guide.html", "visibility": "public", "status": "current", "date": "2026-07-14"
+    },
+    {
+      "icon": "💬", "group": "Th.M. Mission Experience · 선교 체험",
+      "title": "Facilitator Phrase Card",
+      "kicker": "진행자 영어 표현 카드 (영/한 + 한글 발음)",
+      "desc": "인사·지시·칭찬·AI 사용·마무리 등 바로 쓰는 영어 문장 모음. 폰에서 스크롤로.",
+      "path": "thm/facilitator-phrases.html", "visibility": "public", "status": "current", "date": "2026-07-14"
+    },
+    {
+      "icon": "🧰", "group": "Th.M. Mission Experience · 선교 체험",
+      "title": "AI Ministry Toolkit — Day 2",
+      "kicker": "AI 사역 도구 10가지 (2일차)",
+      "desc": "학습서에서 흘러나오는 10가지 AI 스킬 — 요약·질문·번역·음성·영상·녹취. 현지 사역용.",
+      "path": "thm/ai-toolkit-day2.html", "visibility": "public", "status": "current", "date": "2026-07-14"
+    },
+    {
+      "icon": "✅", "group": "Th.M. Mission Experience · 선교 체험",
+      "title": "What I Learned — Checklist",
+      "kicker": "내가 배운 것 체크리스트",
+      "desc": "배운 스킬을 체크하고 소감 작성 → 인쇄해 인턴십 리포트에 첨부. 자동 저장.",
+      "path": "thm/skills-checklist.html", "visibility": "public", "status": "current", "date": "2026-07-14"
+    },
+    {
+      "icon": "🍷", "group": "🔒 내부 · 비밀번호 필요 (BEE 내부 문서)",
+      "title": "새 부대에 — All&One 2026",
+      "kicker": "ICT 전략 발표 (새 부대에)",
+      "desc": "2026 \"새 부대에\" 실행계획 발표 자료.",
+      "path": "private/saebudae-2026.html", "visibility": "encrypted", "lockLabel": "🔒 비번 필요 (내부)", "status": "current", "date": "2026-07-13"
+    },
+    {
+      "icon": "🖥️", "group": "🔒 내부 · 비밀번호 필요 (BEE 내부 문서)",
+      "title": "ICT 위원회 브리핑",
+      "kicker": "디지털 사역 시스템 한눈에",
+      "desc": "BEE Korea 시스템 전체 구조·현황 인포그래픽.",
+      "path": "private/ict-briefing.html", "visibility": "encrypted", "lockLabel": "🔒 비번 필요 (내부)", "status": "current", "date": "2026-07-13"
+    },
+    {
+      "icon": "🗺️", "group": "🔒 내부 · 비밀번호 필요 (BEE 내부 문서)",
+      "title": "시스템 개발 여정",
+      "kicker": "프로젝트 히스토리 인포그래픽",
+      "desc": "mmv2·bee-app 등 개발 흐름과 결정의 타임라인.",
+      "path": "private/history-infographic.html", "visibility": "encrypted", "lockLabel": "🔒 비번 필요 (내부)", "status": "current", "date": "2026-07-13"
+    },
+    {
+      "icon": "📊", "group": "🔴 민감 · 별도 비밀번호 (재정)",
+      "title": "FM 현지화 운영 청사진",
+      "kicker": "선교 재정관리 설계",
+      "desc": "여러 나라 장부를 한 원장에 담는 재정 시스템 청사진.",
+      "path": "private/confidential/fm-blueprint.html", "visibility": "encrypted", "lockLabel": "🔴 별도 비번 (민감)", "status": "current", "date": "2026-07-13"
+    },
+    {
+      "icon": "🧱", "group": "🔴 민감 · 별도 비밀번호 (재정)",
+      "title": "FM 현지화 구현 기획서",
+      "kicker": "검증본",
+      "desc": "기존 장부 위에 현장이 쓸 수 있는 층을 얹는 구현 계획.",
+      "path": "private/confidential/fm-buildplan.html", "visibility": "encrypted", "lockLabel": "🔴 별도 비번 (민감)", "status": "current", "date": "2026-07-13"
+    }
+  ]
+}
