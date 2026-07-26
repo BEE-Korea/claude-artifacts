@@ -7,13 +7,14 @@
 <title>WLICC 학사 구성 한 장 — BEE Korea</title>
 <style>
   :root {
-    --bg: #FBFAF8; --card: #FFFFFF; --ink: #26242E; --muted: #6E6A78;
+    --bg: #FBFAF8; --paper: #FBFAF8; --card: #FFFFFF; --ink: #26242E; --muted: #6E6A78;
     --accent: #5B4FC4; --accent-ink: #4A3FB0; --accent-soft: #EEECFA;
     --line: #E4E1DC; --good: #2E7D5B; --warn-soft: #FBF3E4; --warn-ink: #8A6320;
   }
+  /* --paper: 공유 목차(nav.js) 패널 배경이 이 변수를 읽음 — 없으면 다크모드에서 흰 글자가 밝은 패널에 얹혀 안 보임 */
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1B1A21; --card: #232129; --ink: #ECEAF2; --muted: #9A96A8;
+      --bg: #1B1A21; --paper: #1B1A21; --card: #232129; --ink: #ECEAF2; --muted: #9A96A8;
       --accent: #9D93F0; --accent-ink: #B0A8F4; --accent-soft: #2A2740;
       --line: #35323F; --good: #6CC49A; --warn-soft: #322B1D; --warn-ink: #D9B36A;
     }
@@ -117,6 +118,32 @@
   </div>
   <p style="color: var(--muted); font-size: .92rem;">다른 나라·다음 연도가 필요해지면 그때 표를 <b>복제</b>해 새 버전을 만듭니다. 미리 만들어 둘 필요가 없습니다.</p>
 
+  <h2>교육과정표를 고치면 어떻게 되나</h2>
+  <p>표에는 <b>상태</b>가 있고, 상태에 따라 고치는 방법이 다릅니다.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>상태</th><th>뜻</th><th>고치려면</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Draft</b> (작성 중)</td>
+          <td>아직 아무도 이 표로 입학하지 않음. 접수도 안 열림</td>
+          <td><b>자유롭게 수정</b> — 아무에게도 영향 없음</td>
+        </tr>
+        <tr>
+          <td><b>Active</b> (사용 중)</td>
+          <td>학생들이 이 표를 졸업 기준으로 쓰는 중</td>
+          <td>표 내용은 <b>잠김</b>(재학생 보호 — 시스템이 막음). 바꾸려면 아래 <b>복제</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="formula">
+    <b>복제 = "새 버전 만들기"</b> — 지금 표를 그대로 복사한 새 표(Draft)가 하나 생기는 것입니다. 원본은 손대지 않습니다.
+    <span class="expr">복제 → 복사본을 고침 → Active → 기수에 새 표 연결 → 다음 입학생부터 새 기준</span>
+    기존 학생은 옛 표 그대로 졸업합니다 (입학 당시 기준 보호).
+  </div>
+  <p style="color: var(--muted); font-size: .92rem;">참고: 과목의 이름·번호·기본 학점은 표가 아니라 <b>과목</b>에 있습니다. 과목에서 고치면 작성 중(Draft) 표에는 자동 반영되고, 사용 중(Active) 표는 보호되어 그대로 유지됩니다.</p>
+
   <h2>졸업 필요 학점은 이렇게 계산됩니다</h2>
   <div class="formula">
     필수 과목은 <b>전부</b>, 선택 과목은 <b>상한까지만</b> 인정합니다.
@@ -127,7 +154,7 @@
 
   <h2>새 교육과정을 여는 절차 (실제 리허설로 검증한 순서)</h2>
   <ol class="steps">
-    <li><b>표 복제</b> — 기존 교육과정표에서 새 버전을 복제합니다.<span class="note">같은 학위·나라·연도 중복은 시스템이 막습니다.</span></li>
+    <li><b>새 버전 만들기 (복제)</b> — 기존 표를 그대로 복사한 새 표가 만들어집니다. 원본은 그대로 두고 복사본을 고칩니다.<span class="note">같은 학위·나라·연도 중복은 시스템이 막습니다.</span></li>
     <li><b>검토·수정</b> — Draft 상태에서 과목 구성·필수/선택을 다듬습니다.<span class="note">과목 이름·번호·학점 자체는 과목 상세에서 고칩니다 (아래 표).</span></li>
     <li><b>Active 전환</b> — 이 순간부터 표는 동결됩니다. 재학생 보호 장치입니다.</li>
     <li><b>기수 만들기</b> — 표를 연결하고 학비 단가를 정합니다.</li>
@@ -143,7 +170,7 @@
         <tr><td>과목 이름 · 과목번호 · 학점(기본값)</td><td><b>과목 상세</b> — 연필 아이콘. 여기가 유일한 편집 장소</td></tr>
         <tr><td>표에 과목 넣기/빼기 · 필수/선택 구분</td><td><b>교육과정표</b> 화면 (Draft일 때)</td></tr>
         <tr><td>특정 표에서만 학점을 다르게</td><td>교육과정표에서 <b>"예외 설정"</b> — 예외임이 표시됩니다</td></tr>
-        <tr><td>학비 단가 · 졸업식 비용</td><td><b>기수</b> 설정</td></tr>
+        <tr><td>학비 단가 · 졸업식 비용</td><td><b>기수</b> — 만들 때와 기수 상세에서 금액·통화 입력. 수강 승인 시 이 단가 × 과목 학점으로 자동 청구</td></tr>
         <tr><td>표 이름 · 버전</td><td>언제든 변경 가능 (Active여도 이름은 자유)</td></tr>
       </tbody>
     </table>
@@ -152,11 +179,11 @@
   <h2>자주 나오는 질문</h2>
   <dl class="faq">
     <dt>기준(과목·학점)이 중간에 바뀌면?</dt>
-    <dd>Draft인 표는 그냥 고치면 됩니다. <strong>Active인 표는 복제해 새 버전을 만들어 다음 기수부터</strong> 적용합니다 — 재학생의 졸업 기준은 입학 당시 표로 보호됩니다. (재학생에게도 새 기준을 소급할지는 별도 결정 사항)</dd>
+    <dd>위 <strong>"교육과정표를 고치면 어떻게 되나"</strong> 그대로입니다 — Draft는 바로 수정, Active는 복제해 새 버전을 다음 기수부터. (재학생에게도 새 기준을 소급할지는 별도 결정 사항)</dd>
     <dt>학생이 다른 나라로 이주하면?</dt>
     <dd>학점은 학적을 따라갑니다. 카타르에서 듣다가 인도에서 이어 들어도 <strong>같은 학적에 자동 누적</strong>됩니다.</dd>
-    <dt>한 세미나에 여러 과정 학생이 섞여 있으면?</dt>
-    <dd>정상입니다. 세미나는 과목만 정하고, <strong>학점·비용은 학생마다 자기 과정 기준으로 자동</strong> 계산됩니다.</dd>
+    <dt>한 교실에서 BTh·MDiv 학생이 같이 수업하면?</dt>
+    <dd>수업은 한 방에서 함께 해도, 시스템에는 <strong>세미나를 과정별로 따로 개설</strong>합니다 (BTh반 세미나 + MDiv반 세미나, 2~3개). 같은 갈라디아서라도 과정마다 과목번호·학점·학비가 다르기 때문입니다. 학생은 자기 과정의 세미나에 등록합니다.</dd>
   </dl>
 
   <footer>
