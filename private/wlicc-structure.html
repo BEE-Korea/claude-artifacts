@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>WLICC 학사 구성 한 장 — BEE Korea</title>
+<style>
+  :root {
+    --bg: #FBFAF8; --card: #FFFFFF; --ink: #26242E; --muted: #6E6A78;
+    --accent: #5B4FC4; --accent-ink: #4A3FB0; --accent-soft: #EEECFA;
+    --line: #E4E1DC; --good: #2E7D5B; --warn-soft: #FBF3E4; --warn-ink: #8A6320;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1B1A21; --card: #232129; --ink: #ECEAF2; --muted: #9A96A8;
+      --accent: #9D93F0; --accent-ink: #B0A8F4; --accent-soft: #2A2740;
+      --line: #35323F; --good: #6CC49A; --warn-soft: #322B1D; --warn-ink: #D9B36A;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink); margin: 0;
+    font-family: "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+    line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 56rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  .eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .14em; color: var(--accent-ink); text-transform: uppercase; margin: 0 0 .6rem; }
+  h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.25; margin: 0 0 .5rem; text-wrap: balance; }
+  .lede { color: var(--muted); font-size: 1.02rem; max-width: 42rem; margin: 0 0 2.8rem; }
+  h2 { font-size: 1.18rem; font-weight: 700; letter-spacing: -.01em; margin: 3rem 0 1rem; padding-top: 2.2rem; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+  h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 2rem; }
+  p { margin: .6rem 0; }
+  .concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .9rem; margin: 1.2rem 0; }
+  .concept { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.2rem 1rem; }
+  .concept .k { display: inline-block; font-size: .8rem; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); border-radius: 5px; padding: .1rem .55rem; margin-bottom: .55rem; }
+  .concept h3 { font-size: 1.02rem; font-weight: 700; margin: 0 0 .35rem; }
+  .concept p { font-size: .92rem; color: var(--muted); margin: 0; }
+  .concept p strong { color: var(--ink); font-weight: 600; }
+  .metaphor { background: var(--accent-soft); border-radius: 10px; padding: 1rem 1.25rem; margin: 1.4rem 0; font-size: .97rem; }
+  .metaphor strong { color: var(--accent-ink); }
+  .tablewrap { overflow-x: auto; margin: 1.2rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: .6rem .9rem; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: 0; }
+  th { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  td.num { font-variant-numeric: tabular-nums; }
+  .formula { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.25rem; margin: 1.2rem 0; font-size: 1rem; }
+  .formula .expr { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .95rem; display: block; margin: .5rem 0; overflow-x: auto; white-space: nowrap; }
+  .steps { list-style: none; counter-reset: step; margin: 1.3rem 0; padding: 0; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 1.3rem 3rem; }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 0; top: .05rem;
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    background: var(--accent); color: var(--bg); font-weight: 700; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps li:not(:last-child)::after { content: ""; position: absolute; left: .93rem; top: 2.2rem; bottom: .2rem; width: 2px; background: var(--line); }
+  .steps b { font-weight: 700; }
+  .steps .note { color: var(--muted); font-size: .9rem; display: block; }
+  .auto { background: var(--card); border: 1px dashed var(--accent); border-radius: 10px; padding: .9rem 1.2rem; margin: .2rem 0 0 3rem; font-size: .93rem; }
+  .auto b { color: var(--good); }
+  .faq dt { font-weight: 700; margin-top: 1.1rem; }
+  .faq dd { margin: .25rem 0 0 0; color: var(--muted); }
+  .faq dd strong { color: var(--ink); }
+  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
+  footer code { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: .82rem; background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">BEE Korea · Ministry Manager</p>
+  <h1>WLICC 학사 구성, 한 장으로</h1>
+  <p class="lede">과목·교육과정표·기수·학생이 어떻게 연결되는지, 지금 시스템이 어떤 상태인지, 어디서 무엇을 고치는지 — 이 한 장이면 됩니다. (2026-07-26 기준, 전 과정 리허설 검증 완료)</p>
+
+  <h2>기억할 개념은 네 개뿐입니다</h2>
+  <div class="concepts">
+    <div class="concept">
+      <span class="k">① 과목</span>
+      <h3>교재 한 권</h3>
+      <p>과목번호와 학점의 <strong>집</strong>. 같은 책도 과정마다 번호·학점이 다릅니다 — 갈라디아서 = DPM N009 2.0 · BTh N409 2.0 · MDiv N509 1.0. 책 내용은 <strong>한 벌</strong>만 저장됩니다.</p>
+    </div>
+    <div class="concept">
+      <span class="k">② 교육과정표</span>
+      <h3>졸업요건표 한 장 (카탈로그)</h3>
+      <p>이 학위를 졸업하려면 <strong>어떤 과목이 필수이고 선택은 몇 학점까지</strong>인지 적은 표. 여러 기수가 같은 표를 공유하므로 개정할 때 <strong>한 곳만</strong> 고칩니다.</p>
+    </div>
+    <div class="concept">
+      <span class="k">③ 기수</span>
+      <h3>반 (코호트)</h3>
+      <p>함께 시작하는 운영 그룹. <strong>학비 단가</strong>가 여기 붙습니다. 표(교육과정표) 한 장을 가리킬 뿐, 표를 소유하지 않습니다.</p>
+    </div>
+    <div class="concept">
+      <span class="k">④ 학생 학적</span>
+      <h3>입학 기록</h3>
+      <p>입학하는 순간 <strong>어느 표를 따르는지 고정</strong>(스냅샷)됩니다. 나중에 표가 개정돼도 재학생의 졸업 기준은 흔들리지 않습니다.</p>
+    </div>
+  </div>
+  <div class="metaphor">
+    비유: <strong>학교 요람</strong>과 같습니다. 2026학번 요람이 있고, 개정되면 2027학번 요람이 새로 나옵니다. 반(기수)이 몇 개든 요람(표)은 한 장이고, 학생은 <strong>입학한 해의 요람</strong>으로 졸업합니다.
+  </div>
+
+  <h2>지금 상태 — 학위당 표 한 장</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>교육과정표</th><th>과목 수</th><th>졸업 필요 학점</th><th>연결된 기수</th></tr></thead>
+      <tbody>
+        <tr><td><b>2026 Viet BTh</b></td><td class="num">44</td><td class="num">120</td><td>Vietnam_2026 (BTh)</td></tr>
+        <tr><td><b>2026 Viet MDiv</b></td><td class="num">45</td><td class="num">90</td><td>Vietnam_2026 (MDiv)</td></tr>
+        <tr><td>DPM (표준) 2026</td><td class="num">9</td><td class="num">20</td><td>Kenya_2026</td></tr>
+        <tr><td>DCL (표준) 2026</td><td class="num">8</td><td class="num">20</td><td>—</td></tr>
+        <tr><td>DBS (표준) 2026</td><td class="num">8</td><td class="num">20</td><td>—</td></tr>
+        <tr><td>DTh (표준) 2026</td><td class="num">9</td><td class="num">25</td><td>— (베트남 전용, DCL·DBS 대체)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color: var(--muted); font-size: .92rem;">다른 나라·다음 연도가 필요해지면 그때 표를 <b>복제</b>해 새 버전을 만듭니다. 미리 만들어 둘 필요가 없습니다.</p>
+
+  <h2>졸업 필요 학점은 이렇게 계산됩니다</h2>
+  <div class="formula">
+    필수 과목은 <b>전부</b>, 선택 과목은 <b>상한까지만</b> 인정합니다.
+    <span class="expr">필요 학점 = 필수 합 + min( 선택 합, 공식 총점 − 필수 합 )</span>
+    예) 2026 Viet BTh: 필수 114학점 + 선택 32학점 중 <b>6학점만</b> = <b>120학점</b> (공식 총점 120)
+  </div>
+  <p style="color: var(--muted); font-size: .92rem;">선택과목을 더 많이 들어도 수료는 인정되고 기록에 남습니다 — 졸업 계산에는 상한까지만 들어갈 뿐입니다.</p>
+
+  <h2>새 교육과정을 여는 절차 (실제 리허설로 검증한 순서)</h2>
+  <ol class="steps">
+    <li><b>표 복제</b> — 기존 교육과정표에서 새 버전을 복제합니다.<span class="note">같은 학위·나라·연도 중복은 시스템이 막습니다.</span></li>
+    <li><b>검토·수정</b> — Draft 상태에서 과목 구성·필수/선택을 다듬습니다.<span class="note">과목 이름·번호·학점 자체는 과목 상세에서 고칩니다 (아래 표).</span></li>
+    <li><b>Active 전환</b> — 이 순간부터 표는 동결됩니다. 재학생 보호 장치입니다.</li>
+    <li><b>기수 만들기</b> — 표를 연결하고 학비 단가를 정합니다.</li>
+    <li><b>접수 열기</b> — "신청받기"를 켜면 학생이 지원할 수 있습니다.</li>
+  </ol>
+  <div class="auto">학생이 입학한 뒤에는 전부 <b>자동</b>입니다 — 졸업기준 고정 → 수강 승인 시 학비 청구 → 수료 시 학점 누적 → 성적표 → 졸업 판정(학점 미달이면 시스템이 거절).</div>
+
+  <h2>어디서 무엇을 고치나</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>고치고 싶은 것</th><th>가는 곳</th></tr></thead>
+      <tbody>
+        <tr><td>과목 이름 · 과목번호 · 학점(기본값)</td><td><b>과목 상세</b> — 연필 아이콘. 여기가 유일한 편집 장소</td></tr>
+        <tr><td>표에 과목 넣기/빼기 · 필수/선택 구분</td><td><b>교육과정표</b> 화면 (Draft일 때)</td></tr>
+        <tr><td>특정 표에서만 학점을 다르게</td><td>교육과정표에서 <b>"예외 설정"</b> — 예외임이 표시됩니다</td></tr>
+        <tr><td>학비 단가 · 졸업식 비용</td><td><b>기수</b> 설정</td></tr>
+        <tr><td>표 이름 · 버전</td><td>언제든 변경 가능 (Active여도 이름은 자유)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>자주 나오는 질문</h2>
+  <dl class="faq">
+    <dt>기준(과목·학점)이 중간에 바뀌면?</dt>
+    <dd>Draft인 표는 그냥 고치면 됩니다. <strong>Active인 표는 복제해 새 버전을 만들어 다음 기수부터</strong> 적용합니다 — 재학생의 졸업 기준은 입학 당시 표로 보호됩니다. (재학생에게도 새 기준을 소급할지는 별도 결정 사항)</dd>
+    <dt>학생이 다른 나라로 이주하면?</dt>
+    <dd>학점은 학적을 따라갑니다. 카타르에서 듣다가 인도에서 이어 들어도 <strong>같은 학적에 자동 누적</strong>됩니다.</dd>
+    <dt>한 세미나에 여러 과정 학생이 섞여 있으면?</dt>
+    <dd>정상입니다. 세미나는 과목만 정하고, <strong>학점·비용은 학생마다 자기 과정 기준으로 자동</strong> 계산됩니다.</dd>
+  </dl>
+
+  <footer>
+    작성 2026-07-26 · BEE Korea Ministry Manager (ministry.beekorea.org)<br>
+    개발·규정 정본: mmv2 저장소 <code>docs/WLICC.md</code> · <code>docs/CATALOG-COHORT-GUIDE.md</code> · <code>docs/POLICY.md §15</code> ·
+    실무 절차 상세: <a href="/private/wlicc-guide.html">WLICC 학사 운영 가이드</a>
+  </footer>
+</div>
+<script>
+  // 공유 목차(nav.js)는 h2 렌더 후 로드해야 TOC가 잡힘
+  var s = document.createElement('script'); s.src = '/nav.js'; document.body.appendChild(s);
+</script>
+</body>
+</html>
