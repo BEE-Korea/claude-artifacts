@@ -30,7 +30,7 @@
       "kicker": "과목·교육과정표·기수·학적 — 개념부터 운영 절차까지 (내부용)",
       "desc": "기억할 개념 4개(요람 비유) + 현재 상태(학위당 표 1장) + 졸업 학점 규칙(필수 전부·선택 상한) + 새 교육과정 여는 절차 5단계 + 어디서 뭘 고치나.",
       "path": "private/wlicc-structure.html",
-      "visibility": "private",
+      "visibility": "public",
       "status": "current",
       "date": "2026-07-26"
     },
@@ -41,7 +41,7 @@
       "kicker": "카탈로그·코호트·세미나·학생 + 운영자 실무 절차 (내부용)",
       "desc": "학위 입학·코호트·등록의 전체 개념과 '어디를 클릭하나' 운영 절차. 신청 열기·심사·카탈로그 개정까지.",
       "path": "private/wlicc-guide.html",
-      "visibility": "private",
+      "visibility": "public",
       "status": "current",
       "date": "2026-07-24"
     },
