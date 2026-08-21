@@ -15,6 +15,17 @@
     {
       "icon": "🐝",
       "group": "학사 · Academy",
+      "title": "인도자 세미나 방 안내",
+      "kicker": "국내 LMS(lms.beekorea.org) — 개편 홈피에서 인도자가 무엇을 누르나",
+      "desc": "학기 순서 5단계(개강 전 채점 기준 → 개강 전환 → 학기 중 점수 → 수업 종료·FTS·FA평가 → 본부 성적 확정) + 온라인 단원시험 + 예전 「행정처리요령」과 달라진 3가지 + 문의처. 실제 화면 글자 그대로.",
+      "path": "lms/instructor-guide.html",
+      "visibility": "public",
+      "status": "current",
+      "date": "2026-08-21"
+    },
+    {
+      "icon": "🐝",
+      "group": "학사 · Academy",
       "title": "BEE Korea — Login & Seminar Registration",
       "kicker": "베트남 학생용 로그인·세미나 신청 가이드 (Việt/En/한)",
       "desc": "Ministry Manager 로그인부터 세미나 신청(온라인·오프라인)까지 단계별. 언어 3개 전환 + 설명자 가이드 + 실제 화면 스크린샷.",

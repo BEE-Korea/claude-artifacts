@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>인도자 세미나 방 안내 — BEE Korea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #FCFCFA;
+    --surface:     #FFFFFF;
+    --surface-alt: #F4F6F0;
+    --line:        #DFE3D8;
+    --line-soft:   #ECEFE7;
+    --ink:         #1B2016;
+    --ink-mid:     #4C543F;
+    --ink-soft:    #6E7563;
+    --accent:      #4D7C0F;
+    --accent-deep: #365510;
+    --accent-wash: #EDF3E0;
+    --warn:        #A75B12;
+    --warn-wash:   #FBF0E2;
+    --danger:      #A9231C;
+    --danger-wash: #FBEBE9;
+    --paper: #FCFCFA;
+    --card: #FFFFFF;
+
+    --step:  clamp(2.1rem, 1.4rem + 2vw, 2.9rem);
+    --h2:    clamp(1.45rem, 1.15rem + 1.1vw, 1.85rem);
+    --h3:    1.06rem;
+    --body:  1rem;
+    --small: 0.875rem;
+    --tiny:  0.78rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #121510;
+      --surface:     #1A1E16;
+      --surface-alt: #222719;
+      --line:        #363D2C;
+      --line-soft:   #2A3021;
+      --ink:         #E9ECE1;
+      --ink-mid:     #B4BCA6;
+      --ink-soft:    #8F9880;
+      --accent:      #A6C95C;
+      --accent-deep: #C3DE85;
+      --accent-wash: #232C15;
+      --warn:        #E0A56A;
+      --warn-wash:   #2E2417;
+      --danger:      #E88E86;
+      --danger-wash: #2E1918;
+      --paper: #121510;
+      --card: #1A1E16;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #121510;
+    --surface:     #1A1E16;
+    --surface-alt: #222719;
+    --line:        #363D2C;
+    --line-soft:   #2A3021;
+    --ink:         #E9ECE1;
+    --ink-mid:     #B4BCA6;
+    --ink-soft:    #8F9880;
+    --accent:      #A6C95C;
+    --accent-deep: #C3DE85;
+    --accent-wash: #232C15;
+    --warn:        #E0A56A;
+    --warn-wash:   #2E2417;
+    --danger:      #E88E86;
+    --danger-wash: #2E1918;
+      --paper: #121510;
+      --card: #1A1E16;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Noto Sans KR", system-ui, sans-serif;
+    font-size: var(--body);
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+
+  .wrap {
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .eyebrow {
+    font-size: var(--tiny);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 700;
+    font-size: clamp(1.85rem, 1.3rem + 2.4vw, 2.7rem);
+    line-height: 1.28;
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-mid);
+    margin: 0;
+    max-width: 40rem;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    font-size: var(--small);
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  /* ---------- the one thing ---------- */
+
+  .gateway {
+    margin: 2.5rem 0 3.5rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .gateway h2 {
+    font-family: "Noto Serif KR", serif;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .gateway p { margin: 0; color: var(--ink-mid); }
+
+  .addr {
+    font-family: "Noto Sans Mono", ui-monospace, monospace;
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--accent-wash);
+    padding: 0.1rem 0.45rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* ---------- timeline ---------- */
+
+  .stage {
+    position: relative;
+    padding-left: 3.6rem;
+    padding-bottom: 2.9rem;
+  }
+
+  .stage::before {
+    content: "";
+    position: absolute;
+    left: 1.02rem;
+    top: 2.6rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .stage:last-of-type::before { display: none; }
+
+  .stage-num {
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--accent);
+    font-family: "Noto Sans Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: grid;
+    place-items: center;
+  }
+
+  .stage-who {
+    font-size: var(--tiny);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .stage h2 {
+    font-family: "Noto Serif KR", serif;
+    font-size: var(--h2);
+    line-height: 1.32;
+    margin: 0 0 0.7rem;
+    text-wrap: balance;
+    font-weight: 700;
+  }
+
+  .stage p { margin: 0 0 0.85rem; }
+  .stage > :last-child { margin-bottom: 0; }
+
+  h3 {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: var(--h3);
+    font-weight: 700;
+    margin: 1.7rem 0 0.6rem;
+  }
+
+  ul, ol { margin: 0 0 0.9rem; padding-left: 1.25rem; }
+  li { margin-bottom: 0.35rem; }
+  li::marker { color: var(--accent); }
+
+  strong { font-weight: 700; }
+
+  /* ---------- ui bits (mirrors of the real screen) ---------- */
+
+  .btn {
+    display: inline-block;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 0.14rem 0.55rem;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    background: var(--surface-alt);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .btn-go { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+  :root[data-theme="dark"] .btn-go { color: #14170F; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .btn-go { color: #14170F; }
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: var(--tiny);
+    padding: 0.06rem 0.42rem;
+    border-radius: 2px;
+    background: var(--surface-alt);
+    color: var(--ink-mid);
+    border: 1px solid var(--line-soft);
+    white-space: nowrap;
+  }
+
+  /* ---------- screen mock ---------- */
+
+  .screen {
+    margin: 1.1rem 0 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .screen-cap {
+    font-size: var(--tiny);
+    color: var(--ink-soft);
+    padding: 0.5rem 0.85rem;
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--line-soft);
+    letter-spacing: 0.03em;
+  }
+
+  .screen-body { overflow-x: auto; }
+
+  .tabrow {
+    display: flex;
+    gap: 0.1rem;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid var(--line);
+    min-width: max-content;
+  }
+
+  .tabrow span {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    padding: 0.65rem 0.7rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .tabrow span.on {
+    color: var(--accent);
+    font-weight: 700;
+    border-bottom-color: var(--accent);
+  }
+
+  .tabrow span.locked::after {
+    content: "인도자만";
+    font-size: 0.62rem;
+    vertical-align: 0.35em;
+    margin-left: 0.2rem;
+    color: var(--accent);
+  }
+
+  .subtabrow {
+    display: flex;
+    gap: 0.2rem;
+    padding: 0.7rem 0.85rem 0;
+    min-width: max-content;
+  }
+
+  .subtabrow span {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    padding: 0.2rem 0.5rem 0.5rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .subtabrow span.on { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent); }
+
+  .screen-note {
+    margin: 0.85rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 3px;
+    font-size: var(--small);
+    line-height: 1.6;
+  }
+
+  .note-go { background: var(--accent-wash); color: var(--accent-deep); border: 1px solid var(--accent); }
+  .note-lock { background: var(--warn-wash); color: var(--warn); border: 1px solid var(--warn); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--small);
+    min-width: max-content;
+  }
+
+  .screen table { min-width: 34rem; }
+
+  th, td {
+    text-align: left;
+    padding: 0.5rem 0.85rem;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+
+  th {
+    font-size: var(--tiny);
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: var(--surface-alt);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  td.num { text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.fail { color: var(--danger); font-weight: 500; }
+  tr:last-child td { border-bottom: none; }
+
+  .legend {
+    font-size: var(--tiny);
+    color: var(--ink-soft);
+    padding: 0.55rem 0.85rem 0.75rem;
+  }
+
+  .legend b { color: var(--danger); }
+
+  /* ---------- compare table ---------- */
+
+  .compare-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin: 1.3rem 0 1rem;
+  }
+
+  .compare { min-width: 36rem; font-size: var(--small); }
+  .compare th { width: 50%; }
+  .compare td { line-height: 1.62; }
+  .compare .then { color: var(--ink-soft); }
+  .compare .now { border-left: 1px solid var(--line-soft); }
+  .compare .now b { color: var(--accent-deep); }
+
+  /* ---------- callout ---------- */
+
+  .flag {
+    border-left: 3px solid var(--warn);
+    background: var(--warn-wash);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 3px 3px 0;
+    font-size: var(--small);
+    line-height: 1.65;
+    margin: 1.2rem 0;
+  }
+
+  .flag b { color: var(--warn); }
+
+  /* ---------- ask ---------- */
+
+  .ask {
+    margin-top: 3rem;
+    border-top: 1px solid var(--line);
+    padding-top: 2rem;
+  }
+
+  .ask h2 {
+    font-family: "Noto Serif KR", serif;
+    font-size: var(--h2);
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+
+  .ask table { border: 1px solid var(--line); border-radius: 4px; }
+  .ask th { width: 42%; }
+
+  footer {
+    margin-top: 3rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.2rem;
+    font-size: var(--tiny);
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="eyebrow">온누리 BEE 아카데미 · 인도자 안내</span>
+    <h1>세미나 방 하나로 학기가 돌아갑니다</h1>
+    <p class="standfirst">
+      개편된 홈페이지에서 인도자가 손대는 자리는 <strong>「담당 세미나」 하나</strong>입니다.
+      명단·출석·점수·성적·FTS 추천이 모두 그 안에 있습니다. 이 안내는 학기 순서대로 읽으시면 됩니다.
+    </p>
+    <div class="masthead-meta">
+      <span>2026년 하반기 기준</span>
+      <span>메뉴 30여 개 중 인도자가 볼 곳은 1개</span>
+      <span>모바일에서도 같은 화면</span>
+    </div>
+  </header>
+
+  <section class="gateway">
+    <h2>들어가는 문은 하나입니다</h2>
+    <p>
+      <span class="addr">lms.beekorea.org</span> — 예전 주소와 예전 화면은 없어졌습니다.
+      아이디로 로그인하거나, 구글·카카오 계정으로도 들어오실 수 있습니다.
+    </p>
+    <p>
+      로그인하면 왼쪽 메뉴 <strong>「내 세미나 → 담당 세미나」</strong>.
+      맡으신 반이 카드로 보이고, 카드의 <span class="btn">보기</span>를 누르면 <strong>세미나 방</strong>이 열립니다.
+      나머지 메뉴는 안 보셔도 됩니다.
+    </p>
+  </section>
+
+  <!-- 1 -->
+  <section class="stage">
+    <div class="stage-num">1</div>
+    <span class="stage-who">개강 전 · 인도자</span>
+    <h2>명단을 확인하고, 채점 기준을 한 번 정합니다</h2>
+
+    <p>
+      세미나 방을 열면 위쪽에 탭이 있습니다. 학생 명단과 점수는 모두
+      <strong>「학적관리」</strong> 탭 안에 있습니다.
+    </p>
+
+    <div class="screen">
+      <div class="screen-cap">세미나 방 — 위쪽 탭 (뒤의 두 개는 학생에게 안 보입니다)</div>
+      <div class="screen-body">
+        <div class="tabrow">
+          <span>세미나 정보</span>
+          <span>공지사항</span>
+          <span>과제게시판</span>
+          <span class="on">학적관리</span>
+          <span class="locked">온라인 시험</span>
+          <span class="locked">FTS 추천</span>
+        </div>
+        <div class="subtabrow">
+          <span class="on">명단</span>
+          <span>출석</span>
+          <span>예습</span>
+          <span>과제</span>
+          <span>시험</span>
+          <span>성적</span>
+        </div>
+        <div class="screen-note note-go">
+          「명단」에는 이름·역할(FT / FA / 수강생)·교회·직분·연락처가 나옵니다.
+          오른쪽 위 <span class="btn">엑셀</span>로 내려받아 출석부처럼 쓰실 수 있습니다.
+        </div>
+      </div>
+    </div>
+
+    <p>
+      명단이 실제 오신 분들과 다르면 <strong>본부에 알려 주십시오</strong> — 인도자가 명단을 직접 고치지는 않습니다.
+      수강료 미납은 앞 순서에서 안내한 대로 확인하시고 권유해 주십니다.
+    </p>
+
+    <h3>학기 처음에 딱 한 번 — 채점 기준 설정</h3>
+    <p>
+      「학적관리 → 성적」에 들어가면 초록색 줄이 있습니다.
+      우리 반의 <strong>출석 회차, 예습 회차, 과제 횟수, 시험 횟수와 만점, 과락 기준</strong>을 여기서 정합니다.
+      이걸 먼저 정해 두지 않으면 점수 넣을 칸의 개수가 실제 수업과 맞지 않습니다.
+    </p>
+
+    <div class="screen">
+      <div class="screen-cap">학적관리 → 성적</div>
+      <div class="screen-body">
+        <div class="screen-note note-go">
+          <strong>점수 회차·과락 기준은 여기서 바꿉니다</strong><br>
+          출석·예습·과제·시험 점수는 위 탭에서 입력합니다. 점수 회차나 과락 기준을 바꾸려면
+          초록색 <span class="btn btn-go">채점 기준 설정 (회차·과락·최대점수)</span> 을 누르세요.
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>학생명</th><th>출석</th><th>예습</th><th>과제</th><th>시험</th><th>총점</th><th>등급</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>홍길동</td><td class="num">8/8</td><td class="num">7/8</td><td class="num">2/2</td><td class="num">88</td><td class="num">92</td><td class="num">A</td></tr>
+            <tr><td>이믿음</td><td class="num">7/8</td><td class="num">6/8</td><td class="num">2/2</td><td class="num">80</td><td class="num">84</td><td class="num">B</td></tr>
+            <tr><td>박소망</td><td class="num fail">4/8</td><td class="num">5/8</td><td class="num">1/2</td><td class="num">72</td><td class="num">—</td><td class="num fail">F (출석미달)</td></tr>
+          </tbody>
+        </table>
+        <p class="legend"><b>■ 빨간 점수</b> = 그 영역이 과락 기준에 미달 → 등급과 무관하게 F 이고, 등급 칸에 어느 영역이 미달인지 표시됩니다.</p>
+      </div>
+    </div>
+
+    <p>
+      비워 두면 과목 기본값을 씁니다. 과락 기준에 <strong>0</strong>을 넣으면 그 영역은 과락 없이 갑니다.
+    </p>
+  </section>
+
+  <!-- 2 -->
+  <section class="stage">
+    <div class="stage-num">2</div>
+    <span class="stage-who">첫 수업 날 · 인도자</span>
+    <h2>「개강으로 전환」을 누릅니다</h2>
+    <p>
+      「담당 세미나」 카드에 <span class="btn btn-go">개강으로 전환</span> 버튼이 보입니다.
+      이걸 누르면 반 상태가 <strong>「개강」</strong>이 되고, 그때부터 출석과 점수를 넣을 수 있습니다.
+    </p>
+    <p>
+      개강일이 지났는데 상태가 그대로면 화면이 알려 줍니다.
+      직접 못 바꾸시는 상태라면 본부에 상태 변경을 요청해 주십시오.
+    </p>
+  </section>
+
+  <!-- 3 -->
+  <section class="stage">
+    <div class="stage-num">3</div>
+    <span class="stage-who">학기 중 · 인도자</span>
+    <h2>진도를 올리고, 점수는 그때그때 넣습니다</h2>
+
+    <p>
+      「학적관리」 맨 위에 <strong>진도</strong>가 있습니다. 한 강을 마치실 때마다 올려 주시면
+      학생 화면에도 같이 반영됩니다.
+    </p>
+
+    <p>점수는 영역별로 탭이 나뉘어 있습니다.</p>
+    <ul>
+      <li><strong>출석</strong> — ● 출석 · △ 지각 · ─ 결석</li>
+      <li><strong>예습</strong> · <strong>과제</strong> — 회차별로 제출 여부와 점수</li>
+      <li><strong>시험</strong> — 회차별 점수 (만점은 채점 기준 설정에서 정한 값)</li>
+      <li><strong>성적</strong> — 위에서 넣은 것이 자동으로 합산되어 총점·등급이 됩니다</li>
+    </ul>
+
+    <div class="flag">
+      <b>점수를 미리 넣어도 학생에게 새지 않습니다.</b>
+      성적표 전체는 <strong>인도자와 본부만</strong> 열 수 있습니다(서버에서 막습니다).
+      학생은 「내 성적」에서 <strong>자기 것만</strong> 보고, 확정 전에는 <strong>「잠정 성적」</strong>으로 표시됩니다.
+      그러니 학기 중에 편하게 기록해 두셔도 됩니다.
+    </div>
+
+    <p>
+      반 학생들에게 알릴 것은 <strong>「공지사항」</strong>, 과제를 걷고 나누는 것은 <strong>「과제게시판」</strong>을 쓰시면 됩니다.
+    </p>
+  </section>
+
+  <!-- 4 -->
+  <section class="stage">
+    <div class="stage-num">4</div>
+    <span class="stage-who">마지막 수업 후 · 인도자</span>
+    <h2>「수업 종료」를 누르고, 2주 안에 마무리합니다</h2>
+
+    <p>
+      마지막 수업이 끝나면 「담당 세미나」 카드의 <span class="btn">수업 종료</span> 를 누릅니다.
+      반 상태가 <strong>「수업 종료(성적 정정)」</strong>이 됩니다.
+      <strong>이 단계까지는 점수를 계속 고칠 수 있습니다.</strong>
+    </p>
+
+    <p>이 기간에 마치실 일이 세 가지입니다.</p>
+    <ol>
+      <li><strong>성적 마무리</strong> — 빠진 점수를 채우고 총점·등급을 확인합니다.</li>
+      <li><strong>FTS 추천</strong> — 「FTS 추천」 탭에서. 총 학생 수의 30%(소수점 올림), 최소 1명입니다.</li>
+      <li><strong>FA 평가</strong> — FA가 인도한 반이면 「명단」에서 해당 FA의 <span class="btn">FA 평가</span>로 들어갑니다.</li>
+    </ol>
+
+    <p>
+      마지막 수업 후 <strong>2주 안에</strong> 마쳐 주시길 부탁드립니다.
+      임직자 학점 제출 시점이 걸려 있는 학기에는 그보다 늦지 않게 끝나야 합니다.
+    </p>
+  </section>
+
+  <!-- 5 -->
+  <section class="stage">
+    <div class="stage-num">5</div>
+    <span class="stage-who">그 다음 · 본부</span>
+    <h2>「종강(성적 확정)」은 본부가 누릅니다</h2>
+    <p>
+      인도자가 누르는 마지막 버튼은 <strong>「수업 종료」</strong>까지입니다.
+      성적을 최종 확정하는 <strong>「종강(성적 확정)」</strong>은 본부에서 처리합니다.
+    </p>
+
+    <div class="screen">
+      <div class="screen-cap">확정된 뒤의 성적 화면</div>
+      <div class="screen-body">
+        <div class="screen-note note-lock">
+          종강(성적 확정)된 세미나입니다. 성적은 확정되어 수정할 수 없습니다. (수업 종료 단계까지만 수정 가능)
+        </div>
+      </div>
+    </div>
+
+    <p>
+      확정되면 점수가 잠깁니다. 그러니 <strong>고칠 것은 「수업 종료」 단계에서</strong> 끝내 주십시오.
+      확정 후에는 학생이 인도자 평가를 마치면 최종 성적을 볼 수 있습니다.
+    </p>
+  </section>
+
+  <!-- 6 -->
+  <section class="stage">
+    <div class="stage-num">6</div>
+    <span class="stage-who">새로 생긴 것</span>
+    <h2>온라인 학습서로 시험을 볼 수 있습니다</h2>
+    <p>
+      온라인 학습서를 쓰는 반이라면, 학습서의 문항으로 <strong>단원시험</strong>을 열 수 있습니다.
+      「온라인 시험」 탭에서 학습서를 고르고 <span class="btn btn-go">시험 열기</span> — 제한 시간, 만점,
+      문항 섞기, 그리고 <strong>점수를 성적표의 어느 시험 칸에 넣을지</strong>를 정합니다.
+    </p>
+    <p>
+      학생은 「내 시험」에서 응시하고, 인도자는 응시·제출·채점 현황을 보면서
+      <span class="btn">채점하기</span>에서 답과 정답을 나란히 보고 최종 점수를 정합니다.
+      확정한 점수는 <strong>성적표의 빈 칸에만</strong> 채워지고, 이미 적어 두신 점수는 덮어쓰지 않습니다.
+    </p>
+    <p>
+      쓰실 반은 따로 안내드립니다. 이번 학기에 꼭 쓰셔야 하는 것은 아닙니다.
+    </p>
+  </section>
+
+  <!-- 달라진 것 -->
+  <section class="ask">
+    <h2>예전 「행정처리요령」과 달라진 것</h2>
+    <p>
+      오래 쓰신 분들이 가장 헷갈리는 세 가지입니다. 예전 안내는 이제 맞지 않습니다.
+    </p>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr><th>예전 안내</th><th class="now">지금</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="then">세미나 종료 후 <strong>「종강 표시」</strong>를 한다</td>
+            <td class="now">두 단계로 나뉘었습니다. 인도자는 <b>「수업 종료」</b>까지, 최종 <b>「종강(성적 확정)」</b>은 <b>본부</b>가 누릅니다. 확정되면 점수는 잠깁니다.</td>
+          </tr>
+          <tr>
+            <td class="then">종강 표시를 안 하고 성적을 기재하면 <strong>다른 학생들이 점수를 볼 수 있다</strong></td>
+            <td class="now"><b>이제 그렇지 않습니다.</b> 성적표는 인도자·본부만 열립니다. 학생은 자기 성적만, 확정 전에는 「잠정 성적」으로 봅니다. <b>학기 중에 편하게 기록하셔도 됩니다.</b></td>
+          </tr>
+          <tr>
+            <td class="then">과정계획서·시험문제·출석부는 <strong>「인도자 자료실」</strong>에서 내려받는다</td>
+            <td class="now">예전 자료실은 없어졌습니다. <b>학적관리 → 명단의 <span class="btn">엑셀</span></b>이 출석부·학적관리표 역할을 합니다. 나머지 서류는 <b>본부에서 별도 안내</b>드립니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 문의 -->
+  <section class="ask">
+    <h2>막히면 어디로</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>OBC 신청·수료</th>
+          <td>김한호 집사</td>
+        </tr>
+        <tr>
+          <th>인도자 조정, 입금 확인, 온라인 수업 계정, 교재(이북) 발송</th>
+          <td>본부</td>
+        </tr>
+        <tr>
+          <th>그 외 세미나 관련</th>
+          <td>장영호 집사</td>
+        </tr>
+        <tr>
+          <th>홈페이지가 이상할 때</th>
+          <td>홈페이지 안 <strong>「세미나 Q&amp;A」</strong> 게시판에 남겨 주시면 확인합니다</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    화면에 보이는 글자를 그대로 옮겼습니다. 홈페이지가 바뀌면 이 안내도 같은 주소에서 갱신됩니다.<br>
+    「온라인」은 집에서 수강하는 비대면 수업을 말합니다.
+  </footer>
+
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>
