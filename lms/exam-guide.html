@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>온라인 단원시험 안내 — BEE Korea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #FCFCFA;
+    --surface:     #FFFFFF;
+    --surface-alt: #F4F6F0;
+    --line:        #DFE3D8;
+    --line-soft:   #ECEFE7;
+    --ink:         #1B2016;
+    --ink-mid:     #4C543F;
+    --ink-soft:    #6E7563;
+    --accent:      #4D7C0F;
+    --accent-deep: #365510;
+    --accent-wash: #EDF3E0;
+    --warn:        #A75B12;
+    --warn-wash:   #FBF0E2;
+    --danger:      #A9231C;
+    --danger-wash: #FBEBE9;
+    --paper:       #FCFCFA;
+    --card:        #FFFFFF;
+
+    --h2:    clamp(1.45rem, 1.15rem + 1.1vw, 1.85rem);
+    --h3:    1.06rem;
+    --body:  1rem;
+    --small: 0.875rem;
+    --tiny:  0.78rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #121510;
+      --surface:     #1A1E16;
+      --surface-alt: #222719;
+      --line:        #363D2C;
+      --line-soft:   #2A3021;
+      --ink:         #E9ECE1;
+      --ink-mid:     #B4BCA6;
+      --ink-soft:    #8F9880;
+      --accent:      #A6C95C;
+      --accent-deep: #C3DE85;
+      --accent-wash: #232C15;
+      --warn:        #E0A56A;
+      --warn-wash:   #2E2417;
+      --danger:      #E88E86;
+      --danger-wash: #2E1918;
+      --paper:       #121510;
+      --card:        #1A1E16;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #121510;
+    --surface:     #1A1E16;
+    --surface-alt: #222719;
+    --line:        #363D2C;
+    --line-soft:   #2A3021;
+    --ink:         #E9ECE1;
+    --ink-mid:     #B4BCA6;
+    --ink-soft:    #8F9880;
+    --accent:      #A6C95C;
+    --accent-deep: #C3DE85;
+    --accent-wash: #232C15;
+    --warn:        #E0A56A;
+    --warn-wash:   #2E2417;
+    --danger:      #E88E86;
+    --danger-wash: #2E1918;
+    --paper:       #121510;
+    --card:        #1A1E16;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Noto Sans KR", system-ui, sans-serif;
+    font-size: var(--body);
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+
+  .wrap { max-width: 56rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+  /* masthead */
+  .masthead { display: flex; flex-direction: column; gap: 0.9rem; }
+  .eyebrow {
+    font-size: var(--tiny); letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700;
+  }
+  h1 {
+    font-family: "Noto Serif KR", serif; font-weight: 700;
+    font-size: clamp(1.85rem, 1.3rem + 2.4vw, 2.7rem);
+    line-height: 1.28; margin: 0; text-wrap: balance; letter-spacing: -0.01em;
+  }
+  .standfirst { font-size: 1.06rem; color: var(--ink-mid); margin: 0; max-width: 40rem; }
+  .masthead-meta {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem;
+    font-size: var(--small); color: var(--ink-soft);
+    border-top: 1px solid var(--line); padding-top: 0.9rem; margin-top: 0.4rem;
+  }
+
+  /* gateway */
+  .gateway {
+    margin: 2.5rem 0 1.2rem;
+    border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    background: var(--surface); border-radius: 3px; padding: 1.4rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.85rem;
+  }
+  .gateway h2 { font-family: "Noto Serif KR", serif; font-size: 1.2rem; margin: 0; font-weight: 700; }
+  .gateway p { margin: 0; color: var(--ink-mid); }
+  .addr {
+    font-family: "Noto Sans Mono", ui-monospace, monospace; font-size: 1.02rem;
+    font-weight: 500; color: var(--ink); background: var(--accent-wash);
+    padding: 0.1rem 0.45rem; border-radius: 2px; white-space: nowrap;
+  }
+
+  .linkbox {
+    margin: 0 0 3.2rem;
+    border: 1px solid var(--line); background: var(--surface-alt);
+    border-radius: 3px; padding: 1.1rem 1.3rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .linkbox strong { color: var(--ink); }
+  .linkbox p { margin: 0; font-size: var(--small); color: var(--ink-mid); }
+
+  /* timeline */
+  .stage { position: relative; padding-left: 3.6rem; padding-bottom: 3rem; }
+  .stage::before {
+    content: ""; position: absolute; left: 1.02rem; top: 2.6rem; bottom: 0;
+    width: 1px; background: var(--line);
+  }
+  .stage:last-of-type::before { display: none; }
+  .stage-num {
+    position: absolute; left: 0; top: 0.15rem; width: 2.1rem; height: 2.1rem;
+    border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
+    color: var(--accent); font-family: "Noto Sans Mono", monospace;
+    font-size: 0.82rem; font-weight: 500; display: grid; place-items: center;
+  }
+  .stage-who {
+    font-size: var(--tiny); letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 700; display: block; margin-bottom: 0.3rem;
+  }
+  .stage h2 {
+    font-family: "Noto Serif KR", serif; font-size: var(--h2); line-height: 1.32;
+    margin: 0 0 0.7rem; text-wrap: balance; font-weight: 700;
+  }
+  .stage p { margin: 0 0 0.85rem; }
+  .stage > :last-child { margin-bottom: 0; }
+
+  h3 { font-family: "Noto Sans KR", sans-serif; font-size: var(--h3); font-weight: 700; margin: 1.8rem 0 0.6rem; }
+
+  ul, ol { margin: 0 0 0.9rem; padding-left: 1.25rem; }
+  li { margin-bottom: 0.35rem; }
+  li::marker { color: var(--accent); }
+  strong { font-weight: 700; }
+
+  /* real screenshots */
+  figure {
+    margin: 1.2rem 0 1.5rem;
+    border: 1px solid var(--line); border-radius: 4px;
+    background: var(--surface); overflow: hidden;
+  }
+  figure img { display: block; width: 100%; height: auto; }
+  figure.narrow { max-width: 15rem; }
+  figcaption {
+    font-size: var(--tiny); color: var(--ink-soft); line-height: 1.6;
+    padding: 0.6rem 0.85rem; background: var(--surface-alt);
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* ui bits */
+  .btn {
+    display: inline-block; font-size: 0.84rem; font-weight: 500;
+    padding: 0.14rem 0.55rem; border-radius: 3px; border: 1px solid var(--line);
+    background: var(--surface-alt); color: var(--ink); white-space: nowrap;
+  }
+  .btn-go { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+  :root[data-theme="dark"] .btn-go { color: #14170F; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .btn-go { color: #14170F; }
+  }
+
+  /* tables */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; margin: 1.2rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: var(--small); }
+  .tablewrap table { min-width: 30rem; }
+  th, td { text-align: left; padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; line-height: 1.6; }
+  th { font-size: var(--tiny); font-weight: 700; color: var(--ink-soft); background: var(--surface-alt); letter-spacing: 0.03em; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  td.badge-cell { white-space: nowrap; font-weight: 500; color: var(--accent-deep); }
+
+  .compare { min-width: 36rem; }
+  .compare th { width: 50%; }
+  .compare .then { color: var(--ink-soft); }
+  .compare .now { border-left: 1px solid var(--line-soft); }
+  .compare .now b { color: var(--accent-deep); }
+
+  /* callout */
+  .flag {
+    border-left: 3px solid var(--warn); background: var(--warn-wash);
+    padding: 0.9rem 1.1rem; border-radius: 0 3px 3px 0;
+    font-size: var(--small); line-height: 1.65; margin: 1.2rem 0;
+  }
+  .flag b { color: var(--warn); }
+  .flag.good { border-left-color: var(--accent); background: var(--accent-wash); }
+  .flag.good b { color: var(--accent-deep); }
+
+  /* sections */
+  .ask { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 2rem; }
+  .ask h2 { font-family: "Noto Serif KR", serif; font-size: var(--h2); margin: 0 0 1rem; font-weight: 700; }
+  .ask th { width: 42%; }
+
+  footer {
+    margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.2rem;
+    font-size: var(--tiny); color: var(--ink-soft); line-height: 1.7;
+  }
+
+  a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+</style>
+<style>
+  /* 이 페이지 전용 — 돌아가기 링크 */
+  .backlink {
+    display: inline-block; font-size: var(--small); font-weight: 500;
+    color: var(--accent-deep); margin-bottom: 1.4rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="backlink" href="instructor-guide.html">← 인도자 세미나 방 안내로 돌아가기</a>
+
+  <header class="masthead">
+    <span class="eyebrow">온누리 BEE 아카데미 · 인도자 안내</span>
+    <h1>온라인 단원시험, 열고 · 보고 · 채점하기</h1>
+    <p class="standfirst">
+      학습서의 문항으로 <strong>단원시험</strong>을 온라인으로 볼 수 있습니다.
+      인도자가 세미나 방에서 시험을 열면, 학생은 같은 세미나 방에서 응시하고,
+      인도자가 답을 읽고 점수를 확정하면 성적표까지 이어집니다. 이 안내는 그 순서 그대로입니다.
+    </p>
+    <div class="masthead-meta">
+      <span>2026년 하반기 기준</span>
+      <span>화면은 실제 화면 캡처 — 시험용 반(테스트 계정)으로 찍었습니다</span>
+      <span>모바일에서도 같은 화면</span>
+    </div>
+  </header>
+
+  <section class="gateway">
+    <h2>어디에 있나 — 세미나 방 「온라인 시험」 탭</h2>
+    <p>
+      세미나 방 위쪽 탭에서 <strong>「온라인 시험」</strong>을 누릅니다.
+      이 탭은 <strong>인도자에게만</strong> 시험을 여는 자리로 보이고, 학생에게는 자기 응시 기록으로 보입니다.
+    </p>
+    <p>
+      <strong>종이 학습서로 공부하는 반도 됩니다</strong> — 반이 온라인 학습서를 쓰지 않아도,
+      같은 과목의 온라인 학습서 문항으로 시험만 온라인으로 열 수 있습니다.
+      쓰실 반은 따로 안내드립니다. 이번 학기에 꼭 쓰셔야 하는 것은 아닙니다.
+    </p>
+  </section>
+
+  <!-- 1 -->
+  <section class="stage">
+    <div class="stage-num">1</div>
+    <span class="stage-who">인도자</span>
+    <h2>학습서를 고르고, 회차별로 시험을 엽니다</h2>
+
+    <p>
+      「온라인 시험」 탭에 들어가면 먼저 <strong>어떤 학습서로 시험을 볼지</strong> 묻습니다 —
+      우리 반 과목에 맞는 책이 자동으로 추천됩니다. 한 번 열면 그 책으로 고정되고,
+      다른 책으로 바꾸려면 본부에 문의합니다.
+    </p>
+
+    <figure>
+      <img src="assets/exam-ft-tab.png" alt="인도자의 온라인 시험 탭 — 학습서 선택과 회차별 시험 표. 각 행에 상태(열림), 성적 칸, 응시 현황과 마감하기·설정 바꾸기·채점하기 버튼이 있다">
+      <figcaption>인도자의 「온라인 시험」 탭. 회차마다 <strong>상태 · 성적 칸 · 응시 현황</strong>(응시 N · 제출 N · 채점 N)이 보이고,
+        아직 안 연 시험에는 <strong>[열기]</strong>, 열린 시험에는 <strong>[마감하기] [설정 바꾸기] [채점하기]</strong>가 나옵니다.</figcaption>
+    </figure>
+
+    <p><span class="btn btn-go">열기</span>를 누르면 시험 설정을 정합니다. 네 가지뿐입니다.</p>
+    <ul>
+      <li><strong>제한 시간(분)</strong> — 비우면 시간 제한이 없습니다. 시간을 넘겨도 자동으로 제출되지 않고,
+        <strong>1분마다 1점 감점으로 표시만</strong> 됩니다 — 최종 점수는 인도자가 정합니다.</li>
+      <li><strong>만점(점)</strong> — 비우면 100점. 점수는 원점수와 100점 환산이 나란히 보입니다.</li>
+      <li><strong>성적의 어느 칸에 넣을까요?</strong> — 확정한 점수가 들어갈 성적표의 시험 칸입니다.
+        빈 칸이 추천되고, 다른 시험이 쓰는 칸은 고를 수 없습니다.</li>
+      <li><strong>문항 순서 섞기</strong> — 학생마다 다르게 섞습니다. 묶음(지문+보기) 단위로 섞이므로
+        답 칸이 다른 문항에 붙지 않습니다.</li>
+    </ul>
+
+    <figure class="narrow" style="max-width: 26rem;">
+      <img src="assets/exam-ft-modal.png" alt="시험 설정 모달 — 제한 시간, 만점, 성적 칸 선택, 문항 순서 섞기 체크박스와 저장 버튼">
+      <figcaption>시험 설정. 열 때 정하고, 연 뒤에도 <strong>[설정 바꾸기]</strong>로 고칠 수 있습니다.</figcaption>
+    </figure>
+
+    <h3>문항을 골라서 낼 수도 있습니다</h3>
+    <p>
+      기본은 그 단원 시험 문항 <strong>전부 출제</strong>입니다. 진도에 맞춰 일부만 내고 싶으면
+      <span class="btn">문항 고르기</span>에서 체크를 풀면 됩니다 —
+      단, <strong>시험이 열려 있는 동안은 바꿀 수 없고</strong>, 열기 전이나 마감한 뒤에만 됩니다.
+    </p>
+
+    <figure class="narrow" style="max-width: 30rem;">
+      <img src="assets/exam-ft-picker.png" alt="출제할 문항 고르기 모달 — 부별로 문항이 체크박스 목록으로 나열되고 위에 52/52 문항 출제·전부 출제가 표시된다">
+      <figcaption>출제할 문항 고르기. 위에 <strong>「52/52 문항 출제 · 전부 출제」</strong>처럼 몇 문항을 내는지 보입니다.</figcaption>
+    </figure>
+
+    <div class="flag good">
+      <b>인도자가 미리 풀어 봐도 됩니다.</b> 인도자의 응시는 응시 수에 세지 않고 성적으로도 나가지 않습니다
+      (채점 화면에 「인도자」 표시로 보입니다). 학생에게 열기 전에 문항을 눈으로 확인하고 싶을 때 쓰십시오.
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="stage">
+    <div class="stage-num">2</div>
+    <span class="stage-who">학생</span>
+    <h2>학생은 세미나 방에서 바로 응시합니다</h2>
+
+    <p>
+      시험이 열리면 학생이 세미나 방에 들어왔을 때 <strong>맨 위에 안내가 뜹니다</strong>.
+      따로 주소를 알려줄 필요가 없습니다 — 늘 다니던 세미나 방이 곧 시험장입니다.
+    </p>
+
+    <figure>
+      <img src="assets/exam-st-banner.png" alt="학생의 세미나 방 상단 배너 — 온라인 시험이 열렸습니다. 시험별로 제한 시간과 만점이 표시되고 시험 응시 버튼이 있다">
+      <figcaption>학생의 세미나 방 — <strong>「온라인 시험이 열렸습니다」</strong> 배너.
+        「아래 시험을 눌러 응시합니다. 답은 쓰는 대로 저장되고, 제출하면 고칠 수 없습니다.」</figcaption>
+    </figure>
+
+    <p>
+      <span class="btn btn-go">시험 응시</span>를 누르면 먼저 문항 수와 제한 시간을 안내하고,
+      한 번 더 누르면 <strong>시작 시각이 기록되며</strong> 문항이 나타납니다.
+    </p>
+
+    <figure style="max-width: 34rem;">
+      <img src="assets/exam-st-start.png" alt="시험 시작 전 안내 — 문항 42개, 제한 시간 10분(넘겨도 제출할 수 있고 1분당 1점 감점), 시험 응시 버튼">
+      <figcaption>시작 전 안내. 여기서 <strong>[시험 응시]</strong>를 눌러야 시간이 갑니다.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/exam-st-taking.png" alt="응시 화면 — 위에 남은 시간과 진행(42문항 중 0문항 작성), 제출 버튼. 아래로 객관식 문항이 보기와 함께 나열된다">
+      <figcaption>응시 화면. 위에 <strong>남은 시간</strong>과 <strong>몇 문항을 썼는지</strong>가 늘 보입니다.
+        답은 쓰는 대로 저장되므로 중간에 인터넷이 끊겨도 쓴 답은 남습니다. 다 쓰면 <strong>[제출]</strong>.</figcaption>
+    </figure>
+
+    <p>
+      제출하면 답은 <strong>읽기 전용</strong>이 되어 고칠 수 없고, 점수는
+      <strong>인도자가 답을 읽고 확정한 뒤에</strong> 표시됩니다.
+      학생도 세미나 방의 「온라인 시험」 탭에서 자기 응시 기록을 봅니다.
+    </p>
+
+    <figure>
+      <img src="assets/exam-st-tab.png" alt="학생의 내 온라인 시험 탭 — 시험별로 열림·응시·제출 시각이 나열되고, 채점 완료된 시험에는 점수 42/50, 채점 전이면 제출함(채점 대기) 배지가 보인다">
+      <figcaption>학생의 「온라인 시험」 탭 — <strong>내 온라인 시험</strong>. 채점이 끝나면 <strong>점수</strong>가,
+        아직이면 <strong>「제출함 (채점 대기)」</strong>가 보입니다.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 3 -->
+  <section class="stage">
+    <div class="stage-num">3</div>
+    <span class="stage-who">인도자</span>
+    <h2>채점 — 자동 채점 위에서 인도자가 확정합니다</h2>
+
+    <p>
+      제출한 학생이 생기면 「온라인 시험」 탭의 <span class="btn btn-go">채점하기</span>가 채점 화면을 엽니다.
+      객관식은 <strong>자동으로 미리 채점</strong>되어 있고, 인도자는 그 위에서 점수를 다듬어 확정합니다.
+    </p>
+
+    <figure style="max-width: 30rem;">
+      <img src="assets/exam-ft-grading.png" alt="채점 화면의 학생 카드 — 제출 시각, 걸린 시간, 자동 채점 결과, 탭 이탈 1회(12초) 표시. 최종 점수 입력 칸과 확정·답 보기·AI 1차 채점·재응시 허용 버튼">
+      <figcaption>학생 한 사람의 채점 카드. 제출 시각 · 걸린 시간 · 자동 채점 결과와 함께
+        <strong>시험 중 다른 화면으로 나갔는지(탭 이탈)</strong>도 보입니다.
+        최종 점수를 쓰고 <strong>[확정]</strong> — 원점수와 100점 환산이 나란히 보입니다.</figcaption>
+    </figure>
+
+    <h3>개별 점수는 문항 단위로 줍니다</h3>
+    <p>
+      <span class="btn">답 보기</span>를 누르면 문항마다 <strong>학생 답 · 점수 칸 · 정답</strong>이
+      나란히 펼쳐집니다. 주관식을 읽고 문항별 점수 칸에 부분 점수를 주면 위의 최종 점수에 합산됩니다.
+      소수점 점수도 됩니다.
+    </p>
+
+    <figure>
+      <img src="assets/exam-ft-answers.png" alt="답 보기를 펼친 채점 화면 — 문항마다 학생 답, 점수 입력 칸, 정답이 나란히 표시된다">
+      <figcaption>답 보기 — 문항마다 <strong>학생 답</strong>과 <strong>정답</strong>을 나란히 놓고
+        <strong>점수 칸</strong>에 바로 줍니다.</figcaption>
+    </figure>
+
+    <ul>
+      <li><strong>AI 1차 채점</strong> — 주관식까지 AI가 1차 점수를 미리 매겨 줍니다.
+        참고용입니다 — <strong>최종 점수는 언제나 인도자가 확정합니다.</strong></li>
+      <li><strong>재응시 허용</strong> — 학생이 실수로 일찍 제출했으면 다시 볼 수 있게 열어 줍니다.</li>
+      <li><strong>제한 시간을 넘긴 답안</strong> — 자동 제출되지 않고, 넘긴 만큼
+        「1분당 1점 감점」으로 <strong>표시만</strong> 됩니다. 깎을지는 인도자가 정합니다.</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section class="stage">
+    <div class="stage-num">4</div>
+    <span class="stage-who">자동</span>
+    <h2>확정한 점수는 성적표의 빈 칸에만 들어갑니다</h2>
+    <p>
+      [확정]한 점수는 시험을 열 때 정한 <strong>성적표의 시험 칸</strong>으로 갑니다 —
+      단, <strong>빈 칸에만</strong> 채워지고 <strong>이미 적어 두신 점수는 절대 덮어쓰지 않습니다</strong>.
+      그러니 손으로 먼저 기록해 두신 반에서도 안심하고 쓰실 수 있습니다.
+    </p>
+    <p>
+      학생의 최종 성적 확인은 평소와 같습니다 — 「학적관리」의 내 성적에서,
+      수업 종료 후에는 인도자 평가를 마친 뒤에 봅니다.
+    </p>
+  </section>
+
+  <!-- 자주 묻는 것 -->
+  <section class="ask">
+    <h2>자주 묻는 것</h2>
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><th>종이 학습서로 공부하는 반인데 되나요?</th>
+            <td>됩니다. 같은 과목의 온라인 학습서 문항으로 시험만 온라인으로 엽니다.</td></tr>
+          <tr><th>문항을 미리 보고 싶어요</th>
+            <td>인도자가 직접 [시험 응시]로 풀어 보십시오. 인도자 응시는 응시 수·성적에 잡히지 않습니다.</td></tr>
+          <tr><th>학생이 실수로 제출했어요</th>
+            <td>채점 화면의 <strong>[재응시 허용]</strong>으로 다시 열어 줍니다.</td></tr>
+          <tr><th>시간을 넘겨서 냈어요</th>
+            <td>자동 제출·자동 감점되지 않습니다. 넘긴 만큼 「1분당 1점 감점」으로 표시만 되고, 반영 여부는 인도자가 정합니다.</td></tr>
+          <tr><th>일부 문항만 내고 싶어요</th>
+            <td>[문항 고르기]에서 체크를 풉니다. 열려 있는 동안은 못 바꾸니, 열기 전이나 [마감하기] 후에.</td></tr>
+          <tr><th>이미 성적표에 점수를 적어 뒀는데요</th>
+            <td>덮어쓰지 않습니다. 확정 점수는 지정한 시험 칸의 <strong>빈 칸에만</strong> 들어갑니다.</td></tr>
+          <tr><th>다른 책으로 열고 싶어요</th>
+            <td>한 번 열면 반의 학습서가 고정됩니다. 본부에 문의해 주십시오.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    화면은 실제 화면을 시험용 반(테스트 계정)으로 캡처한 것입니다. 글자는 화면에 보이는 그대로 옮겼습니다.
+    홈페이지가 바뀌면 이 안내도 같은 주소에서 갱신됩니다.<br>
+    <a href="instructor-guide.html">← 인도자 세미나 방 안내로 돌아가기</a>
+  </footer>
+
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>
