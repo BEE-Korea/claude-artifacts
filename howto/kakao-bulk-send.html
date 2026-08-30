@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카톡 100번을 10번으로</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+  :root {
+    --ground:    #F4F6F5;
+    --surface:   #FFFFFF;
+    --surface-2: #EAEEEC;
+    --ink:       #16201E;
+    --ink-soft:  #5A6664;
+    --ink-faint: #8B9694;
+    --accent:    #1F6F5C;
+    --accent-bg: #E4EFEA;
+    --signal:    #B98A00;
+    --signal-bg: #FBF2D9;
+    --line:      #DBE2E0;
+    --line-soft: #E9EEEC;
+
+
+    --paper: #F4F6F5;
+    --card: #FFFFFF;
+    --muted: #8B9694;
+    --accent-soft: #E4EFEA;
+    --serif: "Noto Serif KR", Georgia, serif;
+    --sans:  "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #0E1413;
+      --surface:   #161F1D;
+      --surface-2: #1D2826;
+      --ink:       #E8EDEB;
+      --ink-soft:  #9BA7A4;
+      --ink-faint: #6E7B78;
+      --accent:    #58BFA1;
+      --accent-bg: #17302A;
+      --signal:    #E8C05A;
+      --signal-bg: #2E2718;
+      --line:      #26332F;
+      --line-soft: #1E2A27;
+      --paper: #0E1413;
+      --card: #161F1D;
+      --muted: #6E7B78;
+      --accent-soft: #17302A;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:    #0E1413;
+    --surface:   #161F1D;
+    --surface-2: #1D2826;
+    --ink:       #E8EDEB;
+    --ink-soft:  #9BA7A4;
+    --ink-faint: #6E7B78;
+    --accent:    #58BFA1;
+    --accent-bg: #17302A;
+    --signal:    #E8C05A;
+    --signal-bg: #2E2718;
+    --line:      #26332F;
+    --line-soft: #1E2A27;
+    --paper: #0E1413;
+    --card: #161F1D;
+    --muted: #6E7B78;
+    --accent-soft: #17302A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 22px 96px;
+  }
+
+  /* ── 히어로 ───────────────────────────────── */
+  .hero {
+    padding: 64px 0 44px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 20px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(30px, 7vw, 42px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 24px;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin: 0 0 36px;
+    text-wrap: pretty;
+  }
+
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  /* 숫자 대비 — 이 페이지의 논지 */
+  .tally {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(16px, 5vw, 32px);
+    padding: 26px clamp(20px, 5vw, 30px);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+  }
+
+  .tally-cell { flex: 0 0 auto; }
+  .tally-cell.grow { flex: 1 1 auto; }
+
+  .tally-num {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(38px, 11vw, 56px);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    display: block;
+  }
+
+  .tally-cell.was .tally-num { color: var(--ink-faint); }
+  .tally-cell.now .tally-num { color: var(--accent); }
+
+  .tally-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin-top: 8px;
+  }
+
+  .tally-arrow {
+    color: var(--line);
+    font-size: 26px;
+    line-height: 1;
+    flex: 0 0 auto;
+  }
+
+  .tally-time {
+    text-align: right;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .tally-time b { color: var(--ink); font-weight: 700; }
+  /* 「일곱 번」이 두 줄로 쪼개지지 않게 묶는다 */
+  .tally-time .pair { white-space: nowrap; }
+
+  /* 좁은 화면에서는 숫자 아래로 내린다 — 옆에 두면 글자가 잘게 깨진다 */
+  @media (max-width: 540px) {
+    .tally { gap: 18px; }
+    .tally-cell.grow {
+      flex: 1 0 100%;
+      text-align: left;
+      padding-top: 16px;
+      border-top: 1px solid var(--line-soft);
+      font-size: 14px;
+    }
+  }
+
+  /* ── 본문 ─────────────────────────────────── */
+  section { padding-top: 52px; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+
+  .sub {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 28px;
+    text-wrap: pretty;
+  }
+
+  p { margin: 0 0 18px; text-wrap: pretty; }
+
+  /* 원리 — 말풍선 한 개 */
+  .principle {
+    position: relative;
+    background: var(--accent-bg);
+    border-radius: 14px 14px 14px 3px;
+    padding: 22px 26px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .principle b { color: var(--accent); font-weight: 700; }
+
+  /* 단계 */
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .steps li {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    padding: 18px 20px;
+  }
+
+  .steps li:first-child { border-radius: 3px 3px 0 0; }
+  .steps li:last-child  { border-radius: 0 0 3px 3px; }
+
+  .steps .n {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.6;
+    padding-top: 1px;
+  }
+
+  .steps .body { font-size: 16px; line-height: 1.65; }
+  .steps .body b { font-weight: 700; }
+  .steps .note {
+    display: block;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 5px;
+  }
+
+  /* 강조 단계 — 여기서 실수가 난다 */
+  .steps li.key {
+    background: var(--signal-bg);
+    border-color: var(--signal-bg);
+  }
+  .steps li.key .n { color: var(--signal); }
+
+  /* 갈래 (폰 / PC) */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .tab {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .tab:hover { border-color: var(--accent); color: var(--accent); }
+  .tab[aria-selected="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+  }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  [role="tabpanel"][hidden] { display: none; }
+
+  /* 알아둘 것 */
+  .facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .facts li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .facts .mark {
+    color: var(--accent);
+    font-weight: 700;
+    line-height: 1.65;
+  }
+  .facts .mark.no { color: var(--ink-faint); }
+
+  .facts b { font-weight: 700; }
+
+  /* 안 되는 것 */
+  .avoid {
+    border-left: 2px solid var(--line);
+    padding: 4px 0 4px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .avoid h3 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    color: var(--ink);
+  }
+
+  .avoid p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* 팁 */
+  .tip {
+    background: var(--surface-2);
+    border-radius: 3px;
+    padding: 20px 24px;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .tip .tip-h {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 9px;
+  }
+  .tip p { margin: 0 0 12px; }
+  .tip p:last-child { margin: 0; }
+  .tip code {
+    font-family: var(--sans);
+    font-weight: 500;
+    background: var(--surface);
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 14.5px;
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">매일 카톡 보내는 일을 줄이는 법</p>
+    <h1>보내는 횟수를 열 번으로 줄이는 방법</h1>
+    <p class="lede">
+      카톡에는 <strong>한 번에 열 곳까지 같은 메시지를 보내는 기능</strong>이 이미 들어 있습니다.
+      새로 설치할 것도, 돈 드는 것도 없습니다. 아는 사람이 적을 뿐입니다.
+    </p>
+
+    <div class="tally">
+      <div class="tally-cell was">
+        <span class="tally-num">100</span>
+        <span class="tally-label">지금 · 하루</span>
+      </div>
+      <div class="tally-arrow" aria-hidden="true">→</div>
+      <div class="tally-cell now">
+        <span class="tally-num">10</span>
+        <span class="tally-label">바꾼 뒤</span>
+      </div>
+      <div class="tally-cell grow tally-time">
+        <span class="pair">1:1 일흔 명 → <b>일곱 번</b></span><br>
+        <span class="pair">단톡방 서른 곳 → <b>세 번</b></span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>원리는 한 줄입니다</h2>
+    <p class="sub">받는 사람마다 새로 쓰지 않습니다. 한 번 쓰고, 그것을 열 곳씩 넘깁니다.</p>
+
+    <div class="principle">
+      <b>「나와의 채팅」</b>에 오늘 보낼 글을 한 번 씁니다.<br>
+      그 말풍선을 <b>전달</b>로 열 곳씩 보냅니다.
+    </div>
+    <p class="sub" style="margin-top:14px">
+      「나와의 채팅」은 나만 보는 방입니다. 여기가 원본이 되고, 나머지는 전부 복사입니다.
+      매번 다시 쓰거나 복사·붙여넣기 할 일이 없어집니다.
+    </p>
+  </section>
+
+  <section>
+    <h2>따라 하기</h2>
+    <p class="sub">폰과 컴퓨터 모두 됩니다. 열 곳 제한도 똑같습니다.</p>
+
+    <div class="tabs" role="tablist" aria-label="기기 선택">
+      <button class="tab" role="tab" id="tab-phone" aria-controls="panel-phone" aria-selected="true">휴대폰</button>
+      <button class="tab" role="tab" id="tab-pc" aria-controls="panel-pc" aria-selected="false">컴퓨터</button>
+    </div>
+
+    <div role="tabpanel" id="panel-phone" aria-labelledby="tab-phone">
+      <ol class="steps">
+        <li>
+          <span class="n">1</span>
+          <span class="body">
+            카톡에서 <b>내 프로필</b>을 누르고 <b>나와의 채팅</b>을 엽니다.
+            <span class="note">친구 목록 맨 위, 내 이름을 누르면 나옵니다.</span>
+          </span>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <span class="body">오늘 보낼 글을 여기에 써서 <b>보냅니다.</b></span>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <span class="body">
+            방금 보낸 말풍선을 <b>길게 누릅니다.</b>
+            <span class="note">메뉴가 뜹니다.</span>
+          </span>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <span class="body"><b>공유</b>를 누릅니다.</span>
+        </li>
+        <li class="key">
+          <span class="n">5</span>
+          <span class="body">
+            받을 사람과 방을 <b>최대 열 곳</b>까지 고릅니다.
+            <span class="note">열한 번째부터는 선택이 안 됩니다. 세면서 고르지 않아도 됩니다.</span>
+          </span>
+        </li>
+        <li class="key">
+          <span class="n">6</span>
+          <span class="body">
+            <b>각각 보내기</b>인지 확인하고 보냅니다.
+            <span class="note">이걸 놓치면 고른 사람들이 한 단톡방에 묶여 서로를 보게 됩니다. 가장 조심할 곳입니다.</span>
+          </span>
+        </li>
+        <li>
+          <span class="n">7</span>
+          <span class="body">
+            3번부터 다시 합니다.
+            <span class="note">백 곳이면 열 번이면 끝납니다.</span>
+          </span>
+        </li>
+      </ol>
+    </div>
+
+    <div role="tabpanel" id="panel-pc" aria-labelledby="tab-pc" hidden>
+      <ol class="steps">
+        <li>
+          <span class="n">1</span>
+          <span class="body">컴퓨터 카톡에서 <b>내 프로필을 두 번 눌러</b> 나와의 채팅을 엽니다.</span>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <span class="body">오늘 보낼 글을 써서 <b>보냅니다.</b></span>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <span class="body">
+            방금 보낸 말풍선에 <b>마우스 오른쪽 버튼</b>을 누릅니다.
+          </span>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <span class="body"><b>전달</b>을 누릅니다.</span>
+        </li>
+        <li class="key">
+          <span class="n">5</span>
+          <span class="body">
+            받을 곳을 <b>최대 열 곳</b>까지 고르고 보냅니다.
+            <span class="note">1:1로 보내려면 목록에서 <b>친구</b>를, 단톡방에 보내려면 <b>채팅방</b>을 고릅니다.</span>
+          </span>
+        </li>
+        <li>
+          <span class="n">6</span>
+          <span class="body">
+            3번부터 다시 합니다.
+            <span class="note">컴퓨터가 폰보다 빠릅니다. 글이 길다면 컴퓨터를 권합니다.</span>
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>알아 두실 것</h2>
+    <ul class="facts">
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>친구로 등록된 사람만</b> 고를 수 있습니다. 전화번호만 아는 사람에게는 이 방법으로 못 보냅니다.</span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span>단톡방도 <b>같은 열 곳 제한</b>입니다. 사람과 단톡방을 섞어서 열 곳을 채워도 됩니다.</span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>보내는 순서를 정해 두십시오.</b> 매일 같은 순서로 고르면 누구를 보냈는지 헷갈리지 않습니다. 자주 보내는 분들을 <b>즐겨찾기</b>에 올려 두면 목록 맨 위에 모여 고르기가 훨씬 빠릅니다.</span>
+      </li>
+      <li>
+        <span class="mark no" aria-hidden="true">·</span>
+        <span>같은 글을 아주 짧은 사이에 몰아서 보내면 카톡이 <b>잠시 전송을 막을 수 있습니다.</b> 열 곳씩 나눠 보내는 사이에 조금씩 쉬어 가십시오.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>글이 이상하게 보인다면</h2>
+    <div class="tip">
+      <span class="tip-h">AI로 글을 쓰신다면</span>
+      <p>
+        카톡에는 <b>굵은 글씨나 제목 서식이 없습니다.</b> 그래서 AI가 써 준 글을 그대로 붙이면
+        <code>**말씀**</code>처럼 별표가, <code>## 제목</code>처럼 샾이 그대로 보입니다.
+      </p>
+      <p>
+        글을 부탁할 때 이 한 줄을 같이 적으시면 됩니다 —
+        <code>카톡에 붙여넣을 거니까 별표나 샾 같은 서식 기호 없이 써 줘.</code>
+        매일 손으로 지우실 필요가 없어집니다.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>이 방법들은 권하지 않습니다</h2>
+    <p class="sub">찾아보시면 나오지만, 알아보고 접은 이유가 있습니다.</p>
+
+    <div class="avoid">
+      <div>
+        <h3>자동 발송 프로그램</h3>
+        <p>
+          카톡 창을 대신 눌러 주는 프로그램들이 있습니다. 백 곳을 정말로 자동화할 수 있는 유일한 방법이지만,
+          카카오 약관에서 금지하고 있어 <b>계정이 묶일 수 있습니다.</b> 매일 쓰시는 계정이 막히면
+          잃는 것이 훨씬 큽니다.
+        </p>
+      </div>
+      <div>
+        <h3>카카오톡 채널의 소식 발행</h3>
+        <p>
+          개인도 채널을 무료로 만들 수 있고 소식 올리기도 평생 무료입니다. 그런데
+          <b>알림이 가지 않습니다.</b> 받는 분이 직접 채널에 들어와야 보입니다.
+          매일 읽히기를 바라는 글에는 맞지 않습니다.
+        </p>
+      </div>
+      <div>
+        <h3>채널에서 메시지 보내기</h3>
+        <p>
+          알림이 가는 채널 메시지는 <b>건당 8원에서 25원</b>이 듭니다. 백 명이면 하루 2,500원,
+          한 달이면 7만 원 남짓입니다. 그리고 이건 <b>사업자 등록이 있어야</b> 열 수 있습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    카카오톡 도움말과 카카오 비즈니스 안내를 확인해 정리했습니다.
+    카톡 기능은 업데이트로 메뉴 이름이 조금씩 바뀔 수 있습니다 —
+    「공유」가 「전달」로 보이더라도 하는 일은 같습니다.
+  </footer>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('[role="tab"]');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        const selected = t === tab;
+        t.setAttribute('aria-selected', String(selected));
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !selected;
+      });
+    });
+  });
+</script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

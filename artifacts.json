@@ -101,6 +101,17 @@
       "date": "2026-07-14"
     },
     {
+      "icon": "💬",
+      "group": "노하우 · How-to",
+      "title": "카톡 100번을 10번으로",
+      "kicker": "매일 여러 사람·여러 단톡방에 같은 글을 보내는 분들께",
+      "desc": "「나와의 채팅」에 한 번 쓰고, 그 말풍선을 전달로 열 곳씩 보냅니다. 폰·컴퓨터 단계별 안내 + 「각각 보내기」를 놓치면 벌어지는 일 + 자동 발송 프로그램·카카오 채널을 권하지 않는 이유.",
+      "path": "howto/kakao-bulk-send.html",
+      "visibility": "public",
+      "status": "current",
+      "date": "2026-08-30"
+    },
+    {
       "icon": "☁️",
       "group": "내부 · Internal",
       "title": "AWS 정리 작업 기록",
