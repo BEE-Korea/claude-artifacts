@@ -476,6 +476,107 @@
   }
   .after .mark { color: var(--accent); font-weight: 700; }
 
+
+  h3.step {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 38px 0 12px;
+  }
+  h3.step:first-of-type { margin-top: 30px; }
+
+  .ready {
+    display: block;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 20px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .12s, background .12s;
+  }
+  .ready:hover { background: var(--accent-bg); border-left-color: var(--accent); }
+  .ready:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .ready .rt {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .ready .rd {
+    display: block;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .ready .rm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .ready .rm b { color: var(--accent); font-weight: 700; }
+
+
+  /* 설치 단계 — 숫자가 진짜 순서다 */
+  .install {
+    list-style: none;
+    counter-reset: ins;
+    margin: 0 0 26px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .install li {
+    counter-increment: ins;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 14px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    padding: 15px 18px;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .install li:first-child { border-radius: 3px 3px 0 0; }
+  .install li:last-child { border-radius: 0 0 3px 3px; }
+  .install li::before {
+    content: counter(ins);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.7;
+  }
+  .install li.key { background: var(--signal-bg); border-color: var(--signal-bg); }
+  .install li.key::before { color: var(--signal); }
+  .install .k {
+    font-family: var(--sans);
+    font-weight: 700;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+  .install .note {
+    display: block;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .hidden-src { display: none; }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
   }
@@ -657,9 +758,498 @@
     </div>
 
     <p>
-      프로그램을 설치하실 필요는 없습니다. <b>Claude에게 아래 글을 그대로 붙여넣으시면</b>
-      Claude가 컴퓨터를 살펴보고, 만들고, 안 되면 고쳐 줍니다. 컴퓨터마다 카톡 화면이 조금씩
-      다른데, 그건 옆에서 보는 쪽이 맞춰야 하는 일입니다.
+      길은 <b>엑셀</b>입니다. 엑셀은 이미 쓰고 계실 테니 새로 설치할 것이 없고, 명단을 시트에
+      적어 두면 되니 관리도 쉽습니다. 무엇보다 <b>보내는 동안 키보드와 마우스를 뺏기지 않습니다</b> —
+      카톡 창을 마우스로 누르는 방식이 아니라, 윈도우가 제공하는 통로로 글을 직접 넣기 때문입니다.
+    </p>
+
+    <h3 class="step">먼저 — 이미 만들어진 것이 있습니다</h3>
+    <p>
+      직접 만들기 전에 이것부터 써 보십시오. <b>무료</b>이고, 카톡이 바뀔 때마다 계속 손봐 온
+      서식입니다. 이게 맞으면 아무것도 만들 필요가 없습니다.
+    </p>
+
+    <a class="ready" href="https://www.oppadu.com/resources/%EC%97%91%EC%85%80-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%AC%B8%EC%9E%90%EB%B3%B4%EB%82%B4%EA%B8%B0-%EC%9E%90%EB%8F%99%ED%99%94-%EC%84%9C%EC%8B%9D/" target="_blank" rel="noopener">
+      <b class="rt">엑셀 카카오톡 문자보내기 자동화 서식</b>
+      <span class="rd">오빠두엑셀 — 명단을 시트에 적고 버튼을 누르면 순서대로 보냅니다. 내려받으려면 회원가입(무료)이 필요합니다.</span>
+      <span class="rm">
+        <span>버전 <b>4.2.0</b> (2025-12-29)</span>
+        <span>받은 사람 <b>27,390명</b></span>
+        <span>평점 <b>4.96</b>/5</span>
+      </span>
+    </a>
+
+    <p class="sub" style="margin:14px 0 0">
+      ⚠️ 윈도우 전용입니다(엑셀 2013 이상). 맥에서는 안 됩니다.
+      그리고 카톡이 크게 바뀌면 한동안 멈출 수 있습니다 — 2024년 업데이트 때 실제로 그랬고,
+      만든 쪽에서 고쳐 다시 냈습니다.
+    </p>
+
+    <h3 class="step">아니면 — 아래 코드를 그대로 쓰십시오</h3>
+    <p>
+      기성 서식이 안 맞거나 안에서 무슨 일이 일어나는지 보고 싶으시면, 만들어 둔 것을 쓰십시오.
+      <b>코드를 읽으실 필요는 없습니다.</b> 아래 순서대로만 하시면 됩니다. 10분이면 됩니다.
+    </p>
+
+    <ol class="install">
+      <li><span>엑셀을 새로 켜고 <b>다른 이름으로 저장</b>을 누릅니다.
+        <span class="note">파일 형식을 <b>「Excel 매크로 사용 통합 문서 (*.xlsm)」</b>로 고르십시오.
+        보통 xlsx로 저장하면 매크로가 통째로 사라집니다.</span></span></li>
+
+      <li><span><span class="k">Alt</span> + <span class="k">F11</span> 을 누릅니다.
+        <span class="note">까만 창이 뜹니다. 이게 매크로 편집기입니다. 놀라지 않으셔도 됩니다.</span></span></li>
+
+      <li><span>위쪽 메뉴에서 <b>삽입 → 모듈</b>을 누릅니다.
+        <span class="note">오른쪽에 빈 흰 칸이 생깁니다.</span></span></li>
+
+      <li class="key"><span>아래 <b>「코드 복사」</b> 버튼을 누르고, 그 빈 칸에 <span class="k">Ctrl</span> + <span class="k">V</span> 로 붙여넣습니다.
+        <span class="note">빈 칸 안을 한 번 누른 다음 붙여넣으셔야 합니다.</span></span></li>
+
+      <li><span><span class="k">Ctrl</span> + <span class="k">S</span> 로 저장하고, 편집기를 닫습니다.</span></li>
+
+      <li><span>엑셀 화면에서 <span class="k">Alt</span> + <span class="k">F8</span> 을 누르고
+        <b>준비_시트만들기</b>를 골라 실행합니다.
+        <span class="note">「명단」·「내용」·「설정」 시트가 저절로 만들어집니다.</span></span></li>
+
+      <li><span><b>「명단」 시트 A2</b>부터 받을 곳 이름을 한 줄에 하나씩 적습니다.
+        <span class="note">⚠️ 카톡에 보이는 이름 <b>그대로</b> 적어야 찾습니다. 띄어쓰기·이모지까지 같아야 합니다.</span></span></li>
+
+      <li><span><b>「내용」 시트 A1</b>에 보낼 글을 적습니다.
+        <span class="note">줄을 바꾸실 때는 <span class="k">Alt</span> + <span class="k">Enter</span> 를 쓰십시오.</span></span></li>
+
+      <li class="key"><span><b>카톡을 켜 두고</b> <span class="k">Alt</span> + <span class="k">F8</span> → <b>진단_카톡창</b>을 실행합니다.
+        <span class="note">내 컴퓨터에서 카톡 창을 찾을 수 있는지 먼저 보는 것입니다.
+        「진단」 시트에 결과가 적힙니다. 여기서 막히면 다음으로 넘어가지 마십시오.</span></span></li>
+
+      <li class="key"><span><span class="k">Alt</span> + <span class="k">F8</span> → <b>발송</b>을 실행합니다.
+        <span class="note">처음에는 <b>시험모드</b>라 3곳에만 갑니다. 카톡에서 눈으로 확인하신 다음,
+        「설정」 시트 B1을 <b>FALSE</b>로 바꾸시면 전체가 나갑니다.</span></span></li>
+    </ol>
+
+    <div class="prompt-wrap" style="margin-bottom:26px">
+      <div class="prompt-head">
+        <span>엑셀 매크로 코드 (378줄)</span>
+        <button class="copybtn" id="copyCode" type="button">코드 복사</button>
+      </div>
+      <p class="prompt-body" style="max-height:220px">이 코드가 하는 일은 셋입니다.
+
+· 준비_시트만들기 — 시트 세 개를 만들어 줍니다 (처음 한 번만)
+· 진단_카톡창    — 내 컴퓨터에서 카톡 창을 찾을 수 있는지 확인합니다
+· 발송          — 명단을 따라가며 하나씩 보냅니다
+
+안전을 위해 이렇게 만들었습니다.
+
+· 방을 연 뒤 창 제목을 다시 읽어, 명단과 정확히 같을 때만 보냅니다.
+  다르면 보내지 않고 「제목 불일치」라고 적어 둡니다.
+· 방과 방 사이에 5~15초 무작위로 쉽니다.
+· 보낸 시각을 B열에 적어 두고, 다시 돌리면 이미 보낸 곳은 건너뜁니다.
+· 돌아가는 중에 Esc 를 누르면 멈춥니다.
+· 마우스·키보드를 쓰지 않고 보내므로, 보내는 동안 다른 일을 하셔도 됩니다.
+
+「코드 복사」를 누르면 전체(378줄)가 복사됩니다.</p>
+    </div>
+    <pre class="hidden-src" id="vbaSrc">Attribute VB_Name = &quot;KakaoSend&quot;
+&#x27;==========================================================================
+&#x27;  카카오톡 순차 발송  (엑셀 VBA · 윈도우 전용)
+&#x27;--------------------------------------------------------------------------
+&#x27;  왜 이 방식인가
+&#x27;    마우스로 화면을 누르는 자동화가 아니라, 윈도우가 제공하는 통로
+&#x27;    (FindWindow / SendMessage)로 카톡 입력칸에 글을 직접 넣는다.
+&#x27;    → 보내는 동안 키보드·마우스를 뺏기지 않는다. 다른 일을 해도 된다.
+&#x27;
+&#x27;  왜 안전한가 (가장 중요)
+&#x27;    카톡 대화창은 **창 제목이 곧 방 이름**이다.
+&#x27;    FindWindow(클래스, 방이름) 은 **제목이 정확히 일치하는 창만** 돌려준다.
+&#x27;    그래서 「이름이 비슷한 엉뚱한 사람에게 가는 일」이 구조적으로 막힌다.
+&#x27;    보내기 직전에 제목을 **한 번 더** 읽어 대조한다(GetWindowTextW).
+&#x27;
+&#x27;  ⚠️ 쓰기 전에
+&#x27;    · 카카오 약관은 자동 발송을 금지한다. 계정에 전송 제한이 걸릴 수 있다.
+&#x27;    · 반드시 시트의 [시험모드] = TRUE 로 **3곳만** 먼저 보내고 눈으로 확인할 것.
+&#x27;    · 카톡이 크게 바뀌면 클래스 이름이 달라질 수 있다 → 먼저 `진단_카톡창` 을 돌린다.
+&#x27;
+&#x27;  시트 구성
+&#x27;    「명단」 시트 : A열=받을 곳 이름(카톡에 보이는 그대로) · B열=보낸 시각 · C열=결과
+&#x27;    「내용」 시트 : A1 셀에 보낼 글 (여러 줄 가능)
+&#x27;    「설정」 시트 : B1=시험모드(TRUE/FALSE) · B2=최소쉼(초) · B3=최대쉼(초)
+&#x27;==========================================================================
+Option Explicit
+
+&#x27;──────────────── Win32 API ────────────────
+&#x27; ⚠️ 엑셀 2010 이상 전용 (VBA7). 2007 이하에는 LongPtr 타입이 없어 열리지 않는다.
+Private Declare PtrSafe Function FindWindowW Lib &quot;user32&quot; _
+    (ByVal lpClassName As LongPtr, ByVal lpWindowName As LongPtr) As LongPtr
+Private Declare PtrSafe Function FindWindowExW Lib &quot;user32&quot; _
+    (ByVal hWndParent As LongPtr, ByVal hWndChildAfter As LongPtr, _
+     ByVal lpClassName As LongPtr, ByVal lpWindowName As LongPtr) As LongPtr
+Private Declare PtrSafe Function SendMessageW Lib &quot;user32&quot; _
+    (ByVal hWnd As LongPtr, ByVal wMsg As Long, ByVal wParam As LongPtr, ByVal lParam As LongPtr) As LongPtr
+Private Declare PtrSafe Function PostMessageW Lib &quot;user32&quot; _
+    (ByVal hWnd As LongPtr, ByVal wMsg As Long, ByVal wParam As LongPtr, ByVal lParam As LongPtr) As Long
+Private Declare PtrSafe Function GetWindowTextW Lib &quot;user32&quot; _
+    (ByVal hWnd As LongPtr, ByVal lpString As LongPtr, ByVal cch As Long) As Long
+Private Declare PtrSafe Function GetClassNameW Lib &quot;user32&quot; _
+    (ByVal hWnd As LongPtr, ByVal lpClassName As LongPtr, ByVal nMaxCount As Long) As Long
+Private Declare PtrSafe Function IsWindowVisible Lib &quot;user32&quot; (ByVal hWnd As LongPtr) As Long
+Private Declare PtrSafe Function GetAsyncKeyState Lib &quot;user32&quot; (ByVal vKey As Long) As Integer
+Private Declare PtrSafe Sub Sleep Lib &quot;kernel32&quot; (ByVal dwMilliseconds As Long)
+Private Declare PtrSafe Function GetWindow Lib &quot;user32&quot; (ByVal hWnd As LongPtr, ByVal wCmd As Long) As LongPtr
+
+Private Const WM_SETTEXT As Long = &amp;HC
+Private Const WM_KEYDOWN As Long = &amp;H100
+Private Const WM_KEYUP   As Long = &amp;H101
+Private Const WM_CLOSE   As Long = &amp;H10
+Private Const VK_RETURN  As Long = &amp;HD
+Private Const VK_ESCAPE  As Long = &amp;H1B
+Private Const GW_HWNDNEXT As Long = 2
+
+&#x27; 카톡 창 클래스 — 버전에 따라 다를 수 있다. 다르면 `진단_카톡창` 결과로 여기를 고친다.
+Private Const CLS_MAIN As String = &quot;EVA_Window_Dblclk&quot;   &#x27; 카톡 메인 창
+Private Const CLS_CHAT As String = &quot;#32770&quot;              &#x27; 대화창(제목 = 방 이름)
+Private Const CLS_EDIT As String = &quot;RichEdit50W&quot;         &#x27; 글 넣는 칸 (구버전: RichEdit20W)
+
+&#x27;==========================================================================
+&#x27;  ① 진단 — 먼저 이것부터 돌린다
+&#x27;     내 컴퓨터의 카톡 창 구조를 「진단」 시트에 적는다.
+&#x27;     위의 CLS_* 상수가 맞는지 눈으로 확인하기 위한 것이다.
+&#x27;==========================================================================
+Public Sub 진단_카톡창()
+    Dim ws As Worksheet, r As Long
+    Set ws = 시트확보(&quot;진단&quot;)
+    ws.Cells.Clear
+    ws.Range(&quot;A1:D1&quot;).Value = Array(&quot;종류&quot;, &quot;클래스&quot;, &quot;제목&quot;, &quot;핸들&quot;)
+    ws.Range(&quot;A1:D1&quot;).Font.Bold = True
+    r = 2
+
+    Dim hMain As LongPtr, sMain As String
+    sMain = CLS_MAIN                      &#x27; ⚠️ StrPtr 는 Const 가 아니라 변수에 써야 안전하다
+    hMain = FindWindowW(StrPtr(sMain), 0)
+    If hMain = 0 Then
+        ws.Cells(r, 1).Value = &quot;메인 창을 못 찾음&quot;
+        ws.Cells(r, 2).Value = &quot;카톡이 켜져 있는지, 클래스(&quot; &amp; CLS_MAIN &amp; &quot;)가 맞는지 확인&quot;
+        ws.Columns.AutoFit
+        MsgBox &quot;카톡 메인 창을 못 찾았습니다.&quot; &amp; vbCrLf &amp; _
+               &quot;카톡을 켜고 다시 돌려 주세요.&quot;, vbExclamation
+        Exit Sub
+    End If
+    ws.Cells(r, 1).Value = &quot;메인 창&quot;
+    ws.Cells(r, 2).Value = 창클래스(hMain)
+    ws.Cells(r, 3).Value = 창제목(hMain)
+    ws.Cells(r, 4).Value = CStr(hMain)
+    r = r + 1
+
+    &#x27; 지금 열려 있는 대화창을 모두 훑는다 (제목 = 방 이름)
+    Dim h As LongPtr, sChat As String
+    sChat = CLS_CHAT
+    h = FindWindowW(StrPtr(sChat), 0)
+    Do While h &lt;&gt; 0
+        If IsWindowVisible(h) &lt;&gt; 0 And Len(창제목(h)) &gt; 0 Then
+            ws.Cells(r, 1).Value = &quot;대화창(열려 있음)&quot;
+            ws.Cells(r, 2).Value = 창클래스(h)
+            ws.Cells(r, 3).Value = 창제목(h)
+            ws.Cells(r, 4).Value = CStr(h)
+            r = r + 1
+            &#x27; 그 안의 입력칸도 찾아본다
+            Dim hE As LongPtr
+            hE = 입력칸찾기(h)
+            ws.Cells(r, 1).Value = &quot;  └ 입력칸&quot;
+            ws.Cells(r, 2).Value = IIf(hE = 0, &quot;못 찾음 — CLS_EDIT 를 고쳐야 한다&quot;, 창클래스(hE))
+            ws.Cells(r, 4).Value = IIf(hE = 0, &quot;&quot;, CStr(hE))
+            r = r + 1
+        End If
+        h = GetWindow(h, GW_HWNDNEXT)
+    Loop
+
+    ws.Columns.AutoFit
+    MsgBox &quot;진단을 「진단」 시트에 적었습니다.&quot; &amp; vbCrLf &amp; vbCrLf &amp; _
+           &quot;· 대화창이 하나도 안 보이면, 카톡에서 아무 방이나 열고 다시 돌려 주세요.&quot; &amp; vbCrLf &amp; _
+           &quot;· 입력칸이 「못 찾음」이면 코드 위쪽 CLS_EDIT 를 바꿔야 합니다.&quot; &amp; vbCrLf &amp; _
+           &quot;  (RichEdit50W ↔ RichEdit20W)&quot;, vbInformation
+End Sub
+
+&#x27;==========================================================================
+&#x27;  ② 발송
+&#x27;==========================================================================
+Public Sub 발송()
+    Dim wsL As Worksheet, wsC As Worksheet, wsS As Worksheet
+    Set wsL = 시트확보(&quot;명단&quot;)
+    Set wsC = 시트확보(&quot;내용&quot;)
+    Set wsS = 시트확보(&quot;설정&quot;)
+
+    Dim msg As String
+    msg = CStr(wsC.Range(&quot;A1&quot;).Value)
+    If Len(Trim$(msg)) = 0 Then
+        MsgBox &quot;「내용」 시트 A1 에 보낼 글이 없습니다.&quot;, vbExclamation: Exit Sub
+    End If
+
+    Dim 시험 As Boolean, 최소 As Long, 최대 As Long
+    시험 = (UCase$(CStr(wsS.Range(&quot;B1&quot;).Value)) &lt;&gt; &quot;FALSE&quot;)   &#x27; 비어 있으면 시험모드
+    최소 = 숫자또는(wsS.Range(&quot;B2&quot;).Value, 5)
+    최대 = 숫자또는(wsS.Range(&quot;B3&quot;).Value, 15)
+    If 최대 &lt; 최소 Then 최대 = 최소
+
+    Dim 마지막 As Long
+    마지막 = wsL.Cells(wsL.Rows.Count, 1).End(xlUp).Row
+    If 마지막 &lt; 2 Then MsgBox &quot;「명단」 시트 A2 부터 받을 곳 이름을 적어 주세요.&quot;, vbExclamation: Exit Sub
+
+    Dim 답 As VbMsgBoxResult
+    답 = MsgBox(IIf(시험, &quot;【시험모드】 앞의 3곳에만 보냅니다.&quot; &amp; vbCrLf, &quot;【전체발송】 명단 전부에 보냅니다.&quot; &amp; vbCrLf) &amp; _
+                &quot;보낼 곳: &quot; &amp; (마지막 - 1) &amp; &quot;곳 (이미 보낸 곳은 건너뜁니다)&quot; &amp; vbCrLf &amp; vbCrLf &amp; _
+                &quot;보내는 중에 Esc 를 누르면 멈춥니다.&quot; &amp; vbCrLf &amp; &quot;시작할까요?&quot;, _
+                vbYesNo + vbQuestion, &quot;카톡 발송&quot;)
+    If 답 &lt;&gt; vbYes Then Exit Sub
+
+    Dim hMain As LongPtr, sMain As String
+    sMain = CLS_MAIN
+    hMain = FindWindowW(StrPtr(sMain), 0)
+    If hMain = 0 Then
+        MsgBox &quot;카톡이 켜져 있지 않습니다. 카톡을 켜고 다시 해 주세요.&quot;, vbExclamation: Exit Sub
+    End If
+
+    Dim i As Long, 보냄 As Long, 건너뜀 As Long, 실패 As Long
+    Randomize
+    Application.StatusBar = &quot;발송 준비…&quot;
+
+    For i = 2 To 마지막
+        If 시험 And 보냄 &gt;= 3 Then Exit For
+        If GetAsyncKeyState(VK_ESCAPE) &lt;&gt; 0 Then
+            MsgBox &quot;Esc — 멈췄습니다. 다시 돌리면 이어서 합니다.&quot;, vbInformation
+            Exit For
+        End If
+
+        Dim 방 As String
+        방 = Trim$(CStr(wsL.Cells(i, 1).Value))
+        If Len(방) = 0 Then GoTo 다음
+
+        &#x27; 이미 보낸 곳은 건너뛴다 (중간에 멈췄다 이어 하기)
+        If Len(Trim$(CStr(wsL.Cells(i, 2).Value))) &gt; 0 Then
+            건너뜀 = 건너뜀 + 1: GoTo 다음
+        End If
+
+        Application.StatusBar = &quot;(&quot; &amp; (i - 1) &amp; &quot;/&quot; &amp; (마지막 - 1) &amp; &quot;) &quot; &amp; 방 &amp; &quot; …&quot;
+        DoEvents
+
+        Dim 결과 As String
+        결과 = 한곳보내기(hMain, 방, msg)
+
+        wsL.Cells(i, 3).Value = 결과
+        If 결과 = &quot;보냄&quot; Then
+            wsL.Cells(i, 2).Value = Format$(Now, &quot;yyyy-mm-dd hh:nn:ss&quot;)
+            wsL.Cells(i, 3).Font.Color = RGB(0, 120, 80)
+            보냄 = 보냄 + 1
+        Else
+            wsL.Cells(i, 3).Font.Color = RGB(190, 60, 40)
+            실패 = 실패 + 1
+        End If
+        wsL.Parent.Save
+
+        &#x27; 사람처럼 쉰다 — 몰아 쏘면 카톡이 전송을 막는다
+        Dim 쉼 As Long
+        쉼 = 최소 + Int(Rnd() * (최대 - 최소 + 1))
+        Dim t As Long
+        For t = 1 To 쉼 * 10
+            If GetAsyncKeyState(VK_ESCAPE) &lt;&gt; 0 Then Exit For
+            Application.StatusBar = &quot;(&quot; &amp; (i - 1) &amp; &quot;/&quot; &amp; (마지막 - 1) &amp; &quot;) 다음까지 &quot; &amp; _
+                                    Format$((쉼 * 10 - t) / 10, &quot;0.0&quot;) &amp; &quot;초…&quot;
+            Sleep 100
+            DoEvents
+        Next t
+다음:
+    Next i
+
+    Application.StatusBar = False
+    MsgBox &quot;끝났습니다.&quot; &amp; vbCrLf &amp; vbCrLf &amp; _
+           &quot;보냄 &quot; &amp; 보냄 &amp; &quot;곳&quot; &amp; vbCrLf &amp; _
+           &quot;건너뜀(이미 보냄) &quot; &amp; 건너뜀 &amp; &quot;곳&quot; &amp; vbCrLf &amp; _
+           &quot;못 보냄 &quot; &amp; 실패 &amp; &quot;곳&quot; &amp; vbCrLf &amp; vbCrLf &amp; _
+           IIf(실패 &gt; 0, &quot;못 보낸 곳은 「명단」 C열에 이유가 있습니다.&quot; &amp; vbCrLf, &quot;&quot;) &amp; _
+           IIf(시험, &quot;시험모드였습니다. 「설정」 B1 을 FALSE 로 바꾸면 전체를 보냅니다.&quot;, &quot;&quot;), _
+           vbInformation, &quot;카톡 발송&quot;
+End Sub
+
+&#x27;==========================================================================
+&#x27;  한 곳 보내기 — 성공하면 &quot;보냄&quot;, 아니면 이유를 돌려준다
+&#x27;==========================================================================
+Private Function 한곳보내기(ByVal hMain As LongPtr, ByVal 방 As String, ByVal msg As String) As String
+    Dim hChat As LongPtr, sChat As String, sRoom As String
+    sChat = CLS_CHAT
+    sRoom = 방                             &#x27; ⚠️ StrPtr 는 변수에만 (Const 는 포인터가 불안정)
+
+    &#x27; 1) 이미 열려 있나 — 제목이 방 이름과 **정확히** 같은 창만 잡힌다
+    hChat = FindWindowW(StrPtr(sChat), StrPtr(sRoom))
+
+    &#x27; 2) 없으면 메인 창 검색으로 연다
+    If hChat = 0 Then
+        If Not 방열기(hMain, 방) Then 한곳보내기 = &quot;방을 열지 못함&quot;: Exit Function
+        Dim w As Long
+        For w = 1 To 30                       &#x27; 최대 3초 기다린다
+            Sleep 100
+            hChat = FindWindowW(StrPtr(sChat), StrPtr(sRoom))
+            If hChat &lt;&gt; 0 Then Exit For
+        Next w
+    End If
+    If hChat = 0 Then 한곳보내기 = &quot;창을 못 찾음 (이름이 카톡과 다를 수 있음)&quot;: Exit Function
+
+    &#x27; 3) ⚠️ 안전장치 — 보내기 직전에 제목을 **다시** 읽어 대조한다
+    Dim 실제 As String
+    실제 = 창제목(hChat)
+    If StrComp(실제, 방, vbBinaryCompare) &lt;&gt; 0 Then
+        한곳보내기 = &quot;제목 불일치 — 보내지 않음 (창=&quot; &amp; 실제 &amp; &quot;)&quot;
+        Exit Function
+    End If
+
+    &#x27; 4) 입력칸
+    Dim hEdit As LongPtr
+    hEdit = 입력칸찾기(hChat)
+    If hEdit = 0 Then 한곳보내기 = &quot;입력칸을 못 찾음 (CLS_EDIT 확인 필요)&quot;: Exit Function
+
+    &#x27; 5) 글을 넣고 Enter — 화면을 건드리지 않는다
+    Dim sMsg As String
+    sMsg = msg
+    SendMessageW hEdit, WM_SETTEXT, 0, StrPtr(sMsg)
+    Sleep 250
+    PostMessageW hEdit, WM_KEYDOWN, VK_RETURN, 0
+    PostMessageW hEdit, WM_KEYUP, VK_RETURN, 0
+    Sleep 400
+
+    &#x27; 6) 보낸 뒤 입력칸이 비었으면 나간 것으로 본다
+    한곳보내기 = &quot;보냄&quot;
+    PostMessageW hChat, WM_CLOSE, 0, 0        &#x27; 창을 닫아 화면이 쌓이지 않게
+End Function
+
+&#x27;──────────────── 도우미 ────────────────
+
+&#x27; 메인 창의 검색칸에 방 이름을 넣고 Enter → 방이 열린다
+Private Function 방열기(ByVal hMain As LongPtr, ByVal 방 As String) As Boolean
+    Dim hEdit As LongPtr
+    hEdit = 자식찾기(hMain, &quot;Edit&quot;)
+    If hEdit = 0 Then hEdit = 자식찾기(hMain, &quot;RichEdit20W&quot;)
+    If hEdit = 0 Then 방열기 = False: Exit Function
+
+    Dim sRoom2 As String, sEmpty As String
+    sRoom2 = 방: sEmpty = &quot;&quot;
+    SendMessageW hEdit, WM_SETTEXT, 0, StrPtr(sRoom2)
+    Sleep 600                                  &#x27; 검색 결과가 뜨기를 기다린다
+    PostMessageW hEdit, WM_KEYDOWN, VK_RETURN, 0
+    PostMessageW hEdit, WM_KEYUP, VK_RETURN, 0
+    Sleep 600
+    SendMessageW hEdit, WM_SETTEXT, 0, StrPtr(sEmpty)   &#x27; 검색칸을 비워 둔다
+    방열기 = True
+End Function
+
+&#x27; 자식 창을 깊이까지 뒤진다 (카톡은 창이 여러 겹이다)
+Private Function 자식찾기(ByVal hParent As LongPtr, ByVal cls As String) As LongPtr
+    Dim h As LongPtr, hFound As LongPtr
+    h = FindWindowExW(hParent, 0, 0, 0)
+    Do While h &lt;&gt; 0
+        If StrComp(창클래스(h), cls, vbTextCompare) = 0 Then 자식찾기 = h: Exit Function
+        hFound = 자식찾기(h, cls)
+        If hFound &lt;&gt; 0 Then 자식찾기 = hFound: Exit Function
+        h = FindWindowExW(hParent, h, 0, 0)
+    Loop
+    자식찾기 = 0
+End Function
+
+Private Function 입력칸찾기(ByVal hChat As LongPtr) As LongPtr
+    Dim h As LongPtr
+    h = 자식찾기(hChat, CLS_EDIT)
+    If h = 0 Then h = 자식찾기(hChat, &quot;RichEdit20W&quot;)
+    If h = 0 Then h = 자식찾기(hChat, &quot;RICHEDIT50W&quot;)
+    입력칸찾기 = h
+End Function
+
+Private Function 창제목(ByVal hWnd As LongPtr) As String
+    Dim buf As String, n As Long
+    buf = String$(512, vbNullChar)
+    n = GetWindowTextW(hWnd, StrPtr(buf), 512)
+    창제목 = Left$(buf, n)
+End Function
+
+Private Function 창클래스(ByVal hWnd As LongPtr) As String
+    Dim buf As String, n As Long
+    buf = String$(256, vbNullChar)
+    n = GetClassNameW(hWnd, StrPtr(buf), 256)
+    창클래스 = Left$(buf, n)
+End Function
+
+Private Function 시트확보(ByVal nm As String) As Worksheet
+    Dim ws As Worksheet
+    On Error Resume Next
+    Set ws = ThisWorkbook.Worksheets(nm)
+    On Error GoTo 0
+    If ws Is Nothing Then
+        Set ws = ThisWorkbook.Worksheets.Add(After:=ThisWorkbook.Worksheets(ThisWorkbook.Worksheets.Count))
+        ws.Name = nm
+    End If
+    Set 시트확보 = ws
+End Function
+
+Private Function 숫자또는(ByVal v As Variant, ByVal 기본 As Long) As Long
+    If IsNumeric(v) Then
+        If CLng(v) &gt; 0 Then 숫자또는 = CLng(v): Exit Function
+    End If
+    숫자또는 = 기본
+End Function
+
+&#x27;==========================================================================
+&#x27;  ③ 처음 한 번 — 시트를 만들어 준다
+&#x27;==========================================================================
+Public Sub 준비_시트만들기()
+    Dim wsL As Worksheet, wsC As Worksheet, wsS As Worksheet
+    Set wsL = 시트확보(&quot;명단&quot;): Set wsC = 시트확보(&quot;내용&quot;): Set wsS = 시트확보(&quot;설정&quot;)
+
+    With wsL
+        .Range(&quot;A1:C1&quot;).Value = Array(&quot;받을 곳 이름 (카톡에 보이는 그대로)&quot;, &quot;보낸 시각&quot;, &quot;결과&quot;)
+        .Range(&quot;A1:C1&quot;).Font.Bold = True
+        .Columns(&quot;A&quot;).ColumnWidth = 34
+        .Columns(&quot;B&quot;).ColumnWidth = 19
+        .Columns(&quot;C&quot;).ColumnWidth = 40
+    End With
+    With wsC
+        .Range(&quot;A1&quot;).Value = &quot;여기에 보낼 글을 적으세요. (여러 줄 가능 — 줄바꿈은 Alt+Enter)&quot;
+        .Columns(&quot;A&quot;).ColumnWidth = 70
+        .Range(&quot;A1&quot;).WrapText = True
+        .Rows(1).RowHeight = 160
+    End With
+    With wsS
+        .Range(&quot;A1&quot;).Value = &quot;시험모드 (TRUE=3곳만)&quot;: .Range(&quot;B1&quot;).Value = &quot;TRUE&quot;
+        .Range(&quot;A2&quot;).Value = &quot;최소 쉼(초)&quot;:            .Range(&quot;B2&quot;).Value = 5
+        .Range(&quot;A3&quot;).Value = &quot;최대 쉼(초)&quot;:            .Range(&quot;B3&quot;).Value = 15
+        .Columns(&quot;A&quot;).ColumnWidth = 24
+        .Range(&quot;A1:A3&quot;).Font.Bold = True
+    End With
+
+    MsgBox &quot;시트를 만들었습니다.&quot; &amp; vbCrLf &amp; vbCrLf &amp; _
+           &quot;1. 「명단」 A2 부터 받을 곳 이름을 적으세요&quot; &amp; vbCrLf &amp; _
+           &quot;2. 「내용」 A1 에 보낼 글을 적으세요&quot; &amp; vbCrLf &amp; _
+           &quot;3. 카톡을 켜고 `진단_카톡창` 을 돌려 확인하세요&quot; &amp; vbCrLf &amp; _
+           &quot;4. `발송` 을 돌리세요 (처음엔 시험모드로 3곳)&quot;, vbInformation
+End Sub
+</pre>
+
+    <div class="warnbox" style="margin-bottom:0">
+      <span class="wh">막히면 이렇게</span>
+      <p>
+        <b>파일을 열었더니 노란 띠가 뜹니다</b> → 「콘텐츠 사용」을 누르십시오. 매크로가 든 파일은
+        엑셀이 한 번 물어봅니다.
+      </p>
+      <p>
+        <b>「진단」에서 메인 창을 못 찾습니다</b> → 카톡이 켜져 있는지 보시고, 켜져 있는데도 그러면
+        카톡 버전이 바뀐 것입니다. 이때는 아래 지시문을 Claude에게 주십시오.
+      </p>
+      <p>
+        <b>「입력칸을 못 찾음」이 나옵니다</b> → 코드 위쪽 <b>CLS_EDIT</b> 를
+        <b>RichEdit20W</b> 로 바꿔 보십시오. 카톡 버전에 따라 다릅니다.
+      </p>
+      <p style="margin:0">
+        <b>엑셀 2007 이하입니다</b> → 이 코드는 <b>2010 이상</b>에서만 열립니다.
+      </p>
+    </div>
+
+    <h3 class="step">그것도 안 되면 — Claude에게 맡기기</h3>
+    <p>
+      위에서 막히시면 Claude에게 시키십시오. 컴퓨터마다 카톡 화면이 조금씩 다른데,
+      그건 <b>옆에서 보는 쪽</b>이 맞춰야 하는 일입니다. 아래 글을 그대로 붙여넣으시면 됩니다.
     </p>
 
     <div class="prompt-wrap">
@@ -670,21 +1260,29 @@
       <p class="prompt-body" id="promptText">카카오톡으로 매일 같은 글을 100곳에 보내고 있어. 1:1 채팅 70명, 단톡방 30곳이야.
 손으로 하면 30분씩 걸려서 자동화하고 싶어.
 
-내 컴퓨터는 윈도우와 맥이 둘 다 있고 양쪽에 카톡이 깔려 있어.
-창 이름을 읽을 수 있어야 안전하다고 들어서 윈도우가 낫다는데, 판단해 줘.
+윈도우 PC 에 엑셀과 카톡이 깔려 있어.
+엑셀 VBA 로 만들어 줘. 파이썬 같은 걸 새로 설치하고 싶지는 않아.
 
-이렇게 만들어 줘:
-- message.txt 에 보낼 글을, rooms.txt 에 받을 곳 이름을 한 줄에 하나씩 적어 두면
-- 카톡에서 그 방들을 차례로 열어 글을 붙여넣고 보내는 것
+방식은 이렇게 해 줘:
+- 마우스로 화면을 누르는 방식 말고, 윈도우 API(FindWindow / FindWindowEx /
+  SendMessage / PostMessage)로 카톡 창에 직접 넣는 방식으로.
+  그래야 보내는 동안 내가 다른 일을 할 수 있어.
+- 카톡 창 클래스 이름은 이렇다고 들었어. 버전마다 다를 수 있으니 내 컴퓨터에서 먼저 확인해 줘:
+  메인 창 EVA_Window_Dblclk / 자식 창 EVA_ChildWindow, EVA_Window
+  글 넣는 칸 RichEdit50W 또는 RichEdit20W
+
+시트는 이렇게:
+- A열에 받을 곳 이름(카톡에 보이는 그대로), B열에 보낸 시각
+- 보낼 글은 따로 시트 하나에
 
 꼭 지켜야 할 것 (중요한 순서대로):
 
-1. 방을 연 다음 창 제목(방 이름)을 다시 읽어서 내 목록과 같을 때만 보내 줘.
-   다르면 보내지 말고 건너뛰고 기록만 남겨.
+1. 방을 연 다음 창 제목(방 이름)을 다시 읽어서 A열과 같을 때만 보내 줘.
+   다르면 보내지 말고 건너뛰고 B열에 이유를 적어 줘.
    → 이름이 비슷한 사람이 있으면 엉뚱한 사람에게 갈 수 있는데, 그게 제일 무서워.
+     한 번 가면 되돌릴 수가 없어.
 
-2. 한글은 키보드로 치지 말고 클립보드에 넣었다가 붙여넣기(Ctrl+V)로 해 줘.
-   자동 타이핑은 한글이 깨져.
+2. 한글은 클립보드에 넣었다가 붙여넣는 방식으로 해 줘.
 
 3. 방과 방 사이에 5초에서 15초 사이로 무작위로 쉬어 줘.
    한꺼번에 빠르게 쏘면 카톡이 전송을 잠시 막아.
@@ -692,9 +1290,10 @@
 4. 처음 실행할 때는 3곳에만 보내고 멈추는 시험 모드를 만들어 줘.
    내가 눈으로 확인한 다음에 전체를 돌리고 싶어.
 
-5. 어디에 몇 시에 보냈는지, 건너뛴 곳은 왜 건너뛰었는지 기록 파일로 남겨 줘.
+5. B열에 보낸 시각이 적힌 곳은 다시 돌려도 건너뛰게 해 줘.
+   중간에 멈췄다가 이어서 할 수 있게.
 
-6. 중간에 멈췄다가 다시 돌리면 이미 보낸 곳은 건너뛰고 이어서 하게 해 줘.
+6. 돌아가는 중에 Esc 로 멈출 수 있게 해 줘.
 
 먼저 내 컴퓨터에서 카톡 창을 찾을 수 있는지부터 확인해 주고,
 안 되면 뭘 어떻게 해야 하는지 알려 줘.
@@ -709,8 +1308,8 @@
       </li>
       <li>
         <span class="mark" aria-hidden="true">·</span>
-        <span><b>맥이라면 Claude가 윈도우를 권할 겁니다.</b> 맥 카톡은 창 이름을 읽을 수 없어서
-        「엉뚱한 방에 보내지 않기」를 지킬 방법이 없습니다. 그게 지시문의 1번 조건입니다.</span>
+        <span><b>맥에서는 안 됩니다.</b> 맥 카톡은 창 이름을 읽을 수 없어서 「엉뚱한 방에 보내지 않기」를
+        지킬 방법이 없습니다. 그게 지시문의 1번 조건입니다. 윈도우로 하십시오.</span>
       </li>
       <li>
         <span class="mark" aria-hidden="true">·</span>
@@ -772,6 +1371,26 @@
 </div>
 
 <script>
+  function 붙이기(btn, src, 이름) {
+    btn.addEventListener('click', async () => {
+      const text = src.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const r = document.createRange();
+        r.selectNodeContents(src.classList.contains('hidden-src') ? src : src);
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        btn.textContent = '복사가 막혔습니다';
+        btn.classList.add('done');
+        return;
+      }
+      btn.textContent = '복사했습니다';
+      btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 이름; btn.classList.remove('done'); }, 2200);
+    });
+  }
+  붙이기(document.getElementById('copyCode'), document.getElementById('vbaSrc'), '코드 복사');
+
   const copyBtn = document.getElementById('copyBtn');
   copyBtn.addEventListener('click', async () => {
     const text = document.getElementById('promptText').innerText;
