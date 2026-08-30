@@ -577,6 +577,76 @@
   }
   .hidden-src { display: none; }
 
+
+  /* 갈래 카드 — 셋을 나란히 재는 자리. 표는 좁은 화면에서 깨져서 카드로 폈다 */
+  .ways {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0 0 30px;
+  }
+  .way {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 20px 22px;
+  }
+  .way.best { border-color: var(--accent); border-left-width: 3px; }
+  .way-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .way-head b {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .badge {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .badge.warn { background: var(--signal-bg); color: var(--signal); }
+  .way-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    line-height: 1.6;
+  }
+  .pros {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .pros li {
+    display: grid;
+    grid-template-columns: 17px 1fr;
+    gap: 9px;
+  }
+  .pros .y { color: var(--accent); font-weight: 700; }
+  .pros .n { color: var(--ink-faint); font-weight: 700; }
+  .way-how {
+    margin: 14px 0 0;
+    padding-top: 13px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .way-how b { color: var(--ink); }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
   }
@@ -1321,6 +1391,75 @@ End Sub
         <span><b>방 이름은 카톡에 보이는 그대로</b> 적어야 찾습니다. 띄어쓰기·이모지까지 같아야 합니다.</span>
       </li>
     </ul>
+  </section>
+
+  <section>
+    <h2>폰으로 하고 싶으시다면</h2>
+    <p class="sub">됩니다. 다만 컴퓨터로 할 때와 값이 다릅니다 — 재보고 고르십시오.</p>
+
+    <div class="ways">
+
+      <div class="way best">
+        <div class="way-head">
+          <b>① 컴퓨터 엑셀</b>
+          <span class="badge">가장 안전</span>
+        </div>
+        <p class="way-sub">바로 위에 적어 둔 방법입니다.</p>
+        <ul class="pros">
+          <li><span class="y" aria-hidden="true">＋</span><span><b>보내는 동안 컴퓨터를 그대로 쓰실 수 있습니다.</b> 화면을 건드리지 않고 보냅니다.</span></li>
+          <li><span class="y" aria-hidden="true">＋</span><span><b>엉뚱한 사람에게 갈 일이 거의 없습니다.</b> 창 이름이 명단과 정확히 같을 때만 보냅니다.</span></li>
+          <li><span class="y" aria-hidden="true">＋</span><span>설치할 것이 없습니다. 엑셀에 붙여넣기만 하면 됩니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span>컴퓨터 앞에 있어야 합니다. 윈도우만 됩니다.</span></li>
+        </ul>
+        <p class="way-how"><b>시작하기</b> — 위 「아래 코드를 그대로 쓰십시오」의 10단계를 따라가시면 됩니다.</p>
+      </div>
+
+      <div class="way">
+        <div class="way-head">
+          <b>② 폰 — 매크로 앱 쓰기</b>
+          <span class="badge">폰 중에선 이게 낫습니다</span>
+        </div>
+        <p class="way-sub">MacroDroid 같은 자동화 앱으로 카톡 화면을 대신 누르게 합니다. 3천만 명이 쓰는 앱입니다.</p>
+        <ul class="pros">
+          <li><span class="y" aria-hidden="true">＋</span><span><b>앱을 새로 만들 필요가 없습니다.</b> 플레이 스토어에서 받아 설정만 하면 됩니다.</span></li>
+          <li><span class="y" aria-hidden="true">＋</span><span>플레이 스토어 앱이라 <b>권한이 막히지 않습니다</b>(③과 갈리는 지점입니다).</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span><b>보내는 20~30분 동안 폰을 못 씁니다.</b> 화면을 실제로 눌러 가며 보내기 때문입니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span><b>카톡이 바뀌면 멈춥니다.</b> 화면 생김새를 보고 누르는 방식이라, 버튼 위치가 바뀌면 다시 맞춰야 합니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span>①보다 <b>잘못 갈 위험이 큽니다.</b> 창 이름을 대조하는 게 아니라 화면 글자를 읽어 판단합니다.</span></li>
+        </ul>
+        <p class="way-how"><b>시작하기</b> — Claude에게 이렇게 말씀하십시오. <b>「안드로이드 MacroDroid로 카톡 여러 곳에 같은 글을 순서대로 보내는 매크로를 만들고 싶어. 설정 순서를 알려 줘.」</b></p>
+      </div>
+
+      <div class="way">
+        <div class="way-head">
+          <b>③ 폰 — 앱을 새로 만들기</b>
+          <span class="badge warn">권하지 않습니다</span>
+        </div>
+        <p class="way-sub">전용 앱(APK)을 만들어 폰에 직접 설치하는 방법입니다.</p>
+        <ul class="pros">
+          <li><span class="y" aria-hidden="true">＋</span><span>원하는 대로 만들 수 있습니다. 명단·순서·쉬는 시간을 앱 안에 담을 수 있습니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span><b>설치해도 바로 안 됩니다.</b> 안드로이드 13부터 스토어 밖에서 받은 앱은 카톡을 조작할 권한이 막힙니다.
+            설정 → 앱 → 우측 위 점 세 개 → 「제한된 설정 허용」을 손으로 풀어야 합니다. 보이스피싱을 막으려고 생긴 장치입니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span><b>②와 하는 일이 같습니다.</b> 같은 방식(화면 조작)인데 설치 장벽만 더 있습니다.</span></li>
+          <li><span class="n" aria-hidden="true">－</span><span>②와 마찬가지로 폰을 못 쓰고, 카톡이 바뀌면 멈춥니다.</span></li>
+        </ul>
+        <p class="way-how"><b>그래도 원하시면</b> — Claude에게 <b>「안드로이드 접근성 서비스로 카톡 자동 발송 앱을 만들어 줘」</b>라고 하시면 됩니다.
+          다만 ②를 먼저 해 보시길 권합니다. 되면 앱을 만들 이유가 없습니다.</p>
+      </div>
+
+    </div>
+
+    <div class="warnbox">
+      <span class="wh">폰으로 할 때 공통으로 걸리는 것</span>
+      <p>
+        폰 자동화는 <b>사람이 화면을 누르는 것을 흉내내는</b> 방식입니다. 그래서 보내는 내내
+        화면이 카톡을 오가고, 그동안 폰으로 다른 일을 하실 수 없습니다. 100곳이면 20~30분입니다.
+      </p>
+      <p style="margin:0">
+        그리고 카톡 앱은 컴퓨터판보다 <b>화면이 자주 바뀝니다.</b> 한 번 맞춰 두어도 업데이트가
+        오면 다시 손봐야 할 수 있습니다. 컴퓨터 쪽은 창 이름으로 찾기 때문에 그런 일이 훨씬 적습니다.
+      </p>
+    </div>
   </section>
 
   <section>
