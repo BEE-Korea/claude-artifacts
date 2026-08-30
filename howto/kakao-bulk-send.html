@@ -387,6 +387,95 @@
     line-height: 1.7;
   }
 
+
+  /* 자동화 — 위험을 아는 사람이 고르는 길이라 색을 달리 쓴다 */
+  .warnbox {
+    background: var(--signal-bg);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin: 0 0 26px;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .warnbox .wh {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--signal);
+    margin-bottom: 9px;
+  }
+  .warnbox p { margin: 0 0 12px; }
+  .warnbox p:last-child { margin: 0; }
+
+  .prompt-wrap {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .prompt-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    background: var(--surface-2);
+  }
+  .prompt-head span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+  .copybtn {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--surface);
+    cursor: pointer;
+    flex: 0 0 auto;
+    transition: opacity .12s;
+  }
+  .copybtn:hover { opacity: .86; }
+  .copybtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .copybtn.done { background: var(--surface); color: var(--accent); }
+
+  .prompt-body {
+    margin: 0;
+    padding: 20px 22px;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 420px;
+    overflow-y: auto;
+  }
+
+  .after {
+    list-style: none;
+    margin: 26px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .after li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 12px;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .after .mark { color: var(--accent); font-weight: 700; }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
   }
@@ -399,8 +488,8 @@
     <p class="eyebrow">매일 카톡 보내는 일을 줄이는 법</p>
     <h1>보내는 횟수를 열 번으로 줄이는 방법</h1>
     <p class="lede">
-      카톡에는 <strong>한 번에 열 곳까지 같은 메시지를 보내는 기능</strong>이 이미 들어 있습니다.
-      새로 설치할 것도, 돈 드는 것도 없습니다. 아는 사람이 적을 뿐입니다.
+      카톡에는 <strong>한 번에 열 곳까지 보내는 기능</strong>이 이미 들어 있습니다. 설치할 것도 돈 드는 것도 없습니다.
+      열 번도 매일 하면 일이다 싶으시면, <strong>손을 아예 떼는 길</strong>도 아래에 적어 뒀습니다.
     </p>
 
     <div class="tally">
@@ -552,6 +641,90 @@
   </section>
 
   <section>
+    <h2>열 번도 매일 하면 일입니다</h2>
+    <p class="sub">여기부터는 손을 아예 떼는 길입니다. 대신 값을 치릅니다.</p>
+
+    <div class="warnbox">
+      <span class="wh">먼저 아셔야 할 것</span>
+      <p>
+        카톡 창을 대신 눌러 주는 자동화는 <b>카카오 약관에서 금지하고 있습니다.</b>
+        걸리면 계정에 전송 제한이 걸릴 수 있고, 매일 쓰시는 계정이면 잃는 것이 큽니다.
+      </p>
+      <p>
+        위험을 실제로 낮추는 건 <b>사람처럼 천천히 보내는 것</b>뿐입니다. 아래 지시문에
+        그 조건들을 미리 넣어 뒀습니다. 그래도 <b>0은 아닙니다</b> — 알고 고르셔야 합니다.
+      </p>
+    </div>
+
+    <p>
+      프로그램을 설치하실 필요는 없습니다. <b>Claude에게 아래 글을 그대로 붙여넣으시면</b>
+      Claude가 컴퓨터를 살펴보고, 만들고, 안 되면 고쳐 줍니다. 컴퓨터마다 카톡 화면이 조금씩
+      다른데, 그건 옆에서 보는 쪽이 맞춰야 하는 일입니다.
+    </p>
+
+    <div class="prompt-wrap">
+      <div class="prompt-head">
+        <span>CLAUDE에게 붙여넣을 글</span>
+        <button class="copybtn" id="copyBtn" type="button">복사</button>
+      </div>
+      <p class="prompt-body" id="promptText">카카오톡으로 매일 같은 글을 100곳에 보내고 있어. 1:1 채팅 70명, 단톡방 30곳이야.
+손으로 하면 30분씩 걸려서 자동화하고 싶어.
+
+내 컴퓨터는 윈도우와 맥이 둘 다 있고 양쪽에 카톡이 깔려 있어.
+창 이름을 읽을 수 있어야 안전하다고 들어서 윈도우가 낫다는데, 판단해 줘.
+
+이렇게 만들어 줘:
+- message.txt 에 보낼 글을, rooms.txt 에 받을 곳 이름을 한 줄에 하나씩 적어 두면
+- 카톡에서 그 방들을 차례로 열어 글을 붙여넣고 보내는 것
+
+꼭 지켜야 할 것 (중요한 순서대로):
+
+1. 방을 연 다음 창 제목(방 이름)을 다시 읽어서 내 목록과 같을 때만 보내 줘.
+   다르면 보내지 말고 건너뛰고 기록만 남겨.
+   → 이름이 비슷한 사람이 있으면 엉뚱한 사람에게 갈 수 있는데, 그게 제일 무서워.
+
+2. 한글은 키보드로 치지 말고 클립보드에 넣었다가 붙여넣기(Ctrl+V)로 해 줘.
+   자동 타이핑은 한글이 깨져.
+
+3. 방과 방 사이에 5초에서 15초 사이로 무작위로 쉬어 줘.
+   한꺼번에 빠르게 쏘면 카톡이 전송을 잠시 막아.
+
+4. 처음 실행할 때는 3곳에만 보내고 멈추는 시험 모드를 만들어 줘.
+   내가 눈으로 확인한 다음에 전체를 돌리고 싶어.
+
+5. 어디에 몇 시에 보냈는지, 건너뛴 곳은 왜 건너뛰었는지 기록 파일로 남겨 줘.
+
+6. 중간에 멈췄다가 다시 돌리면 이미 보낸 곳은 건너뛰고 이어서 하게 해 줘.
+
+먼저 내 컴퓨터에서 카톡 창을 찾을 수 있는지부터 확인해 주고,
+안 되면 뭘 어떻게 해야 하는지 알려 줘.
+
+그리고 이게 카카오 약관에 걸리는지, 계정이 막힐 위험이 얼마나 되는지도 솔직하게 말해 줘.</p>
+    </div>
+
+    <ul class="after">
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>숫자는 바꿔서 쓰십시오.</b> 100곳·70명·30곳은 예시입니다. 실제 숫자를 적으시면 됩니다.</span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>맥이라면 Claude가 윈도우를 권할 겁니다.</b> 맥 카톡은 창 이름을 읽을 수 없어서
+        「엉뚱한 방에 보내지 않기」를 지킬 방법이 없습니다. 그게 지시문의 1번 조건입니다.</span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>처음에는 반드시 3곳만.</b> 지시문에 넣어 뒀지만, Claude가 빼먹으면 다시 말씀하십시오.
+        100곳을 한 번에 돌렸다가 어긋나면 되돌릴 수 없습니다.</span>
+      </li>
+      <li>
+        <span class="mark" aria-hidden="true">·</span>
+        <span><b>방 이름은 카톡에 보이는 그대로</b> 적어야 찾습니다. 띄어쓰기·이모지까지 같아야 합니다.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
     <h2>글이 이상하게 보인다면</h2>
     <div class="tip">
       <span class="tip-h">AI로 글을 쓰신다면</span>
@@ -568,18 +741,10 @@
   </section>
 
   <section>
-    <h2>이 방법들은 권하지 않습니다</h2>
-    <p class="sub">찾아보시면 나오지만, 알아보고 접은 이유가 있습니다.</p>
+    <h2>카카오 채널은 답이 아닙니다</h2>
+    <p class="sub">가장 먼저 떠오르는 길이지만, 알아보고 접은 이유가 있습니다.</p>
 
     <div class="avoid">
-      <div>
-        <h3>자동 발송 프로그램</h3>
-        <p>
-          카톡 창을 대신 눌러 주는 프로그램들이 있습니다. 백 곳을 정말로 자동화할 수 있는 유일한 방법이지만,
-          카카오 약관에서 금지하고 있어 <b>계정이 묶일 수 있습니다.</b> 매일 쓰시는 계정이 막히면
-          잃는 것이 훨씬 큽니다.
-        </p>
-      </div>
       <div>
         <h3>카카오톡 채널의 소식 발행</h3>
         <p>
@@ -607,6 +772,25 @@
 </div>
 
 <script>
+  const copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', async () => {
+    const text = document.getElementById('promptText').innerText;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // 클립보드가 막힌 환경(일부 내장 브라우저)에서는 선택 상태로 만들어 준다
+      const r = document.createRange();
+      r.selectNodeContents(document.getElementById('promptText'));
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      copyBtn.textContent = '길게 눌러 복사';
+      copyBtn.classList.add('done');
+      return;
+    }
+    copyBtn.textContent = '복사했습니다';
+    copyBtn.classList.add('done');
+    setTimeout(() => { copyBtn.textContent = '복사'; copyBtn.classList.remove('done'); }, 2200);
+  });
+
   const tabs = document.querySelectorAll('[role="tab"]');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
