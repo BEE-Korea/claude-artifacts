@@ -4,9 +4,9 @@
     {
       "icon": "🎨",
       "group": "내부 · Internal",
-      "title": "LMS 수강 이력 — 디자인 시안 1차",
+      "title": "LMS 수강 이력 — 디자인 시안 2차",
       "kicker": "2026-10-12 · 내가 지금까지 무엇을 들었나",
-      "desc": "과목 제목 · 해별 묶음 · 마친 세미나 수 · 인도한 반 표시 · 글자 단추. 정해 주실 것 2가지.",
+      "desc": "PC 한 줄 · 관리자에게만 반 이름 + [세미나 관리] · 해별 묶음 · 마친 세미나 수 · 인도한 반 표시.",
       "path": "lms/design-seminar-history.html",
       "visibility": "private",
       "status": "current",

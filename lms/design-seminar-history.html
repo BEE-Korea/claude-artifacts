@@ -55,12 +55,13 @@
 </head>
 <body>
 <main>
-  <h1>LMS 수강 이력 — 디자인 시안 1차</h1>
-  <p class="kicker">2026-10-12 · 학생이 「내가 지금까지 무엇을 들었나」를 보는 화면 · 반 정보는 실제 값(9개 반을 들은 학생 한 분 — 이름 없음) · 아직 적용 전</p>
+  <h1>LMS 수강 이력 — 디자인 시안 2차</h1>
+  <p class="kicker">2026-10-12 · 2차: PC 한 줄 · 관리자용 줄 따로 · 학생이 「내가 지금까지 무엇을 들었나」를 보는 화면 · 반 정보는 실제 값(9개 반을 들은 학생 한 분 — 이름 없음) · 아직 적용 전</p>
 
   <section class="card" aria-labelledby="what">
     <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
     <ul class="changes">
+      <li><b>PC는 한 줄</b>(과목 · 언제·어디서 · 기간 · 단추) — 1차는 세 줄이라 줄 높이가 약 100px이었는데, 이제 약 55px입니다(태남 지적)</li>
       <li><b>제목 = 과목 이름</b> — 지금은 「26-2, 본부 심화-십자가를 지고 (마가복음)-대면-화저녁 …」 같은 관리용 반 이름이 제목입니다(세미나 방·내 세미나와 같은 규칙)</li>
       <li><b>해(年)별로 묶음</b> — 종강일 기준(통계 규칙). 학생 4명 중 1명은 4개 반 이상을 들었습니다(11,582명 중 2,902명)</li>
       <li><b>맨 위 한 줄</b> 「마친 세미나 7개 · 인도 1번 · 듣는 중 1개」 — 강조하는 숫자는 하나</li>
@@ -76,6 +77,12 @@
     <figure><figcaption><span class="tag">지금</span>운영 화면 (시험용 학생 계정 · 1개 반)</figcaption><img src="assets/design/history-before-pc.png" alt="지금의 수강 이력 PC" loading="lazy"></figure>
     <figure><figcaption><span class="tag new">시안</span>9개 반을 들은 학생</figcaption><img src="assets/design/history-pc-after.png" alt="시안 수강 이력 PC" loading="lazy"></figure>
   </div>
+  <h2>본부 관리자(Lv1~2)가 볼 때</h2>
+  <p>관리용 반 이름을 <b>한 줄 더</b> 보여 주고(전체 글자, 자르지 않음), 줄마다 <b>[세미나 관리]</b>(관리 상세 화면) 단추를 둡니다. 학생·인도자에게는 둘 다 안 보입니다.</p>
+  <div class="pair">
+    <figure><figcaption><span class="tag new">시안</span>PC · 관리자</figcaption><img src="assets/design/history-pc-after-adm.png" alt="시안 관리자 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰 · 관리자</figcaption><img src="assets/design/history-m-after-adm.png" alt="시안 관리자 휴대폰" loading="lazy" style="max-width:340px"></figure>
+  </div>
   <h2>휴대폰</h2>
   <div class="pair phone">
     <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/history-before-m.png" alt="지금의 수강 이력 휴대폰" loading="lazy"></figure>
@@ -84,10 +91,10 @@
   <p class="note">시안에 없는 줄 모양: 「신청 중」(+[신청 취소]) · 「이월」(+안내 글) — 지금 있는 것 그대로 같은 줄 모양으로 옮깁니다.</p>
 
   <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
-    <h2 id="ask">정해 주실 것</h2>
+    <h2 id="ask">정해진 것 (10/12)</h2>
     <ol>
-      <li><b>관리용 반 이름</b>(「26-2, 본부 심화-…」)을 줄에서 <b>빼도</b> 될까요? 시안은 뺐습니다(과목·언제·어디서·기간·지부로 충분). 본부가 전화 문의 받을 때 반 이름이 필요하면 작은 글자로 한 줄 남기겠습니다.</li>
-      <li><b>마친 반의 [세미나 방]</b> — 지금은 마친 반도 이름을 누르면 세미나 방으로 갑니다. 시안은 단추를 <b>듣는 중인 반에만</b> 두고, 마친 반은 줄을 누르면 들어가게 했습니다(지난 공지·성적 다시 보기).</li>
+      <li><b>관리용 반 이름</b> — 학생에게는 빼고, <b>본부 관리자에게만</b> 한 줄로 보여 줍니다 + [세미나 관리] 단추</li>
+      <li><b>[세미나 방] 단추는 듣는 중인 반에만</b>, 마친 반은 줄을 누르면 들어갑니다 — 태남 「그렇게 해도 좋아」</li>
     </ol>
   </section>
 </main>
