@@ -208,6 +208,17 @@
       "date": "2026-10-11"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 세미나 관리 목록 · 성적 화면 — 시안 1차",
+      "kicker": "2026-10-11 · 반 목록 지금 vs 시안 + 옛 성적 화면 정리 제안 (사람 정보는 가짜)",
+      "desc": "카드 → 표 · 승인은 필요할 때만 · 상태 빠른 고르기 · 줄마다 삭제를 ⋯ 안으로 · 고장 난 옛 성적 화면 → 학적관리 탭. 정해 주실 것 4가지.",
+      "path": "lms/design-admin-seminar-list.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세미나 관리 목록 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 세미나 관리 목록 · 성적 화면 — 시안 1차</h1>
+  <p class="kicker">2026-10-11 · 반 정보는 운영 1쪽 실제 값, <b>인도자·학생 이름과 연락처는 모두 가짜</b> · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">① 세미나 관리 목록 — 무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>카드 → 표</b> — 반 하나가 지금은 약 180px라 한 쪽(20개 반)이 4,100px입니다. 표 한 줄(약 90px)로 줄여 한 화면에 두 배쯤 보입니다. 휴대폰은 짧은 카드로 바꿉니다</li>
+      <li><b>칸을 사람이 찾는 순서대로</b> — 세미나(과목 칩·이름·나라·지부·주관) · 언제·어디서(시간·기간·강의실) · 인원 막대 · 인도자 · 상태</li>
+      <li><b>승인은 필요할 때만</b> — 지금은 모든 줄에 「국가 코디네이터 승인」·「지역 디렉터 승인」 칩이 붙어 있습니다(20줄 중 15줄이 둘 다 「승인」). 승인이 아직 안 된 반에만 <b>「승인 대기」 + [승인]·[거절]</b>을 보이고, 나머지는 비웁니다</li>
+      <li><b>상태 빠른 고르기</b> — 「진행 중 전체 · 기획중 · 접수중 · 개강 · 종강」을 위에 두어 한 번에 거릅니다(지금은 「상세 검색」을 열어야 합니다)</li>
+      <li><b>줄마다 붙은 [삭제]를 「⋯」 안으로</b> — 지금은 20줄 모두 [수정]·[삭제]가 나란히 있습니다. [수정]은 줄을 누르는 것과 같은 곳으로 가서 뺍니다. 「⋯」 안에는 [세미나 방 새 창]·[삭제]를 둡니다</li>
+      <li><b>나라 이름을 한국어로</b> — 「Korea」 → 「대한민국」(상세 화면과 같은 기준)</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (인도자 이름 가림, 위쪽만)</figcaption><img src="assets/design/admin-seminar-list-before-pc.png" alt="지금의 세미나 관리 목록 PC 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/admin-seminar-list-after-pc.png" alt="시안 세미나 관리 목록 PC 화면" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (위쪽만)</figcaption><img src="assets/design/admin-seminar-list-before-m.png" alt="지금의 세미나 관리 목록 휴대폰 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/admin-seminar-list-after-m.png" alt="시안 세미나 관리 목록 휴대폰 화면" loading="lazy"></figure>
+  </div>
+
+  <section class="card" aria-labelledby="rec" style="margin-top:40px">
+    <h2 id="rec" style="margin-top:0">② 성적 화면 — 고칠 화면이 아니라 <b>고장 난 중복 화면</b>이었습니다</h2>
+    <p>성적이 보이는 화면이 <b>두 개</b>입니다.</p>
+    <ul class="changes">
+      <li><b>옛 「성적 관리」</b>(<code>/seminars/[id]/records</code>, 학생용 세미나 상세의 「성적」 버튼으로 들어감) — 칸 이름이 「A」「B」뿐이라 무엇인지 알 수 없고, 그 값은 사실 <b>출석·예습 횟수를 센 값</b>이라 고쳐 넣을 수 없습니다. <b>[성적 저장]을 누르면 서버 오류</b>가 납니다(없는 칸에 쓰려고 함). 학생이 열면 권한이 없어 빈 표만 보입니다</li>
+      <li><b>세미나 방 「학적관리」 탭</b> — 실제로 쓰는 화면입니다. 명단·출석·예습·과제·시험·연구과제·성적을 여기서 넣습니다</li>
+    </ul>
+    <div class="pair" style="margin-top:14px">
+      <figure><figcaption><span class="tag">옛 화면</span>성적 관리 (이름 가림)</figcaption><img src="assets/design/old-records-pc.png" alt="옛 성적 관리 화면" loading="lazy"></figure>
+      <figure><figcaption><span class="tag">실제로 쓰는 곳</span>세미나 방 · 학적관리 (이름·연락처 가림)</figcaption><img src="assets/design/classroom-records-pc.png" alt="세미나 방 학적관리 탭" loading="lazy"></figure>
+    </div>
+    <p class="note"><b>✅ 확정</b>(태남 「성적 관리 페이지가 필요한가? 지금 세미나 방에서 모두 처리 하는데」): 옛 화면을 없애고, 그 주소로 들어오면 세미나 방 「학적관리」 탭으로 보냅니다. 「성적」 버튼도 그쪽으로 잇습니다. 학생은 학적관리 탭에서 <b>자기 성적만</b> 봅니다(지금도 그렇게 되어 있습니다).</p>
+  </section>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>목록을 표로</b> 바꿔도 될까요? (휴대폰은 카드)</li>
+      <li><b>승인 칩을 「승인 대기」일 때만</b> 보여도 될까요? 국가 코디네이터·지역 디렉터 중 누가 남았는지는 줄을 열면 보입니다.</li>
+      <li>「레코드가 보이는 화면」이 <b>세미나 방 「학적관리」 탭</b>을 말씀하신 거라면, 그 화면 시안은 목록 다음에 따로 만들겠습니다(탭 7개짜리 큰 화면이라 하나씩).</li>
+    </ol>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
