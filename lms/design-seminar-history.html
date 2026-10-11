@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>수강 이력 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 수강 이력 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-12 · 학생이 「내가 지금까지 무엇을 들었나」를 보는 화면 · 반 정보는 실제 값(9개 반을 들은 학생 한 분 — 이름 없음) · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>제목 = 과목 이름</b> — 지금은 「26-2, 본부 심화-십자가를 지고 (마가복음)-대면-화저녁 …」 같은 관리용 반 이름이 제목입니다(세미나 방·내 세미나와 같은 규칙)</li>
+      <li><b>해(年)별로 묶음</b> — 종강일 기준(통계 규칙). 학생 4명 중 1명은 4개 반 이상을 들었습니다(11,582명 중 2,902명)</li>
+      <li><b>맨 위 한 줄</b> 「마친 세미나 7개 · 인도 1번 · 듣는 중 1개」 — 강조하는 숫자는 하나</li>
+      <li><b>언제·어디서</b>(요일·시간·장소)를 함께 — 지금은 날짜만</li>
+      <li><b>인도한 반은 「FA 인도」</b> 표시 — 지금은 성적 칸이 「-」라 왜 비었는지 모릅니다</li>
+      <li><b>그림만 있는 단추 → 글자 단추</b>: 평가 그림 → [평가 보기] · 톱니바퀴(본부만) → [세미나 관리] · 작은 「취소」 → [신청 취소]. 듣는 중인 반은 [세미나 방]</li>
+      <li>같은 「수강 이력」 제목이 두 번(화면 제목 + 카드 제목) 나오던 것 하나로</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (시험용 학생 계정 · 1개 반)</figcaption><img src="assets/design/history-before-pc.png" alt="지금의 수강 이력 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>9개 반을 들은 학생</figcaption><img src="assets/design/history-pc-after.png" alt="시안 수강 이력 PC" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/history-before-m.png" alt="지금의 수강 이력 휴대폰" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/history-m-after.png" alt="시안 수강 이력 휴대폰" loading="lazy"></figure>
+  </div>
+  <p class="note">시안에 없는 줄 모양: 「신청 중」(+[신청 취소]) · 「이월」(+안내 글) — 지금 있는 것 그대로 같은 줄 모양으로 옮깁니다.</p>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>관리용 반 이름</b>(「26-2, 본부 심화-…」)을 줄에서 <b>빼도</b> 될까요? 시안은 뺐습니다(과목·언제·어디서·기간·지부로 충분). 본부가 전화 문의 받을 때 반 이름이 필요하면 작은 글자로 한 줄 남기겠습니다.</li>
+      <li><b>마친 반의 [세미나 방]</b> — 지금은 마친 반도 이름을 누르면 세미나 방으로 갑니다. 시안은 단추를 <b>듣는 중인 반에만</b> 두고, 마친 반은 줄을 누르면 들어가게 했습니다(지난 공지·성적 다시 보기).</li>
+    </ol>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
