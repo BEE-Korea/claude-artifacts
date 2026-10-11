@@ -219,6 +219,17 @@
       "date": "2026-10-11"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 세미나 방 — 디자인 시안 1차",
+      "kicker": "2026-10-11 · 학생·인도자 화면 「세미나 정보」 지금 vs 시안 (사람 정보는 가짜)",
+      "desc": "제목 = 과목 이름 · 수업 요일·시간 맨 위 · 새 소식(최근 공지·과제) · 탭에 개수 · 인도자 연락 큰 단추. 정해 주실 것 2가지.",
+      "path": "lms/design-classroom.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세미나 방 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 세미나 방 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-11 · 학생과 인도자가 수업 내내 들어가는 화면의 「세미나 정보」 탭 · 반 정보는 실제 값(성경을 펼쳐라 1, 서빙고 토 오전), <b>사람 이름·연락처는 가짜</b> · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>제목 = 과목 이름</b> — 「성경을 펼쳐라 1」. 관리용 이름(26-2, 심화-성펼1-…)은 아래에 작게. 학생용 세미나 상세와 같은 규칙입니다</li>
+      <li><b>수업 요일·시간을 맨 위에</b> — 지금 「세미나 정보」에는 <b>기간(9.5~11.21)만 있고 「매주 토 오전 10:00」이 없습니다</b>. 언제 · 어디서 · 기간 · 현재 진도 4칸으로</li>
+      <li><b>「새 소식」</b> — 가장 최근 공지 1개와 과제 1개를 첫 화면에. 탭을 하나씩 눌러 보지 않아도 무엇이 올라왔는지 보입니다. 누르면 그 글로 갑니다</li>
+      <li><b>탭에 개수</b> — 「공지사항 2」·「과제게시판 5」</li>
+      <li><b>인도자 연락은 큰 단추로</b> — [전화]·[메일]을 눌러 바로 걸고 보냅니다(노년층 배려 — 작은 글자 번호를 눌러야 하던 것)</li>
+      <li><b>중복 정리</b> — 「세미나 이름」 줄(제목과 같음) · 「상태」 줄(제목 위 칩으로) · 표 모양 7줄 → 4칸</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (이름·연락처 가림)</figcaption><img src="assets/design/classroom-before-pc.png" alt="지금의 세미나 방 PC 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/classroom-after-pc.png" alt="시안 세미나 방 PC 화면" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>운영 화면</figcaption><img src="assets/design/classroom-before-m.png" alt="지금의 세미나 방 휴대폰 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/classroom-after-m.png" alt="시안 세미나 방 휴대폰 화면" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>인도자 전화번호·메일 주소를 글자로도 보일까요?</b> 시안은 [전화]·[메일] 단추만 있습니다. 번호를 받아 적고 싶은 분이 있으면 단추 옆에 번호도 둡니다.</li>
+      <li><b>「새 소식」에 공지·과제를 몇 개씩</b> 보일까요? 시안은 가장 최근 1개씩입니다.</li>
+    </ol>
+    <p class="note">FA 평가 단추(「미평가」)와 학생에게만 보이는 것들은 그대로 둡니다 — 시안은 관리자로 본 화면이라 그 단추 자리만 빠져 있습니다. 공지·과제 게시판 탭은 이번엔 손대지 않습니다.</p>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
