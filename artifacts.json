@@ -186,6 +186,17 @@
       "date": "2026-10-11"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 회원 상세 — 디자인 시안 1차",
+      "kicker": "2026-10-11 · 본부가 매일 보는 화면 지금 vs 시안 (PC·휴대폰)",
+      "desc": "요약 카드 · 탭 4개(기본·수강·돈·이력) · 관련된 것끼리 카드 · 빈 칸 정리 · 기계 값을 사람 말로 · 크레딧 넣는 칸 접기. 정해 주실 것 3가지 포함.",
+      "path": "lms/design-member-detail.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",

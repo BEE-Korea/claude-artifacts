@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>회원 상세 시안 — BEE Korea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 회원 상세 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-11 · 본부가 매일 보는 화면 · 시험 계정(Test ST)의 실제 데이터로 그렸습니다(실제 회원 정보는 이 페이지에 올리지 않습니다) · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>맨 위 요약 카드</b> — 사진·이름·레벨·회원 유형·국적 + 전화·이메일·주소 + 수강 수·크레딧·가입일·목회자 여부. 「이 사람이 누구인가」가 첫 화면에</li>
+      <li><b>탭 4개</b> — 기본 정보 · 수강 · 돈 · 이력. 지금은 4,020px(휴대폰 5,876px)를 한 줄로 내려야 했다</li>
+      <li><b>관련된 것끼리 카드</b> — 연락처 · 주소 · 개인 · 교회·직장 · 관리 · 사역 배경. 이름표 작게, 값 굵게</li>
+      <li><b>빈 칸 정리</b> — 값이 있는 칸만 크게, 빈 칸은 「비어 있음: 이메일 · 집 전화」 한 줄로. 옛 「훈련 일자」 16칸은 값이 있을 때만</li>
+      <li><b>기계 값 → 사람 말</b> — 가입일 <code>2026-04-20 09:01:28.662872+00:00</code> → 2026.4.20 · 「0 — 일반」 → 일반 · 이력의 <code>profile_photo_crop {…}</code> → 「프로필 사진 5번 바꿈 — 마지막은 지움」</li>
+      <li><b>크레딧 넣는 칸은 접어 둠</b> — 「+ 크레딧 넣기」를 눌렀을 때만 펼쳐진다. 늘 열려 있으면 다른 일을 하다 잘못 넣기 쉽다</li>
+    </ul>
+  </section>
+
+  <h2>PC — 기본 정보 탭</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (한 페이지, 4,020px)</figcaption><img src="assets/design/member-detail-before-pc.png" alt="지금의 회원 상세 PC 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>요약 카드 + 탭</figcaption><img src="assets/design/member-detail-after-pc.png" alt="시안 회원 상세 PC 화면 기본 정보 탭" loading="lazy"></figure>
+  </div>
+
+  <h2>PC — 이력 · 돈 탭</h2>
+  <figure><figcaption><span class="tag new">시안</span>이력은 사람 말로, 돈은 잔액 먼저 · 넣는 칸은 접어 둠</figcaption><img src="assets/design/member-detail-after-tabs-pc.png" alt="시안 회원 상세 이력과 돈 탭" loading="lazy" style="max-width:900px"></figure>
+
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>5,876px</figcaption><img src="assets/design/member-detail-before-m.png" alt="지금의 회원 상세 휴대폰 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>기본 정보 탭 약 2,000px</figcaption><img src="assets/design/member-detail-after-m.png" alt="시안 회원 상세 휴대폰 화면" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>탭 4개(기본 정보 · 수강 · 돈 · 이력)로 나눠도 될까요?</b> 어느 탭을 마지막에 봤는지 기억해 두고 다음에 그 탭으로 엽니다.</li>
+      <li><b>요약 카드의 4칸</b>(수강 · 크레딧 · 가입 · 목회자·선교사) — 다른 걸 넣고 싶으시면 말씀해 주세요(예: 마지막 수강 · 미납).</li>
+      <li><b>옛 「훈련 일자」 16칸</b>은 값이 있을 때만 「훈련」 묶음으로 보여도 될까요? (지우지 않고 숨기기만 합니다)</li>
+    </ol>
+    <p class="note">이력의 사람 말 바꾸기는 서버에서 칸 이름표를 붙이는 일도 함께 합니다(지금은 서버가 칸 이름을 그대로 내려준다).</p>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
