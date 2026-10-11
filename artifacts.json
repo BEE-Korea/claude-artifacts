@@ -164,6 +164,17 @@
       "date": "2026-07-13"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 세미나 상세 — 디자인 시안 1차",
+      "kicker": "2026-10-11 · 학생 신청 화면 지금 vs 시안 (PC·휴대폰)",
+      "desc": "제목을 과목 이름으로, 핵심 4칸(언제·어디서·기간·남은 자리), 수강료 펼침, 큰 신청 버튼. 「글자가 나열돼 자세히 봐야 구분된다」를 고치는 첫 화면. 정해 주실 것 3가지 포함.",
+      "path": "lms/design-seminar-detail.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",
