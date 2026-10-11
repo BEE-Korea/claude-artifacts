@@ -230,6 +230,17 @@
       "date": "2026-10-11"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 수강 세미나 · 담당 세미나 — 디자인 시안 1차",
+      "kicker": "2026-10-11 · 세미나 방으로 들어가는 문 두 개",
+      "desc": "과목 제목 · 언제·어디서 · 진도 막대 · 큰 입장 단추 · 톱니바퀴 → [세미나 관리]. 정해 주실 것 2가지.",
+      "path": "lms/design-my-seminars.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>내 세미나 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 수강 세미나 · 담당 세미나 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-11 · 학생·인도자가 세미나 방으로 들어가는 문 · 반 정보는 실제 값(교리론2 금 오전·성경을 펼쳐라 1 토 오전), 사람 이름은 없음 · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나 (두 화면 같은 모양)</h2>
+    <ul class="changes">
+      <li><b>제목 = 과목 이름</b> — 관리용 반 이름은 아래 작게(세미나 방과 같은 규칙)</li>
+      <li><b>언제 · 어디서 · 기간</b>(인도자는 + 수강생 수) — 지금은 <b>날짜만</b> 있고 수업 요일·시간·장소가 없습니다</li>
+      <li><b>진도 막대</b> — 「시작 전 · 전체 12과」/「5과 / 12과」</li>
+      <li><b>[세미나 방 들어가기] 큰 단추</b> 하나가 주 행동</li>
+      <li><b>담당 세미나</b>: 지금 <b>톱니바퀴 그림만 있는 단추</b>(세미나 관리) → 글자 있는 <b>[⚙ 세미나 관리]</b>(규칙: 그림만 있는 단추 금지).
+        [개강하기]·[종강 처리](FT만)는 지금처럼 확인 창을 거치되, 작은 글자 단추에서 같은 크기 단추로</li>
+      <li><b>글자 크기</b> — 인도자 화면도 노년층 배려 대상. 수강생 수·기간이 지금은 아주 작은 글자(text-xs)</li>
+    </ul>
+  </section>
+
+  <h2>수강 세미나 (학생)</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (시험용 학생 계정)</figcaption><img src="assets/design/my-class-before-pc.png" alt="지금의 수강 세미나 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/my-class-pc-after.png" alt="시안 수강 세미나 PC" loading="lazy"></figure>
+  </div>
+  <div class="pair phone" style="margin-top:12px">
+    <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/my-class-before-m.png" alt="지금의 수강 세미나 휴대폰" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/my-class-m-after.png" alt="시안 수강 세미나 휴대폰" loading="lazy"></figure>
+  </div>
+
+  <h2>담당 세미나 (인도자)</h2>
+  <p>지금 화면: 카드 위에 반 이름 · 상태 · 내 역할 칩 · <b>톱니바퀴 그림 단추</b>, 아래에 작은 글자로 「수강생 5명 FT: …」·날짜·진도 막대, 맨 아래 작은 [개강하기]/[종강 처리]·[세미나 방 입장] — <i>인도자 계정으로 찍을 수 없어 그림 대신 글로 적었습니다.</i></p>
+  <div class="pair">
+    <figure><figcaption><span class="tag new">시안</span>PC</figcaption><img src="assets/design/my-teach-pc-after.png" alt="시안 담당 세미나 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/my-teach-m-after.png" alt="시안 담당 세미나 휴대폰" loading="lazy" style="max-width:340px"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>[종강 처리]를 카드에 그대로</b> 둘까요? 지금도 카드에 있고 확인 창을 거칩니다. 자주 쓰지 않는 단추라 「세미나 관리」 안으로 넣는 방법도 있습니다.</li>
+      <li><b>수강 세미나 카드에 「새 공지 1」 같은 표시</b>를 붙일까요? 반마다 공지를 한 번씩 더 불러와야 해서 화면이 조금 늦어질 수 있습니다.</li>
+    </ol>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
