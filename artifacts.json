@@ -197,6 +197,17 @@
       "date": "2026-10-11"
     },
     {
+      "icon": "🎨",
+      "group": "내부 · Internal",
+      "title": "LMS 세미나 관리 상세 — 디자인 시안 1차",
+      "kicker": "2026-10-11 · 반 관리 화면 지금 vs 시안 (PC·휴대폰, 사람 정보는 가짜)",
+      "desc": "요약 카드 · 핵심 4칸 · 인원 막대 · 상태 한 곳 · 「지금 할 일」 줄 · 두 표의 칸 순서 통일 · 버튼 정리. 정해 주실 것 3가지 포함.",
+      "path": "lms/design-admin-seminar-detail.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-11"
+    },
+    {
       "icon": "📊",
       "group": "🔴 민감 · 별도 비밀번호 (재정)",
       "title": "FM 현지화 운영 청사진",

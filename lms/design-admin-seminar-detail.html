@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세미나 관리 상세 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 세미나 관리 상세 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-11 · 본부·인도자가 반을 관리하는 화면(<code>/admin/seminars/[id]</code>) · 반 정보는 실제 값(교리론2, 서빙고 금 오전), <b>사람 이름·연락처는 모두 가짜</b>로 바꿨습니다 · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>맨 위 요약 카드</b> — 과목·상태·대면 칩 → 반 이름 → 주관·나라·지부·승인을 <b>한 줄</b>로. 지금은 「행정」 묶음이 3칸 + 승인 1줄을 차지합니다</li>
+      <li><b>핵심 4칸</b> — 언제 · 어디서 · 기간(주 수) · 인도자. 학생 화면과 같은 규칙(이름표 작고 흐리게, 값 진하게)</li>
+      <li><b>인원 막대</b> — 수강생 5 · 등록 대기 3 · 남은 자리 12 를 정원 20 위에 색으로. 지금은 「5명 / 8명」 글자뿐이라 정원과 비교가 안 됩니다</li>
+      <li><b>상태 고르기는 위로 한 곳</b> — 지금은 제목 밑 칩과 아래 칸의 고르기 상자, 두 곳에 같은 상태가 있습니다. 반 이름도 제목과 「세미나 이름」 칸에 두 번 나옵니다 → 하나씩만</li>
+      <li><b>「지금 할 일」 줄</b> — 등록 대기 · 책 미발송처럼 <b>손이 가야 하는 것만</b> 모아서, 누르면 그 표로 내려갑니다. 할 일이 없으면 줄이 안 생깁니다</li>
+      <li><b>두 표의 칸 순서를 같게</b> — 이름 · 교회·직분 · 성별·출생 · 연락처 · 날짜 · 학습서. 지금은 신청자는 「전화→메일」, 수강생은 「메일→전화」로 순서가 반대이고, 날짜도 「2026-07-31」과 「2026-09-07 23:40」으로 모양이 다릅니다</li>
+      <li><b>버튼 자리</b> — 신청자 [수강생 등록]은 이름을 읽은 뒤 누르도록 <b>줄 끝</b>으로. 수강생 줄의 버튼 여러 개(이월·되돌리기·학습서 형태·환불)는 <b>「⋯ 관리」 하나</b>로. [삭제]는 [수정] 바로 옆이라 잘못 누르기 쉬워 <b>「⋯」 안</b>으로</li>
+      <li><b>표는 그대로 표</b> — 본부 화면은 한 줄에 많이 보이는 것이 우선이라(bee-app 규칙) PC 는 표를 유지하고 휴대폰만 카드로</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (이름·연락처 가림)</figcaption><img src="assets/design/admin-seminar-detail-before-pc.png" alt="지금의 세미나 관리 상세 PC 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/admin-seminar-detail-after-pc.png" alt="시안 세미나 관리 상세 PC 화면" loading="lazy"></figure>
+  </div>
+
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>운영 화면 (이름·연락처 가림)</figcaption><img src="assets/design/admin-seminar-detail-before-m.png" alt="지금의 세미나 관리 상세 휴대폰 화면" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/admin-seminar-detail-after-m.png" alt="시안 세미나 관리 상세 휴대폰 화면" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>[삭제]를 「⋯」 안으로</b> 넣어도 될까요? 한 번 더 눌러야 하지만 실수로 지울 일이 줄어듭니다.</li>
+      <li><b>신청자 [수강생 등록]을 줄 끝으로</b> 옮겨도 될까요? 지금은 맨 앞이라 이름보다 버튼이 먼저 보입니다. 간사님이 손에 익은 자리라면 그대로 둡니다.</li>
+      <li><b>수강생 줄의 버튼을 「⋯ 관리」 하나로</b> 모을까요? 책 발송 표시만은 학습서 칩을 눌러 바로 바꿀 수 있게 둡니다(가장 자주 쓰므로).</li>
+    </ol>
+    <p class="note">1년 과정 「학생 이동」 버튼·아이스쿨 대조·종강 전 확인 창·수정 화면은 그대로 둡니다(이번엔 보기 화면만).</p>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
