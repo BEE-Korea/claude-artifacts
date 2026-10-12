@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>내 정보 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 내 정보 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-12 · 모든 사용자가 쓰는 화면 · 시험용 학생 계정 값 그대로(빈 값은 「—」, 지어낸 값 없음) · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>이름을 하나로</b> — 화면 「프로필」 · 카드 「프로필 수정」 · 사이드바 「내 정보 보기·변경」 → <b>「내 정보」</b></li>
+      <li><b>맨 위에 나</b> — 사진·이름·아이디·레벨 + <b>[정보 수정]</b> 큰 단추(지금은 오른쪽 위 작은 「수정」) · [사진 올리기]</li>
+      <li><b>묶음</b> — 연락처 · 교회와 사역 · 기본 정보 · 주소. 지금은 13칸이 한 판에 섞여 있습니다</li>
+      <li><b>주소 한 줄</b> — 「(12345) 서울 1동」. 지금은 주소·상세주소·우편번호 세 칸</li>
+      <li>✅ 이미 고침(배포): 핸드폰 「+821012345678」 → 010-1234-5678 · 값 보통 굵기 · 빈 값 「—」</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>오늘 고친 뒤 화면</figcaption><img src="assets/design/profile-before-pc.png" alt="지금 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/profile-pc-after.png" alt="시안 PC" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/profile-before-m.png" alt="지금 휴대폰" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/profile-m-after.png" alt="시안 휴대폰" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>맨 아래 「크레딧」 카드</b>(잔액 + 적립·사용 표)는 「내 결제·크레딧」 화면과 같은 내용입니다. <b>한 줄 「크레딧 35,000원 · 내 결제·크레딧에서 보기 →」로 줄일까요?</b> (추천 — 같은 표를 두 곳에서 고치지 않게)</li>
+      <li><b>「직분」·「직위」 두 칸</b>을 그대로 둘까요? 이름이 비슷해 헷갈릴 수 있습니다(직분 = 교회 안 · 직위 = 직장 안으로 저장돼 있음). 칸 이름만 「교회 직분」·「직장 직위」로 바꾸는 방법도 있습니다. (추천: 이름만 바꾸기)</li>
+    </ol>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>

@@ -4,6 +4,17 @@
     {
       "icon": "🎨",
       "group": "내부 · Internal",
+      "title": "LMS 내 정보 — 디자인 시안 1차",
+      "kicker": "2026-10-12 · 이름 하나로 · 묶음 · 큰 [정보 수정]",
+      "desc": "「프로필」→「내 정보」 · 연락처·교회와 사역·기본 정보·주소 묶음 · 주소 한 줄. 정해 주실 것 2가지.",
+      "path": "lms/design-my-profile.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-12"
+    },
+    {
+      "icon": "🎨",
+      "group": "내부 · Internal",
       "title": "LMS 공지 게시판 — 디자인 시안 1차",
       "kicker": "2026-10-12 · 분류·작성자 칸 빼기 · 고정 칩",
       "desc": "공지 51건 중 분류 없음 43 · 작성자 관리자 50 · 「[공지]」와 「공지」 칩 겹침. 정해 주실 것 2가지.",
