@@ -4,6 +4,17 @@
     {
       "icon": "🎨",
       "group": "내부 · Internal",
+      "title": "LMS 온라인 학습서 — 디자인 시안 1차",
+      "kicker": "2026-10-12 · 학생 95%가 보는 「아직 없음」 화면",
+      "desc": "「권한이 없습니다」 → 「종이로 신청했다면 안 보이는 게 맞습니다」 · 지금 듣는 반의 책 형태 한 줄. 정해 주실 것 2가지.",
+      "path": "lms/design-online-textbooks.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-12"
+    },
+    {
+      "icon": "🎨",
+      "group": "내부 · Internal",
       "title": "LMS 내 결제·크레딧 — 디자인 시안 1차",
       "kicker": "2026-10-12 · 얼마를 냈고, 낼 돈이 남았나",
       "desc": "맨 위 낼 돈·크레딧 · 세미나별 카드로 세 표 합치기 · 거래 내역 사람 말로 · 원장 어긋남 1건. 정해 주실 것 3가지.",

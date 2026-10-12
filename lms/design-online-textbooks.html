@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>온라인 학습서 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 온라인 학습서 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-12 · 학생 대부분이 보는 「아직 없음」 화면 · 시험용 학생 계정(로마서 수강 중) · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">왜 이 화면인가 — 실측</h2>
+    <ul class="changes">
+      <li>지금 반을 듣는 학생 <b>563명 중 537명(95%)</b>이 「온라인 학습서 이용 권한이 아직 없습니다」를 봅니다(연결 26명).</li>
+      <li>규정상 맞는 화면입니다 — 온라인 학습서는 신청 때 <b>「온라인 학습서」를 고른 사람</b>만 엽니다(mmv2 POLICY §11-6-4). 지금 반 신청 710건 중 온라인 12 · 종이 103 · 고르는 칸이 생기기 전 신청 595.</li>
+      <li>문제는 <b>글</b>입니다 — 「신청 후 결제가 확인되면 이용할 수 있습니다. 신청하셨는데 이 안내가 보이면 본부로 문의」는, 이미 신청·결제한 학생에게 <b>「뭔가 잘못됐다」</b>로 읽혀 본부로 전화하게 만듭니다.</li>
+    </ul>
+    <h2 style="margin-top:20px">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li>제목 「이용 권한이 아직 없습니다」 → <b>「아직 온라인 학습서가 없습니다」</b></li>
+      <li>이유를 그대로: 「신청할 때 온라인을 고르신 분께 열립니다. <b>종이 학습서로 신청하셨다면 여기에 보이지 않는 것이 맞습니다</b>」</li>
+      <li><b>「지금 듣는 세미나의 학습서」</b> 한 줄 — 내가 종이로 신청했는지 바로 보입니다(서버가 신청 기록에서 읽음)</li>
+      <li>본부 문의는 <b>온라인으로 고르고 결제했는데 안 보일 때만</b> · 맛보기는 「다음 신청 때 온라인을 고르셔도 됩니다」로 이어 줌</li>
+      <li>책이 있는 학생(목록 화면)·인도자 안내는 그대로(9/14 · 8/26 결정)</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>시험용 학생 계정</figcaption><img src="assets/design/otb-before-pc.png" alt="지금 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/otb-pc-after.png" alt="시안 PC" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/otb-before-m.png" alt="지금 휴대폰" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/otb-m-after.png" alt="시안 휴대폰" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>문구</b> — 「종이 학습서로 신청하셨다면 여기에 보이지 않는 것이 맞습니다」로 바꿔도 될까요? (추천)</li>
+      <li><b>「지금 듣는 세미나의 학습서 — 종이/온라인」 한 줄</b>을 붙일까요? 서버가 신청 기록에서 읽습니다. 고르는 칸이 생기기 전 신청(595건)은 「종이 학습서」로 표시합니다(그때는 종이뿐이었습니다). (추천)</li>
+    </ol>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
