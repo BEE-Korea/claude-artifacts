@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>공지 게시판 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --ground: #FCFCFA; --surface: #FFFFFF; --line: #DFE3D8;
+    --ink: #1B2016; --ink-mid: #4C543F; --ink-soft: #6E7563;
+    --accent: #4D7C0F; --accent-wash: #EDF3E0; --warn: #A75B12; --warn-wash: #FBF0E2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+      --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+      --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #121510; --surface: #1A1E17; --line: #2E3428;
+    --ink: #EEF1E8; --ink-mid: #C3C9B8; --ink-soft: #9AA28E;
+    --accent: #A3D65C; --accent-wash: #233019; --warn: #F0B26A; --warn-wash: #33261A;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "Noto Sans KR", sans-serif; line-height: 1.6; word-break: keep-all; }
+  main { max-width: 1240px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px; }
+  .kicker { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 24px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  ul.changes { margin: 0; padding-left: 1.2em; }
+  ul.changes li { margin: 6px 0; }
+  ul.changes b { color: var(--accent); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .pair.phone { grid-template-columns: repeat(2, minmax(0, 340px)); }
+  figure { margin: 0; }
+  figcaption { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: var(--line); color: var(--ink-mid); font-weight: 500; }
+  .tag.new { background: var(--accent-wash); color: var(--accent); }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .ask { background: var(--warn-wash); border: 1px solid transparent; }
+  .ask h2 { margin-top: 0; color: var(--warn); }
+  .ask ol { margin: 0; padding-left: 1.3em; }
+  .ask li { margin: 8px 0; }
+  .note { color: var(--ink-soft); font-size: 0.875rem; margin-top: 10px; }
+  @media (max-width: 760px) {
+    .pair, .pair.phone { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>LMS 공지 게시판 — 디자인 시안 1차</h1>
+  <p class="kicker">2026-10-12 · 실제 공지 목록(공개 글) · 「지금」은 제목 버그(「제목」)를 고치기 전 사진 · 아직 적용 전</p>
+
+  <section class="card" aria-labelledby="what">
+    <h2 id="what" style="margin-top:0">실측 (공지 51건)</h2>
+    <ul class="changes">
+      <li>분류 없음 <b>43건</b> — 「분류」 칸이 거의 「—」</li>
+      <li>쓴 사람 「관리자」 <b>50건</b>(나머지 1건 AI Admin) — 「작성자」 칸이 거의 같은 말</li>
+      <li>고정 3건 — 화면이 제목 앞에 「[공지]」를 붙이는데 분류 칩도 「공지」라 <b>같은 말이 두 번</b></li>
+    </ul>
+    <h2 style="margin-top:20px">무엇이 바뀌나</h2>
+    <ul class="changes">
+      <li><b>「분류」·「작성자」 칸을 빼고</b> 분류는 제목 앞 칩으로(있을 때만) — 제목 칸이 넓어진다</li>
+      <li>고정 글: 「[공지]」 글자 대신 <b>「📌 고정」</b> 칩 + 옅은 바탕 · 제목만 굵게</li>
+      <li>날짜 모양 <b>2026.7.29</b>(다른 화면과 같게) · 댓글 0 은 「—」</li>
+      <li>휴대폰: 칩 → 제목 → 「날짜 · 조회 · 댓글」 한 줄</li>
+      <li>✅ 이미 고침(배포): 화면 제목이 「제목」으로 나오던 것 → 「공지 게시판」 · Q&A 분류 「Other」 → 저장 때 한국어로(1건 「기타」로 바꿈)</li>
+    </ul>
+  </section>
+
+  <h2>PC</h2>
+  <div class="pair">
+    <figure><figcaption><span class="tag">지금</span>운영 화면(제목 버그 고치기 전)</figcaption><img src="assets/design/board-before-pc.png" alt="지금 PC" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>바뀐 모양</figcaption><img src="assets/design/board-pc-after.png" alt="시안 PC" loading="lazy"></figure>
+  </div>
+  <h2>휴대폰</h2>
+  <div class="pair phone">
+    <figure><figcaption><span class="tag">지금</span>휴대폰</figcaption><img src="assets/design/board-before-m.png" alt="지금 휴대폰" loading="lazy"></figure>
+    <figure><figcaption><span class="tag new">시안</span>휴대폰</figcaption><img src="assets/design/board-m-after.png" alt="시안 휴대폰" loading="lazy"></figure>
+  </div>
+
+  <section class="card ask" aria-labelledby="ask" style="margin-top:40px">
+    <h2 id="ask">정해 주실 것</h2>
+    <ol>
+      <li><b>공지 게시판에서 「작성자」 칸을 뺄까요?</b> 51건 중 50건이 「관리자」입니다. 세미나 Q&A 는 사람마다 달라 그대로 둡니다. (추천)</li>
+      <li><b>고정 글 표시 = 「📌 고정」 칩</b>으로 바꿀까요? 「[공지]」 글자와 「공지」 칩이 겹치지 않게. (추천)</li>
+    </ol>
+    <p class="note">같은 목록 부품(board-list)을 Q&A·사진 게시판·뉴스레터도 쓴다 — 칸 빼기는 공지 게시판 설정에서만, 날짜 모양·고정 칩은 모든 게시판에 같이 적용됩니다.</p>
+  </section>
+</main>
+<script src="/nav.js" defer></script>
+</body>
+</html>
