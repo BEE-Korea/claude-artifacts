@@ -4,6 +4,17 @@
     {
       "icon": "🎨",
       "group": "내부 · Internal",
+      "title": "LMS 내 결제·크레딧 — 디자인 시안 1차",
+      "kicker": "2026-10-12 · 얼마를 냈고, 낼 돈이 남았나",
+      "desc": "맨 위 낼 돈·크레딧 · 세미나별 카드로 세 표 합치기 · 거래 내역 사람 말로 · 원장 어긋남 1건. 정해 주실 것 3가지.",
+      "path": "lms/design-my-money.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-12"
+    },
+    {
+      "icon": "🎨",
+      "group": "내부 · Internal",
       "title": "LMS 수강 이력 — 디자인 시안 3차",
       "kicker": "2026-10-12 · 내가 지금까지 무엇을 들었나",
       "desc": "작은 단추 · 세미나 관리 = 톱니바퀴(관리자만) · PC 한 줄 · 해별 묶음 · 마친 세미나 수 · 인도한 반 표시.",
