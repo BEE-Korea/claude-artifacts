@@ -151,6 +151,22 @@
   .linkbox strong { color: var(--ink); }
   .linkbox p { margin: 0; font-size: var(--small); color: var(--ink-mid); }
 
+  .materials { margin: 0 0 3.2rem; }
+  .materials h3 { margin: 1rem 0 0; }
+  .materials .flag { margin: 0; }
+  .materials .tablewrap { margin: 0; }
+  .materials .note { font-size: var(--small); color: var(--ink-soft); }
+  .gobtn {
+    display: inline-block; padding: 0.7rem 1.2rem; border-radius: 6px;
+    background: var(--accent); color: #FFFFFF; font-weight: 700; text-decoration: none;
+  }
+  .gobtn:hover { filter: brightness(1.08); }
+  :root[data-theme="dark"] .gobtn { color: #14170F; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gobtn { color: #14170F; } }
+  .steps { margin: 0; padding-left: 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; color: var(--ink-mid); }
+  .gobtn.ghost, :root .gobtn.ghost { background: var(--surface); color: var(--accent-deep); border: 1px solid var(--line); }
+  .masthead-quick { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
   /* timeline */
   .stage { position: relative; padding-left: 3.6rem; padding-bottom: 3rem; }
   .stage::before {
@@ -262,6 +278,10 @@
       <span>화면은 실제 화면 캡처 — 개인정보는 가렸습니다</span>
       <span>모바일에서도 같은 화면</span>
     </div>
+    <div class="masthead-quick">
+      <a class="gobtn" href="https://drive.google.com/drive/folders/1zhnzb1-vHMf1X7Dtmzk-PmTL5G3opccX" target="_blank" rel="noopener">📂 인도자 자료 폴더</a>
+      <a class="gobtn ghost" href="#materials">단원시험 설문지 사본 만드는 법</a>
+    </div>
   </header>
 
   <nav class="toc" aria-label="목차">
@@ -277,8 +297,8 @@
       <li><a href="#s8">온라인 단원시험</a> <small>(새로 생김)</small></li>
     </ol>
     <ul class="toc-extra">
+      <li><a href="#materials"><strong>📂 인도자 자료 · 단원시험 설문지</strong></a></li>
       <li><a href="#door">들어가는 문</a></li>
-      <li><a href="#materials">자료는 드라이브에</a></li>
       <li><a href="#changes">예전 안내와 달라진 것</a></li>
       <li><a href="#contact">막히면 어디로</a></li>
     </ul>
@@ -332,18 +352,52 @@
     </div>
   </section>
 
-  <section class="linkbox" id="materials">
-    <strong>과정계획서 · 단원시험 · 출석부 양식은 드라이브에 있습니다</strong>
+  <section class="gateway materials" id="materials">
+    <h2>인도자 자료와 단원시험 설문지는 드라이브에 있습니다</h2>
     <p>
-      구글 드라이브 <strong>「국내사역본부 › 인도자 자료」</strong> 폴더에 과목별로 정리돼 있습니다.
-      예전 홈페이지의 「인도자 자료실」은 없어졌습니다.
-      <a href="https://drive.google.com/drive/folders/1zhnzb1-vHMf1X7Dtmzk-PmTL5G3opccX" target="_blank" rel="noopener">인도자 자료 폴더 열기</a>
+      <strong>과정계획서 · 단원시험(구글 설문지) · 출석부 양식</strong>이 과목별 폴더로 정리된 공유 폴더입니다.
+      필요한 자료를 내려받아 쓰십시오. 예전 홈페이지의 「인도자 자료실」은 없어졌습니다.
     </p>
+    <p>
+      <a class="gobtn" href="https://drive.google.com/drive/folders/1zhnzb1-vHMf1X7Dtmzk-PmTL5G3opccX" target="_blank" rel="noopener">📂 인도자 자료 폴더 열기</a>
+    </p>
+
+    <h3>단원시험 설문지는 <em>「사본」</em>을 만들어 쓰십시오</h3>
+    <div class="flag">
+      <b>원본 설문지를 그대로 학생에게 보내지 마십시오.</b>
+      원본은 모든 반이 함께 보는 것이라, 학생 답안이 인도자에게 오지 않습니다.
+      <strong>사본을 만들어야</strong> 답안이 내 드라이브의 내 설문지로 모입니다.
+    </div>
+    <p class="note">PC에서 구글 계정으로 로그인한 뒤 하시는 것을 권합니다. 휴대폰 앱에서는 사본 만들기와 편집이 불편합니다.</p>
+    <ol class="steps">
+      <li><strong>폴더 열기</strong> — 위 <strong>[인도자 자료 폴더 열기]</strong>를 누르고, 과목 폴더에 들어가 단원시험 설문지를 찾습니다.</li>
+      <li><strong>사본 만들기</strong> — 설문지를 <strong>마우스 오른쪽 버튼으로 클릭 → 「사본 만들기」</strong>.
+        내 구글 드라이브에 <strong>「… 의 사본」</strong>이 생깁니다.</li>
+      <li><strong>확인하고 보내기</strong> — 내 드라이브에서 사본을 열어 제목(반 이름을 넣으면 찾기 쉽습니다)과 문항을 확인한 뒤,
+        오른쪽 위 <span class="btn">보내기</span>로 링크를 만들어 학생들에게 보냅니다.
+        학생 답안은 사본의 <strong>「응답」</strong> 탭에서 봅니다.</li>
+    </ol>
+
+    <h3>홈페이지의 「온라인 단원시험」과는 다른 것입니다</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>구글 설문지 (드라이브)</th><th>온라인 단원시험 (홈페이지)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>준비</strong></td><td>설문지 사본을 만든다</td><td>세미나 방 「온라인 시험」 탭에서 연다</td></tr>
+          <tr><td><strong>학생</strong></td><td>인도자가 보낸 링크로 응시</td><td>세미나 방에서 바로 응시</td></tr>
+          <tr><td><strong>점수</strong></td><td>성적표에 <strong>직접 옮겨 적는다</strong></td><td>확정하면 성적표 빈 칸에 <strong>자동으로</strong> 들어간다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>둘 중 편한 쪽을 쓰시면 됩니다. 홈페이지 쪽은 <a href="#s8">8번 — 온라인 단원시험</a>에 있습니다.</p>
+
+    <h3>온라인 학습서 미리 보기</h3>
     <p>
       배정된 반의 <strong>온라인 학습서</strong>는 <strong>개강 5주 전부터 종강 2주 후까지</strong>
       미리 보실 수 있습니다 — 왼쪽 메뉴 <strong>「온라인 학습서」</strong>로 들어가시면
       자기 반 학습서가 열려 있습니다.
     </p>
+    <p>자료나 설문지에 문의가 있으시면 언제든 본부로 연락해 주십시오 (<a href="#contact">연락처 보기</a>).</p>
   </section>
 
   <!-- 1 -->
@@ -709,7 +763,7 @@
           </tr>
           <tr>
             <td class="then">과정계획서·시험문제·출석부는 <strong>「인도자 자료실」</strong>에서 내려받는다</td>
-            <td class="now">예전 자료실은 없어졌습니다. 자료는 <b>드라이브 「인도자 자료」 폴더</b>에, 출석부·학적관리표는 <b>명단의 [엑셀]</b>로 받습니다.</td>
+            <td class="now">예전 자료실은 없어졌습니다. 자료는 <b>드라이브 「인도자 자료」 폴더</b>에(단원시험 설문지는 <a href="#materials">사본을 만들어</a>), 출석부·학적관리표는 <b>명단의 [엑셀]</b>로 받습니다.</td>
           </tr>
         </tbody>
       </table>
