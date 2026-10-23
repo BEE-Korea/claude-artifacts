@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Online Textbook Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif:wght@700&family=Noto+Serif+KR:wght@700&display=swap">
+<style>
+/* 2026-10-23 태남: 해외(미국·시에라리온) 학생이 혼자 온라인 학습서를 신청·구입·받는 길 — 이은혜 선교사 문의에서.
+   화면 글자 = mmv2 messages 의 en/ko 그대로. 사진 = 교육 카드 사진(연습 계정, S3 공개). */
+:root{--ground:#F4F6F5;--surface:#FFFFFF;--surface-2:#EAEEEC;--ink:#16201E;--ink-soft:#4F5B59;--accent:#1F6F5C;--accent-bg:#E4EFEA;--signal:#8A6700;--signal-bg:#FBF2D9;--line:#DBE2E0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E1413;--surface:#161F1D;--surface-2:#1D2826;--ink:#E8EDEB;--ink-soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--signal:#E8C05A;--signal-bg:#2E2718;--line:#26332F}}
+:root[data-theme="dark"]{--ground:#0E1413;--surface:#161F1D;--surface-2:#1D2826;--ink:#E8EDEB;--ink-soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--signal:#E8C05A;--signal-bg:#2E2718;--line:#26332F}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Noto Sans","Noto Sans KR",system-ui,sans-serif;font-size:18px;line-height:1.6}
+body.lang-en .l-ko,body.lang-ko .l-en{display:none}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 64px}
+.head{display:flex;gap:12px;align-items:flex-start;margin:20px 0 6px}
+h1{font-family:"Noto Serif","Noto Serif KR",Georgia,serif;font-size:26px;line-height:1.3;margin:0;flex:1}
+.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none}
+.lang button{border:0;background:var(--surface);color:var(--ink);font:700 15px "Noto Sans","Noto Sans KR",sans-serif;padding:0 12px;min-height:48px;min-width:48px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.lead{color:var(--ink-soft);margin:0 0 16px}
+.need{background:var(--accent-bg);border-radius:12px;padding:12px 16px;margin:0 0 20px}
+.need ul{margin:4px 0 0;padding-left:1.2em}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 14px}
+.step h2{display:flex;gap:12px;align-items:center;font-size:20px;margin:0 0 8px}
+.num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:17px}
+.step ol,.step ul{margin:6px 0;padding-left:1.4em}
+li{margin:0 0 6px}
+b.ui{background:var(--surface-2);border-radius:6px;padding:0 6px;font-weight:600;white-space:nowrap}
+.warn{background:var(--signal-bg);color:var(--ink);border-left:4px solid var(--signal);border-radius:8px;padding:10px 12px;margin:10px 0 0;font-size:16px}
+.ok{color:var(--ink-soft);font-size:16px;margin:8px 0 0}
+figure{margin:12px 0 0}
+figure img{width:100%;max-width:300px;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+figcaption{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.shots figure{flex:0 0 70%;max-width:260px;scroll-snap-align:start}
+a{color:var(--accent);font-weight:600}
+.btn{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;border-radius:12px;padding:12px;margin:12px 0 0;min-height:48px}
+h3{font-size:19px;margin:28px 0 8px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:8px 0}
+summary{cursor:pointer;padding:14px 16px;font-weight:600;min-height:48px}
+details>div{padding:0 16px 14px}
+.helper{border:1px dashed var(--line);border-radius:14px;padding:14px 16px;margin-top:28px}
+</style>
+</head>
+<body class="lang-en">
+<div class="wrap">
+  <div class="head">
+    <h1><span class="l-en" lang="en">Online textbook — how to get it</span><span class="l-ko" lang="ko">온라인 학습서 — 받는 방법</span></h1>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false">한국어</button></div>
+  </div>
+  <p class="lead"><span class="l-en">BEE textbooks you can read and write in on your phone or computer — at ministry.beekorea.org.</span><span class="l-ko">폰이나 컴퓨터로 읽고 답을 적는 BEE 학습서입니다 — ministry.beekorea.org 에 있습니다.</span></p>
+
+  <div class="need">
+    <b class="l-en">You need</b><b class="l-ko">필요한 것</b>
+    <ul class="l-en"><li><b>Your own account</b> — one per person. Your answers are saved to it.</li><li>An email address. <b>Gmail is easiest.</b></li><li>About 10 minutes.</li></ul>
+    <ul class="l-ko"><li><b>내 계정</b> — 한 사람에 하나. 내가 적은 답이 그 계정에 저장됩니다.</li><li>이메일 주소. <b>Gmail 이 가장 쉽습니다.</b></li><li>10분쯤.</li></ul>
+  </div>
+
+  <section class="step">
+    <h2><span class="num">1</span><span class="l-en">Make your account (only once)</span><span class="l-ko">계정 만들기 (처음 한 번만)</span></h2>
+    <div class="l-en">
+      <p>Open <a href="https://ministry.beekorea.org" target="_blank" rel="noopener">ministry.beekorea.org</a></p>
+      <p><b>Have Gmail?</b></p>
+      <ol><li><b class="ui">Sign in with Google</b> → choose your Gmail</li>
+        <li><b class="ui">I'm new</b> (Register as a new member)</li>
+        <li>Your name → Gender &amp; birth date → <b class="ui">Where do you live?</b> → Contact → <b class="ui">Review</b> → register</li></ol>
+      <p><b>No Gmail?</b> Under the boxes: “New here? <b class="ui">Create account</b>” → your email → the 6-digit code we email you → then the same steps.</p>
+      <p class="warn">⚠️ Do <b>not</b> type your Gmail and Gmail password into the <b>Username / Password</b> boxes. Those boxes are only for usernames made in Ministry Manager. If you see “Incorrect username or password”, use <b class="ui">Sign in with Google</b>.</p>
+      <p class="warn">⚠️ <b>Where do you live?</b> — choose the country you really live in. Your request goes to the BEE leader of that country.</p>
+    </div>
+    <div class="l-ko">
+      <p><a href="https://ministry.beekorea.org" target="_blank" rel="noopener">ministry.beekorea.org</a> 를 엽니다. (화면 글자는 영어일 수 있어서 영어 버튼 이름을 함께 적었습니다.)</p>
+      <p><b>Gmail 이 있으면</b></p>
+      <ol><li><b class="ui">Google로 로그인</b> (Sign in with Google) → 내 Gmail 고르기</li>
+        <li><b class="ui">처음이에요</b> (I'm new)</li>
+        <li>이름 → 성별·생년월일 → <b class="ui">어디 사세요?</b> (Where do you live?) → 연락처 → <b class="ui">확인</b> (Review) → 등록</li></ol>
+      <p><b>Gmail 이 없으면</b> 입력칸 아래 「New here? <b class="ui">계정 만들기</b> (Create account)」 → 이메일 → 메일로 온 6자리 코드 → 그다음은 같습니다.</p>
+      <p class="warn">⚠️ <b>아이디·비밀번호 칸</b>(Username / Password)에 Gmail 주소와 Gmail 비밀번호를 넣지 마세요. 그 칸은 Ministry Manager 에서 따로 만든 아이디 전용입니다. 「아이디 또는 비밀번호가 올바르지 않습니다」가 나오면 <b class="ui">Google로 로그인</b>을 누르세요.</p>
+      <p class="warn">⚠️ 국내 <b>LMS(lms.beekorea.org) 아이디는 여기서 쓸 수 없습니다</b> — 다른 시스템입니다. 처음이면 위처럼 새로 등록합니다.</p>
+      <p class="warn">⚠️ <b>어디 사세요?</b> 에는 실제로 사는 나라를 고르세요. 신청이 그 나라 BEE 담당자에게 갑니다.</p>
+    </div>
+    <figure><img src="https://beekorea-uploads.s3.ap-northeast-2.amazonaws.com/training/onboarding/login-1.png" alt="" width="390" height="700" loading="lazy"><figcaption><span class="l-en">Sign-in page — “Sign in with Google” at the top, “Create account” under the boxes</span><span class="l-ko">로그인 화면 — 맨 위 「Sign in with Google」, 입력칸 아래 「Create account」</span></figcaption></figure>
+  </section>
+
+  <section class="step">
+    <h2><span class="num">2</span><span class="l-en">Find your book</span><span class="l-ko">내 책 찾기</span></h2>
+    <p class="l-en">Open the bookshelf: <a href="https://ministry.beekorea.org/textbooks" target="_blank" rel="noopener">ministry.beekorea.org/textbooks</a> (“Online Textbooks”). Books you may read are on top; locked ones (🔒) below. Type the book name — for example <b>Hebrews</b> — in the search box, and tap its cover.</p>
+    <p class="l-ko">책장을 엽니다: <a href="https://ministry.beekorea.org/textbooks" target="_blank" rel="noopener">ministry.beekorea.org/textbooks</a> (Online Textbooks). 볼 수 있는 책은 위, 잠긴 책(🔒)은 아래에 있습니다. 검색칸에 책 이름(예: <b>Hebrews</b>, 한국어판은 <b>히브리서</b>)을 쓰고 표지를 누릅니다.</p>
+    <figure><img src="https://beekorea-uploads.s3.ap-northeast-2.amazonaws.com/training/onboarding/s-textbook-request-1.png" alt="" width="390" height="700" loading="lazy"><figcaption><span class="l-en">Bookshelf → tap your book's cover</span><span class="l-ko">책장 → 내 책 표지 누르기</span></figcaption></figure>
+  </section>
+
+  <section class="step">
+    <h2><span class="num">3</span><span class="l-en">Ask for it</span><span class="l-ko">신청하기</span></h2>
+    <ol class="l-en"><li><b class="ui">Request access from administrator</b></li>
+      <li><b>Reason for your request</b> — e.g. “I study Hebrews with Mrs. Lee”</li>
+      <li><b>Payment note (how you'll pay)</b> — how and when you paid, and the sender's name</li>
+      <li><b class="ui">Submit request</b></li></ol>
+    <ol class="l-ko"><li><b class="ui">관리자에게 접근 신청</b> (Request access from administrator)</li>
+      <li><b>신청 사유</b> (Reason) — 예: 「이은혜 선교사님과 히브리서를 공부합니다」</li>
+      <li><b>입금 방법 메모</b> (Payment note) — 언제·어떻게 보냈는지, 보낸 사람 이름</li>
+      <li><b class="ui">신청하기</b> (Submit request)</li></ol>
+    <p class="ok"><span class="l-en">✔ The book page now says <b>“Request pending”</b>. That is right — it waits for step 4.</span><span class="l-ko">✔ 책 화면에 <b>「신청 접수됨」</b>(Request pending)이 보이면 된 것입니다 — 4단계를 기다립니다.</span></p>
+    <div class="shots">
+      <figure><img src="https://beekorea-uploads.s3.ap-northeast-2.amazonaws.com/training/onboarding/s-textbook-request-2.png" alt="" width="390" height="700" loading="lazy"><figcaption><span class="l-en">Request access from administrator</span><span class="l-ko">관리자에게 접근 신청</span></figcaption></figure>
+      <figure><img src="https://beekorea-uploads.s3.ap-northeast-2.amazonaws.com/training/onboarding/s-textbook-request-3.png" alt="" width="390" height="700" loading="lazy"><figcaption><span class="l-en">Reason + how you pay → Submit request</span><span class="l-ko">사유 + 입금 방법 → 신청하기</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="step">
+    <h2><span class="num">4</span><span class="l-en">Pay</span><span class="l-ko">돈 보내기</span></h2>
+    <p class="l-en">Pay the way the person who invited you explains — they tell you the price and where to send it. An online book bought on its own costs 80% of the printed book.</p>
+    <p class="l-ko">소개해 준 분이 알려 주는 대로 보냅니다 — 값과 보낼 곳은 그분이 알려 줍니다. 온라인 학습서만 따로 사면 종이 책 값의 80% 입니다.</p>
+  </section>
+
+  <section class="step">
+    <h2><span class="num">5</span><span class="l-en">Start studying</span><span class="l-ko">공부 시작</span></h2>
+    <p class="l-en">When your payment is confirmed, the BEE leader of your country opens the book. Open the bookshelf again → your book → <b class="ui">Start Studying</b>.</p>
+    <p class="l-ko">입금이 확인되면 내 나라 BEE 담당자가 책을 열어 줍니다. 책장을 다시 열고 → 내 책 → <b class="ui">학습 시작</b> (Start Studying).</p>
+    <p class="ok"><span class="l-en">✔ Your answers and underlines are saved in your account. On another phone or computer, sign in the same way and they are all there.</span><span class="l-ko">✔ 적은 답과 밑줄은 내 계정에 저장됩니다. 다른 폰·컴퓨터에서도 같은 방법으로 로그인하면 그대로 있습니다.</span></p>
+    <a class="btn" href="https://ministry.beekorea.org/textbooks" target="_blank" rel="noopener"><span class="l-en">Open the bookshelf ↗</span><span class="l-ko">책장 열기 ↗</span></a>
+  </section>
+
+  <h3><span class="l-en">Stuck?</span><span class="l-ko">막혔을 때</span></h3>
+  <details><summary><span class="l-en">“Incorrect username or password”</span><span class="l-ko">「아이디 또는 비밀번호가 올바르지 않습니다」</span></summary>
+    <div><p class="l-en">You do not have a Ministry Manager account yet, or you typed your Gmail into the username boxes. Go back to step 1 and use <b class="ui">Sign in with Google</b>.</p><p class="l-ko">아직 Ministry Manager 계정이 없거나, Gmail 을 아이디 칸에 넣은 것입니다. 1단계로 돌아가 <b class="ui">Google로 로그인</b>을 누르세요.</p></div></details>
+  <details><summary><span class="l-en">I can't find my book</span><span class="l-ko">책이 안 보여요</span></summary>
+    <div><p class="l-en">Type the English name in the search box (Hebrews, Galatians …). Each language is its own book — the Korean edition has its Korean name.</p><p class="l-ko">검색칸에 영어 이름(Hebrews, Galatians …)을 쳐 보세요. 언어마다 책이 따로 있어서 한국어판은 한국어 이름(히브리서)으로 찾습니다.</p></div></details>
+  <details><summary><span class="l-en">I paid, but it still says “Request pending”</span><span class="l-ko">돈을 보냈는데 아직 「신청 접수됨」이에요</span></summary>
+    <div><p class="l-en">Tell the person who invited you. The approver sees your request in their to-do list and opens it after the money is confirmed.</p><p class="l-ko">소개해 준 분께 알려 주세요. 승인하는 분의 할 일 목록에 신청이 떠 있고, 입금이 확인되면 열어 줍니다.</p></div></details>
+  <details><summary><span class="l-en">New phone, or I forgot my password</span><span class="l-ko">폰을 바꿨거나 비밀번호를 잊었어요</span></summary>
+    <div><p class="l-en">Gmail account: just <b class="ui">Sign in with Google</b> again with the same Gmail. Username account: “Forgot password?” on the sign-in page.</p><p class="l-ko">Gmail 로 만든 계정: 같은 Gmail 로 다시 <b class="ui">Google로 로그인</b>. 아이디로 만든 계정: 로그인 화면의 「Forgot password?」.</p></div></details>
+
+  <div class="helper">
+    <b class="l-en">For the person who invites students</b><b class="l-ko">학생을 소개하는 분께</b>
+    <ul class="l-en"><li>Each student makes <b>their own</b> account (step 1). You do not need one to help.</li><li>Tell them the price and where to pay, and ask them to write it in the payment note.</li><li>After they pay, tell the BEE leader of their country (or BEE Korea HQ) the student's name — they approve it.</li></ul>
+    <ul class="l-ko"><li>학생마다 <b>자기</b> 계정을 만듭니다(1단계). 돕는 분은 계정이 없어도 됩니다.</li><li>값과 보낼 곳을 학생에게 알려 주고, 입금 방법 메모에 적게 해 주세요.</li><li>입금되면 그 나라 BEE 담당자(또는 BEE Korea 본부)에게 학생 이름을 알려 주세요 — 그분이 승인합니다.</li></ul>
+  </div>
+</div>
+<script>
+(function(){
+  function store(k,v){try{v===undefined?v=localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){v=null}return v}
+  function setLang(l){document.body.className='lang-'+l;document.documentElement.lang=l;
+    [].forEach.call(document.querySelectorAll('.lang button'),function(b){b.setAttribute('aria-pressed',b.dataset.lang===l)});store('tb-guide-lang',l)}
+  var p=new URLSearchParams(location.search).get('lang');
+  setLang(p==='ko'||p==='en'?p:(store('tb-guide-lang')||((navigator.language||'').slice(0,2)==='ko'?'ko':'en')));
+  document.querySelector('.lang').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setLang(b.dataset.lang)});
+})();
+</script>
+</body>
+</html>
