@@ -37,6 +37,7 @@ th{background:var(--surface)}
 .cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em}
 .cast div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.5em .7em}
 .cast b{display:block;font-size:1.1em}
+.lang{margin-left:auto;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:.15em .6em}
 .nav{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px clamp(16px,4vw,64px);background:var(--ground);border-top:1px solid var(--line)}
 .nav button{font:700 18px "Noto Sans",sans-serif;min-height:52px;min-width:120px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .nav button.next{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -49,7 +50,7 @@ th{background:var(--surface)}
 <body>
 
 <section class="slide" data-t="0">
-  <div class="top">BMTC 2026 · Final test</div>
+  <div class="top">BMTC 2026 · Final test <a class="lang" href="final-test-sw.html">Kiswahili →</a></div>
   <h1><span class="ic">🧭</span>Final test — one seminar, from home and back</h1>
   <div class="story"><span class="lab">The story</span>
     Today you are a <b>facilitator</b>. You take the bus to your church, lead a short seminar of <b>Following the Master</b> with three students, and take the bus home. You record <b>everything</b> on your phone, alone.</div>
@@ -125,7 +126,7 @@ th{background:var(--surface)}
   <ol class="do">
     <li><span class="q">Academy</span> → <span class="q">Manage Applications</span></li>
     <li>Tap the <span class="q">Approved</span> tab (it opens on Pending — F1 is not there)</li>
-    <li>F1's line → tick <span class="q">Online textbook</span></li>
+    <li>F1's line → tick <span class="q">Online workbook</span></li>
   </ol>
   <div class="notes">
     <div class="real">✅ The book <b>does not open now</b> — that is right. When F1 has paid, the <b>coordinator</b> opens it.</div>
@@ -205,7 +206,7 @@ th{background:var(--surface)}
   <ol class="do">
     <li>Seminar room → <span class="q">Grade Summary</span></li>
     <li>In <span class="q">Direct Score Input</span>: partner <b>88</b> · F1 <b>74</b> (it saves by itself; B and C appear)</li>
-    <li>Leave the other boxes empty → <span class="q">Finalize seminar</span></li>
+    <li>Leave the other boxes empty → <span class="q">Finalize seminar (confirm grades)</span></li>
   </ol>
   <div class="notes">
     <div class="test">🧪 88 and 74 are the same for everyone, so your partner can check they see <b>B</b>.</div>
@@ -246,7 +247,7 @@ th{background:var(--surface)}
     <li><span class="q">My Seminars</span>: your seminar — starts today · enrollment closed</li>
     <li><span class="q">Fees / Payments</span> (bottom): Charged · Paid · Due as below. F1 → History: the wrong line is <b>Reversed</b></li>
     <li><span class="q">Grade Summary</span>: partner B (88) · F1 C (74) · finalized. F2 not there; in Fees F2 shows <b>Cancelled</b></li>
-    <li><span class="q">Manage Applications → Completed</span>: F1 "Online textbook" ticked · your partner's phone: "Yes, I paid this" done, My Courses shows B</li>
+    <li><span class="q">Manage Applications → Completed</span>: F1 "Online workbook" ticked · your partner's phone: "Yes, I paid this" done, My Courses shows B</li>
   </ol>
   <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Charged</td><td>1,000</td><td>20,000</td><td>30,000</td></tr><tr><td>Paid</td><td>750</td><td>15,000</td><td>22,500</td></tr><tr><td>Due (F1's other half)</td><td>250</td><td>5,000</td><td>7,500</td></tr></table>
   <div class="notes"><div class="real">✅ F2 shows <b>Not charged</b>: when a student who paid nothing drops out, the system cancels their charge by itself. That is right.</div></div>

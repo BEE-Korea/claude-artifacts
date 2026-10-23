@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="sw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Jaribio la Mwisho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@700&display=swap">
+<style>
+/* 2026-10-23 BMTC 최종 테스트를 프로젝터에 한 단계씩 — 태남 「질문을 다시 정확하게 만들어 화면에 띄우게, 상황을 이해하고 따라갈 수 있도록」.
+   단계마다 상황(이야기) → 할 일 → 🧪 테스트용 / ✅ 실제 규칙. 과제지(out/bmtc26-final-*)와 같은 순서·금액 */
+:root{--ground:#FFFFFF;--surface:#F4F6F5;--ink:#16201E;--soft:#4F5B59;--accent:#1F6F5C;--accent-bg:#E4EFEA;--test:#8A6700;--test-bg:#FBF2D9;--line:#DBE2E0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E1413;--surface:#161F1D;--ink:#E8EDEB;--soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--test:#E8C05A;--test-bg:#2E2718;--line:#26332F}}
+:root[data-theme="dark"]{--ground:#0E1413;--surface:#161F1D;--ink:#E8EDEB;--soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--test:#E8C05A;--test-bg:#2E2718;--line:#26332F}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--ground);color:var(--ink);font-family:"Noto Sans",system-ui,sans-serif;font-size:clamp(16px,min(1.65vw,3.1vh),26px);line-height:1.35}
+.slide{display:none;min-height:100vh;padding:clamp(10px,1.8vw,28px) clamp(16px,4vw,64px) 84px;flex-direction:column;gap:.45em}
+.slide.on{display:flex}
+.top{display:flex;align-items:baseline;gap:.6em;color:var(--soft);font-size:.7em;font-weight:600}
+h1{font-family:"Noto Serif",Georgia,serif;font-size:1.5em;line-height:1.15;margin:0}
+h1 .ic{margin-right:.25em}
+.story{background:var(--accent-bg);border-radius:14px;padding:.55em .8em;font-size:.95em}
+.story b{color:var(--accent)}
+.lab{font-size:.62em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:.1em;display:block}
+ol.do{margin:0;padding-left:1.3em}
+ol.do li{margin:0 0 .3em}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0 .3em;font-weight:600;white-space:nowrap}
+.notes{display:flex;flex-direction:column;gap:.3em;font-size:.82em}
+.test{background:var(--test-bg);border-left:6px solid var(--test);border-radius:8px;padding:.3em .6em}
+.real{background:var(--accent-bg);border-left:6px solid var(--accent);border-radius:8px;padding:.3em .6em}
+table{border-collapse:collapse;font-size:.78em;margin-top:.2em}
+th,td{border:1px solid var(--line);padding:.2em .6em;text-align:left}
+th{background:var(--surface)}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em}
+.cast div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.5em .7em}
+.cast b{display:block;font-size:1.1em}
+.lang{margin-left:auto;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:.15em .6em}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px clamp(16px,4vw,64px);background:var(--ground);border-top:1px solid var(--line)}
+.nav button{font:700 18px "Noto Sans",sans-serif;min-height:52px;min-width:120px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.nav button.next{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.dots button{min-width:34px;min-height:34px;font-size:14px;padding:0;border-radius:50%}
+.dots button[aria-current=true]{background:var(--accent);color:#fff}
+@media(max-width:560px){.nav button{min-width:80px}.dots{display:none}}
+</style>
+</head>
+<body>
+<section class="slide" data-t="0">
+  <div class="top">BMTC 2026 · Jaribio la mwisho <a class="lang" href="final-test.html">English →</a></div>
+  <h1><span class="ic">🧭</span>Jaribio la mwisho — semina moja, kutoka nyumbani na kurudi</h1>
+  <div class="story"><span class="lab">Hadithi</span>
+    Leo wewe ni <b>mwezeshaji</b>. Unapanda basi kwenda kanisani kwako, unaongoza semina fupi ya <b>Following the Master</b> yenye wanafunzi watatu, kisha unapanda basi kurudi nyumbani. Unarekodi <b>kila kitu</b> kwenye simu yako, peke yako.</div>
+  <span class="lab">Wanafunzi wako watatu</span>
+  <div class="cast">
+    <div><b>👤 Mwenzako</b>Mtu halisi. Tayari ana akaunti. <u>Anaomba kwa simu yake mwenyewe.</u></div>
+    <div><b>🧑 F1</b>Mwanafunzi wa kuigiza. Hana akaunti — <u>wewe unamfungulia</u>. Anakuja darasani, analipa nusu.</div>
+    <div><b>🧑 F2</b>Mwanafunzi wa kuigiza. Hana akaunti — <u>wewe unamfungulia</u>. Hakuja darasani, harudi tena.</div>
+  </div>
+  <div class="cast" style="margin-top:.2em">
+    <div><b>Na wewe</b>pia ni <u>mwanafunzi</u> kwenye semina ya mwenzako.</div>
+  </div>
+  <div class="notes">
+    <div class="test">🧪 <b>Kwa jaribio tu</b> = kanuni ya leo tu, ili wote tuangalie skrini ile ile.</div>
+    <div class="real">✅ <b>Kanuni halisi</b> = fanya hivyo hivyo ukirudi nyumbani.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 1 / 12 · Kwenda</div>
+  <h1><span class="ic">🚌</span>Ulipanda basi kwenda semina</h1>
+  <div class="story"><span class="lab">Hadithi</span>Ulilipa basi. Risiti yako ni <b>T1</b>. Ulipoiandika, ulikosea.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><span class="q">Fedha</span> → <span class="q">Ongeza matumizi</span> → picha ya risiti <b>T1</b> → <span class="q">Usafiri wa mwezeshaji</span></li>
+    <li>Andika kiasi <b>mara kumi zaidi</b> → <span class="q">Hifadhi</span></li>
+    <li>Rekebisha: <span class="q">Niliyoingiza</span> → mstari huo → <span class="q">Hariri</span> → kiasi sahihi → <span class="q">Hifadhi</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Kiasi sahihi</td><td>500</td><td>12,000</td><td>15,000</td></tr><tr><td>🧪 Ulichokosea</td><td>5,000</td><td>120,000</td><td>150,000</td></tr></table>
+  <div class="notes">
+    <div class="test">🧪 Kiasi kibaya ni cha kujifunza kurekebisha tu.</div>
+    <div class="real">✅ Kiasi kibaya? <b>Hariri mstari ule ule. Usiongeze mstari wa pili.</b> Kikishathibitishwa kinafungwa — picha tu inaweza kubadilika.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 2 / 12 · Fungua semina</div>
+  <h1><span class="ic">📖</span>Fungua semina moja</h1>
+  <div class="story"><span class="lab">Hadithi</span>Leo unaongoza <b>Following the Master</b>, siku moja, kanisani kwako.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><span class="q">Akademia</span> → <span class="q">Semina Zangu</span> → <span class="q">Uundaji rahisi</span></li>
+    <li><span class="q">Ana kwa ana</span> · leo – leo · Following the Master · lugha · kanisa lako · kikundi (au <span class="q">Hakuna kikundi</span>)</li>
+    <li>Ada tayari imejazwa → mwezeshaji = wewe → <span class="q">Unda semina</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Ada ya semina</td><td>500</td><td>10,000</td><td>15,000</td></tr></table>
+  <div class="notes">
+    <div class="real">✅ <b>Semina moja tu.</b> Umekwama? Usifungue semina mpya — rekebisha hii, au muulize aliye kando yako.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 3 / 12 · Wanafunzi wanakuja</div>
+  <h1><span class="ic">👥</span>Wanafunzi wako watatu wanaingia</h1>
+  <div class="story"><span class="lab">Hadithi</span><b>Mwenzako</b> anajiunga kwa simu yake. Watu wawili wapya, <b>F1</b> na <b>F2</b>, hawana akaunti — unamfungulia kila mmoja.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><b>Mwenzako</b> anaomba kwa simu yake. Wewe: chumba cha semina → <span class="q">Wanafunzi</span> → <span class="q">Wameomba wenyewe</span> → <span class="q">Idhinisha</span></li>
+    <li><span class="q">+ Mwanafunzi mpya (fungua kuingia)</span>: jina la kwanza <b>Student F1</b>, jina la mwisho = <b>jina lako la kwanza</b>. Kisha hivyo hivyo kwa <b>Student F2</b></li>
+    <li>Wewe kama mwanafunzi: <span class="q">Akademia</span> → <span class="q">Semina Zinazopatikana</span> → tafuta <b>jina la mwenzako</b> kwenye mstari → <span class="q">Omba</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ <b>Usimfungulie mwenzako kama mwanafunzi mpya</b> — tayari ana akaunti. "Mwanafunzi mpya" ni kwa wasio na akaunti tu (F1, F2).</div>
+    <div class="real">✅ Leo kuna semina nyingi za kozi ile ile. <b>Angalia jina la mwezeshaji</b> kabla ya kugusa <span class="q">Omba</span>.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 4 / 12 · Kitabu mtandaoni</div>
+  <h1><span class="ic">📘</span>F1 anataka kitabu mtandaoni</h1>
+  <div class="story"><span class="lab">Hadithi</span>F1 anasema: "Nataka kusoma kitabu kwenye simu yangu." Wewe unaliandika — kama kuandika oda.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><span class="q">Akademia</span> → <span class="q">Simamia Maombi</span></li>
+    <li>Gusa kichupo <span class="q">Imeidhinishwa</span> (kinafunguka kwenye <span class="q">Inasubiri</span> — F1 hayupo huko)</li>
+    <li>Mstari wa F1 → weka tiki <span class="q">Kitabu mtandaoni</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ Kitabu <b>hakifunguki sasa</b> — ni sawa. F1 akishalipa, <b>mratibu</b> anakifungua.</div>
+    <div class="real">✅ Ulisahau tiki? Iweke baadaye, hapa hapa. <b>Usimfute mwanafunzi na kumwongeza tena.</b></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 5 / 12 · Darasa linaanza</div>
+  <h1><span class="ic">🔒</span>Funga mlango — darasa linaanza</h1>
+  <div class="story"><span class="lab">Hadithi</span>Wote wameingia. Hakuna mwingine anayeweza kujiunga sasa.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li>Subiri: mwenzako <b>ameidhinishwa</b> kwenye semina yako, na wewe <b>umeomba</b> semina ya mwenzako</li>
+    <li><span class="q">Semina Zangu</span> → semina yako → <span class="q">Anza semina (funga usajili)</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ Ukibonyeza mapema, mwenzako hawezi kuomba. Kwa hiyo: idhinisha kwanza, kisha bonyeza.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 6 / 12 · Darasa la kwanza</div>
+  <h1><span class="ic">✋</span>Darasa la kwanza — nani alikuja?</h1>
+  <div class="story"><span class="lab">Hadithi</span>Leo ni <b>darasa la kwanza</b>. <b>Mwenzako</b> na <b>F1</b> walikuja kwa wakati. <b>F2 hakuja.</b> Madarasa mengine bado hayajafanyika.</div>
+  <span class="lab">Fanya — kisanduku 1 tu</span>
+  <ol class="do">
+    <li>Chumba cha semina → <span class="q">Mahudhurio</span> → shuka hadi kadi za wanafunzi</li>
+    <li><b>Mwenzako</b>: gusa kisanduku 1 <b>mara moja</b> → <span class="q">Kwa wakati</span> (kijani)</li>
+    <li><b>F1</b>: gusa kisanduku 1 <b>mara moja</b> → <span class="q">Kwa wakati</span> (kijani)</li>
+    <li><b>F2</b>: gusa kisanduku 1 <b>mara nne</b> → Kwa wakati → Amechelewa → Kuondoka mapema → <span class="q">Hakuhudhuria</span></li>
+    <li>Visanduku 2, 3 … : <b>usiguse</b></li>
+  </ol>
+  <div class="notes">
+    <div class="test">🧪 Kila kisanduku kinasema "Hakuhudhuria" kabla hujagusa — maana yake ni "bado hakijawekwa". Kugusa mara nne kwa F2 <b>kunahifadhi</b> kutokuwepo kwake. Kinaonekana vile vile, lakini sasa ni rekodi.</div>
+    <div class="real">✅ Kisanduku kimoja = darasa moja. Weka siku hiyo hiyo, kwa simu.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 7 / 12 · Pesa</div>
+  <h1><span class="ic">💵</span>Nani alilipa nini?</h1>
+  <div class="story"><span class="lab">Hadithi</span><b>Mwenzako</b> analipa ada yote kwa pesa ya simu. <b>F1</b> analipa nusu kwa fedha taslimu — na wewe unaandika vibaya. <b>F2</b> halipi kitu.</div>
+  <span class="lab">Fanya — chumba cha semina → Ada / Malipo</span>
+  <ol class="do">
+    <li><b>Mwenzako</b> → <span class="q">Andikisha ada</span> → ada yote · <span class="q">Pesa ya simu</span> → <span class="q">Hifadhi</span>. Kisha mwenzako, kwenye simu yake: <span class="q">Kozi Zangu</span> → semina yako → beji ya ada → <span class="q">Ndiyo, nimelipa hii</span></li>
+    <li><b>F1</b> → <span class="q">Andikisha ada</span> → andika kiasi 🧪 kibaya → <span class="q">Hifadhi</span> → <span class="q">Historia</span> → <span class="q">Sahihisha</span> (sababu: kiasi kibaya) → rekodi nusu sahihi</li>
+    <li><b>F2</b> → hakuna kitu</li>
+    <li>Wewe kama mwanafunzi wa mwenzako: <span class="q">Kozi Zangu</span> → semina yake → beji ya ada → <span class="q">Ndiyo, nimelipa hii</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Mwenzako analipa</td><td>500</td><td>10,000</td><td>15,000</td></tr><tr><td>Nusu ya F1</td><td>250</td><td>5,000</td><td>7,500</td></tr><tr><td>🧪 F1 — uliandika vibaya</td><td>25</td><td>500</td><td>750</td></tr></table>
+  <div class="notes">
+    <div class="real">✅ Mistari ya pesa haifutwi — <span class="q">Sahihisha</span> inaweka kosa na marekebisho pamoja. Baada ya saa 24, mwambie mratibu wako.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 8 / 12 · F2 anaacha</div>
+  <h1><span class="ic">🚪</span>F2 hakurudi tena</h1>
+  <div class="story"><span class="lab">Hadithi</span>F2 alijiandikisha, akakosa darasa la kwanza, na <b>hakuja tena</b>.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li>Chumba cha semina → <span class="q">Wanafunzi</span> → F2 → <span class="q">Futa</span> → <span class="q">Futa</span> (nyekundu)</li>
+    <li>Dirisha linauliza — gusa <span class="q">Weka kama ameacha</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ <b>Futa</b> = ulimwongeza mtu kwa kosa. <b>Ameacha</b> = mwanafunzi halisi aliyeacha. F2 anabaki kwenye historia kama "Imeghairiwa".</div>
+    <div class="test">🧪 Dirisha linatokea kwa sababu ya hatua 6 (kutokuwepo kwa F2 ni rekodi). Hakuna dirisha? Rudi hatua 6.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 9 / 12 · Siku ya mwisho</div>
+  <h1><span class="ic">📝</span>Semina inaisha — alama na kuhitimisha</h1>
+  <div class="story"><span class="lab">Hadithi</span>Semina imekwisha leo. <b>Mwenzako alipata 88</b>. <b>F1 alipata 74</b>. F2 hana alama — F2 aliacha.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li>Chumba cha semina → <span class="q">Muhtasari wa Madaraja</span></li>
+    <li>Kwenye <span class="q">Uingizaji wa Alama wa Moja kwa Moja</span>: mwenzako <b>88</b> · F1 <b>74</b> (inahifadhiwa yenyewe; B na C zinatokea)</li>
+    <li>Acha visanduku vingine tupu → <span class="q">Hitimisha semina (thibitisha alama)</span></li>
+  </ol>
+  <div class="notes">
+    <div class="test">🧪 88 na 74 ni sawa kwa wote, ili mwenzako aone kama anapata <b>B</b>.</div>
+    <div class="real">✅ Nyumbani: andika alama halisi ya mwisho ya mwanafunzi — alama moja inatosha. Hitimisha siku ya mwisho. Mapema mno? Mratibu anagusa <span class="q">Tengua kufunga</span>.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 10 / 12 · Wewe ni mwanafunzi</div>
+  <h1><span class="ic">🎓</span>Angalia alama yako</h1>
+  <div class="story"><span class="lab">Hadithi</span>Ulikuwa mwanafunzi kwenye semina ya mwenzako. Mwenzako alikupa 88.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><span class="q">Kozi Zangu</span> → semina ya mwenzako → <span class="q">Alama na mahudhurio</span></li>
+    <li>Unaona <b>B</b></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ Bado hakuna B? Mwenzako hajahitimisha — nenda umsaidie.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 11 / 12 · Kurudi nyumbani</div>
+  <h1><span class="ic">🚌</span>Basi la kurudi nyumbani</h1>
+  <div class="story"><span class="lab">Hadithi</span>Unapanda basi kurudi nyumbani. Risiti yako ni <b>T2</b>. Safari hii unaandika sawasawa.</div>
+  <span class="lab">Fanya</span>
+  <ol class="do">
+    <li><span class="q">Fedha</span> → <span class="q">Ongeza matumizi</span> → picha ya risiti <b>T2</b> → <span class="q">Usafiri wa mwezeshaji</span></li>
+    <li>Hakiki kiasi → <span class="q">Hifadhi</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="top">Hatua 12 / 12 · Hakiki skrini yako</div>
+  <h1><span class="ic">🔍</span>Angalia sehemu tano</h1>
+  <ol class="do">
+    <li><span class="q">Fedha → Niliyoingiza</span>: mistari miwili ya "Usafiri wa mwezeshaji" — T1 (imerekebishwa) na T2</li>
+    <li><span class="q">Semina Zangu</span>: semina yako — inaanza leo · usajili umefungwa</li>
+    <li><span class="q">Ada / Malipo</span> (chini kabisa): kama jedwali hapa chini. F1 → <span class="q">Historia</span>: mstari mbaya umesahihishwa</li>
+    <li><span class="q">Muhtasari wa Madaraja</span>: mwenzako B (88) · F1 C (74) · imehitimishwa. F2 hayupo; kwenye Ada F2 ni <b>"Imeghairiwa"</b></li>
+    <li><span class="q">Simamia Maombi → Imekamilika</span>: F1 "Kitabu mtandaoni" ina tiki · simu ya mwenzako: "Ndiyo, nimelipa hii" imefanyika, Kozi Zangu inaonyesha B</li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Imetozwa</td><td>1,000</td><td>20,000</td><td>30,000</td></tr><tr><td>Imelipwa</td><td>750</td><td>15,000</td><td>22,500</td></tr><tr><td>Deni (nusu nyingine ya F1)</td><td>250</td><td>5,000</td><td>7,500</td></tr></table>
+  <div class="notes"><div class="real">✅ F2 ni <b>"Haijatozwa"</b>: mwanafunzi ambaye hakulipa chochote akiacha, mfumo unafuta tozo lake wenyewe. Ni sawa.</div>
+    <div class="real">✅ Umemaliza? <b>Msaidie mtu</b> — onyesha, usiguse.</div>
+  </div>
+</section>
+
+<nav class="nav">
+  <button type="button" id="prev">← Nyuma</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="next" class="next">Ifuatayo →</button>
+</nav>
+
+<script>
+(function(){
+  var S=[].slice.call(document.querySelectorAll('.slide')), dots=document.getElementById('dots'), i=0;
+  S.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.textContent=k===0?'★':k;b.addEventListener('click',function(){go(k)});dots.appendChild(b)});
+  function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach(function(s,j){s.classList.toggle('on',j===i)});
+    [].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',j===i)});
+    history.replaceState(null,'','#'+i);window.scrollTo(0,0)}
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1)} if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}});
+  window.addEventListener('hashchange',function(){go(parseInt(location.hash.slice(1),10)||0)});
+  go(parseInt((location.hash||'#0').slice(1),10)||0);
+})();
+</script>
+</body>
+</html>
