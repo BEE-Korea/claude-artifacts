@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Final Test Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@700&display=swap">
+<style>
+/* 2026-10-23 BMTC 최종 테스트를 프로젝터에 한 단계씩 — 태남 「질문을 다시 정확하게 만들어 화면에 띄우게, 상황을 이해하고 따라갈 수 있도록」.
+   단계마다 상황(이야기) → 할 일 → 🧪 테스트용 / ✅ 실제 규칙. 과제지(out/bmtc26-final-*)와 같은 순서·금액 */
+:root{--ground:#FFFFFF;--surface:#F4F6F5;--ink:#16201E;--soft:#4F5B59;--accent:#1F6F5C;--accent-bg:#E4EFEA;--test:#8A6700;--test-bg:#FBF2D9;--line:#DBE2E0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E1413;--surface:#161F1D;--ink:#E8EDEB;--soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--test:#E8C05A;--test-bg:#2E2718;--line:#26332F}}
+:root[data-theme="dark"]{--ground:#0E1413;--surface:#161F1D;--ink:#E8EDEB;--soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--test:#E8C05A;--test-bg:#2E2718;--line:#26332F}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--ground);color:var(--ink);font-family:"Noto Sans",system-ui,sans-serif;font-size:clamp(16px,min(1.65vw,3.1vh),26px);line-height:1.35}
+.slide{display:none;min-height:100vh;padding:clamp(10px,1.8vw,28px) clamp(16px,4vw,64px) 84px;flex-direction:column;gap:.45em}
+.slide.on{display:flex}
+.top{display:flex;align-items:baseline;gap:.6em;color:var(--soft);font-size:.7em;font-weight:600}
+h1{font-family:"Noto Serif",Georgia,serif;font-size:1.5em;line-height:1.15;margin:0}
+h1 .ic{margin-right:.25em}
+.story{background:var(--accent-bg);border-radius:14px;padding:.55em .8em;font-size:.95em}
+.story b{color:var(--accent)}
+.lab{font-size:.62em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:.1em;display:block}
+ol.do{margin:0;padding-left:1.3em}
+ol.do li{margin:0 0 .3em}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0 .3em;font-weight:600;white-space:nowrap}
+.notes{display:flex;flex-direction:column;gap:.3em;font-size:.82em}
+.test{background:var(--test-bg);border-left:6px solid var(--test);border-radius:8px;padding:.3em .6em}
+.real{background:var(--accent-bg);border-left:6px solid var(--accent);border-radius:8px;padding:.3em .6em}
+table{border-collapse:collapse;font-size:.78em;margin-top:.2em}
+th,td{border:1px solid var(--line);padding:.2em .6em;text-align:left}
+th{background:var(--surface)}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:.5em}
+.cast div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.5em .7em}
+.cast b{display:block;font-size:1.1em}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px clamp(16px,4vw,64px);background:var(--ground);border-top:1px solid var(--line)}
+.nav button{font:700 18px "Noto Sans",sans-serif;min-height:52px;min-width:120px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.nav button.next{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.dots button{min-width:34px;min-height:34px;font-size:14px;padding:0;border-radius:50%}
+.dots button[aria-current=true]{background:var(--accent);color:#fff}
+@media(max-width:560px){.nav button{min-width:80px}.dots{display:none}}
+</style>
+</head>
+<body>
+
+<section class="slide" data-t="0">
+  <div class="top">BMTC 2026 · Final test</div>
+  <h1><span class="ic">🧭</span>Final test — one seminar, from home and back</h1>
+  <div class="story"><span class="lab">The story</span>
+    Today you are a <b>facilitator</b>. You take the bus to your church, lead a short seminar of <b>Following the Master</b> with three students, and take the bus home. You record <b>everything</b> on your phone, alone.</div>
+  <span class="lab">Your three students</span>
+  <div class="cast">
+    <div><b>👤 Your partner</b>A real person. Already has an account. <u>Applies from their own phone.</u></div>
+    <div><b>🧑 F1</b>A pretend student. No account — <u>you make it</u>. Comes to class, pays half.</div>
+    <div><b>🧑 F2</b>A pretend student. No account — <u>you make it</u>. Misses class, never comes back.</div>
+  </div>
+  <div class="cast" style="margin-top:.2em">
+    <div><b>And you</b>are also a <u>student</u> in your partner's seminar.<br>Uganda: three in a ring — your student is on your right.</div>
+  </div>
+  <div class="notes">
+    <div class="test">🧪 <b>Test only</b> = a rule just for today, so we can all check the same screen.</div>
+    <div class="real">✅ <b>Real rule</b> = do it the same way at home.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 1 / 12 · Travel there</div>
+  <h1><span class="ic">🚌</span>You took the bus to the seminar</h1>
+  <div class="story"><span class="lab">The story</span>You paid the bus. Your receipt is <b>T1</b>. When you typed it, you made a mistake.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><span class="q">Finance</span> → <span class="q">Add an expense</span> → photo of receipt <b>T1</b> → <span class="q">Facilitator transportation</span></li>
+    <li>Type the amount <b>ten times too big</b> → <span class="q">Save</span></li>
+    <li>Fix it: <span class="q">My entries</span> → that line → <span class="q">Edit</span> → the right amount → <span class="q">Save</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Right amount</td><td>500</td><td>12,000</td><td>15,000</td></tr><tr><td>🧪 Typed wrong</td><td>5,000</td><td>120,000</td><td>150,000</td></tr></table>
+  <div class="notes">
+    <div class="test">🧪 The wrong amount is only to practise fixing.</div>
+    <div class="real">✅ Wrong amount? <b>Edit the same line. Never add a second line.</b> After it is confirmed it is locked — only the photo can change.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 2 / 12 · Open the seminar</div>
+  <h1><span class="ic">📖</span>Open one seminar</h1>
+  <div class="story"><span class="lab">The story</span>Today you lead <b>Following the Master</b>, one day, at your church.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><span class="q">Academy</span> → <span class="q">My Seminars</span> → <span class="q">Easy create</span></li>
+    <li>Offline · today – today · Following the Master · language · your church · group (or "No group")</li>
+    <li>Fee is already filled in → facilitator = you → <span class="q">Create seminar</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Seminar fee</td><td>500</td><td>10,000</td><td>15,000</td></tr></table>
+  <div class="notes">
+    <div class="real">✅ <b>One seminar only.</b> Stuck? Do not open a new seminar — fix this one, or ask the person next to you.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 3 / 12 · Students come</div>
+  <h1><span class="ic">👥</span>Your three students come in</h1>
+  <div class="story"><span class="lab">The story</span>Your <b>partner</b> joins from their own phone. Two new people, <b>F1</b> and <b>F2</b>, have no account — you make one for each.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><b>Partner</b> applies on their phone. You: seminar room → <span class="q">Students</span> → <span class="q">Applied by themselves</span> → <span class="q">Approve</span></li>
+    <li><span class="q">+ New student</span>: First name <b>Student F1</b>, Last name = <b>your first name</b>. Then the same for <b>Student F2</b></li>
+    <li>You as a student: <span class="q">Academy</span> → <span class="q">Available Seminars</span> → find <b>your partner's name</b> on the row → <span class="q">Apply</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ <b>Never make your partner as a new student</b> — they already have an account. "+ New student" is only for people with no account (F1, F2).</div>
+    <div class="real">✅ Many seminars of the same course are open today. <b>Look at the facilitator's name</b> before you tap Apply.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 4 / 12 · The online book</div>
+  <h1><span class="ic">📘</span>F1 wants the online book</h1>
+  <div class="story"><span class="lab">The story</span>F1 says: "I want to read the book on my phone." You write that down — like writing an order.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><span class="q">Academy</span> → <span class="q">Manage Applications</span></li>
+    <li>Tap the <span class="q">Approved</span> tab (it opens on Pending — F1 is not there)</li>
+    <li>F1's line → tick <span class="q">Online textbook</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ The book <b>does not open now</b> — that is right. When F1 has paid, the <b>coordinator</b> opens it.</div>
+    <div class="real">✅ Forgot to tick it? Tick it later, here. <b>Do not delete and add the student again.</b></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 5 / 12 · Class starts</div>
+  <h1><span class="ic">🔒</span>Close the door — class starts</h1>
+  <div class="story"><span class="lab">The story</span>Everyone is in. No more people can join.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li>Wait: your partner is <b>approved</b> in your seminar, and you have <b>applied</b> to your partner's seminar</li>
+    <li><span class="q">My Seminars</span> → your seminar → <span class="q">Start seminar (close enrollment)</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ Press it too early and your partner cannot apply. So: approve first, then press.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 6 / 12 · First class</div>
+  <h1><span class="ic">✋</span>First class — who came?</h1>
+  <div class="story"><span class="lab">The story</span>Today is the <b>first class</b>. Your <b>partner</b> and <b>F1</b> came on time. <b>F2 did not come.</b> The other classes have not happened yet.</div>
+  <span class="lab">Do — box 1 only</span>
+  <ol class="do">
+    <li>Seminar room → <span class="q">Attendance</span> → scroll to the student cards</li>
+    <li><b>Partner</b>: tap box 1 <b>once</b> → <span class="q">On time</span> (green)</li>
+    <li><b>F1</b>: tap box 1 <b>once</b> → <span class="q">On time</span> (green)</li>
+    <li><b>F2</b>: tap box 1 <b>four times</b> → On time → Late → Early leave → <span class="q">Absent</span></li>
+    <li>Boxes 2, 3 … : <b>do not touch</b></li>
+  </ol>
+  <div class="notes">
+    <div class="test">🧪 Every box says "Absent" before you tap — that only means "not marked yet". F2's four taps <b>save</b> the absence. It looks the same, but now it is a record.</div>
+    <div class="real">✅ One box = one class. Mark it on the day, on the phone.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 7 / 12 · Money</div>
+  <h1><span class="ic">💵</span>Who paid what?</h1>
+  <div class="story"><span class="lab">The story</span>Your <b>partner</b> pays the full fee by mobile money. <b>F1</b> pays half in cash — and you type it wrong. <b>F2</b> pays nothing.</div>
+  <span class="lab">Do — seminar room → Fees / Payments</span>
+  <ol class="do">
+    <li><b>Partner</b> → <span class="q">Record fee</span> → full fee · <span class="q">Mobile money</span> → <span class="q">Save</span>. Then your partner, on their phone: <span class="q">My Courses</span> → your seminar → fee badge → <span class="q">Yes, I paid this</span></li>
+    <li><b>F1</b> → <span class="q">Record fee</span> → type the 🧪 wrong amount → <span class="q">Save</span> → <span class="q">History</span> → <span class="q">Reverse</span> (reason: wrong amount) → record the right half</li>
+    <li><b>F2</b> → nothing</li>
+    <li>You as your partner's student: <span class="q">My Courses</span> → their seminar → fee badge → <span class="q">Yes, I paid this</span></li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Partner pays</td><td>500</td><td>10,000</td><td>15,000</td></tr><tr><td>F1 half</td><td>250</td><td>5,000</td><td>7,500</td></tr><tr><td>🧪 F1 typed wrong</td><td>25</td><td>500</td><td>750</td></tr></table>
+  <div class="notes">
+    <div class="real">✅ Money lines are never deleted — <b>Reverse</b> keeps the mistake and the fix. After 24 hours, ask your coordinator.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 8 / 12 · F2 stops</div>
+  <h1><span class="ic">🚪</span>F2 never came back</h1>
+  <div class="story"><span class="lab">The story</span>F2 signed up, missed the first class, and <b>never came again</b>.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li>Seminar room → <span class="q">Students</span> → F2 → <span class="q">Delete</span> → <span class="q">Delete</span> (red)</li>
+    <li>The window asks — tap <span class="q">Mark as dropped out</span></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ <b>Delete</b> = you added the wrong person by mistake. <b>Dropped out</b> = a real student who stopped. F2 stays in the history as Cancelled.</div>
+    <div class="test">🧪 The window appears because of step 6 (F2's absence is a record). No window? Go back to step 6.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 9 / 12 · Last day</div>
+  <h1><span class="ic">📝</span>The seminar ends — grades and finalize</h1>
+  <div class="story"><span class="lab">The story</span>The seminar is over today. Your <b>partner scored 88</b>. <b>F1 scored 74</b>. F2 has no grade — F2 dropped out.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li>Seminar room → <span class="q">Grade Summary</span></li>
+    <li>In <span class="q">Direct Score Input</span>: partner <b>88</b> · F1 <b>74</b> (it saves by itself; B and C appear)</li>
+    <li>Leave the other boxes empty → <span class="q">Finalize seminar</span></li>
+  </ol>
+  <div class="notes">
+    <div class="test">🧪 88 and 74 are the same for everyone, so your partner can check they see <b>B</b>.</div>
+    <div class="real">✅ At home: type the student's real final score — one score is enough. Finalize on the last day. Too early? A coordinator taps <span class="q">Undo finalize</span>.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 10 / 12 · You are the student</div>
+  <h1><span class="ic">🎓</span>Look at your own grade</h1>
+  <div class="story"><span class="lab">The story</span>You were a student in your partner's seminar. Your partner gave you 88.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><span class="q">My Courses</span> → your partner's seminar → <span class="q">Grades &amp; attendance</span></li>
+    <li>You see <b>B</b></li>
+  </ol>
+  <div class="notes">
+    <div class="real">✅ No B yet? Your partner has not finalized — go and help them.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="top">Step 11 / 12 · Travel home</div>
+  <h1><span class="ic">🚌</span>The bus home</h1>
+  <div class="story"><span class="lab">The story</span>You take the bus home. Your receipt is <b>T2</b>. This time you type it right.</div>
+  <span class="lab">Do</span>
+  <ol class="do">
+    <li><span class="q">Finance</span> → <span class="q">Add an expense</span> → photo of receipt <b>T2</b> → <span class="q">Facilitator transportation</span></li>
+    <li>Check the amount → <span class="q">Save</span></li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="top">Step 12 / 12 · Check your screen</div>
+  <h1><span class="ic">🔍</span>Check five places</h1>
+  <ol class="do">
+    <li><span class="q">Finance → My entries</span>: two "Facilitator transportation" lines — T1 (fixed) and T2</li>
+    <li><span class="q">My Seminars</span>: your seminar — starts today · enrollment closed</li>
+    <li><span class="q">Fees / Payments</span> (bottom): Charged · Paid · Due as below. F1 → History: the wrong line is <b>Reversed</b></li>
+    <li><span class="q">Grade Summary</span>: partner B (88) · F1 C (74) · finalized. F2 not there; in Fees F2 shows <b>Cancelled</b></li>
+    <li><span class="q">Manage Applications → Completed</span>: F1 "Online textbook" ticked · your partner's phone: "Yes, I paid this" done, My Courses shows B</li>
+  </ol>
+  <table><tr><th></th><th>Kenya</th><th>Tanzania</th><th>Uganda</th></tr><tr><td>Charged</td><td>1,500</td><td>30,000</td><td>45,000</td></tr><tr><td>Paid</td><td>750</td><td>15,000</td><td>22,500</td></tr><tr><td>Due (F1 half + F2)</td><td>750</td><td>15,000</td><td>22,500</td></tr></table>
+  <div class="notes">
+    <div class="real">✅ Finished? <b>Help someone</b> — point, don't tap.</div>
+  </div>
+</section>
+
+<nav class="nav">
+  <button type="button" id="prev">← Back</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="next" class="next">Next →</button>
+</nav>
+
+<script>
+(function(){
+  var S=[].slice.call(document.querySelectorAll('.slide')), dots=document.getElementById('dots'), i=0;
+  S.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.textContent=k===0?'★':k;b.addEventListener('click',function(){go(k)});dots.appendChild(b)});
+  function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach(function(s,j){s.classList.toggle('on',j===i)});
+    [].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',j===i)});
+    history.replaceState(null,'','#'+i);window.scrollTo(0,0)}
+  document.getElementById('prev').addEventListener('click',function(){go(i-1)});
+  document.getElementById('next').addEventListener('click',function(){go(i+1)});
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1)} if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1)}});
+  window.addEventListener('hashchange',function(){go(parseInt(location.hash.slice(1),10)||0)});
+  go(parseInt((location.hash||'#0').slice(1),10)||0);
+})();
+</script>
+</body>
+</html>
