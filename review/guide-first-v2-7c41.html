@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Guide — First day (draft 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#F4F5F2;--card:#FFF;--soft:#EEF1EC;--ink:#18201E;--muted:#5A6562;--accent:#1F6F5C;--accent-bg:#E2EFE9;--tap:#F2611D;--tap-bg:#FFE9DD;--warn:#8A6100;--warn-bg:#FBF0D3;--line:#DCE2DE;--shadow:0 10px 30px rgba(20,40,35,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1413;--card:#171F1D;--soft:#1F2927;--ink:#E9EEEC;--muted:#A6B1AE;--accent:#5CC2A3;--accent-bg:#17302A;--tap:#FF8A4C;--tap-bg:#3A2418;--warn:#E8C05A;--warn-bg:#2D2617;--line:#29352F;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0F1413;--card:#171F1D;--soft:#1F2927;--ink:#E9EEEC;--muted:#A6B1AE;--accent:#5CC2A3;--accent-bg:#17302A;--tap:#FF8A4C;--tap-bg:#3A2418;--warn:#E8C05A;--warn-bg:#2D2617;--line:#29352F;--shadow:0 10px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Noto Sans","Noto Sans KR",system-ui,sans-serif}
+body:not(.ko) .ko,body.ko .en{display:none}
+button{font:inherit;color:inherit}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+.draft{background:var(--warn-bg);color:var(--warn);font-size:13px;padding:7px 12px;border-radius:10px;margin:10px 0 0}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 0}
+.brand{flex:1;font-weight:700;font-size:15px;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{border:0;background:var(--card);font-weight:600;font-size:14px;padding:0 12px;min-height:40px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.books{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+.books>span{flex:none;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px}
+.books>span.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.books>span.soon{opacity:.5}
+
+/* 1. 길 고르기 */
+.hero{text-align:center;padding:18px 0 6px}
+.hero .big{font-size:44px;line-height:1}
+.hero h1{font-size:27px;line-height:1.2;margin:10px 0 4px;font-weight:800}
+.hero p{color:var(--muted);margin:0}
+.q{font-weight:700;font-size:19px;margin:22px 0 10px;text-align:center}
+.paths{display:grid;gap:10px}
+.path{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;min-height:76px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.path:hover,.path:focus-visible{border-color:var(--accent)}
+.ic{flex:none;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--soft)}
+.path b{display:block;font-size:17px}
+.path small{display:block;color:var(--muted);font-size:14px;line-height:1.35;margin-top:2px}
+.path .go{margin-left:auto;color:var(--accent);font-size:22px}
+
+/* 2. 한 단계씩 */
+#run{display:none}
+.running #choose{display:none}
+.running #run{display:block}
+.runtop{display:flex;align-items:center;gap:10px;margin:8px 0 6px}
+.back0{border:1px solid var(--line);background:var(--card);border-radius:10px;min-height:40px;padding:0 12px;cursor:pointer;font-size:14px;font-weight:600}
+.dots{flex:1;display:flex;gap:6px;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--accent);width:22px;border-radius:6px}
+.count{font-size:14px;color:var(--muted);font-weight:600;min-width:42px;text-align:right}
+.slide{display:none;animation:in .25s ease}
+.slide.on{display:flex;flex-direction:column}
+.slide .say{order:-1;margin:4px 4px 14px}
+@keyframes in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.phone{position:relative;margin:0 auto;width:min(64%,250px);border-radius:26px;background:#111;padding:8px;box-shadow:var(--shadow)}
+.phone .scr{position:relative;border-radius:19px;overflow:hidden;background:#fff}
+.phone img{display:block;width:100%;height:auto}
+.ring{position:absolute;border:3px solid var(--tap);border-radius:12px;box-shadow:0 0 0 4px rgba(242,97,29,.25);animation:pulse 1.6s ease-in-out infinite;pointer-events:none}
+.ring::after{content:"👆";position:absolute;right:-6px;bottom:-26px;font-size:24px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+.ring.nohand::after{content:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(242,97,29,.25)}50%{box-shadow:0 0 0 9px rgba(242,97,29,.08)}}
+@media (prefers-reduced-motion:reduce){.ring,.slide{animation:none}}
+.say{margin:18px 4px 0;text-align:center}
+.running h3.sec,.running .tiles,.running details.sos,.running .foot{display:none}
+.running .draft,.running .books{display:none}
+.say h2{font-size:22px;line-height:1.3;margin:0 0 6px;font-weight:800}
+.say p{margin:0;color:var(--muted)}
+.tapword{display:inline-block;background:var(--tap-bg);color:var(--ink);border-radius:8px;padding:0 7px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.note{margin:12px 0 0;background:var(--warn-bg);border-radius:12px;padding:10px 12px;font-size:15px;text-align:left}
+.nav{display:flex;gap:10px;margin-top:8px;position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,transparent,var(--bg) 35%)}
+.nav button{flex:1;min-height:52px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer}
+.nav .next{background:var(--accent);border-color:var(--accent);color:#fff;flex:2}
+.nav button[disabled]{opacity:.35}
+/* 그린 화면(사진을 못 찍은 화면) */
+.mock{padding:22px 16px 26px;font-family:"Noto Sans","Noto Sans KR",sans-serif;color:#18201E}
+.mock h4{font-size:20px;margin:6px 0 4px;text-align:center}
+.mock p{font-size:13px;color:#667;margin:0 0 14px;text-align:center}
+.mock .opt{position:relative;border:1px solid #DDE3E0;border-radius:12px;padding:12px;margin:0 0 10px;font-size:14px}
+.mock .opt b{display:block;font-size:15px}
+.mock .acct{display:flex;gap:10px;align-items:center;border-bottom:1px solid #EEE;padding:10px 4px;font-size:14px;position:relative}
+.mock .av{width:30px;height:30px;border-radius:50%;background:#C9E4DA;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1F6F5C}
+.mock .code{display:flex;gap:6px;justify-content:center;margin:8px 0 14px}
+.mock .code span{width:32px;height:40px;border:1px solid #CCD;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.mock .btn{position:relative;background:#4D7C0F;color:#fff;border-radius:10px;text-align:center;padding:10px;font-weight:600;font-size:14px}
+.done{text-align:center;padding:10px 0 0}
+.done .big{font-size:64px}
+
+/* 3. 더 */
+h3.sec{font-size:18px;margin:34px 0 10px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+details.tile{background:var(--card);border:1px solid var(--line);border-radius:14px}
+details.tile summary{list-style:none;cursor:pointer;padding:12px;min-height:84px;display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:15px;line-height:1.3}
+details.tile summary::-webkit-details-marker{display:none}
+details.tile summary .e{font-size:24px}
+details.tile[open]{grid-column:1/-1}
+details.tile .a{padding:0 14px 14px;font-size:15px}
+details.tile .a img{width:70%;max-width:240px;border-radius:12px;border:1px solid var(--line);display:block;margin-top:8px}
+details.sos{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--tap);border-radius:12px;margin:0 0 8px}
+details.sos summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:600;min-height:48px}
+details.sos summary::-webkit-details-marker{display:none}
+details.sos .a{padding:0 14px 14px;font-size:15px}
+.a ul{margin:0;padding-left:1.2em}.a li{margin:0 0 6px}
+.k{display:inline;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:0 5px;font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.foot{display:flex;gap:10px;margin-top:22px}
+.foot button{flex:1;min-height:48px;border-radius:12px;border:1px dashed var(--line);background:none;color:var(--accent);font-weight:600;cursor:pointer}
+@media print{.bar,.books,.draft,.nav,.runtop,.foot,#choose .q,.paths{display:none!important}#run{display:block!important}.slide{display:block!important;break-inside:avoid;margin-bottom:24px}.ring{animation:none}details>*{display:block}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="draft"><span class="en">Draft 2 — pictures from the live site (10/23). ✳ marks screens drawn by hand: no photo yet.</span><span class="ko">시안 2 — 사진은 운영 화면(10/23). ✳ 표시 = 아직 사진이 없어 손으로 그린 화면(실제 판에서 촬영).</span></p>
+  <div class="bar"><span class="brand">Ministry Manager · <span class="en">Guide</span><span class="ko">가이드북</span></span>
+    <div class="lang"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ko" aria-pressed="false">한국어</button></div></div>
+  <div class="books"><span class="on"><span class="en">First day</span><span class="ko">처음 쓰는 날</span></span><span class="soon"><span class="en">Student</span><span class="ko">학생</span></span><span class="soon"><span class="en">Facilitator</span><span class="ko">인도자</span></span><span class="soon"><span class="en">Coordinator</span><span class="ko">코디</span></span><span class="soon"><span class="en">Country reporter</span><span class="ko">국가 담당자</span></span></div>
+
+  <!-- ① 길 고르기 -->
+  <section id="choose">
+    <div class="hero"><div class="big">👋</div>
+      <h1><span class="en">Welcome to Ministry Manager</span><span class="ko">Ministry Manager 에 오신 걸 환영해요</span></h1>
+      <p><span class="en">Let's get you in. About 5 minutes.</span><span class="ko">들어가는 것까지 함께 해요. 5분쯤.</span></p></div>
+    <p class="q"><span class="en">How will you sign in?</span><span class="ko">어떻게 들어오세요?</span></p>
+    <div class="paths">
+      <button class="path" data-path="g"><span class="ic" style="font:800 26px/1 Noto Sans,sans-serif;color:#4285F4">G</span><span><b><span class="en">With my Gmail</span><span class="ko">내 Gmail 로</span></b><small><span class="en">BEE knows my Gmail — most facilitators and leaders</span><span class="ko">BEE 가 내 Gmail 을 안다 — 대부분의 인도자·리더</span></small></span><span class="go">›</span></button>
+      <button class="path" data-path="u"><span class="ic">🔑</span><span><b><span class="en">With a username</span><span class="ko">아이디로</span></b><small><span class="en">My facilitator made a username and password for me</span><span class="ko">인도자가 아이디와 비밀번호를 만들어 줬다</span></small></span><span class="go">›</span></button>
+      <button class="path" data-path="n"><span class="ic">✨</span><span><b><span class="en">I'm new — no Gmail</span><span class="ko">처음이고 Gmail 이 없다</span></b><small><span class="en">I will make my own account</span><span class="ko">내 계정을 직접 만든다</span></small></span><span class="go">›</span></button>
+    </div>
+  </section>
+
+  <!-- ② 한 단계씩 -->
+  <section id="run" aria-live="polite">
+    <div class="runtop"><button class="back0" id="restart">‹ <span class="en">Change</span><span class="ko">다시 고르기</span></button><div class="dots" id="dots"></div><span class="count" id="count"></span></div>
+
+    <!-- Gmail -->
+    <div class="slide" data-p="g">
+      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:29.5%;width:70.8%;height:5.8%"></span></div></div>
+      <div class="say"><h2><span class="en">Tap <span class="tapword">Sign in with Google</span></span><span class="ko"><span class="tapword">Sign in with Google</span> 을 누르세요</span></h2>
+        <p><span class="en">Open <b>ministry.beekorea.org</b> in Chrome or Safari first.</span><span class="ko">먼저 Chrome 이나 Safari 에서 <b>ministry.beekorea.org</b> 를 엽니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="g">
+      <div class="phone"><div class="scr mock"><h4>Choose an account ✳</h4><p>to continue to beekorea.org</p>
+        <div class="acct"><span class="av">G</span><span>Grace M.<br><small>grace.m@gmail.com</small></span><span class="ring nohand" style="left:-4px;top:2px;right:-4px;bottom:2px"></span></div>
+        <div class="acct"><span class="av" style="background:#eee;color:#888">+</span><span>Use another account</span></div></div></div>
+      <div class="say"><h2><span class="en">Pick <span class="tapword">the Gmail BEE knows</span></span><span class="ko"><span class="tapword">BEE 가 아는 Gmail</span> 을 고르세요</span></h2>
+        <p><span class="en">Not sure which one? Ask the person who invited you.</span><span class="ko">어느 것인지 모르겠으면 초대한 분께 물어보세요.</span></p></div>
+    </div>
+    <div class="slide" data-p="g">
+      <div class="phone"><div class="scr mock"><h4>Welcome 👋 ✳</h4><p>&nbsp;</p>
+        <div class="opt"><b>I'm new</b>Register as a new member<span class="ring" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div>
+        <div class="opt"><b>I'm already registered</b>Find and link my account</div></div></div>
+      <div class="say"><h2><span class="en">First time at BEE? Tap <span class="tapword">I'm new</span></span><span class="ko">BEE 가 처음이면 <span class="tapword">I'm new</span></span></h2>
+        <p><span class="en">Then: your name → gender and birth date → <b>Where do you live?</b> → contact → <b>Review</b>.</span><span class="ko">이어서: 이름 → 성별·생년월일 → <b>Where do you live?</b> → 연락처 → <b>Review</b>.</span></p>
+        <p class="note"><span class="en">⚠️ BEE already registered you? Do <b>not</b> tap “I'm new” — you would become two people. Go back and choose the Gmail you gave BEE.</span><span class="ko">⚠️ BEE 에 이미 등록됐다면 「I'm new」를 누르지 <b>마세요</b> — 같은 사람이 둘이 됩니다. 돌아가서 BEE 에 알려 준 Gmail 을 고르세요.</span></p></div>
+    </div>
+
+    <!-- 아이디 -->
+    <div class="slide" data-p="u">
+      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring nohand" style="left:13%;top:41%;width:74%;height:13.2%"></span></div></div>
+      <div class="say"><h2><span class="en">Type your <span class="tapword">username</span> and <span class="tapword">password</span></span><span class="ko"><span class="tapword">아이디</span>와 <span class="tapword">비밀번호</span>를 넣으세요</span></h2>
+        <p><span class="en">The ones your facilitator wrote down for you. Not your Gmail.</span><span class="ko">인도자가 적어 준 것. Gmail 이 아닙니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="u">
+      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:54.3%;width:70.8%;height:4.7%"></span></div></div>
+      <div class="say"><h2><span class="en">Tap <span class="tapword">Sign in with username</span></span><span class="ko"><span class="tapword">Sign in with username</span> 을 누르세요</span></h2>
+        <p><span class="en">“Incorrect username or password”? Ask your facilitator for a new password.</span><span class="ko">「아이디 또는 비밀번호가 올바르지 않습니다」가 나오면 인도자에게 새 비밀번호를 부탁하세요.</span></p></div>
+    </div>
+
+    <!-- 새로 -->
+    <div class="slide" data-p="n">
+      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:46%;top:63.6%;width:24%;height:3.2%"></span></div></div>
+      <div class="say"><h2><span class="en">Tap <span class="tapword">Create account</span></span><span class="ko"><span class="tapword">Create account</span> 를 누르세요</span></h2>
+        <p><span class="en">It is the small link under the boxes.</span><span class="ko">입력칸 아래 작은 글자입니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="n">
+      <div class="phone"><div class="scr"><img src="guide-img/signup.jpg" alt=""><span class="ring nohand" style="left:12%;top:33%;width:76%;height:47.5%"></span></div></div>
+      <div class="say"><h2><span class="en">Make a <span class="tapword">username</span>, a <span class="tapword">password</span>, and type your <span class="tapword">email</span></span><span class="ko"><span class="tapword">아이디</span> · <span class="tapword">비밀번호</span>를 만들고 <span class="tapword">이메일</span>을 넣으세요</span></h2>
+        <p><span class="en">Write your username and password on paper. The username cannot be changed later.</span><span class="ko">아이디와 비밀번호를 종이에 적어 두세요. 아이디는 나중에 못 바꿉니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="n">
+      <div class="phone"><div class="scr"><img src="guide-img/signup.jpg" alt=""><span class="ring" style="left:14.6%;top:84.5%;width:70.8%;height:4.7%"></span></div></div>
+      <div class="say"><h2><span class="en">Tap <span class="tapword">Send verification code</span></span><span class="ko"><span class="tapword">Send verification code</span> 를 누르세요</span></h2>
+        <p><span class="en">Open your email. Type the 6-digit code you got.</span><span class="ko">이메일을 열어 받은 6자리 코드를 넣습니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="n">
+      <div class="phone"><div class="scr mock"><h4>Where do you live? ✳</h4><p>Choose the country you really live in</p>
+        <div class="opt">🇹🇿 Tanzania<span class="ring nohand" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div>
+        <div class="opt" style="color:#999">🇰🇪 Kenya</div><div class="opt" style="color:#999">🇺🇬 Uganda</div></div></div>
+      <div class="say"><h2><span class="en">Fill in <span class="tapword">your details</span></span><span class="ko"><span class="tapword">내 정보</span>를 채우세요</span></h2>
+        <p><span class="en">Name as on your ID card · birth date · the country you really live in.</span><span class="ko">신분증과 같은 이름 · 생년월일 · 실제로 사는 나라.</span></p>
+        <p class="note"><span class="en">Your country decides who approves your requests.</span><span class="ko">고른 나라의 BEE 담당자가 내 신청을 승인합니다.</span></p></div>
+    </div>
+
+    <!-- 모두 같은 끝 -->
+    <div class="slide" data-p="*">
+      <div class="phone"><div class="scr"><img src="guide-img/home.jpg" alt=""><span class="ring nohand" style="left:35%;top:9.6%;width:61%;height:6.6%"></span></div></div>
+      <div class="say"><h2><span class="en">You're in! 🎉 Your <span class="tapword">name</span> is at the top</span><span class="ko">들어왔어요! 🎉 맨 위에 <span class="tapword">내 이름</span></span></h2>
+        <p><span class="en">The big tiles are the doors: Academy, Ministry, Finance… You only see the doors you need.</span><span class="ko">큰 타일이 문입니다: Academy, Ministry, Finance… 내게 필요한 문만 보입니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="*">
+      <div class="phone"><div class="scr"><img src="guide-img/profile.jpg" alt=""><span class="ring" style="left:3.5%;top:71.5%;width:18.5%;height:14%"></span></div></div>
+      <div class="say"><h2><span class="en">Check your name and phone → <span class="tapword">Edit</span></span><span class="ko">이름과 전화번호 확인 → <span class="tapword">Edit</span></span></h2>
+        <p><span class="en">Tap your name at the top → My profile. Your diploma prints the name written here.</span><span class="ko">맨 위 내 이름 → My profile. 수료증에는 여기 이름이 그대로 찍힙니다.</span></p></div>
+    </div>
+    <div class="slide" data-p="*">
+      <div class="done"><div class="big">✅</div>
+        <div class="say"><h2><span class="en">All done!</span><span class="ko">끝!</span></h2>
+          <p><span class="en">Next time it is quicker: put Ministry Manager on your home screen (below).</span><span class="ko">다음엔 더 빨라요: 아래에서 홈 화면에 두는 법을 보세요.</span></p></div></div>
+    </div>
+
+    <div class="nav"><button id="prev">‹ <span class="en">Back</span><span class="ko">이전</span></button><button class="next" id="next"><span class="en">Next</span><span class="ko">다음</span> ›</button></div>
+  </section>
+
+  <!-- ③ 더 -->
+  <h3 class="sec">❓ <span class="en">How do I…</span><span class="ko">이럴 땐</span></h3>
+  <div class="tiles">
+    <details class="tile"><summary><span class="e">🌐</span><span class="en">Change the language</span><span class="ko">언어 바꾸기</span></summary><div class="a">
+      <span class="en">Tap the globe with a flag → English or Kiswahili. This phone remembers it.</span><span class="ko">국기 있는 지구 단추 → English 나 Kiswahili. 이 폰이 기억합니다.</span>
+      <img src="guide-img/language.jpg" alt="" loading="lazy"></div></details>
+    <details class="tile"><summary><span class="e">📲</span><span class="en">Put it on my home screen</span><span class="ko">홈 화면에 두기</span></summary><div class="a"><ul>
+      <li><b>Android</b>: <span class="k">⋮</span> → <span class="k">Install app</span></li>
+      <li><b>iPhone</b>: <span class="k">Share ⬆</span> → <span class="k">Add to Home Screen</span></li></ul></div></details>
+    <details class="tile"><summary><span class="e">🧭</span><span class="en">Get back when lost</span><span class="ko">길 잃었을 때</span></summary><div class="a">
+      <span class="k">☰</span> → <span class="k">← Home</span>. <span class="en">On iPhone apps there is no back button — use ☰.</span><span class="ko">아이폰 앱에는 뒤로 단추가 없어요 — ☰ 를 쓰세요.</span></div></details>
+    <details class="tile"><summary><span class="e">🔐</span><span class="en">Sign in without Google</span><span class="ko">Google 없이 로그인</span></summary><div class="a">
+      <span class="en">Sign in with Google once → <span class="k">Account settings</span> → Username &amp; Password → make one.</span><span class="ko">Google 로 한 번 들어와 <span class="k">Account settings</span> → Username &amp; Password → 만들기.</span></div></details>
+  </div>
+
+  <h3 class="sec">🆘 <span class="en">I'm stuck</span><span class="ko">막혔어요</span></h3>
+  <details class="sos"><summary><span class="en">“Incorrect username or password.”</span><span class="ko">「아이디 또는 비밀번호가 올바르지 않습니다.」</span></summary><div class="a"><ul>
+    <li><span class="en">Typed your Gmail? Use <span class="k">Sign in with Google</span> instead.</span><span class="ko">Gmail 을 넣었나요? 대신 <span class="k">Sign in with Google</span>.</span></li>
+    <li><span class="en">Username from your facilitator? Ask them for a <span class="k">New password</span>.</span><span class="ko">인도자가 만든 아이디? <span class="k">New password</span>(새 비밀번호)를 부탁하세요.</span></li></ul></div></details>
+  <details class="sos"><summary><span class="en">“Welcome 👋” — but I already have an account</span><span class="ko">「Welcome 👋」— 이미 계정이 있는데요</span></summary><div class="a">
+    <span class="en">You used a different Gmail. Tap <span class="k">Sign in with a different Google account</span>. Not sure? <span class="k">I'm already registered</span> → find your account.</span><span class="ko">다른 Gmail 로 들어왔습니다. <span class="k">Sign in with a different Google account</span>. 모르겠으면 <span class="k">I'm already registered</span> → 내 계정 찾기.</span></div></details>
+  <details class="sos"><summary><span class="en">I forgot my password</span><span class="ko">비밀번호를 잊었어요</span></summary><div class="a"><ul>
+    <li><span class="en">Gmail: no password — <span class="k">Sign in with Google</span>.</span><span class="ko">Gmail: 비밀번호 필요 없음 — <span class="k">Sign in with Google</span>.</span></li>
+    <li><span class="en">Username with email: <span class="k">Forgot password?</span></span><span class="ko">이메일 있는 아이디: <span class="k">Forgot password?</span></span></li>
+    <li><span class="en">Username from class: ask your facilitator.</span><span class="ko">수업에서 받은 아이디: 인도자에게.</span></li></ul></div></details>
+  <details class="sos"><summary><span class="en">New phone</span><span class="ko">폰을 바꿨어요</span></summary><div class="a">
+    <span class="en">Sign in the same way. Everything is in your account, not on the phone.</span><span class="ko">같은 방법으로 로그인. 모든 것은 폰이 아니라 계정에 있어요.</span></div></details>
+
+  <div class="foot"><button type="button" id="print">🖨 <span class="en">Print</span><span class="ko">인쇄</span></button></div>
+</div>
+<script>
+(function(){
+  var b=document.body,path=null,list=[],i=0;
+  function setL(l){b.classList.toggle('ko',l==='ko');document.documentElement.lang=l;document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('guide-l',l)}catch(e){}}
+  var s=null;try{s=localStorage.getItem('guide-l')}catch(e){}
+  setL(new URLSearchParams(location.search).get('lang')||s||'en');
+  document.querySelector('.lang').addEventListener('click',function(e){var x=e.target.closest('button');if(x)setL(x.dataset.l)});
+  var dots=document.getElementById('dots'),count=document.getElementById('count'),prev=document.getElementById('prev'),next=document.getElementById('next');
+  function show(n){i=Math.max(0,Math.min(list.length-1,n));list.forEach(function(el,k){el.classList.toggle('on',k===i)});
+    dots.innerHTML=list.map(function(_,k){return '<i class="'+(k===i?'on':'')+'"></i>'}).join('');count.textContent=(i+1)+' / '+list.length;
+    prev.disabled=i===0;next.style.visibility=i===list.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'})}
+  function start(p){path=p;list=[].slice.call(document.querySelectorAll('.slide')).filter(function(el){return el.dataset.p===p||el.dataset.p==='*'});
+    b.classList.add('running');show(0);history.replaceState(null,'','#'+p)}
+  document.querySelectorAll('.path').forEach(function(x){x.addEventListener('click',function(){start(x.dataset.path)})});
+  document.getElementById('restart').addEventListener('click',function(){b.classList.remove('running');history.replaceState(null,'',location.pathname+location.search)});
+  prev.addEventListener('click',function(){show(i-1)});next.addEventListener('click',function(){show(i+1)});
+  // 옆으로 밀어 넘기기
+  var x0=null;document.getElementById('run').addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.getElementById('run').addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(i+(d<0?1:-1));x0=null});
+  document.getElementById('print').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true});print()});
+  var h=location.hash.slice(1);if(['g','u','n'].indexOf(h)>=0)start(h);
+})();
+</script>
+</body>
+</html>
