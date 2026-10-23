@@ -2,6 +2,41 @@
   "_readme": "허브 단일 목록. 카드 추가/수정 = 여기만 편집(index.html 자동생성). visibility: public(공개) | private(비공개). private 중 locked:true = 비밀번호(암호화) 필요, 아니면 내부용(링크로 열림). status: current | archived(숨김). supersedes에 옛 path 넣으면 그 옛것 자동 숨김. 그룹 표시순서 = 배열 순서. 초기화면 공개/비공개 필터로 골라봄.",
   "items": [
     {
+      "icon": "🎓",
+      "group": "학사 · Academy",
+      "title": "BMTC 2026 — 이번 주와 다음 걸음 (Week Review)",
+      "kicker": "2026-10-23 · 훈련생 17명용 · 영어/스와힐리어",
+      "desc": "Ministry Manager 과목을 마친 인도자들에게: 이번 주 숫자·날짜별 흐름 · 큰 그림(Where am I? · Who is this? · What happens next?) · 최종 테스트에서 많이 틀린 일곱 가지(이름 없이) · 다섯 약속 · 집에서 100일 · 한 사람 더 가르치기. 개인 카드 17장은 사람마다 따로 된 주소(bmtc/2026/c/, 목록에 올리지 않음). 스와힐리어는 원어민 확인 전.",
+      "path": "bmtc/2026/week.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-23"
+    },
+    {
+      "icon": "🙏",
+      "group": "학사 · Academy",
+      "title": "BMTC 2026 기도 편지 — 열일곱 명이 끝까지 왔습니다",
+      "kicker": "2026-10-23 · 기도 후원자용 · 한국어 · 사진 18장",
+      "desc": "탄자니아 아루샤 BMTC Ministry Manager 과목을 마치며: 인터넷 준비·정전·조별 연습·수업 중 앱 고침·혼자서 한 바퀴(최종 테스트)·최종 시험 17/17 · 1월까지의 약속 · 나라별 기도 제목. 개인 실수·성적은 넣지 않았다.",
+      "path": "bmtc/2026/letter.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-23"
+    },
+    {
+      "icon": "📊",
+      "group": "학사 · Academy",
+      "title": "BMTC 2026 주간 보고 (리더십)",
+      "kicker": "2026-10-23 · 본부 리더십용 · 한국어",
+      "desc": "사람별 최종 테스트 판정 10칸·최종 시험 시각/시도 · 많이 틀린 일곱 가지와 다음 과제지 반영 · 잘된 것 · 발견한 시스템 문제 · BMTC 뒤 정리 목록. 숫자 = 2026-10-23 운영 DB 스냅샷.",
+      "path": "private/confidential/bmtc26-report.html",
+      "visibility": "private",
+      "locked": true,
+      "lockLabel": "🔒 비번 필요 (리더십)",
+      "status": "current",
+      "date": "2026-10-23"
+    },
+    {
       "icon": "🎨",
       "group": "내부 · Internal",
       "title": "LMS 내 정보 — 디자인 시안 1차",

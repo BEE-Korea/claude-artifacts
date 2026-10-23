@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover"><meta name="robots" content="noindex, nofollow">
+<title>BMTC 2026 · Violet</title><meta name="description" content="Personal card for Violet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif:wght@600;700&family=Noto+Serif+KR:wght@600;700&display=swap"><style>
+/* 레이아웃: 한 줄 기둥(폰 우선) — 큰 숫자 띠 · 날짜 줄 · 카드는 역할이 있을 때만 */
+:root{--ground:#F4F6F5;--surface:#FFFFFF;--surface-2:#EAEEEC;--ink:#16201E;--ink-soft:#4F5B59;--accent:#1F6F5C;--accent-bg:#E4EFEA;--signal:#8A6700;--signal-bg:#FBF2D9;--bad:#A23B2E;--bad-bg:#F8E6E2;--line:#DBE2E0;
+--f-body:"Noto Sans","Noto Sans KR",system-ui,sans-serif;--f-display:"Noto Serif","Noto Serif KR",Georgia,serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0E1413;--surface:#161F1D;--surface-2:#1D2826;--ink:#E8EDEB;--ink-soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--signal:#E8C05A;--signal-bg:#2E2718;--bad:#E8907F;--bad-bg:#33201C;--line:#26332F;color-scheme:dark}}
+:root[data-theme="dark"]{--ground:#0E1413;--surface:#161F1D;--surface-2:#1D2826;--ink:#E8EDEB;--ink-soft:#A7B2AF;--accent:#58BFA1;--accent-bg:#17302A;--signal:#E8C05A;--signal-bg:#2E2718;--bad:#E8907F;--bad-bg:#33201C;--line:#26332F;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6}
+.wrap{max-width:46rem;margin:0 auto;padding-block:0 4rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.25}
+h1{font-size:1.9rem;margin:.4rem 0 .6rem}
+h2{font-size:1.35rem;margin:2.4rem 0 .8rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+h3{font-size:1.08rem;margin:1.2rem 0 .4rem}
+p{margin:.5rem 0}
+a{color:var(--accent)}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.lede{font-size:1.15rem;color:var(--ink-soft)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.6rem;margin:1.2rem 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem;min-width:0}
+.stat b{display:block;font-family:var(--f-display);font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.stat span{font-size:.88rem;color:var(--ink-soft)}
+.days{display:grid;gap:.5rem;margin:.6rem 0}
+.day{display:grid;grid-template-columns:5.2rem 1fr;gap:.8rem;align-items:start;padding:.7rem 0;border-bottom:1px dashed var(--line)}
+.day .d{font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent)}
+.day .d small{display:block;font-weight:400;color:var(--ink-soft)}
+.day div{min-width:0}
+.q3{display:grid;gap:.5rem;margin:.8rem 0}
+.q3 div{background:var(--accent-bg);border-radius:10px;padding:.7rem 1rem;font-weight:600;font-size:1.1rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.6rem}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem;min-width:0}
+.box h3{margin-top:0}
+ol.steps,ul.list{padding-left:1.3rem;margin:.4rem 0}
+ol.steps li,ul.list li{margin:.35rem 0}
+.lesson{display:grid;grid-template-columns:2rem 1fr;gap:.6rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
+.lesson .n{font-family:var(--f-display);font-weight:700;color:var(--signal);font-size:1.2rem}
+.lesson div{min-width:0}
+.lesson p{margin:.2rem 0}
+.lesson .why{color:var(--ink-soft);font-size:.95rem}
+.note{background:var(--signal-bg);border-left:4px solid var(--signal);border-radius:8px;padding:.6rem .9rem;font-size:.95rem}
+b.ui{background:var(--surface-2);border-radius:6px;padding:0 .3rem;font-weight:600}
+.verse{font-family:var(--f-display);font-size:1.15rem;border-left:3px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1rem 0}
+.verse small{display:block;font-family:var(--f-body);font-size:.85rem;color:var(--ink-soft)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);padding:.6rem 0;border-bottom:1px solid var(--line);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ground)}
+.top .t{flex:1;font-weight:700;min-width:0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{font:inherit;font-size:.9rem;padding:.35rem .9rem;border:0;background:var(--surface);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.foot{margin-top:3rem;color:var(--ink-soft);font-size:.85rem}
+.tbl{overflow-x:auto;margin:.6rem 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+th,td{padding:.45rem .55rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}
+.tbl table{width:max-content;min-width:100%}
+tr.p td{border-bottom:0;padding-bottom:.1rem}
+tr.memo td{white-space:normal;color:var(--ink-soft);font-size:.84rem;padding-top:0;max-width:44rem}
+th{background:var(--surface-2);font-weight:600;position:sticky;top:0}
+.ok{color:var(--accent);font-weight:700}.part{color:var(--signal);font-weight:700}.no{color:var(--bad);font-weight:700}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+body:not(.lang-en) .l-en,body:not(.lang-sw) .l-sw{display:none}</style></head>
+<body class="lang-en" data-def="en"><div class="wrap">
+<div class="top"><span class="t">BMTC 2026 · Violet</span><div class="seg" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="sw">Kiswahili</button></div></div>
+<p class="eyebrow" style="margin-top:1.4rem"><span class="l-en" lang="en">Kenya · Arusha, 20–23 October 2026</span><span class="l-sw" lang="sw">Kenya · Arusha, 20–23 Oktoba 2026</span></p>
+<h1><span class="l-en" lang="en">Well done, Violet</span><span class="l-sw" lang="sw">Hongera, Violet</span></h1>
+<p class="lede"><span class="l-en" lang="en">This card is only for you. It shows what you did this week and three or four things to practise at home.</span><span class="l-sw" lang="sw">Kadi hii ni yako peke yako. Inaonyesha ulichofanya wiki hii na mambo matatu au manne ya kufanyia mazoezi nyumbani.</span></p>
+<div class="stats"><div class="stat"><b>37</b><span class="l-en" lang="en">cards finished</span><span class="l-sw" lang="sw">kadi zilizokamilika</span></div><div class="stat"><b>7/7</b><span class="l-en" lang="en">final exam parts passed</span><span class="l-sw" lang="sw">sehemu za mtihani zimefaulu</span></div><div class="stat"><b>15:21</b><span class="l-en" lang="en">finished on Friday</span><span class="l-sw" lang="sw">ulimaliza Ijumaa</span></div></div>
+<h2><span class="l-en" lang="en">You did well</span><span class="l-sw" lang="sw">Ulifanya vizuri</span></h2><ul class="list"><li><span class="l-en" lang="en">Finance: you typed a wrong amount on purpose, then fixed it on the same line.</span><span class="l-sw" lang="sw">Fedha: uliandika kiasi kibaya kwa makusudi, kisha ukarekebisha kwenye mstari ule ule.</span></li><li><span class="l-en" lang="en">Finance: two receipts, two clean lines (T1 and T2).</span><span class="l-sw" lang="sw">Fedha: risiti mbili, mistari miwili safi (T1 na T2).</span></li><li><span class="l-en" lang="en">You used one seminar only.</span><span class="l-sw" lang="sw">Ulitumia semina moja tu.</span></li><li><span class="l-en" lang="en">You finalized your seminar.</span><span class="l-sw" lang="sw">Ulihitimisha semina yako.</span></li></ul>
+<h2><span class="l-en" lang="en">Practise next</span><span class="l-sw" lang="sw">Fanyia mazoezi</span></h2><ul class="list"><li><span class="l-en" lang="en">Your partner already has an account. They apply from their own phone, and you only tap Approve. &quot;+ New student&quot; is only for people with no account.</span><span class="l-sw" lang="sw">Mwenzako tayari ana akaunti. Anaomba kwa simu yake, na wewe unabonyeza Approve tu. &quot;+ New student&quot; ni kwa watu wasio na akaunti tu.</span></li><li><span class="l-en" lang="en">Reverse fixes a payment line. Do not reverse the charge, and do not use Waiver to fix a typo.</span><span class="l-sw" lang="sw">Reverse inarekebisha mstari wa malipo. Usirudishe deni (charge), na usitumie Waiver kurekebisha kosa la kuandika.</span></li><li><span class="l-en" lang="en">Before you start, write down who is who: Partner · F1 · F2.</span><span class="l-sw" lang="sw">Kabla ya kuanza, andika nani ni nani: Mwenzako · F1 · F2.</span></li><li><span class="l-en" lang="en">The final score goes into Direct Score Input, not the exam box.</span><span class="l-sw" lang="sw">Alama ya mwisho inaingia kwenye Direct Score Input, si kisanduku cha mtihani.</span></li></ul>
+<h2><span class="l-en" lang="en">Your next step</span><span class="l-sw" lang="sw">Hatua yako inayofuata</span></h2>
+<p><span class="l-en" lang="en">By the end of January: one real seminar in Ministry Manager, finalized, with receipts · your B-75 every month · teach one facilitator who was not here.</span><span class="l-sw" lang="sw">Hadi mwisho wa Januari: semina moja halisi kwenye Ministry Manager, imehitimishwa, pamoja na risiti · B-75 yako kila mwezi · mfundishe mwezeshaji mmoja ambaye hakuwa hapa.</span></p>
+<div class="q3"><div><span class="l-en" lang="en">Where am I? · Who is this? · What happens next?</span><span class="l-sw" lang="sw">Niko wapi? · Huyu ni nani? · Nini kitatokea?</span></div></div>
+<p><span class="l-en" lang="en">The whole week, for everyone:</span><span class="l-sw" lang="sw">Wiki nzima, kwa wote:</span> <a href="../week.html"><span class="l-en" lang="en">BMTC 2026 Week Review</span><span class="l-sw" lang="sw">Muhtasari wa wiki ya BMTC 2026</span></a> · <a href="https://claude-artifacts-livid.vercel.app/help/"><span class="l-en" lang="en">Guide</span><span class="l-sw" lang="sw">Mwongozo</span></a></p>
+<p class="foot">BEE Korea · <span class="l-en" lang="en">Counted from Ministry Manager, 23 October 2026.</span><span class="l-sw" lang="sw">Imehesabiwa kutoka Ministry Manager, 23 Oktoba 2026.</span></p>
+<p class="l-en" lang="en"></p><p class="l-sw" lang="sw">Tafsiri ya Kiswahili bado haijakaguliwa na mzungumzaji asilia.</p>
+</div><script>
+(function(){var b=document.body,saved=null;try{saved=localStorage.getItem('bmtc-lang')}catch(e){}
+var q=(location.search.match(/lang=(en|sw)/)||[])[1];var l=q||saved||b.dataset.def||'en';
+function set(x){b.classList.remove('lang-en','lang-sw');b.classList.add('lang-'+x);document.documentElement.lang=x;
+document.querySelectorAll('.seg button').forEach(function(k){k.setAttribute('aria-pressed',k.dataset.l===x)});try{localStorage.setItem('bmtc-lang',x)}catch(e){}}
+document.querySelectorAll('.seg button').forEach(function(k){k.addEventListener('click',function(){set(k.dataset.l)})});set(l);})();
+</script></body></html>
