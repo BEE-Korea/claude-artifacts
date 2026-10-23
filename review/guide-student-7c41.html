@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Guide — Study with BEE (draft)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#F4F5F2;--card:#FFF;--soft:#EEF1EC;--ink:#18201E;--muted:#5A6562;--accent:#1F6F5C;--accent-bg:#E2EFE9;--tap:#F2611D;--tap-bg:#FFE9DD;--warn:#8A6100;--warn-bg:#FBF0D3;--line:#DCE2DE;--shadow:0 10px 30px rgba(20,40,35,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1413;--card:#171F1D;--soft:#1F2927;--ink:#E9EEEC;--muted:#A6B1AE;--accent:#5CC2A3;--accent-bg:#17302A;--tap:#FF8A4C;--tap-bg:#3A2418;--warn:#E8C05A;--warn-bg:#2D2617;--line:#29352F;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0F1413;--card:#171F1D;--soft:#1F2927;--ink:#E9EEEC;--muted:#A6B1AE;--accent:#5CC2A3;--accent-bg:#17302A;--tap:#FF8A4C;--tap-bg:#3A2418;--warn:#E8C05A;--warn-bg:#2D2617;--line:#29352F;--shadow:0 10px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Noto Sans","Noto Sans KR",system-ui,sans-serif}
+body:not(.ko) .ko,body.ko .en{display:none}
+body.ko{word-break:keep-all;overflow-wrap:anywhere}
+button{font:inherit;color:inherit}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
+.draft{background:var(--warn-bg);color:var(--warn);font-size:13px;padding:7px 12px;border-radius:10px;margin:10px 0 0}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 0}
+.brand{flex:1;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.brand .sub{color:var(--muted);font-weight:600}
+.lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{border:0;background:var(--card);font-weight:600;font-size:13px;padding:0 11px;min-height:36px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.books{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+.books>span{flex:none;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px}
+.books>span.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.books>span.soon{opacity:.5}
+
+/* 1. 길 고르기 */
+.hero{text-align:center;padding:18px 0 6px}
+.hero .big{width:76px;height:76px;margin:0 auto;border-radius:50%;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:38px}
+.hero h1{font-size:27px;line-height:1.2;margin:10px 0 4px;font-weight:800}
+.hero p{color:var(--muted);margin:0}
+.q{font-weight:700;font-size:19px;margin:22px 0 10px;text-align:center}
+.paths{display:grid;gap:10px}
+.path{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;min-height:80px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 18px rgba(20,40,35,.06);transition:transform .12s,border-color .12s}
+.path:active{transform:scale(.98)}
+.path:hover,.path:focus-visible{border-color:var(--accent)}
+.ic{flex:none;width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--soft)}
+.ic.g{background:#E8F0FE;color:#1A73E8;font:800 27px/1 "Noto Sans",sans-serif}.ic.key{background:#FFF3D6}.ic.n{background:#F1E9FF}
+.path b{display:block;font-size:17px}
+.path small{display:block;color:var(--muted);font-size:14px;line-height:1.35;margin-top:2px}
+.path .go{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:20px;display:flex;align-items:center;justify-content:center}
+
+/* 2. 한 단계씩 */
+#run{display:none}
+.running #choose{display:none}
+.running #run{display:block}
+.runtop{display:flex;align-items:center;gap:10px;margin:6px 0 8px}
+.prog{display:flex;gap:4px;margin:0 0 14px}.prog i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .2s}.prog i.done{background:var(--accent)}
+.back0{border:1px solid var(--line);background:var(--card);border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
+.dots{flex:1;display:flex;gap:6px;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--accent);width:22px;border-radius:6px}
+.count{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
+.slide{display:none;animation:in .25s ease}
+.slide.on{display:flex;flex-direction:column}
+.slide .say{order:-1;margin:4px 4px 14px}
+@keyframes in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.phone{position:relative;margin:0 auto;width:clamp(150px,calc((100svh - 380px) * .513),min(64vw,250px));border-radius:32px;background:#1C1F1E;padding:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 20px 44px rgba(20,40,35,.2)}
+.phone::before{content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);width:46px;height:5px;border-radius:3px;background:#2C302F;z-index:2}
+.phone .scr{position:relative;border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:600/1169}
+.shot{position:relative}
+.phone img{display:block;width:100%;height:auto}
+.ring{position:absolute;border:2.5px solid var(--tap);border-radius:12px;background:rgba(242,97,29,.06);animation:pulse 1.8s ease-in-out infinite;pointer-events:none}
+.ring::after{content:"";position:absolute;right:-8px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--tap);border:2px solid #fff;animation:ripple 1.8s ease-out infinite}
+.ring.nohand::after{content:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 2px rgba(242,97,29,.22)}50%{box-shadow:0 0 0 8px rgba(242,97,29,.06)}}
+@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(242,97,29,.55)}100%{box-shadow:0 0 0 14px rgba(242,97,29,0)}}
+@media (prefers-reduced-motion:reduce){.ring,.ring::after,.slide{animation:none}}
+.say{margin:18px 4px 0;text-align:center}
+.running h3.sec,.running .tiles,.running details.sos,.running .foot{display:none}
+.running .draft,.running .books{display:none}
+.say h2{font-size:21px;line-height:1.32;margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+.say p{margin:0 auto;color:var(--muted);font-size:16px;max-width:34ch}
+.tapword{display:inline-block;background:var(--tap-bg);color:var(--ink);border-radius:8px;padding:0 7px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.note{margin:12px auto 0;background:var(--warn-bg);border-radius:12px;padding:10px 12px;font-size:15px;text-align:left;max-width:none!important}
+.nav{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:10;max-width:560px;margin:0 auto;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,rgba(244,245,242,0),var(--bg) 30%)}
+#run{padding-bottom:96px}
+.nav button{min-height:54px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer;font-size:17px}
+.nav #prev{flex:none;width:54px;font-size:24px;line-height:1}
+.nav .next{flex:1;background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(31,111,92,.25)}
+.nav.last .n1,.nav:not(.last) .n2{display:none}
+.nav button[disabled]{opacity:.35}
+/* 그린 화면(사진을 못 찍은 화면) */
+.mock{padding:22px 16px 26px;font-family:"Noto Sans","Noto Sans KR",sans-serif;color:#18201E}
+.mock h4{font-size:20px;margin:6px 0 4px;text-align:center}
+.mock p{font-size:13px;color:#667;margin:0 0 14px;text-align:center}
+.mock .opt{position:relative;border:1px solid #DDE3E0;border-radius:12px;padding:12px;margin:0 0 10px;font-size:14px}
+.mock .opt b{display:block;font-size:15px}
+.mock .acct{display:flex;gap:10px;align-items:center;border-bottom:1px solid #EEE;padding:10px 4px;font-size:14px;position:relative}
+.mock .av{width:30px;height:30px;border-radius:50%;background:#C9E4DA;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1F6F5C}
+.mock .code{display:flex;gap:6px;justify-content:center;margin:8px 0 14px}
+.mock .code span{width:32px;height:40px;border:1px solid #CCD;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.mock .btn{position:relative;background:#4D7C0F;color:#fff;border-radius:10px;text-align:center;padding:10px;font-weight:600;font-size:14px}
+.done{text-align:center;padding:10px 0 0}
+.mini{margin-top:16px;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer}
+.done .big{width:96px;height:96px;border-radius:50%;background:var(--accent);color:#fff;font-size:50px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:28px auto 8px;box-shadow:0 0 0 10px var(--accent-bg)}
+
+/* 3. 더 */
+h3.sec{font-size:18px;margin:34px 0 10px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+details.tile{background:var(--card);border:1px solid var(--line);border-radius:14px}
+details.tile summary{list-style:none;cursor:pointer;padding:12px;min-height:84px;display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:15px;line-height:1.3}
+details.tile summary::-webkit-details-marker{display:none}
+details.tile summary .e{width:40px;height:40px;border-radius:12px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:4px}
+details.tile[open]{grid-column:1/-1}
+details.tile .a{padding:0 14px 14px;font-size:15px}
+details.tile .a img{width:70%;max-width:240px;border-radius:12px;border:1px solid var(--line);display:block;margin-top:8px}
+details.sos{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--tap);border-radius:12px;margin:0 0 8px}
+details.sos summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:600;min-height:48px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+details.sos summary::after{content:"›";color:var(--muted);font-size:20px;transition:transform .15s}
+details.sos[open] summary::after{transform:rotate(90deg)}
+details.sos summary::-webkit-details-marker{display:none}
+details.sos .a{padding:0 14px 14px;font-size:15px}
+.a ul{margin:0;padding-left:1.2em}.a li{margin:0 0 6px}
+.k{display:inline;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:0 5px;font-weight:600;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.foot{display:flex;gap:10px;margin-top:22px}
+.foot button{flex:1;min-height:48px;border-radius:12px;border:1px dashed var(--line);background:none;color:var(--accent);font-weight:600;cursor:pointer}
+@media print{.bar,.books,.draft,.nav,.runtop,.foot,#choose .q,.paths{display:none!important}#run{display:block!important}.slide{display:block!important;break-inside:avoid;margin-bottom:24px}.ring{animation:none}details>*{display:block}body{background:#fff}}
+
+/* 낮은 화면(작은 폰): 단계를 보는 동안 로고 줄을 숨겨 사진 자리를 늘린다 */
+@media (max-height:700px){.running .bar{display:none}.running .runtop{margin-top:10px}.slide .say{margin-bottom:10px}.slide .say h2{font-size:19px}}
+
+/* 그린 화면(✳)도 틀 크기에 맞춰 줄어든다 — 글자를 px 로 박으면 작은 폰에서 넘쳐 단추 아래로 밀렸다 */
+.scr.mock{container-type:inline-size;padding:9cqw 6.5cqw}
+.mock h4{font-size:8cqw;margin:2cqw 0 1.5cqw}
+.mock p{font-size:5.2cqw;margin:0 0 5cqw}
+.mock .opt{font-size:5.6cqw;padding:4.5cqw;margin:0 0 3.5cqw;border-radius:4.5cqw}
+.mock .opt b{font-size:6cqw}
+.mock .acct{font-size:5.6cqw;padding:4cqw 1.5cqw;gap:4cqw}
+.mock .av{width:12cqw;height:12cqw}
+.mock .btn{font-size:5.8cqw;padding:4cqw;border-radius:4cqw}
+
+.books a.chip{flex:none;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px;text-decoration:none}
+.books a.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.books a.chip.soon{opacity:.5;pointer-events:none}
+</style></head>
+<body><div class="wrap">
+<p class="draft"><span class="en">Draft — pictures from the live site (10/23, test student). ✳ = screen drawn by hand: no photo yet.</span><span class="ko">시안 — 사진은 운영 화면(10/23, 테스트 학생 계정). ✳ = 사진이 없어 손으로 그린 화면.</span></p>
+<div class="bar"><span class="brand"><span class="logo">M</span>Ministry Manager <span class="sub"><span class="en">Guide</span><span class="ko">가이드북</span></span></span>
+<div class="lang"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ko" aria-pressed="false">한국어</button></div></div>
+<nav class="books"><a class="chip" href="guide-first-v2-7c41.html"><span class="en">First day</span><span class="ko">처음 쓰는 날</span></a><a class="chip on" href="guide-student-7c41.html"><span class="en">Student</span><span class="ko">학생</span></a><a class="chip soon" href="#"><span class="en">Facilitator</span><span class="ko">인도자</span></a><a class="chip soon" href="#"><span class="en">Coordinator</span><span class="ko">코디</span></a><a class="chip soon" href="#"><span class="en">Country reporter</span><span class="ko">국가 담당자</span></a></nav>
+<section id="choose"><div class="hero"><div class="big">📖</div><h1><span class="en">Study with BEE</span><span class="ko">BEE 와 공부하기</span></h1><p><span class="en">Join a seminar, read your workbook, see your grades.</span><span class="ko">세미나 신청 · 학습서 읽기 · 성적 보기.</span></p></div>
+<p class="q"><span class="en">What do you want to do?</span><span class="ko">무엇을 하고 싶으세요?</span></p><div class="paths"><button class="path" data-path="apply"><span class="ic g">📝</span><span><b><span class="en">Join a seminar</span><span class="ko">세미나 신청하기</span></b><small><span class="en">Find your facilitator's class and apply</span><span class="ko">내 인도자의 반을 찾아 신청</span></small></span><span class="go">›</span></button><button class="path" data-path="book"><span class="ic key">📚</span><span><b><span class="en">Read the online workbook</span><span class="ko">온라인 학습서 읽기</span></b><small><span class="en">Ask for your book and start studying</span><span class="ko">내 책을 신청하고 공부 시작</span></small></span><span class="go">›</span></button><button class="path" data-path="record"><span class="ic n">🎓</span><span><b><span class="en">My courses, fees and grades</span><span class="ko">내 수강 · 수강료 · 성적</span></b><small><span class="en">See where you are</span><span class="ko">내가 어디까지 왔는지</span></small></span><span class="go">›</span></button><button class="path" data-path="exam"><span class="ic ">✍️</span><span><b><span class="en">Take an exam</span><span class="ko">시험 보기</span></b><small><span class="en">When your facilitator opens it</span><span class="ko">인도자가 시험을 열면</span></small></span><span class="go">›</span></button></div></section>
+<section id="run" aria-live="polite">
+<div class="runtop"><button class="back0" id="restart">‹ <span class="en">Other choices</span><span class="ko">다른 선택</span></button><span class="count"><span class="en">Step</span><span class="ko">단계</span> <b id="count"></b></span></div><div class="prog" id="dots"></div>
+<div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/home.jpg" alt="" loading="lazy"><span class="ring" style="left:4%;top:36.8%;width:92%;height:8.6%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Academy</span></span><span class="ko"><span class="tapword">Academy</span> 를 누르세요</span></h2><p><span class="en">On your home page.</span><span class="ko">홈 화면에서.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/academy.jpg" alt="" loading="lazy"><span class="ring" style="left:4.3%;top:24.5%;width:91.5%;height:20%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Available Seminars</span></span><span class="ko"><span class="tapword">Available Seminars</span> 를 누르세요</span></h2><p><span class="en">Seminars that are open for students.</span><span class="ko">학생을 받고 있는 세미나들.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/seminars.jpg" alt="" loading="lazy"><span class="ring" style="left:4.1%;top:26.1%;width:91.8%;height:4.7%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Easy Apply</span></span><span class="ko"><span class="tapword">Easy Apply</span> 를 누르세요</span></h2><p><span class="en">Three short questions find your class.</span><span class="ko">짧은 질문 셋으로 내 반을 찾아 줍니다.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/ea1.jpg" alt="" loading="lazy"><span class="ring" style="left:10.5%;top:47.4%;width:37.7%;height:21%"></span></div></div></div><div class="say"><h2><span class="en">Meet in person? Tap <span class="tapword">Offline</span></span><span class="ko">직접 모이면 <span class="tapword">Offline</span></span></h2><p><span class="en">From home? Tap <span class="k">Online</span>.</span><span class="ko">집에서 들으면 <span class="k">Online</span>.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/ea2.jpg" alt="" loading="lazy"><span class="ring" style="left:10.5%;top:46.3%;width:79%;height:8.9%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">your course</span></span><span class="ko"><span class="tapword">내 과목</span>을 누르세요</span></h2><p><span class="en">The book your facilitator told you — here, Romans.</span><span class="ko">인도자가 알려 준 책 — 여기서는 로마서.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/ea3.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:14.9%;top:30.7%;width:27.9%;height:3.2%"></span><span class="ring" style="left:69.2%;top:39.6%;width:15.9%;height:4.2%"></span></div></div></div><div class="say"><h2><span class="en">Find <span class="tapword">your facilitator</span> → <span class="tapword">Apply</span></span><span class="ko"><span class="tapword">내 인도자 이름</span> → <span class="tapword">Apply</span></span></h2><p><span class="en">Not sure which class? Ask your facilitator.</span><span class="ko">어느 반인지 모르겠으면 인도자에게 물어보세요.</span></p></div></div><div class="slide" data-p="apply"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/mycourses.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:72%;top:30.2%;width:20.5%;height:4.2%"></span></div></div></div><div class="say"><h2><span class="en">Wait for <span class="tapword">Approved</span></span><span class="ko"><span class="tapword">Approved</span> 가 될 때까지</span></h2><p><span class="en">My Courses shows Pending first. Your facilitator approves it.</span><span class="ko">My Courses 에 먼저 Pending 으로 보입니다. 인도자가 승인합니다.</span></p><p class="note"><span class="en">Applied to the wrong one? While it is Pending: tap <span class="k">Cancel Application</span> on its card.</span><span class="ko">잘못 신청했나요? Pending 인 동안 그 카드의 <span class="k">Cancel Application</span>.</span></p></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/home.jpg" alt="" loading="lazy"><span class="ring" style="left:4%;top:61.5%;width:92%;height:7.8%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Online Workbooks</span></span><span class="ko"><span class="tapword">Online Workbooks</span> 를 누르세요</span></h2></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/textbooks.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:4.1%;top:34.5%;width:82.1%;height:5%"></span></div></div></div><div class="say"><h2><span class="en">Find <span class="tapword">your book</span></span><span class="ko"><span class="tapword">내 책</span>을 찾으세요</span></h2><p><span class="en">Type its name, then tap the cover. 🔒 = you still need access.</span><span class="ko">이름을 쓰고 표지를 누릅니다. 🔒 = 아직 신청이 필요.</span></p></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/book_lang.jpg" alt="" loading="lazy"><span class="ring" style="left:10.5%;top:51%;width:79%;height:7%"></span></div></div></div><div class="say"><h2><span class="en">Choose <span class="tapword">your language</span></span><span class="ko"><span class="tapword">내 언어</span>를 고르세요</span></h2></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/book_page.jpg" alt="" loading="lazy"><span class="ring" style="left:4.1%;top:49.1%;width:70%;height:5.8%"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Request access from administrator</span></span><span class="ko"><span class="tapword">Request access from administrator</span></span></h2></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/book_request.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:10.5%;top:57%;width:79%;height:24%"></span><span class="ring" style="left:10.5%;top:91.1%;width:34.9%;height:4.7%"></span></div></div></div><div class="say"><h2><span class="en">Write <span class="tapword">why</span> and <span class="tapword">how you pay</span> → <span class="tapword">Submit request</span></span><span class="ko"><span class="tapword">이유</span>와 <span class="tapword">낼 방법</span> → <span class="tapword">Submit request</span></span></h2><p><span class="en">e.g. “I am in the Mark seminar” · “bank transfer on the 15th”.</span><span class="ko">예: 「마가복음 세미나를 듣습니다」 · 「15일에 계좌이체」.</span></p></div></div><div class="slide" data-p="book"><div class="phone"><div class="scr mock"><h4>Following the Master ✳</h4><p>Request pending</p><div class="opt" style="text-align:center;color:#8A6100;background:#FBF0D3;border-color:#F0DFAE">⏳ Request pending</div><p style="font-size:22px;margin:4px 0">↓</p><div class="btn">Start Studying<span class="ring" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div></div></div><div class="say"><h2><span class="en">Wait for <span class="tapword">Start Studying</span></span><span class="ko"><span class="tapword">Start Studying</span> 이 뜰 때까지</span></h2><p><span class="en">A coordinator opens it after your payment. Your answers are saved in your account.</span><span class="ko">입금이 확인되면 코디가 열어 줍니다. 내 답은 계정에 저장됩니다.</span></p><p class="note"><span class="en">Paid but still pending? Tell the person who invited you.</span><span class="ko">냈는데 계속 Pending 이면 소개해 준 분께 알려 주세요.</span></p></div></div><div class="slide" data-p="record"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/academy.jpg" alt="" loading="lazy"><span class="ring" style="left:4.3%;top:47%;width:91.5%;height:20%"></span></div></div></div><div class="say"><h2><span class="en">Academy → <span class="tapword">My Courses</span></span><span class="ko">Academy → <span class="tapword">My Courses</span></span></h2><p><span class="en">Every seminar you are in.</span><span class="ko">내가 들어 있는 세미나 전부.</span></p></div></div><div class="slide" data-p="record"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/mycourses.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:72%;top:30.2%;width:20.5%;height:4.2%"></span><span class="ring nohand" style="left:46.7%;top:47%;width:29.2%;height:4.2%"></span></div></div></div><div class="say"><h2><span class="en">Read your <span class="tapword">status</span> and <span class="tapword">fee</span></span><span class="ko"><span class="tapword">상태</span>와 <span class="tapword">수강료</span>를 보세요</span></h2><p><span class="en"><span class="k">Approved</span> = you are in. Red <span class="k">Due</span> = money still to pay. Tap the card to open it.</span><span class="ko"><span class="k">Approved</span> = 들어왔음. 빨간 <span class="k">Due</span> = 아직 낼 돈. 카드를 누르면 열립니다.</span></p></div></div><div class="slide" data-p="record"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/room.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:4.3%;top:72.6%;width:91.5%;height:17%"></span></div></div></div><div class="say"><h2><span class="en">Everything is in <span class="tapword">one room</span></span><span class="ko"><span class="tapword">한 방</span>에 다 있어요</span></h2><p><span class="en">Workbook · Exams · Grades &amp; attendance · Fees. Your grade comes when the seminar is finalized.</span><span class="ko">학습서 · 시험 · 성적·출석 · 수강료. 성적은 세미나가 종강되면 나옵니다.</span></p></div></div><div class="slide" data-p="record"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/room_fees.jpg" alt="" loading="lazy"><span class="ring" style="left:8.5%;top:95%;width:29.2%;height:4.2%"></span></div></div></div><div class="say"><h2><span class="en">Tap the fee → check your <span class="tapword">receipts</span></span><span class="ko">수강료 → <span class="tapword">영수증</span> 확인</span></h2><p><span class="en">Amount right? Tap <span class="k">Yes, I paid this</span>. Wrong? Tell your facilitator before the seminar ends.</span><span class="ko">금액이 맞으면 <span class="k">Yes, I paid this</span>. 틀리면 종강 전에 인도자에게.</span></p></div></div><div class="slide" data-p="exam"><div class="phone"><div class="scr"><div class="shot"><img src="guide-img/stu/room.jpg" alt="" loading="lazy"><span class="ring nohand" style="left:4.3%;top:56%;width:91.5%;height:14%"></span></div></div></div><div class="say"><h2><span class="en">Your room → <span class="tapword">Exams</span></span><span class="ko">내 방 → <span class="tapword">Exams</span></span></h2><p><span class="en">Nothing there? The exam is not open yet.</span><span class="ko">아무것도 없으면 아직 시험이 열리지 않은 것입니다.</span></p></div></div><div class="slide" data-p="exam"><div class="phone"><div class="scr mock"><h4>Exams ✳</h4><p>&nbsp;</p><div class="opt"><b>Unit 1 exam</b>20 minutes · open now</div><div class="btn">Start exam<span class="ring" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div></div></div><div class="say"><h2><span class="en">Tap <span class="tapword">Start exam</span></span><span class="ko"><span class="tapword">Start exam</span> 을 누르세요</span></h2><p><span class="en">The time starts. Each answer saves as you go.</span><span class="ko">시간이 시작됩니다. 답은 그때그때 저장됩니다.</span></p></div></div><div class="slide" data-p="exam"><div class="phone"><div class="scr mock"><h4>Question 1 ✳</h4><p>Who wrote the Gospel of Mark?</p><div class="opt">○ Peter</div><div class="opt" style="border-color:#1F6F5C">● John Mark</div><div class="opt">○ Luke</div><div class="btn">Submit<span class="ring" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div></div></div><div class="say"><h2><span class="en">Answer → <span class="tapword">Submit</span></span><span class="ko">답하기 → <span class="tapword">Submit</span></span></h2><p><span class="en">Submitted is final — check first.</span><span class="ko">제출하면 끝 — 먼저 확인하세요.</span></p><p class="note"><span class="en">Do not leave the page to look things up — leaving is recorded.</span><span class="ko">찾아보려고 화면을 나가지 마세요 — 나간 것이 기록됩니다.</span></p></div></div><div class="slide" data-p="*"><div class="done"><div class="big">✓</div><div class="say"><h2><span class="en">Well done!</span><span class="ko">잘했어요!</span></h2><p><span class="en">Come back to this guide any time.</span><span class="ko">언제든 이 가이드로 돌아오세요.</span></p></div></div></div>
+<div class="nav" id="navbar"><button id="prev" aria-label="Back">‹</button><button class="next" id="next"><span class="n1"><span class="en">Next</span><span class="ko">다음</span> ›</span><span class="n2">↺ <span class="en">Back to start</span><span class="ko">처음으로</span></span></button></div>
+</section>
+<h3 class="sec">❓ <span class="en">How do I…</span><span class="ko">이럴 땐</span></h3><div class="tiles"><details class="tile"><summary><span class="e">🗑</span><span class="en">Cancel a wrong application</span><span class="ko">잘못한 신청 취소</span></summary><div class="a"><div class="en">While it is Pending: My Courses → its card → <span class="k">Cancel Application</span>. You can apply again.</div><div class="ko">Pending 인 동안: My Courses → 그 카드 → <span class="k">Cancel Application</span>. 다시 신청할 수 있어요.</div></div></details><details class="tile"><summary><span class="e">🔎</span><span class="en">Find my seminar again</span><span class="ko">내 세미나 다시 찾기</span></summary><div class="a"><div class="en"><span class="k">☰</span> → <span class="k">My Courses</span>.</div><div class="ko"><span class="k">☰</span> → <span class="k">My Courses</span>.</div></div></details><details class="tile"><summary><span class="e">📱</span><span class="en">Study on another phone</span><span class="ko">다른 폰에서 공부</span></summary><div class="a"><div class="en">Sign in the same way. Your answers and underlines are in your account.</div><div class="ko">같은 방법으로 로그인. 답과 밑줄은 계정에 있어요.</div></div></details><details class="tile"><summary><span class="e">🌐</span><span class="en">Workbook in my language</span><span class="ko">내 언어 학습서</span></summary><div class="a"><div class="en">On the cover, pick your language. If it is not there, the book is not in that language yet.</div><div class="ko">표지에서 언어를 고릅니다. 없으면 아직 그 언어판이 없는 것입니다.</div></div></details></div>
+<h3 class="sec">🆘 <span class="en">I'm stuck</span><span class="ko">막혔어요</span></h3><details class="sos"><summary><span class="en">I can't find my seminar</span><span class="ko">내 세미나가 안 보여요</span></summary><div class="a"><div class="en">It may not be open for applications yet. Ask your facilitator — do not apply to a different one.</div><div class="ko">아직 신청을 받지 않는 것일 수 있어요. 인도자에게 물어보세요 — 다른 반에 신청하지 마세요.</div></div></details><details class="sos"><summary><span class="en">It says “Applied — waiting for approval”</span><span class="ko">「Applied — waiting for approval」이라고 나와요</span></summary><div class="a"><div class="en">That is right — you applied. Your facilitator approves it.</div><div class="ko">맞게 된 것입니다 — 신청했어요. 인도자가 승인합니다.</div></div></details><details class="sos"><summary><span class="en">I paid, but my book is still locked</span><span class="ko">냈는데 책이 아직 잠겨 있어요</span></summary><div class="a"><div class="en">Tell the person who invited you. A coordinator opens it after checking the payment.</div><div class="ko">소개해 준 분께 알려 주세요. 코디가 입금을 확인한 뒤 열어 줍니다.</div></div></details><details class="sos"><summary><span class="en">There is no “Start exam” button</span><span class="ko">「Start exam」 단추가 없어요</span></summary><div class="a"><div class="en">You are not approved in that seminar yet, or the exam is not open.</div><div class="ko">아직 그 세미나에 승인되지 않았거나, 시험이 열리지 않았습니다.</div></div></details><details class="sos"><summary><span class="en">My grade is empty</span><span class="ko">성적이 비어 있어요</span></summary><div class="a"><div class="en">Normal until the seminar is finalized.</div><div class="ko">종강 전까지는 정상입니다.</div></div></details>
+<div class="foot"><button type="button" id="print">🖨 <span class="en">Print</span><span class="ko">인쇄</span></button></div>
+</div>
+<script>
+(function(){
+  var b=document.body,list=[],i=0,$=function(id){return document.getElementById(id)};
+  function setL(l){b.classList.toggle('ko',l==='ko');document.documentElement.lang=l;document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('guide-l',l)}catch(e){}}
+  var s=null;try{s=localStorage.getItem('guide-l')}catch(e){}
+  setL(new URLSearchParams(location.search).get('lang')||s||'en');
+  document.querySelector('.lang').addEventListener('click',function(e){var x=e.target.closest('button');if(x)setL(x.dataset.l)});
+  function show(n){i=Math.max(0,Math.min(list.length-1,n));list.forEach(function(el,k){el.classList.toggle('on',k===i)});
+    $('dots').innerHTML=list.map(function(_,k){return '<i class="'+(k<=i?'done':'')+'"></i>'}).join('');$('count').textContent=(i+1)+' / '+list.length;
+    $('prev').disabled=i===0;$('navbar').classList.toggle('last',i===list.length-1);window.scrollTo(0,0)}
+  function start(p){list=[].slice.call(document.querySelectorAll('.slide')).filter(function(el){return el.dataset.p===p||el.dataset.p==='*'});
+    if(!list.length)return;b.classList.add('running');show(0);history.replaceState(null,'','#'+p)}
+  function stop(){b.classList.remove('running');history.replaceState(null,'',location.pathname+location.search)}
+  document.querySelectorAll('.path').forEach(function(x){x.addEventListener('click',function(){start(x.dataset.path)})});
+  $('restart').addEventListener('click',stop);
+  $('prev').addEventListener('click',function(){show(i-1)});
+  $('next').addEventListener('click',function(){if(i===list.length-1){stop();window.scrollTo(0,0)}else show(i+1)});
+  var x0=null;$('run').addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  $('run').addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(i+(d<0?1:-1));x0=null});
+  document.querySelectorAll('[data-goto]').forEach(function(x){x.addEventListener('click',function(){stop();var t=$('t-'+x.dataset.goto);if(t){t.open=true;setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'center'})},60)}})});
+  $('print').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true});print()});
+  var h=location.hash.slice(1);if(h&&document.querySelector('.path[data-path="'+h+'"]'))start(h);
+})();
+</script></body></html>
