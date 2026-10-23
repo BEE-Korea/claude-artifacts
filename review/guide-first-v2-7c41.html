@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Guide — First day (draft 2)</title>
+<title>Guide — First day (draft 3)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;600;700;800&display=swap">
@@ -16,13 +16,16 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Noto Sans","Noto Sans KR",system-ui,sans-serif}
 body:not(.ko) .ko,body.ko .en{display:none}
+body.ko{word-break:keep-all;overflow-wrap:anywhere}
 button{font:inherit;color:inherit}
 .wrap{max-width:560px;margin:0 auto;padding:0 16px 48px}
 .draft{background:var(--warn-bg);color:var(--warn);font-size:13px;padding:7px 12px;border-radius:10px;margin:10px 0 0}
 .bar{display:flex;align-items:center;gap:8px;padding:10px 0}
-.brand{flex:1;font-weight:700;font-size:15px;color:var(--muted)}
+.brand{flex:1;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+.logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.brand .sub{color:var(--muted);font-weight:600}
 .lang{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.lang button{border:0;background:var(--card);font-weight:600;font-size:14px;padding:0 12px;min-height:40px;cursor:pointer}
+.lang button{border:0;background:var(--card);font-weight:600;font-size:13px;padding:0 11px;min-height:36px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
 .books{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
 .books>span{flex:none;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px}
@@ -31,50 +34,57 @@ button{font:inherit;color:inherit}
 
 /* 1. 길 고르기 */
 .hero{text-align:center;padding:18px 0 6px}
-.hero .big{font-size:44px;line-height:1}
+.hero .big{width:76px;height:76px;margin:0 auto;border-radius:50%;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:38px}
 .hero h1{font-size:27px;line-height:1.2;margin:10px 0 4px;font-weight:800}
 .hero p{color:var(--muted);margin:0}
 .q{font-weight:700;font-size:19px;margin:22px 0 10px;text-align:center}
 .paths{display:grid;gap:10px}
-.path{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;min-height:76px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.path{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;cursor:pointer;min-height:80px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 18px rgba(20,40,35,.06);transition:transform .12s,border-color .12s}
+.path:active{transform:scale(.98)}
 .path:hover,.path:focus-visible{border-color:var(--accent)}
-.ic{flex:none;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--soft)}
+.ic{flex:none;width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--soft)}
+.ic.g{background:#E8F0FE;color:#1A73E8;font:800 27px/1 "Noto Sans",sans-serif}.ic.key{background:#FFF3D6}.ic.n{background:#F1E9FF}
 .path b{display:block;font-size:17px}
 .path small{display:block;color:var(--muted);font-size:14px;line-height:1.35;margin-top:2px}
-.path .go{margin-left:auto;color:var(--accent);font-size:22px}
+.path .go{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:20px;display:flex;align-items:center;justify-content:center}
 
 /* 2. 한 단계씩 */
 #run{display:none}
 .running #choose{display:none}
 .running #run{display:block}
-.runtop{display:flex;align-items:center;gap:10px;margin:8px 0 6px}
-.back0{border:1px solid var(--line);background:var(--card);border-radius:10px;min-height:40px;padding:0 12px;cursor:pointer;font-size:14px;font-weight:600}
+.runtop{display:flex;align-items:center;gap:10px;margin:6px 0 8px}
+.prog{display:flex;gap:4px;margin:0 0 14px}.prog i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .2s}.prog i.done{background:var(--accent)}
+.back0{border:1px solid var(--line);background:var(--card);border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted)}
 .dots{flex:1;display:flex;gap:6px;justify-content:center}
 .dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
 .dots i.on{background:var(--accent);width:22px;border-radius:6px}
-.count{font-size:14px;color:var(--muted);font-weight:600;min-width:42px;text-align:right}
+.count{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
 .slide{display:none;animation:in .25s ease}
 .slide.on{display:flex;flex-direction:column}
 .slide .say{order:-1;margin:4px 4px 14px}
 @keyframes in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-.phone{position:relative;margin:0 auto;width:min(64%,250px);border-radius:26px;background:#111;padding:8px;box-shadow:var(--shadow)}
-.phone .scr{position:relative;border-radius:19px;overflow:hidden;background:#fff}
+.phone{position:relative;margin:0 auto;width:min(64%,250px);border-radius:32px;background:#1C1F1E;padding:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 20px 44px rgba(20,40,35,.2)}
+.phone::before{content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);width:46px;height:5px;border-radius:3px;background:#2C302F;z-index:2}
+.phone .scr{position:relative;border-radius:26px;overflow:hidden;background:#fff}
 .phone img{display:block;width:100%;height:auto}
-.ring{position:absolute;border:3px solid var(--tap);border-radius:12px;box-shadow:0 0 0 4px rgba(242,97,29,.25);animation:pulse 1.6s ease-in-out infinite;pointer-events:none}
-.ring::after{content:"👆";position:absolute;right:-6px;bottom:-26px;font-size:24px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+.ring{position:absolute;border:2.5px solid var(--tap);border-radius:12px;background:rgba(242,97,29,.06);animation:pulse 1.8s ease-in-out infinite;pointer-events:none}
+.ring::after{content:"";position:absolute;right:-8px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--tap);border:2px solid #fff;animation:ripple 1.8s ease-out infinite}
 .ring.nohand::after{content:none}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(242,97,29,.25)}50%{box-shadow:0 0 0 9px rgba(242,97,29,.08)}}
-@media (prefers-reduced-motion:reduce){.ring,.slide{animation:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 2px rgba(242,97,29,.22)}50%{box-shadow:0 0 0 8px rgba(242,97,29,.06)}}
+@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(242,97,29,.55)}100%{box-shadow:0 0 0 14px rgba(242,97,29,0)}}
+@media (prefers-reduced-motion:reduce){.ring,.ring::after,.slide{animation:none}}
 .say{margin:18px 4px 0;text-align:center}
 .running h3.sec,.running .tiles,.running details.sos,.running .foot{display:none}
 .running .draft,.running .books{display:none}
-.say h2{font-size:22px;line-height:1.3;margin:0 0 6px;font-weight:800}
-.say p{margin:0;color:var(--muted)}
+.say h2{font-size:21px;line-height:1.32;margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+.say p{margin:0 auto;color:var(--muted);font-size:16px;max-width:34ch}
 .tapword{display:inline-block;background:var(--tap-bg);color:var(--ink);border-radius:8px;padding:0 7px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.note{margin:12px 0 0;background:var(--warn-bg);border-radius:12px;padding:10px 12px;font-size:15px;text-align:left}
+.note{margin:12px auto 0;background:var(--warn-bg);border-radius:12px;padding:10px 12px;font-size:15px;text-align:left;max-width:none!important}
 .nav{display:flex;gap:10px;margin-top:8px;position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,transparent,var(--bg) 35%)}
-.nav button{flex:1;min-height:52px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer}
-.nav .next{background:var(--accent);border-color:var(--accent);color:#fff;flex:2}
+.nav button{min-height:54px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer;font-size:17px}
+.nav #prev{flex:none;width:54px;font-size:24px;line-height:1}
+.nav .next{flex:1;background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(31,111,92,.25)}
+.nav.last .n1,.nav:not(.last) .n2{display:none}
 .nav button[disabled]{opacity:.35}
 /* 그린 화면(사진을 못 찍은 화면) */
 .mock{padding:22px 16px 26px;font-family:"Noto Sans","Noto Sans KR",sans-serif;color:#18201E}
@@ -88,7 +98,8 @@ button{font:inherit;color:inherit}
 .mock .code span{width:32px;height:40px;border:1px solid #CCD;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
 .mock .btn{position:relative;background:#4D7C0F;color:#fff;border-radius:10px;text-align:center;padding:10px;font-weight:600;font-size:14px}
 .done{text-align:center;padding:10px 0 0}
-.done .big{font-size:64px}
+.mini{margin-top:16px;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer}
+.done .big{width:96px;height:96px;border-radius:50%;background:var(--accent);color:#fff;font-size:50px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:28px auto 8px;box-shadow:0 0 0 10px var(--accent-bg)}
 
 /* 3. 더 */
 h3.sec{font-size:18px;margin:34px 0 10px}
@@ -96,12 +107,14 @@ h3.sec{font-size:18px;margin:34px 0 10px}
 details.tile{background:var(--card);border:1px solid var(--line);border-radius:14px}
 details.tile summary{list-style:none;cursor:pointer;padding:12px;min-height:84px;display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:15px;line-height:1.3}
 details.tile summary::-webkit-details-marker{display:none}
-details.tile summary .e{font-size:24px}
+details.tile summary .e{width:40px;height:40px;border-radius:12px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:4px}
 details.tile[open]{grid-column:1/-1}
 details.tile .a{padding:0 14px 14px;font-size:15px}
 details.tile .a img{width:70%;max-width:240px;border-radius:12px;border:1px solid var(--line);display:block;margin-top:8px}
 details.sos{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--tap);border-radius:12px;margin:0 0 8px}
-details.sos summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:600;min-height:48px}
+details.sos summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:600;min-height:48px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+details.sos summary::after{content:"›";color:var(--muted);font-size:20px;transition:transform .15s}
+details.sos[open] summary::after{transform:rotate(90deg)}
 details.sos summary::-webkit-details-marker{display:none}
 details.sos .a{padding:0 14px 14px;font-size:15px}
 .a ul{margin:0;padding-left:1.2em}.a li{margin:0 0 6px}
@@ -113,8 +126,8 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
 </head>
 <body>
 <div class="wrap">
-  <p class="draft"><span class="en">Draft 2 — pictures from the live site (10/23). ✳ marks screens drawn by hand: no photo yet.</span><span class="ko">시안 2 — 사진은 운영 화면(10/23). ✳ 표시 = 아직 사진이 없어 손으로 그린 화면(실제 판에서 촬영).</span></p>
-  <div class="bar"><span class="brand">Ministry Manager · <span class="en">Guide</span><span class="ko">가이드북</span></span>
+  <p class="draft"><span class="en">Draft 3 — pictures from the live site (10/23). ✳ marks screens drawn by hand: no photo yet.</span><span class="ko">시안 3 — 사진은 운영 화면(10/23). ✳ 표시 = 아직 사진이 없어 손으로 그린 화면(실제 판에서 촬영).</span></p>
+  <div class="bar"><span class="brand"><span class="logo">M</span>Ministry Manager <span class="sub"><span class="en">Guide</span><span class="ko">가이드북</span></span></span>
     <div class="lang"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ko" aria-pressed="false">한국어</button></div></div>
   <div class="books"><span class="on"><span class="en">First day</span><span class="ko">처음 쓰는 날</span></span><span class="soon"><span class="en">Student</span><span class="ko">학생</span></span><span class="soon"><span class="en">Facilitator</span><span class="ko">인도자</span></span><span class="soon"><span class="en">Coordinator</span><span class="ko">코디</span></span><span class="soon"><span class="en">Country reporter</span><span class="ko">국가 담당자</span></span></div>
 
@@ -125,15 +138,15 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
       <p><span class="en">Let's get you in. About 5 minutes.</span><span class="ko">들어가는 것까지 함께 해요. 5분쯤.</span></p></div>
     <p class="q"><span class="en">How will you sign in?</span><span class="ko">어떻게 들어오세요?</span></p>
     <div class="paths">
-      <button class="path" data-path="g"><span class="ic" style="font:800 26px/1 Noto Sans,sans-serif;color:#4285F4">G</span><span><b><span class="en">With my Gmail</span><span class="ko">내 Gmail 로</span></b><small><span class="en">BEE knows my Gmail — most facilitators and leaders</span><span class="ko">BEE 가 내 Gmail 을 안다 — 대부분의 인도자·리더</span></small></span><span class="go">›</span></button>
-      <button class="path" data-path="u"><span class="ic">🔑</span><span><b><span class="en">With a username</span><span class="ko">아이디로</span></b><small><span class="en">My facilitator made a username and password for me</span><span class="ko">인도자가 아이디와 비밀번호를 만들어 줬다</span></small></span><span class="go">›</span></button>
-      <button class="path" data-path="n"><span class="ic">✨</span><span><b><span class="en">I'm new — no Gmail</span><span class="ko">처음이고 Gmail 이 없다</span></b><small><span class="en">I will make my own account</span><span class="ko">내 계정을 직접 만든다</span></small></span><span class="go">›</span></button>
+      <button class="path" data-path="g"><span class="ic g">G</span><span><b><span class="en">With my Gmail</span><span class="ko">내 Gmail 로</span></b><small><span class="en">BEE knows my Gmail — most facilitators and leaders</span><span class="ko">BEE 가 내 Gmail 을 안다 — 대부분의 인도자·리더</span></small></span><span class="go">›</span></button>
+      <button class="path" data-path="u"><span class="ic key"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#B7791F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8 20 3m-3.5 3.5 2.5 2.5M14 9l2 2"/></svg></span><span><b><span class="en">With a username</span><span class="ko">아이디로</span></b><small><span class="en">My facilitator made a username and password for me</span><span class="ko">인도자가 아이디와 비밀번호를 만들어 줬다</span></small></span><span class="go">›</span></button>
+      <button class="path" data-path="n"><span class="ic n"><svg viewBox="0 0 24 24" width="26" height="26" fill="#7C3AED"><path d="M12 2.5c.5 4.2 2.8 6.5 7 7-4.2.5-6.5 2.8-7 7-.5-4.2-2.8-6.5-7-7 4.2-.5 6.5-2.8 7-7Z"/><path d="M19 15c.25 2 1.2 2.9 3 3.1-1.8.25-2.75 1.2-3 3.1-.25-1.9-1.2-2.85-3-3.1 1.8-.2 2.75-1.1 3-3.1Z" opacity=".55"/></svg></span><span><b><span class="en">I'm new — no Gmail</span><span class="ko">처음이고 Gmail 이 없다</span></b><small><span class="en">I will make my own account</span><span class="ko">내 계정을 직접 만든다</span></small></span><span class="go">›</span></button>
     </div>
   </section>
 
   <!-- ② 한 단계씩 -->
   <section id="run" aria-live="polite">
-    <div class="runtop"><button class="back0" id="restart">‹ <span class="en">Change</span><span class="ko">다시 고르기</span></button><div class="dots" id="dots"></div><span class="count" id="count"></span></div>
+    <div class="runtop"><button class="back0" id="restart">‹ <span class="en">Other ways in</span><span class="ko">다른 길</span></button><span class="count"><span class="en">Step</span><span class="ko">단계</span> <b id="count"></b></span></div><div class="prog" id="dots"></div>
 
     <!-- Gmail -->
     <div class="slide" data-p="g">
@@ -206,12 +219,13 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
         <p><span class="en">Tap your name at the top → My profile. Your diploma prints the name written here.</span><span class="ko">맨 위 내 이름 → My profile. 수료증에는 여기 이름이 그대로 찍힙니다.</span></p></div>
     </div>
     <div class="slide" data-p="*">
-      <div class="done"><div class="big">✅</div>
+      <div class="done"><div class="big">✓</div>
         <div class="say"><h2><span class="en">All done!</span><span class="ko">끝!</span></h2>
-          <p><span class="en">Next time it is quicker: put Ministry Manager on your home screen (below).</span><span class="ko">다음엔 더 빨라요: 아래에서 홈 화면에 두는 법을 보세요.</span></p></div></div>
+          <p><span class="en">Next time is quicker with Ministry Manager on your home screen.</span><span class="ko">홈 화면에 두면 다음엔 한 번에 열려요.</span></p>
+          <button type="button" class="mini" id="toHome">📲 <span class="en">Put it on my home screen</span><span class="ko">홈 화면에 두는 법</span></button></div></div>
     </div>
 
-    <div class="nav"><button id="prev">‹ <span class="en">Back</span><span class="ko">이전</span></button><button class="next" id="next"><span class="en">Next</span><span class="ko">다음</span> ›</button></div>
+    <div class="nav" id="navbar"><button id="prev" aria-label="Back">‹</button><button class="next" id="next"><span class="n1"><span class="en">Next</span><span class="ko">다음</span> ›</span><span class="n2">↺ <span class="en">Back to start</span><span class="ko">처음으로</span></span></button></div>
   </section>
 
   <!-- ③ 더 -->
@@ -220,7 +234,7 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
     <details class="tile"><summary><span class="e">🌐</span><span class="en">Change the language</span><span class="ko">언어 바꾸기</span></summary><div class="a">
       <span class="en">Tap the globe with a flag → English or Kiswahili. This phone remembers it.</span><span class="ko">국기 있는 지구 단추 → English 나 Kiswahili. 이 폰이 기억합니다.</span>
       <img src="guide-img/language.jpg" alt="" loading="lazy"></div></details>
-    <details class="tile"><summary><span class="e">📲</span><span class="en">Put it on my home screen</span><span class="ko">홈 화면에 두기</span></summary><div class="a"><ul>
+    <details class="tile" id="t-home"><summary><span class="e">📲</span><span class="en">Put it on my home screen</span><span class="ko">홈 화면에 두기</span></summary><div class="a"><ul>
       <li><b>Android</b>: <span class="k">⋮</span> → <span class="k">Install app</span></li>
       <li><b>iPhone</b>: <span class="k">Share ⬆</span> → <span class="k">Add to Home Screen</span></li></ul></div></details>
     <details class="tile"><summary><span class="e">🧭</span><span class="en">Get back when lost</span><span class="ko">길 잃었을 때</span></summary><div class="a">
@@ -253,16 +267,17 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
   document.querySelector('.lang').addEventListener('click',function(e){var x=e.target.closest('button');if(x)setL(x.dataset.l)});
   var dots=document.getElementById('dots'),count=document.getElementById('count'),prev=document.getElementById('prev'),next=document.getElementById('next');
   function show(n){i=Math.max(0,Math.min(list.length-1,n));list.forEach(function(el,k){el.classList.toggle('on',k===i)});
-    dots.innerHTML=list.map(function(_,k){return '<i class="'+(k===i?'on':'')+'"></i>'}).join('');count.textContent=(i+1)+' / '+list.length;
-    prev.disabled=i===0;next.style.visibility=i===list.length-1?'hidden':'visible';window.scrollTo({top:0,behavior:'smooth'})}
+    dots.innerHTML=list.map(function(_,k){return '<i class="'+(k<=i?'done':'')+'"></i>'}).join('');count.textContent=(i+1)+' / '+list.length;
+    prev.disabled=i===0;document.getElementById('navbar').classList.toggle('last',i===list.length-1);window.scrollTo({top:0,behavior:'smooth'})}
   function start(p){path=p;list=[].slice.call(document.querySelectorAll('.slide')).filter(function(el){return el.dataset.p===p||el.dataset.p==='*'});
     b.classList.add('running');show(0);history.replaceState(null,'','#'+p)}
   document.querySelectorAll('.path').forEach(function(x){x.addEventListener('click',function(){start(x.dataset.path)})});
   document.getElementById('restart').addEventListener('click',function(){b.classList.remove('running');history.replaceState(null,'',location.pathname+location.search)});
-  prev.addEventListener('click',function(){show(i-1)});next.addEventListener('click',function(){show(i+1)});
+  prev.addEventListener('click',function(){show(i-1)});next.addEventListener('click',function(){if(i===list.length-1){document.getElementById('restart').click();window.scrollTo(0,0)}else show(i+1)});
   // 옆으로 밀어 넘기기
   var x0=null;document.getElementById('run').addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   document.getElementById('run').addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(i+(d<0?1:-1));x0=null});
+  document.getElementById('toHome').addEventListener('click',function(){document.getElementById('restart').click();var t=document.getElementById('t-home');t.open=true;setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'center'})},60)});
   document.getElementById('print').addEventListener('click',function(){document.querySelectorAll('details').forEach(function(d){d.open=true});print()});
   var h=location.hash.slice(1);if(['g','u','n'].indexOf(h)>=0)start(h);
 })();
