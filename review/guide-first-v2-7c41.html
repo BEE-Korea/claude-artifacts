@@ -63,9 +63,10 @@ button{font:inherit;color:inherit}
 .slide.on{display:flex;flex-direction:column}
 .slide .say{order:-1;margin:4px 4px 14px}
 @keyframes in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-.phone{position:relative;margin:0 auto;width:min(64%,250px);border-radius:32px;background:#1C1F1E;padding:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 20px 44px rgba(20,40,35,.2)}
+.phone{position:relative;margin:0 auto;width:clamp(180px,calc((100svh - 380px) * .513),min(64vw,250px));border-radius:32px;background:#1C1F1E;padding:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 20px 44px rgba(20,40,35,.2)}
 .phone::before{content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);width:46px;height:5px;border-radius:3px;background:#2C302F;z-index:2}
-.phone .scr{position:relative;border-radius:26px;overflow:hidden;background:#fff}
+.phone .scr{position:relative;border-radius:26px;overflow:hidden;background:#fff;aspect-ratio:600/1169}
+.shot{position:relative}
 .phone img{display:block;width:100%;height:auto}
 .ring{position:absolute;border:2.5px solid var(--tap);border-radius:12px;background:rgba(242,97,29,.06);animation:pulse 1.8s ease-in-out infinite;pointer-events:none}
 .ring::after{content:"";position:absolute;right:-8px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--tap);border:2px solid #fff;animation:ripple 1.8s ease-out infinite}
@@ -80,7 +81,8 @@ button{font:inherit;color:inherit}
 .say p{margin:0 auto;color:var(--muted);font-size:16px;max-width:34ch}
 .tapword{display:inline-block;background:var(--tap-bg);color:var(--ink);border-radius:8px;padding:0 7px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .note{margin:12px auto 0;background:var(--warn-bg);border-radius:12px;padding:10px 12px;font-size:15px;text-align:left;max-width:none!important}
-.nav{display:flex;gap:10px;margin-top:8px;position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,transparent,var(--bg) 35%)}
+.nav{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:10;max-width:560px;margin:0 auto;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to bottom,rgba(244,245,242,0),var(--bg) 30%)}
+#run{padding-bottom:96px}
 .nav button{min-height:54px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer;font-size:17px}
 .nav #prev{flex:none;width:54px;font-size:24px;line-height:1}
 .nav .next{flex:1;background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(31,111,92,.25)}
@@ -126,7 +128,7 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
 </head>
 <body>
 <div class="wrap">
-  <p class="draft"><span class="en">Draft 3 — pictures from the live site (10/23). ✳ marks screens drawn by hand: no photo yet.</span><span class="ko">시안 3 — 사진은 운영 화면(10/23). ✳ 표시 = 아직 사진이 없어 손으로 그린 화면(실제 판에서 촬영).</span></p>
+  <p class="draft"><span class="en">Draft 4 — pictures from the live site (10/23). ✳ marks screens drawn by hand: no photo yet.</span><span class="ko">시안 4 — 사진은 운영 화면(10/23). ✳ 표시 = 아직 사진이 없어 손으로 그린 화면(실제 판에서 촬영).</span></p>
   <div class="bar"><span class="brand"><span class="logo">M</span>Ministry Manager <span class="sub"><span class="en">Guide</span><span class="ko">가이드북</span></span></span>
     <div class="lang"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ko" aria-pressed="false">한국어</button></div></div>
   <div class="books"><span class="on"><span class="en">First day</span><span class="ko">처음 쓰는 날</span></span><span class="soon"><span class="en">Student</span><span class="ko">학생</span></span><span class="soon"><span class="en">Facilitator</span><span class="ko">인도자</span></span><span class="soon"><span class="en">Coordinator</span><span class="ko">코디</span></span><span class="soon"><span class="en">Country reporter</span><span class="ko">국가 담당자</span></span></div>
@@ -150,7 +152,7 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
 
     <!-- Gmail -->
     <div class="slide" data-p="g">
-      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:29.5%;width:70.8%;height:5.8%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:29.5%;width:70.8%;height:5.8%"></span></div></div></div>
       <div class="say"><h2><span class="en">Tap <span class="tapword">Sign in with Google</span></span><span class="ko"><span class="tapword">Sign in with Google</span> 을 누르세요</span></h2>
         <p><span class="en">Open <b>ministry.beekorea.org</b> in Chrome or Safari first.</span><span class="ko">먼저 Chrome 이나 Safari 에서 <b>ministry.beekorea.org</b> 를 엽니다.</span></p></div>
     </div>
@@ -166,35 +168,35 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
         <div class="opt"><b>I'm new</b>Register as a new member<span class="ring" style="left:-4px;top:-4px;right:-4px;bottom:-4px"></span></div>
         <div class="opt"><b>I'm already registered</b>Find and link my account</div></div></div>
       <div class="say"><h2><span class="en">First time at BEE? Tap <span class="tapword">I'm new</span></span><span class="ko">BEE 가 처음이면 <span class="tapword">I'm new</span></span></h2>
-        <p><span class="en">Then: your name → gender and birth date → <b>Where do you live?</b> → contact → <b>Review</b>.</span><span class="ko">이어서: 이름 → 성별·생년월일 → <b>Where do you live?</b> → 연락처 → <b>Review</b>.</span></p>
-        <p class="note"><span class="en">⚠️ BEE already registered you? Do <b>not</b> tap “I'm new” — you would become two people. Go back and choose the Gmail you gave BEE.</span><span class="ko">⚠️ BEE 에 이미 등록됐다면 「I'm new」를 누르지 <b>마세요</b> — 같은 사람이 둘이 됩니다. 돌아가서 BEE 에 알려 준 Gmail 을 고르세요.</span></p></div>
+        <p><span class="en">Then fill in your details and tap <b>Review</b>.</span><span class="ko">이어서 내 정보를 채우고 <b>Review</b>.</span></p>
+        <p class="note"><span class="en">⚠️ Already registered by BEE? Do <b>not</b> tap “I'm new”. Go back and pick the Gmail you gave BEE.</span><span class="ko">⚠️ BEE 에 이미 등록됐다면 「I'm new」를 누르지 <b>마세요</b>. 돌아가서 BEE 에 알려 준 Gmail 을 고르세요.</span></p></div>
     </div>
 
     <!-- 아이디 -->
     <div class="slide" data-p="u">
-      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring nohand" style="left:13%;top:41%;width:74%;height:13.2%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring nohand" style="left:13%;top:41%;width:74%;height:13.2%"></span></div></div></div>
       <div class="say"><h2><span class="en">Type your <span class="tapword">username</span> and <span class="tapword">password</span></span><span class="ko"><span class="tapword">아이디</span>와 <span class="tapword">비밀번호</span>를 넣으세요</span></h2>
         <p><span class="en">The ones your facilitator wrote down for you. Not your Gmail.</span><span class="ko">인도자가 적어 준 것. Gmail 이 아닙니다.</span></p></div>
     </div>
     <div class="slide" data-p="u">
-      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:54.3%;width:70.8%;height:4.7%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:14.6%;top:54.3%;width:70.8%;height:4.7%"></span></div></div></div>
       <div class="say"><h2><span class="en">Tap <span class="tapword">Sign in with username</span></span><span class="ko"><span class="tapword">Sign in with username</span> 을 누르세요</span></h2>
         <p><span class="en">“Incorrect username or password”? Ask your facilitator for a new password.</span><span class="ko">「아이디 또는 비밀번호가 올바르지 않습니다」가 나오면 인도자에게 새 비밀번호를 부탁하세요.</span></p></div>
     </div>
 
     <!-- 새로 -->
     <div class="slide" data-p="n">
-      <div class="phone"><div class="scr"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:46%;top:63.6%;width:24%;height:3.2%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/login-390x760.jpg" alt=""><span class="ring" style="left:46%;top:63.6%;width:24%;height:3.2%"></span></div></div></div>
       <div class="say"><h2><span class="en">Tap <span class="tapword">Create account</span></span><span class="ko"><span class="tapword">Create account</span> 를 누르세요</span></h2>
         <p><span class="en">It is the small link under the boxes.</span><span class="ko">입력칸 아래 작은 글자입니다.</span></p></div>
     </div>
     <div class="slide" data-p="n">
-      <div class="phone"><div class="scr"><img src="guide-img/signup.jpg" alt=""><span class="ring nohand" style="left:12%;top:33%;width:76%;height:47.5%"></span></div></div>
-      <div class="say"><h2><span class="en">Make a <span class="tapword">username</span>, a <span class="tapword">password</span>, and type your <span class="tapword">email</span></span><span class="ko"><span class="tapword">아이디</span> · <span class="tapword">비밀번호</span>를 만들고 <span class="tapword">이메일</span>을 넣으세요</span></h2>
-        <p><span class="en">Write your username and password on paper. The username cannot be changed later.</span><span class="ko">아이디와 비밀번호를 종이에 적어 두세요. 아이디는 나중에 못 바꿉니다.</span></p></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/signup.jpg" alt=""><span class="ring nohand" style="left:12%;top:33%;width:76%;height:47.5%"></span></div></div></div>
+      <div class="say"><h2><span class="en">Fill in the <span class="tapword">four boxes</span></span><span class="ko"><span class="tapword">네 칸</span>을 채우세요</span></h2>
+        <p><span class="en">Username · password (twice) · email. Write the username and password on paper.</span><span class="ko">아이디 · 비밀번호(두 번) · 이메일. 아이디와 비밀번호는 종이에 적어 두세요.</span></p></div>
     </div>
     <div class="slide" data-p="n">
-      <div class="phone"><div class="scr"><img src="guide-img/signup.jpg" alt=""><span class="ring" style="left:14.6%;top:84.5%;width:70.8%;height:4.7%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/signup.jpg" alt=""><span class="ring" style="left:14.6%;top:84.5%;width:70.8%;height:4.7%"></span></div></div></div>
       <div class="say"><h2><span class="en">Tap <span class="tapword">Send verification code</span></span><span class="ko"><span class="tapword">Send verification code</span> 를 누르세요</span></h2>
         <p><span class="en">Open your email. Type the 6-digit code you got.</span><span class="ko">이메일을 열어 받은 6자리 코드를 넣습니다.</span></p></div>
     </div>
@@ -209,12 +211,12 @@ details.sos .a{padding:0 14px 14px;font-size:15px}
 
     <!-- 모두 같은 끝 -->
     <div class="slide" data-p="*">
-      <div class="phone"><div class="scr"><img src="guide-img/home.jpg" alt=""><span class="ring nohand" style="left:35%;top:9.6%;width:61%;height:6.6%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/home.jpg" alt=""><span class="ring nohand" style="left:35%;top:9.6%;width:61%;height:6.6%"></span></div></div></div>
       <div class="say"><h2><span class="en">You're in! 🎉 Your <span class="tapword">name</span> is at the top</span><span class="ko">들어왔어요! 🎉 맨 위에 <span class="tapword">내 이름</span></span></h2>
         <p><span class="en">The big tiles are the doors: Academy, Ministry, Finance… You only see the doors you need.</span><span class="ko">큰 타일이 문입니다: Academy, Ministry, Finance… 내게 필요한 문만 보입니다.</span></p></div>
     </div>
     <div class="slide" data-p="*">
-      <div class="phone"><div class="scr"><img src="guide-img/profile.jpg" alt=""><span class="ring" style="left:3.5%;top:71.5%;width:18.5%;height:14%"></span></div></div>
+      <div class="phone"><div class="scr"><div class="shot"><img src="guide-img/profile.jpg" alt=""><span class="ring" style="left:3.5%;top:71.5%;width:18.5%;height:14%"></span></div></div></div>
       <div class="say"><h2><span class="en">Check your name and phone → <span class="tapword">Edit</span></span><span class="ko">이름과 전화번호 확인 → <span class="tapword">Edit</span></span></h2>
         <p><span class="en">Tap your name at the top → My profile. Your diploma prints the name written here.</span><span class="ko">맨 위 내 이름 → My profile. 수료증에는 여기 이름이 그대로 찍힙니다.</span></p></div>
     </div>
