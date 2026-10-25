@@ -2,6 +2,17 @@
   "_readme": "허브 단일 목록. 카드 추가/수정 = 여기만 편집(index.html 자동생성). visibility: public(공개) | private(비공개). private 중 locked:true = 비밀번호(암호화) 필요, 아니면 내부용(링크로 열림). status: current | archived(숨김). supersedes에 옛 path 넣으면 그 옛것 자동 숨김. 그룹 표시순서 = 배열 순서. 초기화면 공개/비공개 필터로 골라봄.",
   "items": [
     {
+      "icon": "🧭",
+      "group": "학사 · Academy",
+      "title": "인도자 세미나 방 — 고칠 자리 (시안 1)",
+      "kicker": "2026-10-26 · 태남 검토용 · 🔗 받은 링크로만 열림",
+      "desc": "BMTC 최종 테스트 17명에서 많이 못 한 일(시작 13 · 성적 11 · 중도 포기 9)의 화면 원인과 시안: 단계 줄 + NEXT STEP 카드 · Final grade · 학생 ⋯ 메뉴.",
+      "path": "review/mmv2-facilitator-room-20261026.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-26"
+    },
+    {
       "icon": "🎓",
       "group": "학사 · Academy",
       "title": "BMTC 2026 — 이번 주와 다음 걸음 (Week Review)",
