@@ -2,6 +2,17 @@
   "_readme": "허브 단일 목록. 카드 추가/수정 = 여기만 편집(index.html 자동생성). visibility: public(공개) | private(비공개). private 중 locked:true = 비밀번호(암호화) 필요, 아니면 내부용(링크로 열림). status: current | archived(숨김). supersedes에 옛 path 넣으면 그 옛것 자동 숨김. 그룹 표시순서 = 배열 순서. 초기화면 공개/비공개 필터로 골라봄.",
   "items": [
     {
+      "icon": "🇵🇭",
+      "group": "학사 · Academy",
+      "title": "필리핀 MM 하루 교육 강의안 (한·영)",
+      "kicker": "2026-10-28 · 신동준 선교사님 진행 · 읽기/발표 두 모드",
+      "desc": "조마다 세미나 한 바퀴(열기→학생→학습서→출석·수강료→시험→종강) · 코디 화면 · 직접 가르치기 · 막히면 표 · 참가자에게 미리 보내는 메시지(복사 단추).",
+      "path": "ph/mm-day-20261028.html",
+      "visibility": "private",
+      "status": "current",
+      "date": "2026-10-27"
+    },
+    {
       "icon": "🪪",
       "group": "사역 · Ministry",
       "title": "회원 프로필 다시 짜기 (시안)",
