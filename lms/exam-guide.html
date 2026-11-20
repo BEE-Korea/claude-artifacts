@@ -300,7 +300,7 @@
       <li id="score">
         <span class="sym">점수를 확정했는데 성적표에 없음</span>
         <span class="why">확정한 점수는 성적표에 <strong>저절로 들어가지 않습니다</strong>.</span>
-        <span class="do">「학적관리」 → 「시험」 → 빈 칸 아래 <span class="btn">온라인 ○○ 넣기</span> (아래 <a href="#fill">4번</a>)</span>
+        <span class="do">「학적관리」 → 「시험」 → 초록 상자의 <span class="btn btn-go">N명 넣기</span> (아래 <a href="#fill">4번</a>)</span>
       </li>
       <li id="retake">
         <span class="sym">학생이 실수로 일찍 제출함</span>
@@ -319,7 +319,7 @@
     <ol class="steps3">
       <li>세미나 방 → <strong>「온라인 시험」</strong> 탭 (인도자에게만 시험을 여는 자리로 보입니다)</li>
       <li>그 회차의 <span class="btn btn-go">시험 열기</span> — 날짜가 정해져 있으면 「열기 예약」에 날짜·시각을 적습니다</li>
-      <li>시험이 끝나면 <span class="btn">마감하기</span> → <span class="btn btn-go">채점하기</span> → 「학적관리」에서 <span class="btn">온라인 ○○ 넣기</span></li>
+      <li>시험이 끝나면 <span class="btn">마감하기</span> → <span class="btn btn-go">채점하기</span> → 「학적관리」 → 「시험」에서 <span class="btn btn-go">N명 넣기</span></li>
     </ol>
     <p style="margin-top:0.8rem">
       <strong>종이 학습서로 공부하는 반도 됩니다</strong> — 같은 과목의 온라인 학습서 문항으로 시험만 온라인으로 엽니다.
@@ -335,13 +335,13 @@
     <p>
       처음 들어가면 <strong>어떤 학습서로 시험을 볼지</strong> 묻습니다 — 우리 반 과목에 맞는 책이 미리 골라져 있습니다.
       한 번 열면 그 책으로 고정되고, 바꾸려면 본부에 문의합니다.
-      탭 맨 위의 「온라인 시험 순서 안내」는 이 안내를 줄인 것입니다.
+      탭 맨 위의 「온라인 시험 순서 안내」(눌러서 펼침)는 이 안내를 줄인 것이고, 끝에 이 페이지로 오는 링크가 있습니다.
     </p>
 
     <figure>
-      <img src="assets/exam-ft-tab.png" alt="인도자의 온라인 시험 탭 — 순서 안내 상자, 학습서 선택, 회차별 표. 각 줄에 상태(열림), 성적 칸, 응시 현황과 연습 응시·마감하기·설정 바꾸기·채점하기 버튼">
-      <figcaption>인도자의 「온라인 시험」 탭. 회차마다 <strong>상태 · 성적 칸 · 응시 현황</strong>이 보입니다.
-        상태가 <strong>「아직 안 열림」</strong>이면 <strong>[시험 열기]</strong>, 「열림」이면 <strong>[마감하기] [설정 바꾸기] [채점하기]</strong>가 나옵니다.</figcaption>
+      <img src="assets/exam-ft-tab.png" alt="인도자의 온라인 시험 탭 — 접힌 순서 안내, 시험 학습서 한 줄, 회차별 카드. 카드마다 상태(열림), 연 시각, 성적 칸, 응시·제출·채점 수, 채점할 답안 1개, 채점하기·마감하기·설정 바꾸기·연습 응시 버튼">
+      <figcaption>인도자의 「온라인 시험」 탭. 회차마다 카드 한 장 — <strong>상태 · 성적 칸 · 응시 현황</strong>, 채점할 답이 있으면 <strong>「채점할 답안 N개」</strong>.
+        상태가 <strong>「아직 안 열림」</strong>이면 <strong>[시험 열기]</strong>, 「열림」이면 <strong>[채점하기] [마감하기] [설정 바꾸기]</strong>가 나옵니다.</figcaption>
     </figure>
 
     <p><span class="btn btn-go">시험 열기</span>를 누르면 설정 창이 뜹니다. 연 뒤에도 <span class="btn">설정 바꾸기</span>로 같은 창을 엽니다.</p>
@@ -455,12 +455,13 @@
     <span class="stage-who">인도자</span>
     <h2>확정한 점수를 성적표로 옮깁니다 — 저절로 들어가지 않습니다</h2>
     <p>
-      「학적관리」 → <strong>「시험」</strong>을 엽니다. 시험 칸 머리에 <strong>「← 제1단원 시험」</strong>처럼 어느 온라인 시험과 이어졌는지 보이고,
-      확정한 점수가 있는 <strong>빈 칸</strong> 아래에 <span class="btn">온라인 ○○ 넣기</span>가 나옵니다. 누르면 그 칸에 들어갑니다.
+      「학적관리」 → <strong>「시험」</strong>을 엽니다. 넣을 점수가 있으면 위에 초록 상자가 뜨고, 시험마다 <strong>「들어갈 점수」</strong>를 먼저 보여 줍니다.
+      맞으면 <span class="btn btn-go">N명 넣기</span> — 그 시험의 확정 점수가 <strong>빈 칸에만</strong> 들어갑니다. 한 사람씩은 칸 아래 <span class="btn">온라인 ○○ 넣기</span>.
     </p>
     <figure>
-      <img src="assets/exam-ft-records.png" alt="학적관리 시험 탭 — 시험 1·시험 2 칸 머리에 제1단원 시험·제2단원 시험 표시, 시험 1 칸에 42, 비어 있는 시험 2 칸 아래 온라인 88/100 넣기 버튼">
-      <figcaption>「학적관리」 → 「시험」. 이미 적어 둔 점수(시험 1 의 42)는 건드리지 않고, 빈 칸에만 <strong>[온라인 ○○ 넣기]</strong>가 나옵니다.
+      <img src="assets/exam-ft-records.png" alt="학적관리 시험 탭 — 위 초록 상자: 온라인 시험 점수를 빈 칸에 넣을 수 있습니다, 제2단원 시험 들어갈 점수 88점과 1명 넣기 버튼. 아래 성적표: 시험 1 칸 42, 비어 있는 시험 2 칸 아래 온라인 88/100 넣기">
+      <figcaption>「학적관리」 → 「시험」. 이미 적어 둔 점수(시험 1 의 42)는 건드리지 않고, 빈 칸만 채웁니다.
+        「들어갈 점수」가 이상하면(예: 모두 20점 안팎) 누르지 말고 칸에 직접 적으십시오.
         <span class="ex">(「88/100」은 버튼 모양을 보여 드리려고 넣은 예시입니다.)</span></figcaption>
     </figure>
     <p>
