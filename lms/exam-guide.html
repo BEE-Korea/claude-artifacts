@@ -261,7 +261,7 @@
       막혔으면 바로 아래 「막혔을 때」에서 <strong>화면에 보이는 글자</strong>를 찾으십시오.
     </p>
     <div class="masthead-meta">
-      <span>2026년 11월 20일 화면 기준</span>
+      <span>2026년 11월 21일 규칙 기준 (감점 · 5분 자리 비움 — 운영 규정 §11-13-2-8)</span>
       <span>화면은 실제 화면 캡처 — 시험용 반(테스트 계정)으로 찍었습니다</span>
       <span>모바일에서도 같은 화면</span>
     </div>
@@ -310,6 +310,16 @@
         <span class="sym">시험을 잘못 열었음</span>
         <span class="do">학생이 아직 시작하지 않았으면 <span class="btn">열기 취소</span> — 학생 화면에서 사라지고 설정은 남습니다</span>
       </li>
+      <li id="auto-ended">
+        <span class="sym">학생 시험이 저절로 끝났음</span>
+        <span class="why">시험 화면을 <strong>5분 넘게 떠나면</strong>(다른 앱 · 화면 꺼짐 · 전화 포함) 그때까지 쓴 답으로 자동 종료됩니다.</span>
+        <span class="do">사정이 있으면 인도자: 「채점하기」 화면의 그 학생 카드 → <span class="btn">이어서 풀게 하기</span> (같은 답 그대로 · 채점 전에만)</span>
+      </li>
+      <li id="penalty">
+        <span class="sym">점수에서 감점이 빠져 있음</span>
+        <span class="why">제한 시간을 넘긴 만큼 <strong>100점 기준 1분당 1점, 최대 20점</strong>이 자동으로 빠집니다. 누구에게나 같은 규칙입니다.</span>
+        <span class="do">줄여 줄 사정이 있으면 인도자가 채점 화면에서 줄이거나 0 으로 — <strong>사유를 적어야 하고</strong>, 사유는 학생에게도 보입니다</span>
+      </li>
     </ul>
   </section>
 
@@ -346,7 +356,7 @@
 
     <p><span class="btn btn-go">시험 열기</span>를 누르면 설정 창이 뜹니다. 연 뒤에도 <span class="btn">설정 바꾸기</span>로 같은 창을 엽니다.</p>
     <ul>
-      <li><strong>제한 시간(분)</strong> — 비우면 시간 제한이 없습니다. 넘겨도 자동으로 제출되지 않고 <strong>1분마다 1점 감점으로 표시만</strong> 됩니다.</li>
+      <li><strong>제한 시간(분)</strong> — 비우면 시간 제한이 없습니다. 넘겨도 자동으로 제출되지는 않고, 넘긴 만큼 <strong>100점 기준 1분당 1점(최대 20점)</strong>이 자동으로 빠집니다. 인도자가 사유를 적고 줄일 수 있습니다.</li>
       <li><strong>만점(점)</strong> — 비우면 100점. 원점수와 100점 환산이 나란히 보입니다.</li>
       <li><strong>성적의 어느 칸에 넣을까요?</strong> — 나중에 점수를 옮길 성적표의 시험 칸. 빈 칸이 추천됩니다.</li>
       <li><strong>열기 예약 · 마감 예약</strong> — 날짜·시각을 적으면 그때 저절로 열리고 닫힙니다. <strong>비워 두면 지금 바로 열립니다.</strong></li>
@@ -396,9 +406,14 @@
     </figure>
 
     <p>
-      <span class="btn btn-go">시험 응시</span>를 누르면 문항 수와 제한 시간을 먼저 안내하고,
-      한 번 더 누르면 <strong>시작 시각이 기록되며</strong> 문항이 나타납니다.
+      <span class="btn btn-go">시험 응시</span>를 누르면 <strong>안내 창</strong>이 먼저 뜹니다 —
+      제한 시간 · 시간은 멈추지 않는다 · 초과 감점 · <strong>5분 넘게 떠나면 자동 종료</strong> · 저장과 제출은 다르다 · 제출 뒤엔 못 고친다.
+      <span class="btn btn-go">지금 시작</span>을 누르면 <strong>시작 시각이 기록되며</strong> 바로 문항이 나타납니다.
       답은 쓰는 대로 저장되어 인터넷이 끊겨도 남습니다. 다 쓰면 <strong>[제출]</strong> — 제출하면 고칠 수 없습니다.
+    </p>
+    <p>
+      시험 중에 다른 화면으로 나가도 LMS <strong>모든 화면 맨 위에 「시험 중」 띠</strong>가 남아 몇 분 안에 돌아와야 하는지 알려 주고,
+      <span class="btn btn-go">시험으로 돌아가기</span>로 바로 돌아갑니다. 5분 넘게 돌아오지 않으면 그때까지 쓴 답으로 끝납니다.
     </p>
 
     <figure>
@@ -444,6 +459,8 @@
     </figure>
 
     <ul>
+      <li><strong>시간 초과 감점</strong> — 「채점 점수 − 감점 = 최종」이 나란히 보입니다. 줄이려면 사유를 적습니다(학생에게도 보임). 규칙보다 더 깎을 수는 없습니다.</li>
+      <li><strong>이어서 풀게 하기</strong> — 5분 자리 비움으로 자동 종료된 학생에게만, 채점 전에. 쓴 답 그대로 이어서 풉니다.</li>
       <li><strong>AI 1차 채점</strong> — 서술형 점수를 AI 가 미리 매겨 줍니다. 참고용이고, <strong>최종 점수는 언제나 인도자가 확정합니다.</strong></li>
       <li><strong>재응시 허용</strong> — 학생이 실수로 일찍 제출했으면 다시 볼 수 있게 열어 줍니다.</li>
     </ul>
