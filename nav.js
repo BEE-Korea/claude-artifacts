@@ -3,6 +3,16 @@
 (function () {
   if (window.__caNav) return; window.__caNav = 1;
 
+  /* 방문 집계 — Vercel Web Analytics (2026-11-21 관리자). 쿠키 없음 · 주소별 방문 수만.
+     Hobby 요금제 = 계정 전체 월 50,000건, 넘으면 그달 집계가 멈출 뿐 돈은 안 나간다.
+     Vercel 대시보드 → claude-artifacts → Analytics 에서 「Enable」 해야 동작한다(켜기 전엔 이 스크립트가 404 — 화면엔 영향 없음).
+     ⚠️ nav.js 를 싣는 쪽만 센다(2026-11-21: 61쪽 중 22쪽 — lms/ 안내 포함). */
+  if (!document.querySelector('script[src*="/_vercel/insights/"]')) {
+    var va = document.createElement('script');
+    va.defer = true; va.src = '/_vercel/insights/script.js';
+    (document.head || document.documentElement).appendChild(va);
+  }
+
   function build() {
     var items = [].slice.call(document.querySelectorAll('h2, .grouptitle'));
     items.forEach(function (el, i) { if (!el.id) el.id = 'ca-sec-' + i; });
