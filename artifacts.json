@@ -7,32 +7,10 @@
       "title": "필리핀 MM 하루 교육 강의안 (한·영)",
       "kicker": "신동준 선교사님 진행 · 한영 함께 · 읽기/발표",
       "desc": "조마다 연습 세미나 한 바퀴 → 후보가 인도자 일 해 보기·가르치기 → 종강(맨 끝) · 낱말 장 · 막히면 표 · 미리 보내는 메시지(복사). 발표 14장, 한영 함께.",
-      "path": "ph/mm-day-20261028.html",
+      "path": "archive/ph/mm-day-20261028.html",
       "visibility": "private",
-      "status": "current",
+      "status": "archived",
       "date": "2026-10-27"
-    },
-    {
-      "icon": "🪪",
-      "group": "사역 · Ministry",
-      "title": "회원 프로필 다시 짜기 (시안)",
-      "kicker": "2026-10-26 · 태남 검토용 · 🔗 받은 링크로만 열림",
-      "desc": "사람 → 활동 → 관리 순서 · 관리 묶음은 접지 않고 파랑 회색 · 연결된 값은 초록 › · 빈 칸은 카드 아래 한 줄 「Not filled … + Fill in ›」 · PC 두 칸.",
-      "path": "review/mmv2-member-profile-20261026.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-26"
-    },
-    {
-      "icon": "🧭",
-      "group": "학사 · Academy",
-      "title": "인도자 세미나 방 — 고칠 자리 (시안 1)",
-      "kicker": "2026-10-26 · 태남 검토용 · 🔗 받은 링크로만 열림",
-      "desc": "BMTC 최종 테스트 17명에서 많이 못 한 일(시작 13 · 성적 11 · 중도 포기 9)의 화면 원인과 시안: 단계 줄 + NEXT STEP 카드 · Final grade · 학생 ⋯ 메뉴.",
-      "path": "review/mmv2-facilitator-room-20261026.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-26"
     },
     {
       "icon": "🎓",
@@ -40,20 +18,9 @@
       "title": "BMTC 2026 — 이번 주와 다음 걸음 (Week Review)",
       "kicker": "2026-10-23 · 훈련생 17명용 · 영어/스와힐리어 · 🔗 받은 링크로만 열림(열쇠가 링크에)",
       "desc": "Ministry Manager 과목을 마친 인도자들에게: 이번 주 숫자·날짜별 흐름 · 큰 그림(Where am I? · Who is this? · What happens next?) · 최종 테스트에서 많이 틀린 일곱 가지(이름 없이) · 다섯 약속 · 집에서 100일 · 한 사람 더 가르치기. 개인 카드 17장은 사람마다 따로 된 주소(bmtc/2026/c/, 목록에 올리지 않음). 스와힐리어는 원어민 확인 전.",
-      "path": "bmtc/2026/week.html",
+      "path": "archive/bmtc/2026/week.html",
       "visibility": "private",
-      "status": "current",
-      "date": "2026-10-23"
-    },
-    {
-      "icon": "🙏",
-      "group": "학사 · Academy",
-      "title": "BMTC 2026 기도 편지 — 열일곱 명이 끝까지 왔습니다",
-      "kicker": "2026-10-23 · 기도 후원자용 · 한국어 · 사진 18장 · 🔗 받은 링크로만 열림(열쇠가 링크에)",
-      "desc": "탄자니아 아루샤 BMTC Ministry Manager 과목을 마치며: 인터넷 준비·정전·조별 연습·수업 중 앱 고침·혼자서 한 바퀴(최종 테스트)·최종 시험 17/17 · 1월까지의 약속 · 나라별 기도 제목. 개인 실수·성적은 넣지 않았다.",
-      "path": "bmtc/2026/letter.html",
-      "visibility": "private",
-      "status": "current",
+      "status": "archived",
       "date": "2026-10-23"
     },
     {
@@ -62,67 +29,12 @@
       "title": "BMTC 2026 주간 보고 (리더십)",
       "kicker": "2026-10-23 · 본부 리더십용 · 한국어",
       "desc": "사람별 최종 테스트 판정 10칸·최종 시험 시각/시도 · 많이 틀린 일곱 가지와 다음 과제지 반영 · 잘된 것 · 발견한 시스템 문제 · BMTC 뒤 정리 목록. 숫자 = 2026-10-23 운영 DB 스냅샷.",
-      "path": "private/confidential/bmtc26-report.html",
+      "path": "archive/private/confidential/bmtc26-report.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔒 비번 필요 (리더십)",
-      "status": "current",
+      "status": "archived",
       "date": "2026-10-23"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 내 정보 — 디자인 시안 1차",
-      "kicker": "2026-10-12 · 이름 하나로 · 묶음 · 큰 [정보 수정]",
-      "desc": "「프로필」→「내 정보」 · 연락처·교회와 사역·기본 정보·주소 묶음 · 주소 한 줄. 정해 주실 것 2가지.",
-      "path": "lms/design-my-profile.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-12"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 공지 게시판 — 디자인 시안 1차",
-      "kicker": "2026-10-12 · 분류·작성자 칸 빼기 · 고정 칩",
-      "desc": "공지 51건 중 분류 없음 43 · 작성자 관리자 50 · 「[공지]」와 「공지」 칩 겹침. 정해 주실 것 2가지.",
-      "path": "lms/design-notice-board.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-12"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 온라인 학습서 — 디자인 시안 1차",
-      "kicker": "2026-10-12 · 학생 9할이 보는 「아직 없음」 화면 · 배포함",
-      "desc": "「권한이 없습니다」 → 「종이로 신청했다면 안 보이는 게 맞습니다」 · 지금 듣는 반의 책 형태 한 줄.",
-      "path": "lms/design-online-textbooks.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-12"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 내 결제·크레딧 — 디자인 시안 1차",
-      "kicker": "2026-10-12 · 얼마를 냈고, 낼 돈이 남았나",
-      "desc": "맨 위 낼 돈·크레딧 · 세미나별 카드로 세 표 합치기 · 거래 내역 사람 말로 · 원장 어긋남 1건. 정해 주실 것 3가지.",
-      "path": "lms/design-my-money.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-12"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 수강 이력 — 디자인 시안 3차",
-      "kicker": "2026-10-12 · 내가 지금까지 무엇을 들었나",
-      "desc": "작은 단추 · 세미나 관리 = 톱니바퀴(관리자만) · PC 한 줄 · 해별 묶음 · 마친 세미나 수 · 인도한 반 표시.",
-      "path": "lms/design-seminar-history.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-12"
     },
     {
       "icon": "💰",
@@ -185,9 +97,9 @@
       "title": "AI Image Studio Guide",
       "kicker": "AI 이미지 최신화 가이드 (학생용, 영/한)",
       "desc": "ChatGPT·Gemini로 BEE 학습서 그림을 다시 그리는 하루 가이드. 기존 이미지 재생성 중심.",
-      "path": "thm/ai-image-guide.html",
+      "path": "archive/thm/ai-image-guide.html",
       "visibility": "public",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-14"
     },
     {
@@ -196,9 +108,9 @@
       "title": "Facilitator Phrase Card",
       "kicker": "진행자 영어 표현 카드 (영/한 + 한글 발음)",
       "desc": "인사·지시·칭찬·AI 사용·마무리 등 바로 쓰는 영어 문장 모음. 폰에서 스크롤로.",
-      "path": "thm/facilitator-phrases.html",
+      "path": "archive/thm/facilitator-phrases.html",
       "visibility": "public",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-14"
     },
     {
@@ -207,9 +119,9 @@
       "title": "AI Ministry Toolkit — Day 2",
       "kicker": "AI 사역 도구 10가지 (2일차)",
       "desc": "학습서에서 흘러나오는 10가지 AI 스킬 — 요약·질문·번역·음성·영상·녹취. 현지 사역용.",
-      "path": "thm/ai-toolkit-day2.html",
+      "path": "archive/thm/ai-toolkit-day2.html",
       "visibility": "public",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-14"
     },
     {
@@ -218,9 +130,9 @@
       "title": "What I Learned — Checklist",
       "kicker": "내가 배운 것 체크리스트",
       "desc": "배운 스킬을 체크하고 소감 작성 → 인쇄해 인턴십 리포트에 첨부. 자동 저장.",
-      "path": "thm/skills-checklist.html",
+      "path": "archive/thm/skills-checklist.html",
       "visibility": "public",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-14"
     },
     {
@@ -240,11 +152,11 @@
       "title": "AWS 정리 작업 기록",
       "kicker": "2026-08-09 · 레거시 LMS 종료 + 계정 정리 (인프라 담당 공유용)",
       "desc": "레거시 LMS를 완전히 종료하고 2019년부터 쌓인 리소스 16종을 정리한 기록. 삭제한 리소스의 식별자와 근거, 보존한 스냅샷, CloudWatch·IAM 설정 변경, 되돌리는 법까지. 정리 중 발견한 「2.5개월간 작동하지 않던 감시 경보 2건」과 「디스크 사용률 오보」 원인도 포함.",
-      "path": "private/aws-cleanup-20260809.html",
+      "path": "archive/private/aws-cleanup-20260809.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔒 비번 필요 (인프라)",
-      "status": "current",
+      "status": "archived",
       "date": "2026-08-09"
     },
     {
@@ -253,11 +165,11 @@
       "title": "새 부대에 — All&One 2026",
       "kicker": "ICT 전략 발표 (새 부대에)",
       "desc": "2026 \"새 부대에\" 실행계획 발표 자료.",
-      "path": "private/saebudae-2026.html",
+      "path": "archive/private/saebudae-2026.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔒 비번 필요",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-13"
     },
     {
@@ -266,11 +178,11 @@
       "title": "ICT 위원회 브리핑",
       "kicker": "디지털 사역 시스템 한눈에",
       "desc": "BEE Korea 시스템 전체 구조·현황 인포그래픽.",
-      "path": "private/ict-briefing.html",
+      "path": "archive/private/ict-briefing.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔒 비번 필요",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-13"
     },
     {
@@ -279,89 +191,12 @@
       "title": "시스템 개발 여정",
       "kicker": "프로젝트 히스토리 인포그래픽",
       "desc": "mmv2·bee-app 등 개발 흐름과 결정의 타임라인.",
-      "path": "private/history-infographic.html",
+      "path": "archive/private/history-infographic.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔒 비번 필요",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-13"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 세미나 상세 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 학생 신청 화면 지금 vs 시안 (PC·휴대폰)",
-      "desc": "제목을 과목 이름으로, 핵심 4칸(언제·어디서·기간·남은 자리), 수강료 펼침, 큰 신청 버튼. 「글자가 나열돼 자세히 봐야 구분된다」를 고치는 첫 화면. 정해 주실 것 3가지 포함.",
-      "path": "lms/design-seminar-detail.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 세미나 목록 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 학생이 세미나를 고르는 화면 지금 vs 시안 (PC·휴대폰)",
-      "desc": "과목 이름 제목 · 카드마다 같은 순서(언제·어디서·기간·남은 자리) · 장소 보이기 · 상태 칸 정리 · PC 2열 카드. 정해 주실 것 2가지 포함(정원 0 반 신청 거절 문제).",
-      "path": "lms/design-seminar-list.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 회원 상세 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 본부가 매일 보는 화면 지금 vs 시안 (PC·휴대폰)",
-      "desc": "요약 카드 · 탭 4개(기본·수강·돈·이력) · 관련된 것끼리 카드 · 빈 칸 정리 · 기계 값을 사람 말로 · 크레딧 넣는 칸 접기. 정해 주실 것 3가지 포함.",
-      "path": "lms/design-member-detail.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 세미나 관리 상세 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 반 관리 화면 지금 vs 시안 (PC·휴대폰, 사람 정보는 가짜)",
-      "desc": "요약 카드 · 핵심 4칸 · 인원 막대 · 상태 한 곳 · 「지금 할 일」 줄 · 두 표의 칸 순서 통일 · 버튼 정리. 정해 주실 것 3가지 포함.",
-      "path": "lms/design-admin-seminar-detail.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 세미나 관리 목록 · 성적 화면 — 시안 1차",
-      "kicker": "2026-10-11 · 반 목록 지금 vs 시안 + 옛 성적 화면 정리 제안 (사람 정보는 가짜)",
-      "desc": "카드 → 표 · 승인은 필요할 때만 · 상태 빠른 고르기 · 줄마다 삭제를 ⋯ 안으로 · 고장 난 옛 성적 화면 → 학적관리 탭. 정해 주실 것 4가지.",
-      "path": "lms/design-admin-seminar-list.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 세미나 방 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 학생·인도자 화면 「세미나 정보」 지금 vs 시안 (사람 정보는 가짜)",
-      "desc": "제목 = 과목 이름 · 수업 요일·시간 맨 위 · 새 소식(최근 공지·과제) · 탭에 개수 · 인도자 연락 큰 단추. 정해 주실 것 2가지.",
-      "path": "lms/design-classroom.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
-    },
-    {
-      "icon": "🎨",
-      "group": "내부 · Internal",
-      "title": "LMS 수강 세미나 · 담당 세미나 — 디자인 시안 1차",
-      "kicker": "2026-10-11 · 세미나 방으로 들어가는 문 두 개",
-      "desc": "과목 제목 · 언제·어디서 · 진도 막대 · 큰 입장 단추 · 톱니바퀴 → [세미나 관리]. 정해 주실 것 2가지.",
-      "path": "lms/design-my-seminars.html",
-      "visibility": "private",
-      "status": "current",
-      "date": "2026-10-11"
     },
     {
       "icon": "📊",
@@ -369,11 +204,11 @@
       "title": "FM 현지화 운영 청사진",
       "kicker": "선교 재정관리 설계",
       "desc": "여러 나라 장부를 한 원장에 담는 재정 시스템 청사진.",
-      "path": "private/confidential/fm-blueprint.html",
+      "path": "archive/private/confidential/fm-blueprint.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔴 별도 비번 (민감)",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-13"
     },
     {
@@ -382,11 +217,11 @@
       "title": "FM 현지화 구현 기획서",
       "kicker": "검증본",
       "desc": "기존 장부 위에 현장이 쓸 수 있는 층을 얹는 구현 계획.",
-      "path": "private/confidential/fm-buildplan.html",
+      "path": "archive/private/confidential/fm-buildplan.html",
       "visibility": "private",
       "locked": true,
       "lockLabel": "🔴 별도 비번 (민감)",
-      "status": "current",
+      "status": "archived",
       "date": "2026-07-13"
     }
   ]

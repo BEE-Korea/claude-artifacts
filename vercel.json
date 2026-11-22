@@ -1,0 +1,144 @@
+{
+  "redirects": [
+    {
+      "source": "/bmtc/2026/week.html",
+      "destination": "/archive/bmtc/2026/week.html",
+      "permanent": false
+    },
+    {
+      "source": "/bmtc/2026/week",
+      "destination": "/archive/bmtc/2026/week.html",
+      "permanent": false
+    },
+    {
+      "source": "/review/final-exam-8c89cdc60ce77e2b.html",
+      "destination": "/archive/review/final-exam-8c89cdc60ce77e2b.html",
+      "permanent": false
+    },
+    {
+      "source": "/review/final-exam-8c89cdc60ce77e2b",
+      "destination": "/archive/review/final-exam-8c89cdc60ce77e2b.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/bmtc26-report.html",
+      "destination": "/archive/private/confidential/bmtc26-report.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/bmtc26-report",
+      "destination": "/archive/private/confidential/bmtc26-report.html",
+      "permanent": false
+    },
+    {
+      "source": "/ph/mm-day-20261028.html",
+      "destination": "/archive/ph/mm-day-20261028.html",
+      "permanent": false
+    },
+    {
+      "source": "/ph/mm-day-20261028",
+      "destination": "/archive/ph/mm-day-20261028.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/ai-image-guide.html",
+      "destination": "/archive/thm/ai-image-guide.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/ai-image-guide",
+      "destination": "/archive/thm/ai-image-guide.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/ai-toolkit-day2.html",
+      "destination": "/archive/thm/ai-toolkit-day2.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/ai-toolkit-day2",
+      "destination": "/archive/thm/ai-toolkit-day2.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/facilitator-phrases.html",
+      "destination": "/archive/thm/facilitator-phrases.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/facilitator-phrases",
+      "destination": "/archive/thm/facilitator-phrases.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/skills-checklist.html",
+      "destination": "/archive/thm/skills-checklist.html",
+      "permanent": false
+    },
+    {
+      "source": "/thm/skills-checklist",
+      "destination": "/archive/thm/skills-checklist.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/aws-cleanup-20260809.html",
+      "destination": "/archive/private/aws-cleanup-20260809.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/aws-cleanup-20260809",
+      "destination": "/archive/private/aws-cleanup-20260809.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/saebudae-2026.html",
+      "destination": "/archive/private/saebudae-2026.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/saebudae-2026",
+      "destination": "/archive/private/saebudae-2026.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/ict-briefing.html",
+      "destination": "/archive/private/ict-briefing.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/ict-briefing",
+      "destination": "/archive/private/ict-briefing.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/history-infographic.html",
+      "destination": "/archive/private/history-infographic.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/history-infographic",
+      "destination": "/archive/private/history-infographic.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/fm-blueprint.html",
+      "destination": "/archive/private/confidential/fm-blueprint.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/fm-blueprint",
+      "destination": "/archive/private/confidential/fm-blueprint.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/fm-buildplan.html",
+      "destination": "/archive/private/confidential/fm-buildplan.html",
+      "permanent": false
+    },
+    {
+      "source": "/private/confidential/fm-buildplan",
+      "destination": "/archive/private/confidential/fm-buildplan.html",
+      "permanent": false
+    }
+  ]
+}

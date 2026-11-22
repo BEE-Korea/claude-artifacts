@@ -1,11 +1,11 @@
 // 잠긴 아티팩트의 비밀번호 후보를 검사한다. 맞는지만 알려주고 내용은 출력하지 않는다.
-//   사용: node tools/check-password.mjs private/ict-briefing.html
+//   사용: node tools/check-password.mjs archive/private/ict-briefing.html
 //   비번은 화면에 안 보이게 입력받는다.
 import { readFileSync } from "node:fs";
 import { pbkdf2Sync, createDecipheriv } from "node:crypto";
 import { createInterface } from "node:readline";
 
-const file = process.argv[2] || "private/ict-briefing.html";
+const file = process.argv[2] || "archive/private/ict-briefing.html";
 const html = readFileSync(file, "utf8");
 const grab = (k, quoted = true) => {
   const re = quoted ? new RegExp(`\\b${k}\\s*=\\s*"([^"]+)"`) : new RegExp(`\\b${k}\\s*=\\s*(\\d+)`);
