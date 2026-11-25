@@ -304,7 +304,7 @@
       </li>
       <li id="retake">
         <span class="sym">학생이 실수로 일찍 제출함</span>
-        <span class="do">「채점하기」 화면의 그 학생 카드 → <span class="btn">재응시 허용</span></span>
+        <span class="do">「채점하기」 화면의 그 학생 카드를 펼친 뒤 맨 아래 「그 밖:」 → <span class="btn">재응시 허용</span></span>
       </li>
       <li id="cancel">
         <span class="sym">시험을 잘못 열었음</span>
@@ -313,7 +313,7 @@
       <li id="auto-ended">
         <span class="sym">학생 시험이 저절로 끝났음</span>
         <span class="why">시험 화면을 <strong>5분 넘게 떠나면</strong>(다른 앱 · 화면 꺼짐 · 전화 포함) 그때까지 쓴 답으로 자동 종료됩니다.</span>
-        <span class="do">사정이 있으면 인도자: 「채점하기」 화면의 그 학생 카드 → <span class="btn">이어서 풀게 하기</span> (같은 답 그대로 · 채점 전에만)</span>
+        <span class="do">채점 카드에 <span class="screen">다 못 풂</span>이 붙어 있으면 그 카드의 <span class="btn btn-go">이어서 풀게 하기</span> (같은 답 그대로 · 채점 전에만). 다 풀고 나간 학생이면 <span class="btn">이대로 채점하기</span></span>
       </li>
       <li id="penalty">
         <span class="sym">점수에서 감점이 빠져 있음</span>
@@ -439,30 +439,41 @@
     <h2>채점 — 자동 채점 위에서 인도자가 확정합니다</h2>
 
     <p>
-      제출한 학생이 생기면 그 회차에 <span class="btn btn-go">채점하기</span>가 나옵니다(새 창).
-      객관식은 <strong>자동으로 미리 채점</strong>되어 있고, 인도자는 최종 점수를 쓰고 <span class="btn btn-go">확정</span>을 누릅니다.
+      제출한 학생이 생기면 그 회차에 <span class="btn btn-go">채점하기</span>가 나옵니다(<strong>새 창</strong> — Ministry Manager 채점 화면이 열립니다).
+      학생마다 <strong>색이 다른 카드</strong>가 하나씩 있고, 카드마다 <strong>할 일 한 줄과 큰 버튼 하나</strong>가 있습니다. 그 버튼만 누르면 됩니다.
+      객관식은 <strong>자동으로 미리 채점</strong>되어 있습니다.
     </p>
 
     <figure>
-      <img src="assets/exam-ft-grading.png" alt="채점 화면의 학생 카드 — 제출 시각, 걸린 시간, 자동 채점 결과, 탭 이탈 1회(12초). 최종 점수 칸과 확정·답 보기·AI 1차 채점·재응시 허용 버튼">
-      <figcaption>학생 한 사람의 채점 카드. 제출 시각 · 걸린 시간 · 자동 채점 결과 · <strong>시험 중 다른 화면으로 나간 횟수(탭 이탈)</strong>가 보입니다.</figcaption>
+      <img src="assets/exam-ft-grading.png" alt="채점 화면 — 학생마다 색이 다른 카드. 오른쪽 위 상태(채점 전·멈춤 4일), 「① 서술형 1문항에 점수 주기 → ② 확정」 안내와 서술형 1문항 채점하기 버튼, 탭 이탈 1회">
+      <figcaption>
+        카드 오른쪽 위의 <strong>상태</strong>가 할 일을 말합니다 —
+        <span class="screen">채점 전</span>(→ <span class="btn btn-go">서술형 N문항 채점하기</span>) ·
+        <span class="screen">다 못 풂</span>(다 풀지 않았는데 자동 종료 → <span class="btn btn-go">이어서 풀게 하기</span>) ·
+        <span class="screen">멈춤 N일</span>(며칠째 제출이 없음 → 학생에게 이어서 풀고 [제출]하라고 알림) ·
+        <span class="screen">응시 중</span> · <span class="screen">✅ 확정</span>.
+        <strong>탭 이탈</strong>(시험 중 다른 화면으로 나간 횟수·시간)도 카드에 보입니다.
+        <span class="ex">(맨 아래 노란 카드는 인도자 자신의 연습 답안입니다.)</span>
+      </figcaption>
     </figure>
 
     <p>
-      <span class="btn">답 보기</span>를 누르면 문항마다 <strong>보기 · 정답(★) · 학생 답 · 점수 칸 · 인도자 피드백</strong>이 펼쳐집니다.
-      서술형은 읽고 문항별 점수를 주면 위의 최종 점수에 합산됩니다. 피드백은 [확정] 뒤에 학생에게 보입니다.
+      <span class="btn btn-go">서술형 N문항 채점하기</span>를 누르면 그 학생 답안이 펼쳐지는데, <strong>인도자가 읽고 점수를 줄 서술형만 맨 위에</strong> 나옵니다.
+      학생 답을 읽고 <strong>「점수」 칸</strong>에 점수를 넣으면 바로 아래 <strong>최종 점수</strong>에 더해집니다. 다 넣으면 <span class="btn btn-go">확정</span>.
+      피드백 칸에 쓴 글은 [확정] 뒤에 학생에게 보입니다.
+      이미 자동 채점된 객관식은 「자동 채점된 문항 N개」 한 줄로 접혀 있고, <span class="btn">펼쳐 보기</span>로 볼 수 있습니다(정답 <strong>초록 ★</strong>).
     </p>
 
     <figure>
-      <img src="assets/exam-ft-answers.png" alt="답 보기를 펼친 채점 화면 — 문항마다 보기, 초록 별표 정답, 학생 답, 점수 칸, 인도자 피드백 칸">
-      <figcaption>답 보기 — 정답은 <strong>초록 ★</strong>, 그 아래 <strong>학생 답</strong>과 <strong>점수 칸</strong>.</figcaption>
+      <img src="assets/exam-ft-answers.png" alt="펼친 채점 카드 — 맨 위 「인도자가 읽고 점수를 줄 문항 1개」에 28번 서술형, 학생 답, 점수 칸, 모범 답안, 피드백 칸. 그 아래 최종 점수와 확정 버튼, 자동 채점된 문항 47개 접힘, 그 밖: AI 1차 채점·재응시 허용">
+      <figcaption>펼친 카드 — <strong>① 서술형 점수</strong> → <strong>② 최종 점수 확인 · [확정]</strong>. 답안을 아래로 내려도 <strong>이름 줄이 위에 붙어</strong> 누구 답안인지 늘 보입니다.</figcaption>
     </figure>
 
     <ul>
       <li><strong>시간 초과 감점</strong> — 「채점 점수 − 감점 = 최종」이 나란히 보입니다. 줄이려면 사유를 적습니다(학생에게도 보임). 규칙보다 더 깎을 수는 없습니다.</li>
-      <li><strong>이어서 풀게 하기</strong> — 5분 자리 비움으로 자동 종료된 학생에게만, 채점 전에. 쓴 답 그대로 이어서 풉니다.</li>
-      <li><strong>AI 1차 채점</strong> — 서술형 점수를 AI 가 미리 매겨 줍니다. 참고용이고, <strong>최종 점수는 언제나 인도자가 확정합니다.</strong></li>
-      <li><strong>재응시 허용</strong> — 학생이 실수로 일찍 제출했으면 다시 볼 수 있게 열어 줍니다.</li>
+      <li><strong>이어서 풀게 하기</strong> — 5분 자리 비움으로 자동 종료된 학생에게만, 채점 전에. 쓴 답 그대로 이어서 풉니다. <span class="screen">다 못 풂</span> 카드에서는 큰 버튼, 그 밖에는 펼친 카드 맨 아래 「그 밖:」에 있습니다.</li>
+      <li><strong>AI 1차 채점</strong>(펼친 카드 맨 아래 「그 밖:」) — 서술형 점수를 AI 가 미리 매겨 줍니다. 참고용이고, <strong>최종 점수는 언제나 인도자가 확정합니다.</strong></li>
+      <li><strong>재응시 허용</strong>(펼친 카드 맨 아래 「그 밖:」) — 학생이 실수로 일찍 제출했으면 다시 볼 수 있게 열어 줍니다.</li>
     </ul>
   </section>
 
